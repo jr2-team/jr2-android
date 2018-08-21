@@ -1,0 +1,30 @@
+package ru.jjba.jr2.data.repository.interpretation
+
+import io.reactivex.Completable
+import io.reactivex.Flowable
+import io.reactivex.Scheduler
+import io.reactivex.schedulers.Schedulers
+import ru.jjba.jr2.App
+import ru.jjba.jr2.data.db.AppDatabase
+import ru.jjba.jr2.data.db.dao.InterpretationDao
+import ru.jjba.jr2.domain.entity.Interpretation
+
+class InterpretationDbRepository(
+        db: AppDatabase = App.instance.db,
+        private val scheduler: Scheduler = Schedulers.io()
+) {
+    private val interpretationDao: InterpretationDao = db.getInterpretationDao()
+
+    fun insert(interpretation: Interpretation): Completable =
+            Completable.fromCallable { interpretationDao.insert(interpretation) }
+                    .subscribeOn(scheduler)
+
+    fun getByWordId(wordId: String): Flowable<List<Interpretation>> =
+            interpretationDao.getByWordId(wordId)
+                    .flatMap {
+                        Flowable.fromIterable(it)
+                                .toList()
+                                .toFlowable()
+                    }
+                    .subscribeOn(scheduler)
+}
