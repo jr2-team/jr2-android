@@ -9,8 +9,8 @@ import ru.jjba.jr2.domain.entity.Interpretation
 
 @Dao
 abstract class InterpretationDao {
-    @Query("SELECT * FROM Interpretation WHERE word_id=:id")
-    abstract fun getByWordId(id: String): Flowable<List<Interpretation>>
+    @Query("SELECT * FROM Interpretation WHERE word=:wordId")
+    abstract fun getByWordId(wordId: String): Flowable<List<Interpretation>>
 
     @Query("SELECT * FROM Interpretation")
     abstract fun getAll(): Flowable<List<Interpretation>>

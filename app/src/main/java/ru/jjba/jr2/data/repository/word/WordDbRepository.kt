@@ -19,6 +19,10 @@ class WordDbRepository(
             Completable.fromCallable { wordDao.insert(word) }
                     .subscribeOn(scheduler)
 
+    fun insert(words: List<Word>): Completable =
+            Completable.fromCallable { wordDao.insert(words) }
+                    .subscribeOn(scheduler)
+
     fun getAll(): Flowable<List<Word>> =
             wordDao.getAll()
                     .subscribeOn(scheduler)

@@ -11,7 +11,7 @@ class App : MultiDexApplication() {
         super.onCreate()
         instance = this
 
-        db = AppDatabase.create(context = this, memoryOnly = false)
+        db = AppDatabase.create(context = this, memoryOnly = true)
     }
 
     companion object {

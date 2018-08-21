@@ -10,8 +10,8 @@ class Interpretation(
         val id: String,
         val interpretation: String,
         val pos: String,
-        @Embedded(prefix = "word_")
-        val word: Word
+        /*@Embedded(prefix = "word_")*/
+        val word: String
 ) {
         override fun toString() = "$id $pos $interpretation"
 }
