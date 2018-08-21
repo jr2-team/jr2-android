@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
+import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.activity_main.*
@@ -15,6 +16,7 @@ import ru.jjba.jr2.domain.entity.Interpretation
 import ru.jjba.jr2.domain.entity.Kanji
 import ru.jjba.jr2.domain.entity.KanjiPart
 import ru.jjba.jr2.domain.entity.Word
+import ru.jjba.jr2.domain.interactor.WordInteractor
 
 class MainActivity(
         val wordDbRepository: WordDbRepository = WordDbRepository(),
@@ -49,7 +51,8 @@ class MainActivity(
                 )
         ).subscribeBy { }
 
-        wordDbRepository.getAll().first(emptyList())
+        WordInteractor().getAllWords()
+                .toList()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
                         onSuccess = {
