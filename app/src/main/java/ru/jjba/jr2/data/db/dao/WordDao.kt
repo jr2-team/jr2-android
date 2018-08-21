@@ -14,7 +14,7 @@ abstract class WordDao {
     abstract fun getById(id: String): Single<Word>
 
     @Query("SELECT * FROM Word")
-    abstract fun getAll(): Single<List<Word>>
+    abstract fun getAll(): Flowable<List<Word>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insert(word: Word): Long
