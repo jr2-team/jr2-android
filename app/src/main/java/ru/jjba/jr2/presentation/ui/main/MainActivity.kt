@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposables
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.jjba.jr2.R
@@ -60,4 +59,24 @@ class MainActivity(
             it.adapter = wordAdapter
         }
     }
+
+    /*
+    class MainActivity : BaseActivity(),NavigationView.OnNavigationItemSelectedListener, MainActivityView  {
+
+    @InjectPresenter
+    val presenter: MainActivityPresenter = MainActivityPresenter()
+
+    override val navigator: Navigator
+        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+
+    override fun updateNavHeader(profileName: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+}
+*/
+
 }
