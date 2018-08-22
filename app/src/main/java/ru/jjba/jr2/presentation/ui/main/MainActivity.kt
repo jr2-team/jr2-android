@@ -8,19 +8,15 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.jjba.jr2.R
+import ru.jjba.jr2.data.repository.example.ExampleDbRepository
 import ru.jjba.jr2.data.repository.interpretation.InterpretationDbRepository
 import ru.jjba.jr2.data.repository.kanji.KanjiDbRepository
 import ru.jjba.jr2.data.repository.word.WordDbRepository
-import ru.jjba.jr2.domain.entity.Interpretation
-import ru.jjba.jr2.domain.entity.Kanji
-import ru.jjba.jr2.domain.entity.KanjiPart
-import ru.jjba.jr2.domain.entity.Word
+import ru.jjba.jr2.domain.entity.*
 import ru.jjba.jr2.domain.interactor.WordInteractor
 
 class MainActivity(
-        val wordDbRepository: WordDbRepository = WordDbRepository(),
-        val kanjiDbRepository: KanjiDbRepository = KanjiDbRepository(),
-        val interpretationDbRepository: InterpretationDbRepository = InterpretationDbRepository()
+        val kanjiDbRepository: KanjiDbRepository = KanjiDbRepository()
 ) : AppCompatActivity() {
 
     private val wordAdapter = WordAdapter()
@@ -35,33 +31,44 @@ class MainActivity(
     }
 
     private fun wordTest() {
-        wordDbRepository.insert(
-                listOf(
-                        Word("1", "家", "いえ", 5),
-                        Word("2", "今日は", "こんにち", 5)
-                )
-        ).subscribeBy { }
 
-        interpretationDbRepository.insert(
-                listOf(
-                        Interpretation("1", "house; residence; dwelling", "noun", "1"),
-                        Interpretation("2", "family; household", "noun", "1"),
-                        Interpretation("3", "hello; good day; good afternoon", "", "2")
+        WordInteractor().insertWord(
+                Word("1", "家", "いえ", 5),
+                mapOf(
+                        Pair(
+                                Interpretation("1", "house; residence; dwelling", "noun", "1"),
+                                listOf(Example("1", "木立の間に家が見える", "こ|だち|の|あいだ|に|いえ|が|み|える", "I see a house among the trees.", "1"))
+                        ),
+                        Pair(
+                                Interpretation("2", "family; household", "noun", "1"),
+                                emptyList()
+                        )
                 )
-        ).subscribeBy { }
+        ).subscribeBy()
+
+        WordInteractor().insertWord(
+                Word("2", "今日は", "こんにち", 5),
+                mapOf(
+                        Pair(
+                                Interpretation("3", "hello; good day; good afternoon", "", "2"),
+                                emptyList()
+                        )
+                )
+        ).subscribeBy()
 
         WordInteractor().getAllWords()
                 .first(emptyList())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
                         onSuccess = {
-                            wordAdapter.wordList = it
+                            val list = it as MutableList<Word>
+                            list.add(Word("0", "", "", 0))
+                            wordAdapter.wordList = list
                         },
                         onError = {
                             it.printStackTrace()
                         }
                 )
-
 
         rvWord.also {
             it.setHasFixedSize(true)
