@@ -11,6 +11,4 @@ interface MainActivityView : MvpView {
     fun setRecyclerViewParam()
 
     fun setWordAdapter(words: List<Word>)
-
-    fun showMessage(mes: String)
 }

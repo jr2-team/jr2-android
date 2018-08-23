@@ -8,12 +8,15 @@ import ru.jjba.jr2.data.repository.interpretation.InterpretationDbRepository
 import ru.jjba.jr2.data.repository.word.WordDbRepository
 import ru.jjba.jr2.domain.entity.Interpretation
 import ru.jjba.jr2.domain.entity.Word
+import ru.jjba.jr2.presentation.ui.main.WordAdapter
 
 @InjectViewState
 class MainActivityPresenter(
         private val wordDbRepository: WordDbRepository = WordDbRepository(),
         private val interpretationDbRepository: InterpretationDbRepository = InterpretationDbRepository()
 ) : MvpPresenter<MainActivityView>() {
+
+    private val wordAdapter = WordAdapter()
 
     fun setContent(){
         insertWords(
@@ -28,19 +31,14 @@ class MainActivityPresenter(
         fillAdapter()
     }
 
+    fun getAdapter(): WordAdapter = wordAdapter
+
     private fun insertInterpretation(interpretation: Interpretation) {
         interpretationDbRepository.insert(interpretation).subscribeBy {  }
     }
 
     private fun insertWords(words: List<Word>) {
-        wordDbRepository.insert(words).subscribeBy(
-                onComplete = {
-                    viewState.showMessage("words complete")
-                },
-                onError = {
-                    viewState.showMessage("words error")
-                }
-        )
+        wordDbRepository.insert(words).subscribeBy { }
     }
 
     private fun fillAdapter() {
@@ -49,11 +47,9 @@ class MainActivityPresenter(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
                         onSuccess = {
-                            viewState.setWordAdapter(it)
-                            viewState.showMessage("fill complete")
+                            wordAdapter.wordList = it
                         },
                         onError = {
-                            viewState.showMessage("fill error")
                             it.printStackTrace()
                         }
                 )

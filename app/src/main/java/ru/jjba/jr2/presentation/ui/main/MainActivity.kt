@@ -2,9 +2,9 @@ package ru.jjba.jr2.presentation.ui.main
 
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
+import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.jjba.jr2.R
@@ -12,20 +12,22 @@ import ru.jjba.jr2.domain.entity.Word
 import ru.jjba.jr2.presentation.presenters.main.MainActivityPresenter
 import ru.jjba.jr2.presentation.presenters.main.MainActivityView
 
-class MainActivity : AppCompatActivity(), MainActivityView {
-    private val wordAdapter = WordAdapter()
+class MainActivity : MvpAppCompatActivity(), MainActivityView {
+    private var wordAdapter = WordAdapter()
 
     @InjectPresenter
     lateinit var presenter: MainActivityPresenter
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initContent()
+        setRecyclerViewParam()
     }
 
-    fun initContent(){
+    private fun initContent(){
         presenter.setContent()
+        wordAdapter = presenter.getAdapter()
         setRecyclerViewParam()
     }
 
@@ -38,9 +40,5 @@ class MainActivity : AppCompatActivity(), MainActivityView {
 
     override fun setWordAdapter(words: List<Word>) {
         wordAdapter.wordList = words
-    }
-
-    override fun showMessage(mes: String) {
-        showMessage(mes)
     }
 }
