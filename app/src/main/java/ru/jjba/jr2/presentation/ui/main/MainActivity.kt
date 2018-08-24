@@ -62,7 +62,6 @@ class MainActivity(
                 .subscribeBy(
                         onSuccess = {
                             val list = it as MutableList<Word>
-                            list.add(Word("0", "", "", 0))
                             wordAdapter.wordList = list
                         },
                         onError = {
