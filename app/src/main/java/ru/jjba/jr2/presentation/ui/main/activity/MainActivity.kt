@@ -1,19 +1,19 @@
 package ru.jjba.jr2.presentation.ui.main.activity
 
 import android.os.Bundle
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v4.app.Fragment
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
-import kotlinx.android.synthetic.main.activity_main.*
 import ru.jjba.jr2.R
-import ru.jjba.jr2.domain.entity.Word
+import ru.jjba.jr2.presentation.navigation.DefaultNavigator
+import ru.jjba.jr2.presentation.navigation.NavigationHolder
+import ru.jjba.jr2.presentation.navigation.Screen
 import ru.jjba.jr2.presentation.presenters.main.activity.MainActivityPresenter
 import ru.jjba.jr2.presentation.presenters.main.activity.MainActivityView
-import ru.jjba.jr2.presentation.ui.word.list.WordAdapter
+import ru.jjba.jr2.presentation.ui.main.fragment.MainFragment
+import ru.jjba.jr2.presentation.ui.word.list.WordListFragment
 
 class MainActivity : MvpAppCompatActivity(), MainActivityView {
-    private var wordAdapter = WordAdapter()
 
     @InjectPresenter
     lateinit var presenter: MainActivityPresenter
@@ -21,24 +21,30 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        initContent()
-        setRecyclerViewParam()
     }
 
-    private fun initContent(){
-        presenter.setContent()
-        wordAdapter = presenter.getAdapter()
-        setRecyclerViewParam()
+    private val navigator = object : DefaultNavigator(this, R.id.flContent) {
+        override fun createFragment(screenKey: String?, data: Any?): Fragment? {
+            return when (screenKey) {
+                Screen.MAIN.title -> MainFragment()
+                Screen.WORD_LIST.title -> WordListFragment()
+                else -> null
+            }
+        }
     }
 
-    override fun setRecyclerViewParam() {
-        rvWord.setHasFixedSize(true)
-        rvWord.layoutManager = LinearLayoutManager(this)
-        rvWord.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
-        rvWord.adapter = wordAdapter
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        NavigationHolder.navigator.setNavigator(navigator)
     }
 
-    override fun setWordAdapter(words: List<Word>) {
-        wordAdapter.wordList = words
+    override fun onPause() {
+        super.onPause()
+        NavigationHolder.navigator.removeNavigator()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        presenter.onBackPressed()
     }
 }

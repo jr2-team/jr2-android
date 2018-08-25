@@ -3,8 +3,10 @@ package ru.jjba.jr2.presentation.ui.word.list
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_word_list.*
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Word
 import ru.jjba.jr2.presentation.presenters.word.list.WordListPresenter
@@ -22,9 +24,8 @@ class WordListFragment : BaseFragment(), WordListView {
     @InjectPresenter
     lateinit var presenter: WordListPresenter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initContent()
         setRecyclerViewParam()
     }
