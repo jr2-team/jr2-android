@@ -1,26 +1,30 @@
-package ru.jjba.jr2.presentation.ui.main
+package ru.jjba.jr2.presentation.ui.word.list
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Word
-import ru.jjba.jr2.presentation.presenters.main.MainActivityPresenter
-import ru.jjba.jr2.presentation.presenters.main.MainActivityView
+import ru.jjba.jr2.presentation.presenters.word.list.WordListPresenter
+import ru.jjba.jr2.presentation.presenters.word.list.WordListView
+import ru.jjba.jr2.presentation.ui.base.BaseFragment
 
-class MainActivity : MvpAppCompatActivity(), MainActivityView {
+class WordListFragment : BaseFragment(), WordListView {
+
+    override val layoutRes: Int = R.layout.fragment_word_list
+    override val titleDefault: String
+        get() = getString(R.string.word_list_title)
+
     private var wordAdapter = WordAdapter()
 
     @InjectPresenter
-    lateinit var presenter: MainActivityPresenter
+    lateinit var presenter: WordListPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
         initContent()
         setRecyclerViewParam()
     }
@@ -33,8 +37,8 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
 
     override fun setRecyclerViewParam() {
         rvWord.setHasFixedSize(true)
-        rvWord.layoutManager = LinearLayoutManager(this)
-        rvWord.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
+        rvWord.layoutManager = LinearLayoutManager(activity)
+        rvWord.addItemDecoration(DividerItemDecoration(activity, LinearLayoutManager.VERTICAL))
         rvWord.adapter = wordAdapter
     }
 

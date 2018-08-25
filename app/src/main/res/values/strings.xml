@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">JR2</string>
+
+    <string name="app_name">Обучалка японскому</string>
+
+    <!-- MainActivity -->
+
+    <!-- MainFragment -->
+    <string name="main_title">Прототип обучалки</string>
+
+    <!-- WordListFragment -->
+    <string name="word_list_title">Список слов</string>
+
+    <!-- WordDetailsFragment -->
+    <string name="word_details_title">Слово</string>
+
+    <!-- TestFragment -->
+    <string name="test_title">Тестирование</string>
+
 </resources>

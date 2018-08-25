@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.presenters.main
+package ru.jjba.jr2.presentation.presenters.word.list
 
 import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
@@ -6,7 +6,7 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 import ru.jjba.jr2.domain.entity.Word
 
 @StateStrategyType(AddToEndSingleStrategy::class)
-interface MainActivityView : MvpView {
+interface WordListView : MvpView {
 
     fun setRecyclerViewParam()
 

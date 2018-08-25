@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.presenters.main
+package ru.jjba.jr2.presentation.presenters.word.list
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
@@ -8,13 +8,13 @@ import ru.jjba.jr2.data.repository.interpretation.InterpretationDbRepository
 import ru.jjba.jr2.data.repository.word.WordDbRepository
 import ru.jjba.jr2.domain.entity.Interpretation
 import ru.jjba.jr2.domain.entity.Word
-import ru.jjba.jr2.presentation.ui.main.WordAdapter
+import ru.jjba.jr2.presentation.ui.word.list.WordAdapter
 
 @InjectViewState
-class MainActivityPresenter(
+class WordListPresenter(
         private val wordDbRepository: WordDbRepository = WordDbRepository(),
         private val interpretationDbRepository: InterpretationDbRepository = InterpretationDbRepository()
-) : MvpPresenter<MainActivityView>() {
+) : MvpPresenter<WordListView>() {
 
     private val wordAdapter = WordAdapter()
 
