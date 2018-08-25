@@ -26,7 +26,6 @@ class WordListFragment : BaseFragment(), WordListView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initContent()
-        setRecyclerViewParam()
     }
 
     private fun initContent(){

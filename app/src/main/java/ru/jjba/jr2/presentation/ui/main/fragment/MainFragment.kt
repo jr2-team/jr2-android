@@ -27,5 +27,13 @@ class MainFragment : BaseFragment(), MainFragmentView {
         btnToWordList.setOnClickListener {
             presenter.onWordListClicked()
         }
+
+        btnToWordDetails.setOnClickListener {
+            presenter.onWordDetailsClicked()
+        }
+
+        btnToTest.setOnClickListener {
+            presenter.onTestClicked()
+        }
     }
 }

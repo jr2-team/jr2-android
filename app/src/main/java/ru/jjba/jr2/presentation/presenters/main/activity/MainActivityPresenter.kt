@@ -15,13 +15,4 @@ class MainActivityPresenter(
         super.onFirstViewAttach()
         router.newRootScreen(Screen.MAIN.title)
     }
-
-    fun onWordListClicked() {
-        router.navigateTo(Screen.WORD_LIST.title)
-    }
-
-    fun onBackPressed() {
-        router.exit()
-    }
-
 }
