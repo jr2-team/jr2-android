@@ -28,6 +28,7 @@ dependencies {
 
     // Android support stuff
     implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:cardview-v7:27.1.1'
     implementation 'com.android.support:support-v4:27.1.1'
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
@@ -68,11 +69,10 @@ dependencies {
     // Cicerone -- routing
     implementation 'ru.terrakok.cicerone:cicerone:3.0.0'
 
-    // anko
+    // Anko
     implementation "org.jetbrains.anko:anko-commons:0.10.5"
 
-    // Тулза для просмотра DB
-    debugImplementation 'com.amitshekhar.android:debug-db:1.0.3'
+    implementation 'com.brandongogetap:stickyheaders:0.5.1'
 
     // Material Bottom Navigation
     implementation 'com.ss.bottomnavigation:bottomnavigation:1.5.2'

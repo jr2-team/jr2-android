@@ -15,10 +15,6 @@ class InterpretationDbRepository(
 ) {
     private val interpretationDao: InterpretationDao = db.getInterpretationDao()
 
-    fun insert(interpretation: Interpretation): Completable =
-            Completable.fromCallable { interpretationDao.insert(interpretation) }
-                    .subscribeOn(scheduler)
-
     fun getByWordId(wordId: String): Flowable<List<Interpretation>> =
             interpretationDao.getByWordId(wordId)
                     .flatMap {
@@ -26,5 +22,13 @@ class InterpretationDbRepository(
                                 .toList()
                                 .toFlowable()
                     }
+                    .subscribeOn(scheduler)
+
+    fun insert(interpretation: Interpretation): Completable =
+            Completable.fromCallable { interpretationDao.insert(interpretation) }
+                    .subscribeOn(scheduler)
+
+    fun insert(interpretations: List<Interpretation>): Completable =
+            Completable.fromCallable { interpretationDao.insert(interpretations) }
                     .subscribeOn(scheduler)
 }

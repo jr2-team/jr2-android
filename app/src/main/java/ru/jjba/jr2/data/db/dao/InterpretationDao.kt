@@ -17,4 +17,7 @@ abstract class InterpretationDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insert(interpretation: Interpretation): Long
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract fun insert(interpretations: List<Interpretation>): List<Long>
 }
