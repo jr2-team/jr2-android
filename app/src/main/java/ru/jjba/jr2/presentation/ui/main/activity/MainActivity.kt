@@ -4,7 +4,8 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
-import junit.framework.TestFailure
+import com.ss.bottomnavigation.events.OnSelectedItemChangeListener
+import kotlinx.android.synthetic.main.activity_main.*
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.navigation.DefaultNavigator
 import ru.jjba.jr2.presentation.navigation.NavigationHolder
@@ -24,6 +25,18 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        initContent()
+    }
+
+    private fun initContent() {
+        bottomNavigation.setOnSelectedItemChangeListener {
+            when(it){
+                R.id.tiMain -> presenter.onMainClicked()
+                R.id.tiWordList-> presenter.onWordListClicked()
+                R.id.tiWordDetails -> presenter.onWordDetailsClicked()
+                R.id.tiTest -> presenter.onTestClicked()
+            }
+        }
     }
 
     private val navigator = object : DefaultNavigator(this, R.id.flContent) {

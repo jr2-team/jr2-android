@@ -6,14 +6,18 @@
 
     <!-- MainFragment -->
     <string name="main_title">Прототип обучалки</string>
+    <string name="menu_main_title">Главная</string>
 
     <!-- WordListFragment -->
     <string name="word_list_title">Список слов</string>
+    <string name="menu_word_list_title">Список слов</string>
 
     <!-- WordDetailsFragment -->
     <string name="word_details_title">Слово</string>
+    <string name="menu_word_details_title">Слово</string>
 
     <!-- TestFragment -->
     <string name="test_title">Тестирование</string>
+    <string name="menu_test_title">Тест</string>
 
 </resources>

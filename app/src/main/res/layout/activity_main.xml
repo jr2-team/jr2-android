@@ -6,10 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".presentation.ui.main.activity.MainActivity">
 
+    <com.ss.bottomnavigation.BottomNavigation
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:mode="phone">
+
+        <com.ss.bottomnavigation.TabItem
+            android:id="@+id/tiMain"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:tab_icon="@drawable/ic_home"
+            app:tab_text="@string/menu_main_title" />
+
+        <com.ss.bottomnavigation.TabItem
+            android:id="@+id/tiWordList"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:tab_icon="@drawable/ic_word_list"
+            app:tab_text="@string/menu_word_list_title" />
+
+        <com.ss.bottomnavigation.TabItem
+            android:id="@+id/tiWordDetails"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:tab_icon="@drawable/ic_word_details"
+            app:tab_text="@string/menu_word_details_title" />
+
+        <com.ss.bottomnavigation.TabItem
+            android:id="@+id/tiTest"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:tab_icon="@drawable/ic_test"
+            app:tab_text="@string/menu_test_title" />
+    </com.ss.bottomnavigation.BottomNavigation>
+
     <FrameLayout
         android:id="@+id/flContent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_above="@id/bottomNavigation"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </FrameLayout>
 </android.support.constraint.ConstraintLayout>

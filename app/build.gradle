@@ -74,6 +74,9 @@ dependencies {
     // Тулза для просмотра DB
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.3'
 
+    // Material Bottom Navigation
+    implementation 'com.ss.bottomnavigation:bottomnavigation:1.5.2'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
