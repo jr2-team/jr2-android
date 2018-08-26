@@ -12,6 +12,7 @@ import ru.jjba.jr2.presentation.navigation.NavigationHolder
 import ru.jjba.jr2.presentation.navigation.Screen
 import ru.jjba.jr2.presentation.presenters.main.activity.MainActivityPresenter
 import ru.jjba.jr2.presentation.presenters.main.activity.MainActivityView
+import ru.jjba.jr2.presentation.ui.kana.KanaFragment
 import ru.jjba.jr2.presentation.ui.main.fragment.MainFragment
 import ru.jjba.jr2.presentation.ui.tests.TestFragment
 import ru.jjba.jr2.presentation.ui.word.details.WordDetailsFragment
@@ -32,8 +33,8 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
         bottomNavigation.setOnSelectedItemChangeListener {
             when(it){
                 R.id.tiMain -> presenter.onMainClicked()
-                R.id.tiWordList-> presenter.onWordListClicked()
-                R.id.tiWordDetails -> presenter.onWordDetailsClicked()
+                R.id.tiKana -> presenter.onKanaClicked()
+                R.id.tiWordList -> presenter.onWordListClicked()
                 R.id.tiTest -> presenter.onTestClicked()
             }
         }
@@ -46,6 +47,7 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
                 Screen.WORD_LIST.title -> WordListFragment()
                 Screen.WORD_DETAILS.title -> WordDetailsFragment()
                 Screen.TEST.title -> TestFragment()
+                Screen.KANA.title -> KanaFragment()
                 else -> null
             }
         }

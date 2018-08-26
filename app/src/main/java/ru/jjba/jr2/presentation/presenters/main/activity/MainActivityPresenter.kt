@@ -31,4 +31,8 @@ class MainActivityPresenter(
     fun onTestClicked(){
         router.navigateTo(Screen.TEST.title)
     }
+
+    fun onKanaClicked(){
+        router.navigateTo(Screen.KANA.title)
+    }
 }

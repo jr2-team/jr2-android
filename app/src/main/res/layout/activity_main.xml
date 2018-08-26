@@ -32,12 +32,12 @@
             app:tab_text="@string/menu_word_list_title" />
 
         <com.ss.bottomnavigation.TabItem
-            android:id="@+id/tiWordDetails"
+            android:id="@+id/tiKana"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:tab_icon="@drawable/ic_word_details"
-            app:tab_text="@string/menu_word_details_title" />
+            app:tab_icon="@drawable/ic_gakushu"
+            app:tab_text="@string/menu_kana_title" />
 
         <com.ss.bottomnavigation.TabItem
             android:id="@+id/tiTest"

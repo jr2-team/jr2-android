@@ -20,4 +20,16 @@
     <string name="test_title">Тестирование</string>
     <string name="menu_test_title">Тест</string>
 
+    <!-- KanaFragment -->
+    <string name="kana_title">Алфавит</string>
+    <string name="menu_kana_title">Алфавит</string>
+
+    <!-- Item Kana-->
+    <string name="item_kana_hiragana_title">Хирагана: </string>
+    <string name="item_kana_katakana_title">Катакана: </string>
+    <string name="item_kana_eng_title">Английское звучание: </string>
+    <string name="item_kana_rus_title">Русское звучание: </string>
+
+
+
 </resources>
