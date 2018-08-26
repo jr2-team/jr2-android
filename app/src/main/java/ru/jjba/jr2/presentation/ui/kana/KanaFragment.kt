@@ -1,8 +1,7 @@
 package ru.jjba.jr2.presentation.ui.kana
 
 import android.os.Bundle
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.android.synthetic.main.fragment_kana.*
@@ -10,6 +9,7 @@ import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.presenters.kana.KanaPresenter
 import ru.jjba.jr2.presentation.presenters.kana.KanaView
 import ru.jjba.jr2.presentation.ui.base.BaseFragment
+import ru.jjba.jr2.utils.ItemOffsetDecoration
 
 class KanaFragment : BaseFragment(), KanaView {
 
@@ -27,15 +27,17 @@ class KanaFragment : BaseFragment(), KanaView {
         initContent()
     }
 
-    private fun initContent(){
+    private fun initContent() {
         kanaAdapter = presenter.getAdapter()
         setRecyclerViewParam()
     }
 
     override fun setRecyclerViewParam() {
-        rvKana.setHasFixedSize(true)
-        rvKana.layoutManager = LinearLayoutManager(activity)
-        rvKana.addItemDecoration(DividerItemDecoration(activity, LinearLayoutManager.VERTICAL))
-        rvKana.adapter = kanaAdapter
+        rvKana.also {
+
+            it.layoutManager = GridLayoutManager(activity, 5)
+            it.addItemDecoration(ItemOffsetDecoration(4))
+            it.adapter = kanaAdapter
+        }
     }
 }

@@ -1,4 +1,4 @@
-package ru.jjba.jr2.data.repository.Kana
+package ru.jjba.jr2.data.repository.kana
 
 import ru.jjba.jr2.domain.entity.Kana
 import java.util.*

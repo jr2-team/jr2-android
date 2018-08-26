@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.item_kana.view.*
 import ru.jjba.jr2.R
-import ru.jjba.jr2.data.repository.Kana.KanaRepository
+import ru.jjba.jr2.data.repository.kana.KanaRepository
 import ru.jjba.jr2.domain.entity.Kana
 import kotlin.properties.Delegates
 
@@ -30,10 +30,9 @@ class KanaAdapter(
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(kana: Kana) = with(itemView) {
-            twHiragana.text = kana.hiragana
-            twKatakana.text = kana.katakana
-            twEng.text = kana.eng
-            twRus.text = kana.rus
+            tvKanaBig.text = kana.hiragana
+            tvKanaLittle.text = kana.katakana
+            tvKanaForeignSound.text = kana.rus
         }
     }
 }

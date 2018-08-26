@@ -7,6 +7,5 @@ import ru.jjba.jr2.domain.entity.Kana
 
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface KanaView : MvpView {
-
     fun setRecyclerViewParam()
 }

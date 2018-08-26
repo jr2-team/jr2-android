@@ -1,6 +1,6 @@
 package ru.jjba.jr2.domain.interactor
 
-import ru.jjba.jr2.data.repository.Kana.KanaRepository
+import ru.jjba.jr2.data.repository.kana.KanaRepository
 import ru.jjba.jr2.domain.entity.Kana
 
 class KanaInteractor(
