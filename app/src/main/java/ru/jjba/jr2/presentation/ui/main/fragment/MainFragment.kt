@@ -17,23 +17,4 @@ class MainFragment : BaseFragment(), MainFragmentView {
 
     @InjectPresenter
     lateinit var presenter: MainFragmentPresenter
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initContent()
-    }
-
-    private fun initContent() {
-        btnToWordList.setOnClickListener {
-            presenter.onWordListClicked()
-        }
-
-        btnToWordDetails.setOnClickListener {
-            presenter.onWordDetailsClicked()
-        }
-
-        btnToTest.setOnClickListener {
-            presenter.onTestClicked()
-        }
-    }
 }

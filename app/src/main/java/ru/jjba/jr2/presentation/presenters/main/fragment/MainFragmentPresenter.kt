@@ -11,15 +11,4 @@ class MainFragmentPresenter(
         private val router: DefaultRouter = NavigationHolder.router
 ) : MvpPresenter<MainFragmentView>() {
 
-    fun onWordListClicked() {
-        router.navigateTo(Screen.WORD_LIST.title)
-    }
-
-    fun onWordDetailsClicked() {
-        router.navigateTo(Screen.WORD_DETAILS.title)
-    }
-
-    fun onTestClicked() {
-        router.navigateTo(Screen.TEST.title)
-    }
 }
