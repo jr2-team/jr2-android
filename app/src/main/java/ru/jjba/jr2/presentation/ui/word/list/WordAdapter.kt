@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.ui.main
+package ru.jjba.jr2.presentation.ui.word.list
 
 import android.app.AlertDialog
 import android.support.v7.widget.DividerItemDecoration
