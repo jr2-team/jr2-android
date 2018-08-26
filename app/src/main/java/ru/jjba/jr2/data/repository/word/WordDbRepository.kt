@@ -15,15 +15,15 @@ class WordDbRepository(
 ) {
     private val wordDao: WordDao = db.getWordDao()
 
+    fun getAll(): Flowable<List<Word>> =
+            wordDao.getAll()
+                    .subscribeOn(scheduler)
+
     fun insert(word: Word): Completable =
             Completable.fromCallable { wordDao.insert(word) }
                     .subscribeOn(scheduler)
 
     fun insert(words: List<Word>): Completable =
             Completable.fromCallable { wordDao.insert(words) }
-                    .subscribeOn(scheduler)
-
-    fun getAll(): Flowable<List<Word>> =
-            wordDao.getAll()
                     .subscribeOn(scheduler)
 }
