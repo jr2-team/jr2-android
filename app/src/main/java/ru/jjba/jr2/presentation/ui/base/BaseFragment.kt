@@ -35,12 +35,15 @@ abstract class BaseFragment : MvpAppCompatFragment() {
 
     override fun onResume() {
         super.onResume()
-        requireActivity().bottomNavigation.selectedItem = when(this.layoutRes) {
-            R.layout.fragment_main-> BottomNavigationItem.MAIN.item
-            R.layout.fragment_word_list -> BottomNavigationItem.WORD_LIST.item
-            R.layout.fragment_kana -> BottomNavigationItem.KANA.item
-            R.layout.fragment_test-> BottomNavigationItem.TEST.item
-            else -> BottomNavigationItem.MAIN.item
+        when(this.layoutRes) {
+            R.layout.fragment_main->
+                requireActivity().bottomNavigation.selectedItem = BottomNavigationItem.MAIN.item
+            R.layout.fragment_word_list ->
+                requireActivity().bottomNavigation.selectedItem = BottomNavigationItem.WORD_LIST.item
+            R.layout.fragment_kana ->
+                requireActivity().bottomNavigation.selectedItem = BottomNavigationItem.KANA.item
+            R.layout.fragment_test->
+                requireActivity().bottomNavigation.selectedItem = BottomNavigationItem.TEST.item
         }
     }
 }
