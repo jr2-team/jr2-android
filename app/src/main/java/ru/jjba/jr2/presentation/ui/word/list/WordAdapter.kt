@@ -17,6 +17,7 @@ import ru.jjba.jr2.data.repository.interpretation.InterpretationDbRepository
 import ru.jjba.jr2.domain.entity.Word
 import ru.jjba.jr2.presentation.navigation.DefaultRouter
 import ru.jjba.jr2.presentation.navigation.NavigationHolder
+import ru.jjba.jr2.presentation.navigation.Screen
 import kotlin.properties.Delegates
 
 class WordAdapter(
@@ -44,7 +45,7 @@ class WordAdapter(
             tvJlptLevel.text = word.jlptLevel.toString()
 
             this.setOnClickListener {
-                router.navigateTo(ru.jjba.jr2.presentation.navigation.Screen.WORD_DETAILS.title, word.id)
+                router.navigateTo(Screen.WORD_DETAILS.title, word.id)
             }
         }
     }

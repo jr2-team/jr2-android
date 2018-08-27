@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimaryLight">#C8E6C9</color>
-    <color name="colorPrimary">#8BC34A</color>
-    <color name="colorPrimaryDark">#689F38</color>
-    <color name="colorAccent">#3CAF50</color>
+    <color name="colorPrimaryLight">#D9CD90</color> <!-- mushikuri color -->
+    <color name="colorPrimary">#90B44B</color> <!-- hiwamoegi color -->
+    <color name="colorPrimaryDark">#6C6A2D</color> <!-- uguisu color -->
+    <color name="colorAccent">#7BA23F</color> <!-- moegi color -->
     <color name="colorIcons">#212121</color>
     <color name="colorDivider">#BDBDBD</color>
     <color name="colorPrimaryText">#212121</color>

@@ -11,8 +11,11 @@ import ru.jjba.jr2.domain.entity.Kana
 import kotlin.properties.Delegates
 
 class KanaAdapter(
-        val kanaRepository: KanaRepository = KanaRepository()
+        val englishMode: Boolean,
+        val katakanaMode: Boolean,
+        private val kanaRepository: KanaRepository = KanaRepository()
 ) : RecyclerView.Adapter<KanaAdapter.ViewHolder>() {
+
     var kanaList: List<Kana> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
     }
@@ -30,9 +33,15 @@ class KanaAdapter(
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(kana: Kana) = with(itemView) {
-            tvKanaBig.text = kana.hiragana
-            tvKanaLittle.text = kana.katakana
-            tvKanaForeignSound.text = kana.rus
+            if (!katakanaMode) {
+                tvKanaBig.text = kana.hiragana
+                tvKanaLittle.text = kana.katakana
+            } else {
+                tvKanaBig.text = kana.katakana
+                tvKanaLittle.text = kana.hiragana
+            }
+
+            if(!englishMode) tvKanaForeignSound.text = kana.rus else tvKanaForeignSound.text = kana.eng
         }
     }
 }
