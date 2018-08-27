@@ -10,7 +10,8 @@ import ru.jjba.jr2.domain.interactor.WordInteractor
 @InjectViewState
 class WordDetailsPresenter(
         private val wordId: String?,
-        val wordInteractor: WordInteractor = WordInteractor()
+        val wordInteractor: WordInteractor = WordInteractor(),
+        val interpretationDbRepository: InterpretationDbRepository = InterpretationDbRepository()
 ) : MvpPresenter<WordDetailsView>() {
 
     override fun onFirstViewAttach() {
@@ -20,9 +21,20 @@ class WordDetailsPresenter(
                     .subscribeBy(
                             onSuccess = {
                                 viewState.showWord(it)
+                                showInterps()
                             }
                     )
         }
     }
 
+    private fun showInterps() {
+        interpretationDbRepository.getByWordId(wordId!!)
+                .first(kotlin.collections.emptyList())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                        onSuccess = {
+                            viewState.showInterps(it)
+                        }
+                )
+    }
 }
