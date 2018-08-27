@@ -10,9 +10,10 @@ class KanaPresenter(
         private val kanaInteractor: KanaInteractor = KanaInteractor()
 ) : MvpPresenter<KanaView>() {
 
-    private val kanaAdapter = KanaAdapter()
+    private var kanaAdapter = KanaAdapter(false, false)
 
-    fun getAdapter(): KanaAdapter = kanaAdapter
+    private var englishMode = false
+    private var katakanaMode = false
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -21,5 +22,18 @@ class KanaPresenter(
 
     private fun fillAdapter() {
         kanaAdapter.kanaList = kanaInteractor.getAllKana()
+    }
+
+    fun setAdapterMode(englishMode: Boolean, katakanaMode: Boolean) {
+        this.englishMode = englishMode
+        this.katakanaMode = katakanaMode
+        kanaAdapter = KanaAdapter(englishMode, katakanaMode)
+        fillAdapter()
+    }
+
+    fun getAdapter(): KanaAdapter = kanaAdapter
+
+    fun setSettingsDialog() {
+        viewState.createSettingsDialog(englishMode, katakanaMode)
     }
 }

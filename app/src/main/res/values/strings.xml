@@ -23,6 +23,11 @@
     <!-- KanaFragment -->
     <string name="kana_title">Алфавит</string>
     <string name="menu_kana_title">Алфавит</string>
+    <string name="kana_toolbar_menu_settings">Настройки</string>
+
+    <!-- Kana Settings Fragment -->
+    <string name="kana_settings_english_mode">English mode</string>
+    <string name="kana_settings_katakana_mode">Katakana mode</string>
 
     <!-- Item Kana-->
     <string name="item_kana_hiragana_title">Хирагана: </string>
