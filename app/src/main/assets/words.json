@@ -1,0 +1,2405 @@
+﻿[
+	{
+		"id": "1",
+		"wordJp": "それ",
+		"wordFurigana": "それ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "2",
+		"wordJp": "一つ",
+		"wordFurigana": "一[ひと]つ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "3",
+		"wordJp": "一",
+		"wordFurigana": "一[いち]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "4",
+		"wordJp": "二",
+		"wordFurigana": "二[に]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "5",
+		"wordJp": "二つ",
+		"wordFurigana": "二[ふた]つ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "6",
+		"wordJp": "三",
+		"wordFurigana": "三[さん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "7",
+		"wordJp": "三つ",
+		"wordFurigana": "三[みっ]つ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "8",
+		"wordJp": "四つ",
+		"wordFurigana": "四[よっ]つ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "9",
+		"wordJp": "四",
+		"wordFurigana": "四[し]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "10",
+		"wordJp": "これ",
+		"wordFurigana": "これ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "11",
+		"wordJp": "四",
+		"wordFurigana": "四[よん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "12",
+		"wordJp": "五つ",
+		"wordFurigana": "五[いつ]つ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "13",
+		"wordJp": "五",
+		"wordFurigana": "五[ご]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "14",
+		"wordJp": "六つ",
+		"wordFurigana": "六[むっ]つ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "15",
+		"wordJp": "六",
+		"wordFurigana": "六[ろく]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "16",
+		"wordJp": "七",
+		"wordFurigana": "七[なな]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "17",
+		"wordJp": "七つ",
+		"wordFurigana": "七[なな]つ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "18",
+		"wordJp": "八",
+		"wordFurigana": "八[はち]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "19",
+		"wordJp": "八つ",
+		"wordFurigana": "八[やっ]つ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "20",
+		"wordJp": "なる",
+		"wordFurigana": "なる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "21",
+		"wordJp": "九",
+		"wordFurigana": "九[きゅう]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "22",
+		"wordJp": "九つ",
+		"wordFurigana": "九[ここの]つ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "23",
+		"wordJp": "十",
+		"wordFurigana": "十[じゅう]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "24",
+		"wordJp": "百",
+		"wordFurigana": "百[ひゃく]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "25",
+		"wordJp": "千",
+		"wordFurigana": "千[せん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "26",
+		"wordJp": "万",
+		"wordFurigana": "万[まん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "27",
+		"wordJp": "円",
+		"wordFurigana": "円[えん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "28",
+		"wordJp": "円",
+		"wordFurigana": "円[えん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "29",
+		"wordJp": "時",
+		"wordFurigana": "時[とき]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "30",
+		"wordJp": "する",
+		"wordFurigana": "する",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "31",
+		"wordJp": "時々",
+		"wordFurigana": "時々[ときどき]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "32",
+		"wordJp": "日",
+		"wordFurigana": "日[にち]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "33",
+		"wordJp": "六日",
+		"wordFurigana": "六日[むいか]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "34",
+		"wordJp": "三日",
+		"wordFurigana": "三日[みっか]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "35",
+		"wordJp": "五日",
+		"wordFurigana": "五日[いつか]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "36",
+		"wordJp": "八日",
+		"wordFurigana": "八日[ようか]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "37",
+		"wordJp": "二十日",
+		"wordFurigana": "二十日[はつか]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "38",
+		"wordJp": "二日",
+		"wordFurigana": "二日[ふつか]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "39",
+		"wordJp": "九日",
+		"wordFurigana": "九日[ここのか]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "40",
+		"wordJp": "ところ",
+		"wordFurigana": "ところ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "41",
+		"wordJp": "一日",
+		"wordFurigana": "一日[ついたち]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "42",
+		"wordJp": "十日",
+		"wordFurigana": "十日[とおか]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "43",
+		"wordJp": "七日",
+		"wordFurigana": "七日[なのか]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "44",
+		"wordJp": "四日",
+		"wordFurigana": "四日[よっか]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "45",
+		"wordJp": "月",
+		"wordFurigana": "月[つき]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "46",
+		"wordJp": "水",
+		"wordFurigana": "水[みず]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "47",
+		"wordJp": "金",
+		"wordFurigana": "金[かね]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "48",
+		"wordJp": "日曜日",
+		"wordFurigana": "日曜日[にちようび]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "49",
+		"wordJp": "土曜日",
+		"wordFurigana": "土曜日[どようび]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "50",
+		"wordJp": "やる",
+		"wordFurigana": "やる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "51",
+		"wordJp": "金曜日",
+		"wordFurigana": "金曜日[きんようび]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "52",
+		"wordJp": "月曜日",
+		"wordFurigana": "月曜日[げつようび]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "53",
+		"wordJp": "木曜日",
+		"wordFurigana": "木曜日[もくようび]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "54",
+		"wordJp": "曜日",
+		"wordFurigana": "曜日[ようび]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "55",
+		"wordJp": "火曜日",
+		"wordFurigana": "火曜日[かようび]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "56",
+		"wordJp": "水曜日",
+		"wordFurigana": "水曜日[すいようび]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "57",
+		"wordJp": "週",
+		"wordFurigana": "週[しゅう]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "58",
+		"wordJp": "年",
+		"wordFurigana": "年[とし]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "59",
+		"wordJp": "分かる",
+		"wordFurigana": "分[わ]かる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "60",
+		"wordJp": "そう",
+		"wordFurigana": "そう",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "61",
+		"wordJp": "何",
+		"wordFurigana": "何[なに]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "62",
+		"wordJp": "先",
+		"wordFurigana": "先[さき]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "63",
+		"wordJp": "今年",
+		"wordFurigana": "今年[ことし]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "64",
+		"wordJp": "今",
+		"wordFurigana": "今[いま]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "65",
+		"wordJp": "今日",
+		"wordFurigana": "今日[きょう]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "66",
+		"wordJp": "今月",
+		"wordFurigana": "今月[こんげつ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "67",
+		"wordJp": "今週",
+		"wordFurigana": "今週[こんしゅう]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "68",
+		"wordJp": "来る",
+		"wordFurigana": "来[く]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "69",
+		"wordJp": "来年",
+		"wordFurigana": "来年[らいねん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "70",
+		"wordJp": "もう",
+		"wordFurigana": "もう",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "71",
+		"wordJp": "行く",
+		"wordFurigana": "行[い]く",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "72",
+		"wordJp": "帰る",
+		"wordFurigana": "帰[かえ]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "73",
+		"wordJp": "大きい",
+		"wordFurigana": "大[おお]きい",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "74",
+		"wordJp": "小さい",
+		"wordFurigana": "小[ちい]さい",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "75",
+		"wordJp": "少ない",
+		"wordFurigana": "少[すく]ない",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "76",
+		"wordJp": "少し",
+		"wordFurigana": "少[すこ]し",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "77",
+		"wordJp": "多い",
+		"wordFurigana": "多[おお]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "78",
+		"wordJp": "多分",
+		"wordFurigana": "多分[たぶん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "79",
+		"wordJp": "上げる",
+		"wordFurigana": "上[あ]げる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "80",
+		"wordJp": "よく",
+		"wordFurigana": "よく",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "81",
+		"wordJp": "上る",
+		"wordFurigana": "上[のぼ]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "82",
+		"wordJp": "上",
+		"wordFurigana": "上[うえ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "83",
+		"wordJp": "下",
+		"wordFurigana": "下[した]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "84",
+		"wordJp": "右",
+		"wordFurigana": "右[みぎ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "85",
+		"wordJp": "左",
+		"wordFurigana": "左[ひだり]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "86",
+		"wordJp": "方",
+		"wordFurigana": "方[ほう]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "87",
+		"wordJp": "大人",
+		"wordFurigana": "大人[おとな]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "88",
+		"wordJp": "人",
+		"wordFurigana": "人[ひと]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "89",
+		"wordJp": "一人",
+		"wordFurigana": "一人[ひとり]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "90",
+		"wordJp": "どう",
+		"wordFurigana": "どう",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "91",
+		"wordJp": "入れる",
+		"wordFurigana": "入[い]れる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "92",
+		"wordJp": "入る",
+		"wordFurigana": "入[はい]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "93",
+		"wordJp": "出る",
+		"wordFurigana": "出[で]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "94",
+		"wordJp": "出来る",
+		"wordFurigana": "出来[でき]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "95",
+		"wordJp": "出す",
+		"wordFurigana": "出[だ]す",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "96",
+		"wordJp": "本",
+		"wordFurigana": "本[ほん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "97",
+		"wordJp": "休む",
+		"wordFurigana": "休[やす]む",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "98",
+		"wordJp": "体",
+		"wordFurigana": "体[からだ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "99",
+		"wordJp": "目",
+		"wordFurigana": "目[め]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "100",
+		"wordJp": "どこ",
+		"wordFurigana": "どこ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "101",
+		"wordJp": "口",
+		"wordFurigana": "口[くち]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "102",
+		"wordJp": "耳",
+		"wordFurigana": "耳[みみ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "103",
+		"wordJp": "上手",
+		"wordFurigana": "上手[じょうず]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "104",
+		"wordJp": "手",
+		"wordFurigana": "手[て]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "105",
+		"wordJp": "足",
+		"wordFurigana": "足[あし]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "106",
+		"wordJp": "空く",
+		"wordFurigana": "空[す]く",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "107",
+		"wordJp": "男",
+		"wordFurigana": "男[おとこ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "108",
+		"wordJp": "女",
+		"wordFurigana": "女[おんな]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "109",
+		"wordJp": "子供",
+		"wordFurigana": "子供[こども]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "110",
+		"wordJp": "あげる",
+		"wordFurigana": "あげる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "111",
+		"wordJp": "好き",
+		"wordFurigana": "好[す]き",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "112",
+		"wordJp": "大好き",
+		"wordFurigana": "大好[だいす]き",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "113",
+		"wordJp": "私",
+		"wordFurigana": "私[わたし]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "114",
+		"wordJp": "友達",
+		"wordFurigana": "友達[ともだち]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "115",
+		"wordJp": "家",
+		"wordFurigana": "家[うち]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "116",
+		"wordJp": "気",
+		"wordFurigana": "気[き]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "117",
+		"wordJp": "元気",
+		"wordFurigana": "元気[げんき]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "118",
+		"wordJp": "天気",
+		"wordFurigana": "天気[てんき]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "119",
+		"wordJp": "晴れる",
+		"wordFurigana": "晴[は]れる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "120",
+		"wordJp": "こう",
+		"wordFurigana": "こう",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "121",
+		"wordJp": "昨日",
+		"wordFurigana": "昨日[きのう]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "122",
+		"wordJp": "開ける",
+		"wordFurigana": "開[あ]ける",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "123",
+		"wordJp": "開く",
+		"wordFurigana": "開[ひら]く",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "124",
+		"wordJp": "閉じる",
+		"wordFurigana": "閉[と]じる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "125",
+		"wordJp": "閉める",
+		"wordFurigana": "閉[し]める",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "126",
+		"wordJp": "閉まる",
+		"wordFurigana": "閉[し]まる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "127",
+		"wordJp": "聞く",
+		"wordFurigana": "聞[き]く",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "128",
+		"wordJp": "時間",
+		"wordFurigana": "時間[じかん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "129",
+		"wordJp": "高い",
+		"wordFurigana": "高[たか]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "130",
+		"wordJp": "くれる",
+		"wordFurigana": "くれる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "131",
+		"wordJp": "安い",
+		"wordFurigana": "安[やす]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "132",
+		"wordJp": "低い",
+		"wordFurigana": "低[ひく]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "133",
+		"wordJp": "前",
+		"wordFurigana": "前[まえ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "134",
+		"wordJp": "後",
+		"wordFurigana": "後[あと]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "135",
+		"wordJp": "後ろ",
+		"wordFurigana": "後[うし]ろ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "136",
+		"wordJp": "午後",
+		"wordFurigana": "午後[ごご]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "137",
+		"wordJp": "午前",
+		"wordFurigana": "午前[ごぜん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "138",
+		"wordJp": "朝",
+		"wordFurigana": "朝[あさ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "139",
+		"wordJp": "昼",
+		"wordFurigana": "昼[ひる]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "140",
+		"wordJp": "かなり",
+		"wordFurigana": "かなり",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "141",
+		"wordJp": "晩",
+		"wordFurigana": "晩[ばん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "142",
+		"wordJp": "今晩",
+		"wordFurigana": "今晩[こんばん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "143",
+		"wordJp": "夜",
+		"wordFurigana": "夜[よる]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "144",
+		"wordJp": "食べる",
+		"wordFurigana": "食[た]べる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "145",
+		"wordJp": "飲む",
+		"wordFurigana": "飲[の]む",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "146",
+		"wordJp": "ご飯",
+		"wordFurigana": "ご 飯[はん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "147",
+		"wordJp": "買う",
+		"wordFurigana": "買[か]う",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "148",
+		"wordJp": "見る",
+		"wordFurigana": "見[み]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "149",
+		"wordJp": "見せる",
+		"wordFurigana": "見[み]せる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "150",
+		"wordJp": "もっと",
+		"wordFurigana": "もっと",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "151",
+		"wordJp": "見つける",
+		"wordFurigana": "見[み]つける",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "152",
+		"wordJp": "見える",
+		"wordFurigana": "見[み]える",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "153",
+		"wordJp": "見つかる",
+		"wordFurigana": "見[み]つかる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "154",
+		"wordJp": "言う",
+		"wordFurigana": "言[い]う",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "155",
+		"wordJp": "話す",
+		"wordFurigana": "話[はな]す",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "156",
+		"wordJp": "読む",
+		"wordFurigana": "読[よ]む",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "157",
+		"wordJp": "漢字",
+		"wordFurigana": "漢字[かんじ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "158",
+		"wordJp": "書く",
+		"wordFurigana": "書[か]く",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "159",
+		"wordJp": "覚える",
+		"wordFurigana": "覚[おぼ]える",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "160",
+		"wordJp": "そこ",
+		"wordFurigana": "そこ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "161",
+		"wordJp": "会う",
+		"wordFurigana": "会[あ]う",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "162",
+		"wordJp": "仕事",
+		"wordFurigana": "仕事[しごと]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "163",
+		"wordJp": "場合",
+		"wordFurigana": "場合[ばあい]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "164",
+		"wordJp": "車",
+		"wordFurigana": "車[くるま]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "165",
+		"wordJp": "電車",
+		"wordFurigana": "電車[でんしゃ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "166",
+		"wordJp": "駅",
+		"wordFurigana": "駅[えき]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "167",
+		"wordJp": "道",
+		"wordFurigana": "道[みち]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "168",
+		"wordJp": "他",
+		"wordFurigana": "他[ほか]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "169",
+		"wordJp": "止める",
+		"wordFurigana": "止[や]める",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "170",
+		"wordJp": "ここ",
+		"wordFurigana": "ここ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "171",
+		"wordJp": "歩く",
+		"wordFurigana": "歩[ある]く",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "172",
+		"wordJp": "走る",
+		"wordFurigana": "走[はし]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "173",
+		"wordJp": "近く",
+		"wordFurigana": "近[ちか]く",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "174",
+		"wordJp": "近い",
+		"wordFurigana": "近[ちか]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "175",
+		"wordJp": "近く",
+		"wordFurigana": "近[ちか]く",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "176",
+		"wordJp": "遠い",
+		"wordFurigana": "遠[とお]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "177",
+		"wordJp": "長い",
+		"wordFurigana": "長[なが]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "178",
+		"wordJp": "短い",
+		"wordFurigana": "短[みじか]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "179",
+		"wordJp": "広い",
+		"wordFurigana": "広[ひろ]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "180",
+		"wordJp": "もらう",
+		"wordFurigana": "もらう",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "181",
+		"wordJp": "全部",
+		"wordFurigana": "全部[ぜんぶ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "182",
+		"wordJp": "国",
+		"wordFurigana": "国[くに]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "183",
+		"wordJp": "白い",
+		"wordFurigana": "白[しろ]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "184",
+		"wordJp": "赤い",
+		"wordFurigana": "赤[あか]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "185",
+		"wordJp": "部屋",
+		"wordFurigana": "部屋[へや]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "186",
+		"wordJp": "米",
+		"wordFurigana": "米[こめ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "187",
+		"wordJp": "未だ",
+		"wordFurigana": "未[ま]だ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "188",
+		"wordJp": "有る",
+		"wordFurigana": "有[あ]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "189",
+		"wordJp": "無い",
+		"wordFurigana": "無[な]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "190",
+		"wordJp": "とても",
+		"wordFurigana": "とても",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "191",
+		"wordJp": "作る",
+		"wordFurigana": "作[つく]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "192",
+		"wordJp": "使う",
+		"wordFurigana": "使[つか]う",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "193",
+		"wordJp": "消す",
+		"wordFurigana": "消[け]す",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "194",
+		"wordJp": "売る",
+		"wordFurigana": "売[う]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "195",
+		"wordJp": "店",
+		"wordFurigana": "店[みせ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "196",
+		"wordJp": "春",
+		"wordFurigana": "春[はる]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "197",
+		"wordJp": "夏",
+		"wordFurigana": "夏[なつ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "198",
+		"wordJp": "秋",
+		"wordFurigana": "秋[あき]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "199",
+		"wordJp": "冬",
+		"wordFurigana": "冬[ふゆ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "200",
+		"wordJp": "みんな",
+		"wordFurigana": "みんな",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "201",
+		"wordJp": "暑い",
+		"wordFurigana": "暑[あつ]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "202",
+		"wordJp": "熱い",
+		"wordFurigana": "熱[あつ]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "203",
+		"wordJp": "寒い",
+		"wordFurigana": "寒[さむ]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "204",
+		"wordJp": "暖かい",
+		"wordFurigana": "暖[あたた]かい",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "205",
+		"wordJp": "新しい",
+		"wordFurigana": "新[あたら]しい",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "206",
+		"wordJp": "古い",
+		"wordFurigana": "古[ふる]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "207",
+		"wordJp": "良い",
+		"wordFurigana": "良[い]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "208",
+		"wordJp": "悪い",
+		"wordFurigana": "悪[わる]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "209",
+		"wordJp": "思う",
+		"wordFurigana": "思[おも]う",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "210",
+		"wordJp": "いつも",
+		"wordFurigana": "いつも",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "211",
+		"wordJp": "忘れる",
+		"wordFurigana": "忘[わす]れる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "212",
+		"wordJp": "考える",
+		"wordFurigana": "考[かんが]える",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "213",
+		"wordJp": "決める",
+		"wordFurigana": "決[き]める",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "214",
+		"wordJp": "決まる",
+		"wordFurigana": "決[き]まる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "215",
+		"wordJp": "知る",
+		"wordFurigana": "知[し]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "216",
+		"wordJp": "一番",
+		"wordFurigana": "一番[いちばん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "217",
+		"wordJp": "住む",
+		"wordFurigana": "住[す]む",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "218",
+		"wordJp": "名前",
+		"wordFurigana": "名前[なまえ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "219",
+		"wordJp": "食べ物",
+		"wordFurigana": "食[た]べ 物[もの]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "220",
+		"wordJp": "いつ",
+		"wordFurigana": "いつ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "221",
+		"wordJp": "飲み物",
+		"wordFurigana": "飲[の]み 物[もの]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "222",
+		"wordJp": "重い",
+		"wordFurigana": "重[おも]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "223",
+		"wordJp": "軽い",
+		"wordFurigana": "軽[かる]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "224",
+		"wordJp": "送る",
+		"wordFurigana": "送[おく]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "225",
+		"wordJp": "取る",
+		"wordFurigana": "取[と]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "226",
+		"wordJp": "待つ",
+		"wordFurigana": "待[ま]つ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "227",
+		"wordJp": "持つ",
+		"wordFurigana": "持[も]つ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "228",
+		"wordJp": "気持ち",
+		"wordFurigana": "気持[きも]ち",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "229",
+		"wordJp": "生きる",
+		"wordFurigana": "生[い]きる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "230",
+		"wordJp": "どちら",
+		"wordFurigana": "どちら",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "231",
+		"wordJp": "先生",
+		"wordFurigana": "先生[せんせい]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "232",
+		"wordJp": "大学",
+		"wordFurigana": "大学[だいがく]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "233",
+		"wordJp": "学生",
+		"wordFurigana": "学生[がくせい]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "234",
+		"wordJp": "大学生",
+		"wordFurigana": "大学生[だいがくせい]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "235",
+		"wordJp": "学校",
+		"wordFurigana": "学校[がっこう]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "236",
+		"wordJp": "高校生",
+		"wordFurigana": "高校生[こうこうせい]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "237",
+		"wordJp": "教える",
+		"wordFurigana": "教[おし]える",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "238",
+		"wordJp": "勉強",
+		"wordFurigana": "勉強[べんきょう]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "239",
+		"wordJp": "強い",
+		"wordFurigana": "強[つよ]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "240",
+		"wordJp": "どれ",
+		"wordFurigana": "どれ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "241",
+		"wordJp": "弱い",
+		"wordFurigana": "弱[よわ]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "242",
+		"wordJp": "引く",
+		"wordFurigana": "引[ひ]く",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "243",
+		"wordJp": "質問",
+		"wordFurigana": "質問[しつもん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "244",
+		"wordJp": "難しい",
+		"wordFurigana": "難[むずか]しい",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "245",
+		"wordJp": "数",
+		"wordFurigana": "数[かず]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "246",
+		"wordJp": "勝つ",
+		"wordFurigana": "勝[か]つ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "247",
+		"wordJp": "負ける",
+		"wordFurigana": "負[ま]ける",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "248",
+		"wordJp": "本当に",
+		"wordFurigana": "本当[ほんとう]に",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "249",
+		"wordJp": "要る",
+		"wordFurigana": "要[い]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "250",
+		"wordJp": "ドア",
+		"wordFurigana": "ドア",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "251",
+		"wordJp": "時計",
+		"wordFurigana": "時計[とけい]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "252",
+		"wordJp": "払う",
+		"wordFurigana": "払[はら]う",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "253",
+		"wordJp": "切る",
+		"wordFurigana": "切[き]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "254",
+		"wordJp": "変える",
+		"wordFurigana": "変[か]える",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "255",
+		"wordJp": "乗る",
+		"wordFurigana": "乗[の]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "256",
+		"wordJp": "着る",
+		"wordFurigana": "着[き]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "257",
+		"wordJp": "立つ",
+		"wordFurigana": "立[た]つ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "258",
+		"wordJp": "座る",
+		"wordFurigana": "座[すわ]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "259",
+		"wordJp": "次",
+		"wordFurigana": "次[つぎ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "260",
+		"wordJp": "しゃべる",
+		"wordFurigana": "しゃべる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "261",
+		"wordJp": "動く",
+		"wordFurigana": "動[うご]く",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "262",
+		"wordJp": "働く",
+		"wordFurigana": "働[はたら]く",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "263",
+		"wordJp": "早い",
+		"wordFurigana": "早[はや]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "264",
+		"wordJp": "速い",
+		"wordFurigana": "速[はや]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "265",
+		"wordJp": "遅い",
+		"wordFurigana": "遅[おそ]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "266",
+		"wordJp": "始める",
+		"wordFurigana": "始[はじ]める",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "267",
+		"wordJp": "始まる",
+		"wordFurigana": "始[はじ]まる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "268",
+		"wordJp": "終わる",
+		"wordFurigana": "終[お]わる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "269",
+		"wordJp": "終わり",
+		"wordFurigana": "終[お]わり",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "270",
+		"wordJp": "テーブル",
+		"wordFurigana": "テーブル",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "271",
+		"wordJp": "去年",
+		"wordFurigana": "去年[きょねん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "272",
+		"wordJp": "紙",
+		"wordFurigana": "紙[かみ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "273",
+		"wordJp": "楽しむ",
+		"wordFurigana": "楽[たの]しむ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "274",
+		"wordJp": "楽しい",
+		"wordFurigana": "楽[たの]しい",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "275",
+		"wordJp": "歌う",
+		"wordFurigana": "歌[うた]う",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "276",
+		"wordJp": "欲しい",
+		"wordFurigana": "欲[ほ]しい",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "277",
+		"wordJp": "色",
+		"wordFurigana": "色[いろ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "278",
+		"wordJp": "茶色",
+		"wordFurigana": "茶色[ちゃいろ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "279",
+		"wordJp": "直ぐ",
+		"wordFurigana": "直[す]ぐ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "280",
+		"wordJp": "ゲーム",
+		"wordFurigana": "ゲーム",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "281",
+		"wordJp": "書き直す",
+		"wordFurigana": "書[か]き 直[なお]す",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "282",
+		"wordJp": "直る",
+		"wordFurigana": "直[なお]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "283",
+		"wordJp": "線",
+		"wordFurigana": "線[せん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "284",
+		"wordJp": "曲がる",
+		"wordFurigana": "曲[ま]がる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "285",
+		"wordJp": "同じ",
+		"wordFurigana": "同[おな]じ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "286",
+		"wordJp": "違う",
+		"wordFurigana": "違[ちが]う",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "287",
+		"wordJp": "図書館",
+		"wordFurigana": "図書館[としょかん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "288",
+		"wordJp": "泊まる",
+		"wordFurigana": "泊[と]まる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "289",
+		"wordJp": "遊ぶ",
+		"wordFurigana": "遊[あそ]ぶ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "290",
+		"wordJp": "どうして",
+		"wordFurigana": "どうして",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "291",
+		"wordJp": "服",
+		"wordFurigana": "服[ふく]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "292",
+		"wordJp": "お父さん",
+		"wordFurigana": "お 父[とう]さん",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "293",
+		"wordJp": "父",
+		"wordFurigana": "父[ちち]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "294",
+		"wordJp": "お母さん",
+		"wordFurigana": "お 母[かあ]さん",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "295",
+		"wordJp": "母",
+		"wordFurigana": "母[はは]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "296",
+		"wordJp": "親",
+		"wordFurigana": "親[おや]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "297",
+		"wordJp": "姉",
+		"wordFurigana": "姉[あね]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "298",
+		"wordJp": "お姉さん",
+		"wordFurigana": "お 姉[ねえ]さん",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "299",
+		"wordJp": "妹",
+		"wordFurigana": "妹[いもうと]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "300",
+		"wordJp": "おなか",
+		"wordFurigana": "おなか",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "301",
+		"wordJp": "兄",
+		"wordFurigana": "兄[あに]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "302",
+		"wordJp": "お兄さん",
+		"wordFurigana": "お 兄[にい]さん",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "303",
+		"wordJp": "弟",
+		"wordFurigana": "弟[おとうと]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "304",
+		"wordJp": "娘",
+		"wordFurigana": "娘[むすめ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "305",
+		"wordJp": "息子",
+		"wordFurigana": "息子[むすこ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "306",
+		"wordJp": "若い",
+		"wordFurigana": "若[わか]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "307",
+		"wordJp": "彼女",
+		"wordFurigana": "彼女[かのじょ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "308",
+		"wordJp": "彼",
+		"wordFurigana": "彼[かれ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "309",
+		"wordJp": "結婚",
+		"wordFurigana": "結婚[けっこん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "310",
+		"wordJp": "ミーティング",
+		"wordFurigana": "ミーティング",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "311",
+		"wordJp": "自転車",
+		"wordFurigana": "自転車[じてんしゃ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "312",
+		"wordJp": "自分",
+		"wordFurigana": "自分[じぶん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "313",
+		"wordJp": "ご主人",
+		"wordFurigana": "ご 主人[しゅじん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "314",
+		"wordJp": "答える",
+		"wordFurigana": "答[こた]える",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "315",
+		"wordJp": "別",
+		"wordFurigana": "別[べつ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "316",
+		"wordJp": "病気",
+		"wordFurigana": "病気[びょうき]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "317",
+		"wordJp": "死ぬ",
+		"wordFurigana": "死[し]ぬ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "318",
+		"wordJp": "痛い",
+		"wordFurigana": "痛[いた]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "319",
+		"wordJp": "酒",
+		"wordFurigana": "酒[さけ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "320",
+		"wordJp": "つける",
+		"wordFurigana": "つける",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "321",
+		"wordJp": "一杯",
+		"wordFurigana": "一杯[いっぱい]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "322",
+		"wordJp": "飛ぶ",
+		"wordFurigana": "飛[と]ぶ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "323",
+		"wordJp": "飛行機",
+		"wordFurigana": "飛行機[ひこうき]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "324",
+		"wordJp": "お願い",
+		"wordFurigana": "お 願[ねが]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "325",
+		"wordJp": "続く",
+		"wordFurigana": "続[つづ]く",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "326",
+		"wordJp": "日記",
+		"wordFurigana": "日記[にっき]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "327",
+		"wordJp": "首",
+		"wordFurigana": "首[くび]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "328",
+		"wordJp": "頭",
+		"wordFurigana": "頭[あたま]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "329",
+		"wordJp": "顔",
+		"wordFurigana": "顔[かお]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "330",
+		"wordJp": "あれ",
+		"wordFurigana": "あれ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "331",
+		"wordJp": "感じる",
+		"wordFurigana": "感[かん]じる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "332",
+		"wordJp": "探す",
+		"wordFurigana": "探[さが]す",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "333",
+		"wordJp": "落ちる",
+		"wordFurigana": "落[お]ちる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "334",
+		"wordJp": "お手洗い",
+		"wordFurigana": "お 手洗[てあら]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "335",
+		"wordJp": "冷たい",
+		"wordFurigana": "冷[つめ]たい",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "336",
+		"wordJp": "汚い",
+		"wordFurigana": "汚[きたな]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "337",
+		"wordJp": "太い",
+		"wordFurigana": "太[ふと]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "338",
+		"wordJp": "曇る",
+		"wordFurigana": "曇[くも]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "339",
+		"wordJp": "神",
+		"wordFurigana": "神[かみ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "340",
+		"wordJp": "まずい",
+		"wordFurigana": "まずい",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "341",
+		"wordJp": "建てる",
+		"wordFurigana": "建[た]てる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "342",
+		"wordJp": "置く",
+		"wordFurigana": "置[お]く",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "343",
+		"wordJp": "辺",
+		"wordFurigana": "辺[へん]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "344",
+		"wordJp": "黄色い",
+		"wordFurigana": "黄色[きいろ]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "345",
+		"wordJp": "一緒に",
+		"wordFurigana": "一緒[いっしょ]に",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "346",
+		"wordJp": "緑",
+		"wordFurigana": "緑[みどり]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "347",
+		"wordJp": "易しい",
+		"wordFurigana": "易[やさ]しい",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "348",
+		"wordJp": "留学生",
+		"wordFurigana": "留学生[りゅうがくせい]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "349",
+		"wordJp": "戻る",
+		"wordFurigana": "戻[もど]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "350",
+		"wordJp": "そば",
+		"wordFurigana": "そば",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "351",
+		"wordJp": "起きる",
+		"wordFurigana": "起[お]きる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "352",
+		"wordJp": "起こる",
+		"wordFurigana": "起[お]こる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "353",
+		"wordJp": "起こす",
+		"wordFurigana": "起[お]こす",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "354",
+		"wordJp": "起きる",
+		"wordFurigana": "起[お]きる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "355",
+		"wordJp": "寝る",
+		"wordFurigana": "寝[ね]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "356",
+		"wordJp": "細い",
+		"wordFurigana": "細[ほそ]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "357",
+		"wordJp": "載せる",
+		"wordFurigana": "載[の]せる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "358",
+		"wordJp": "締める",
+		"wordFurigana": "締[し]める",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "359",
+		"wordJp": "甘い",
+		"wordFurigana": "甘[あま]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "360",
+		"wordJp": "こっち",
+		"wordFurigana": "こっち",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "361",
+		"wordJp": "辛い",
+		"wordFurigana": "辛[から]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "362",
+		"wordJp": "優しい",
+		"wordFurigana": "優[やさ]しい",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "363",
+		"wordJp": "夫",
+		"wordFurigana": "夫[おっと]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "364",
+		"wordJp": "妻",
+		"wordFurigana": "妻[つま]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "365",
+		"wordJp": "誰",
+		"wordFurigana": "誰[だれ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "366",
+		"wordJp": "愛する",
+		"wordFurigana": "愛[あい]する",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "367",
+		"wordJp": "笑う",
+		"wordFurigana": "笑[わら]う",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "368",
+		"wordJp": "酸っぱい",
+		"wordFurigana": "酸[す]っぱい",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "369",
+		"wordJp": "言葉",
+		"wordFurigana": "言葉[ことば]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "370",
+		"wordJp": "よう",
+		"wordFurigana": "よう",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "371",
+		"wordJp": "呼ぶ",
+		"wordFurigana": "呼[よ]ぶ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "372",
+		"wordJp": "胸",
+		"wordFurigana": "胸[むね]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "373",
+		"wordJp": "腰",
+		"wordFurigana": "腰[こし]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "374",
+		"wordJp": "背",
+		"wordFurigana": "背[せ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "375",
+		"wordJp": "片仮名",
+		"wordFurigana": "片仮名[かたかな]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "376",
+		"wordJp": "平仮名",
+		"wordFurigana": "平仮名[ひらがな]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "377",
+		"wordJp": "悲しい",
+		"wordFurigana": "悲[かな]しい",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "378",
+		"wordJp": "美しい",
+		"wordFurigana": "美[うつく]しい",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "379",
+		"wordJp": "授業",
+		"wordFurigana": "授業[じゅぎょう]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "380",
+		"wordJp": "あそこ",
+		"wordFurigana": "あそこ",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "381",
+		"wordJp": "手伝う",
+		"wordFurigana": "手伝[てつだ]う",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "382",
+		"wordJp": "狭い",
+		"wordFurigana": "狭[せま]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "383",
+		"wordJp": "触る",
+		"wordFurigana": "触[さわ]る",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "384",
+		"wordJp": "嫌い",
+		"wordFurigana": "嫌[きら]い",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "385",
+		"wordJp": "浴びる",
+		"wordFurigana": "浴[あ]びる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "386",
+		"wordJp": "渇く",
+		"wordFurigana": "渇[かわ]く",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "387",
+		"wordJp": "髪の毛",
+		"wordFurigana": "髪[かみ]の 毛[け]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "388",
+		"wordJp": "肩",
+		"wordFurigana": "肩[かた]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "389",
+		"wordJp": "鼻",
+		"wordFurigana": "鼻[はな]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "390",
+		"wordJp": "おいしい",
+		"wordFurigana": "おいしい",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "391",
+		"wordJp": "腕",
+		"wordFurigana": "腕[うで]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "392",
+		"wordJp": "掛ける",
+		"wordFurigana": "掛[か]ける",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "393",
+		"wordJp": "僕",
+		"wordFurigana": "僕[ぼく]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "394",
+		"wordJp": "駄目",
+		"wordFurigana": "駄目[だめ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "395",
+		"wordJp": "大丈夫",
+		"wordFurigana": "大丈夫[だいじょうぶ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "396",
+		"wordJp": "風邪",
+		"wordFurigana": "風邪[かぜ]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "397",
+		"wordJp": "奇麗",
+		"wordFurigana": "奇麗[きれい]",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "398",
+		"wordJp": "嬉しい",
+		"wordFurigana": "嬉[うれ]しい",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "399",
+		"wordJp": "なる",
+		"wordFurigana": "なる",
+		"jlptLevel": "5"
+	},
+	{
+		"id": "400",
+		"wordJp": "ため",
+		"wordFurigana": "ため",
+		"jlptLevel": "5"
+	},
+	{
+		"id": ""
+	}
+]

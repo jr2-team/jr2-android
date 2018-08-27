@@ -6,8 +6,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.fragment_word_details.*
 import org.jetbrains.anko.bundleOf
+import ru.jjba.jr2.App
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Interpretation
 import ru.jjba.jr2.domain.entity.Word
@@ -51,6 +54,7 @@ class WordDetailsFragment : BaseFragment(), WordDetailsView {
         tvWordDetailsJp.text = word.wordJp
         tvWorddetailsFurigana.text = word.wordFurigana
         tvJlptLevel.text = "N${word.jlptLevel}"
+
     }
 
     override fun showInterps(interps: List<Interpretation>) {
