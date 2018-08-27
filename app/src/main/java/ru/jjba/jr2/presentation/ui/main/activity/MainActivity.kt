@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.navigation.DefaultNavigator
 import ru.jjba.jr2.presentation.navigation.NavigationHolder
+import ru.jjba.jr2.presentation.navigation.NavigationHolder.router
 import ru.jjba.jr2.presentation.navigation.Screen
 import ru.jjba.jr2.presentation.presenters.main.activity.MainActivityPresenter
 import ru.jjba.jr2.presentation.presenters.main.activity.MainActivityView
@@ -61,5 +62,9 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
     override fun onPause() {
         super.onPause()
         NavigationHolder.navigator.removeNavigator()
+    }
+
+    override fun onBackPressed() {
+        router.exit()
     }
 }
