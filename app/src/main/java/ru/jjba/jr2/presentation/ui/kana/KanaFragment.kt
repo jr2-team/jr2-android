@@ -4,13 +4,11 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.SwitchCompat
 import android.view.*
 import android.widget.Switch
 import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.android.synthetic.main.fragment_kana.*
 import ru.jjba.jr2.R
-import ru.jjba.jr2.domain.entity.Kana
 import ru.jjba.jr2.presentation.presenters.kana.KanaPresenter
 import ru.jjba.jr2.presentation.presenters.kana.KanaView
 import ru.jjba.jr2.presentation.ui.base.BaseFragment
