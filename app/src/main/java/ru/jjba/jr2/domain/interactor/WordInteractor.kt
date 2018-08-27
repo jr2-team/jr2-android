@@ -16,6 +16,8 @@ class WordInteractor(
 ) {
     fun getAllWords() = wordDbRepository.getAll()
 
+    fun getWordById(wordId: String) = wordDbRepository.getById(wordId)
+
     fun insertWord(word: Word, interpretationMap: Map<Interpretation, List<Example>>): Completable =
             wordDbRepository.insert(word)
                     .doOnComplete {

@@ -3,6 +3,7 @@ package ru.jjba.jr2.data.repository.word
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Scheduler
+import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import ru.jjba.jr2.App
 import ru.jjba.jr2.data.db.AppDatabase
@@ -14,6 +15,10 @@ class WordDbRepository(
         private val scheduler: Scheduler = Schedulers.io()
 ) {
     private val wordDao: WordDao = db.getWordDao()
+
+    fun getById(wordId: String): Single<Word> =
+            wordDao.getById(wordId)
+                    .subscribeOn(scheduler)
 
     fun getAll(): Flowable<List<Word>> =
             wordDao.getAll()

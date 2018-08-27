@@ -45,7 +45,7 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
             return when (screenKey) {
                 Screen.MAIN.title -> MainFragment()
                 Screen.WORD_LIST.title -> WordListFragment()
-                Screen.WORD_DETAILS.title -> WordDetailsFragment()
+                Screen.WORD_DETAILS.title -> WordDetailsFragment.newInstance(data as? String)
                 Screen.TEST.title -> TestFragment()
                 Screen.KANA.title -> KanaFragment()
                 else -> null
