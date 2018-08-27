@@ -42,7 +42,7 @@ class WordAdapter(
         fun bind(word: Word) = with(itemView) {
             tvWordJp.text = word.wordJp
             tvWordFurigana.text = word.wordFurigana
-            tvJlptLevel.text = word.jlptLevel.toString()
+            tvJlptLevel.text = "N${word.jlptLevel}"
 
             this.setOnClickListener {
                 router.navigateTo(Screen.WORD_DETAILS.title, word.id)

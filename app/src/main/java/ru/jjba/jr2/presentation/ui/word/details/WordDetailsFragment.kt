@@ -50,6 +50,7 @@ class WordDetailsFragment : BaseFragment(), WordDetailsView {
     override fun showWord(word: Word) {
         tvWordDetailsJp.text = word.wordJp
         tvWorddetailsFurigana.text = word.wordFurigana
+        tvJlptLevel.text = "N${word.jlptLevel}"
     }
 
     override fun showInterps(interps: List<Interpretation>) {
