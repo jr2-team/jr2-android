@@ -49,7 +49,7 @@ abstract class AppDatabase : RoomDatabase() {
                             /*
                              * Prepopulate data from json to local db, takes some time
                              * so need to show loader while data is loading.
-                             * Need to move code below to another layer with loader render
+                             * Need to move code below to other layer with loader render
                              */
                             Completable.fromAction {
                                 WordDbRepository()
