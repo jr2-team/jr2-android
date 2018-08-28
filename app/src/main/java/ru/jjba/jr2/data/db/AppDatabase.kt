@@ -1,14 +1,23 @@
 package ru.jjba.jr2.data.db
 
+import android.arch.persistence.db.SupportSQLiteDatabase
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import io.reactivex.Completable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 import ru.jjba.jr2.data.db.dao.ExampleDao
 import ru.jjba.jr2.data.db.dao.InterpretationDao
 import ru.jjba.jr2.data.db.dao.KanjiDao
 import ru.jjba.jr2.data.db.dao.WordDao
+import ru.jjba.jr2.data.repository.word.WordDbRepository
 import ru.jjba.jr2.domain.entity.*
+import ru.jjba.jr2.utils.loadJSONFromAsset
 
 @Database(
         entities = [
@@ -28,11 +37,33 @@ abstract class AppDatabase : RoomDatabase() {
 
     companion object {
         private const val DB_NAME = "jr2.db"
+        private const val PREPOPULATE_DATA = "words.json"
 
         fun create(context: Context, memoryOnly: Boolean) = if (memoryOnly) {
             Room.inMemoryDatabaseBuilder(context.applicationContext, AppDatabase::class.java)
         } else {
             Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DB_NAME)
+                    .addCallback(object : Callback() {
+                        override fun onCreate(db: SupportSQLiteDatabase) {
+                            super.onCreate(db)
+                            /*
+                             * Prepopulate data from json to local db, takes some time
+                             * so need to show loader while data is loading.
+                             * Need to move code below to another layer with loader render
+                             */
+                            Completable.fromAction {
+                                WordDbRepository()
+                                        .insert(Gson()
+                                                .fromJson<List<Word>>(
+                                                        context.loadJSONFromAsset(PREPOPULATE_DATA),
+                                                        object : TypeToken<List<Word>>() {}.type
+                                                )
+                                        )
+                            }.subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .subscribeBy { }
+                        }
+                    })
         }.build()
     }
 }
