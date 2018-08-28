@@ -6,7 +6,10 @@ import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import io.reactivex.Completable
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.jjba.jr2.R
 import ru.jjba.jr2.data.repository.word.WordDbRepository
@@ -22,6 +25,7 @@ import ru.jjba.jr2.presentation.ui.main.fragment.MainFragment
 import ru.jjba.jr2.presentation.ui.tests.TestFragment
 import ru.jjba.jr2.presentation.ui.word.details.WordDetailsFragment
 import ru.jjba.jr2.presentation.ui.word.list.WordListFragment
+import ru.jjba.jr2.utils.loadJSONFromAsset
 import java.io.IOException
 import java.nio.charset.Charset
 
@@ -46,29 +50,16 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
             }
         }
 
-        // TODO: refactor to completable with rxjava or something
-        // just for science
-        val words = loadJSONFromAsset()
+        // TODO: refactor to completable with rxjava or something, code below is just for science
         val listType = object : TypeToken<List<Word>>() {}.type
-        val wordList = Gson().fromJson<MutableList<Word>>(words, listType)
-        wordList.removeAt(wordList.size - 1)
-        WordDbRepository().insert(wordList).subscribeBy { }
-    }
 
-    private fun loadJSONFromAsset(): String? {
-        var json: String? = null
-        try {
-            val inputStream = this.assets.open("words.json")
-            val size = inputStream.available()
-            val buffer = ByteArray(size)
-            inputStream.read(buffer)
-            inputStream.close()
-            json = String(buffer, Charset.forName("UTF-8"))
-        } catch (ex: IOException) {
-            ex.printStackTrace()
+        Completable.fromAction {
+            val wordList = Gson().fromJson<List<Word>>(loadJSONFromAsset("words.json"), listType)
+            WordDbRepository().insert(wordList).subscribeBy { }
         }
-
-        return json
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy {  }
     }
 
     private val navigator = object : DefaultNavigator(this, R.id.flContent) {
