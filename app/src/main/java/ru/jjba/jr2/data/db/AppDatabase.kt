@@ -51,15 +51,12 @@ abstract class AppDatabase : RoomDatabase() {
                              * so need to show loader while data is loading.
                              * Need to move code below to other layer with loader render
                              */
-                            Completable.fromAction {
-                                WordDbRepository()
-                                        .insert(Gson()
-                                                .fromJson<List<Word>>(
-                                                        context.loadJSONFromAsset(PREPOPULATE_DATA),
-                                                        object : TypeToken<List<Word>>() {}.type
-                                                )
-                                        )
-                            }.subscribeOn(Schedulers.io())
+                            WordDbRepository().insert(
+                                    Gson().fromJson<List<Word>>(
+                                            context.loadJSONFromAsset(PREPOPULATE_DATA),
+                                            object : TypeToken<List<Word>>() {}.type
+                                    )
+                            ).subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                                     .subscribeBy { }
                         }
