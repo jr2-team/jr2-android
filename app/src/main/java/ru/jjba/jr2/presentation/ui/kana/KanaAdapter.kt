@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.item_kana.view.*
 import ru.jjba.jr2.R
 import ru.jjba.jr2.data.repository.kana.KanaRepository
-import ru.jjba.jr2.domain.entity.Kana
+import ru.jjba.jr2.domain.entity.JpSound
 import kotlin.properties.Delegates
 
 class KanaAdapter(
@@ -16,7 +16,7 @@ class KanaAdapter(
         private val kanaRepository: KanaRepository = KanaRepository()
 ) : RecyclerView.Adapter<KanaAdapter.ViewHolder>() {
 
-    var kanaList: List<Kana> by Delegates.observable(emptyList()) { _, _, _ ->
+    var kanaList: List<JpSound> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
     }
 
@@ -32,7 +32,7 @@ class KanaAdapter(
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(kana: Kana) = with(itemView) {
+        fun bind(kana: JpSound) = with(itemView) {
             if (!katakanaMode) {
                 tvKanaBig.text = kana.hiragana
                 tvKanaLittle.text = kana.katakana
@@ -41,7 +41,7 @@ class KanaAdapter(
                 tvKanaLittle.text = kana.hiragana
             }
 
-            if(!englishMode) tvKanaForeignSound.text = kana.rus else tvKanaForeignSound.text = kana.eng
+            if (!englishMode) tvKanaForeignSound.text = kana.rus else tvKanaForeignSound.text = kana.eng
         }
     }
 }

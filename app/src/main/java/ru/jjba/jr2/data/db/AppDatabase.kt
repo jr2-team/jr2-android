@@ -11,10 +11,7 @@ import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
-import ru.jjba.jr2.data.db.dao.ExampleDao
-import ru.jjba.jr2.data.db.dao.InterpretationDao
-import ru.jjba.jr2.data.db.dao.KanjiDao
-import ru.jjba.jr2.data.db.dao.WordDao
+import ru.jjba.jr2.data.db.dao.*
 import ru.jjba.jr2.data.repository.word.WordDbRepository
 import ru.jjba.jr2.domain.entity.*
 import ru.jjba.jr2.utils.loadJSONFromAsset
@@ -25,7 +22,8 @@ import ru.jjba.jr2.utils.loadJSONFromAsset
             Interpretation::class,
             Example::class,
             Kanji::class,
-            KanjiPart::class
+            KanjiPart::class,
+            JpSound::class
         ],
         version = 1
 )
@@ -34,6 +32,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun getInterpretationDao(): InterpretationDao
     abstract fun getExampleDao(): ExampleDao
     abstract fun getKanjiDao(): KanjiDao
+    abstract fun getJpSoundDao(): JpSoundDao
 
     companion object {
         private const val DB_NAME = "jr2.db"

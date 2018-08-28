@@ -1,10 +1,10 @@
 package ru.jjba.jr2.data.repository.kana
 
-import ru.jjba.jr2.domain.entity.Kana
-import java.util.*
+import ru.jjba.jr2.domain.entity.JpSound
 
 class KanaRepository {
-    val kana = listOf(
+    // TODO : move to file "JP_SOUNDS.json" and load to local DB where new instance is creating
+    val kana = listOf(JpSound("1", "あ", "ア", "a", "а", false))/*listOf(
             //main character
             Kana(UUID.randomUUID(), "あ", "ア", "a", "а"),
             Kana(UUID.randomUUID(), "い", "イ", "i", "и"),
@@ -142,5 +142,5 @@ class KanaRepository {
             Kana(UUID.randomUUID(), "ぴゃ", "ピャ", "pya", "пя"),
             Kana(UUID.randomUUID(), "ぴゅ", "ピュ", "pyu", "пю"),
             Kana(UUID.randomUUID(), "ぴょ", "ピョ", "pyo", "пё")
-    )
+    )*/
 }
