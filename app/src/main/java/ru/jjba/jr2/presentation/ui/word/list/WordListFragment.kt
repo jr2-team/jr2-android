@@ -29,7 +29,8 @@ class WordListFragment : BaseFragment(), WordListView {
     }
 
     private fun initContent(){
-        presenter.setContent()
+        //presenter.setContent()
+        presenter.fillAdapter()
         wordAdapter = presenter.getAdapter()
         setRecyclerViewParam()
     }

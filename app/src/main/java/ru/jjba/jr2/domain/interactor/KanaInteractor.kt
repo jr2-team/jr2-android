@@ -1,12 +1,16 @@
 package ru.jjba.jr2.domain.interactor
 
-import ru.jjba.jr2.data.repository.kana.KanaRepository
-import ru.jjba.jr2.domain.entity.JpSound
+import io.reactivex.Completable
+import ru.jjba.jr2.data.repository.kana.KanaDbRepository
+import ru.jjba.jr2.domain.entity.Kana
 
 class KanaInteractor(
-        private val kanaRepository: KanaRepository = KanaRepository()
+        private val kanaDbRepository: KanaDbRepository = KanaDbRepository()
 ) {
-    fun getAllKana(): List<JpSound> = kanaRepository.kana
+    fun getAllKana(): List<Kana> = kanaDbRepository.kana
 
-    fun getKana(index: Int): JpSound = kanaRepository.kana[index]
+    fun getKana(index: Int): Kana = kanaDbRepository.kana[index]
+
+    fun insertPiecesOfKana(piecesOfKana: List<Kana>): Completable =
+            kanaDbRepository.insert(piecesOfKana)
 }

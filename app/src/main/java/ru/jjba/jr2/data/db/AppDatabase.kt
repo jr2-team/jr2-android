@@ -7,7 +7,6 @@ import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
@@ -23,7 +22,7 @@ import ru.jjba.jr2.utils.loadJSONFromAsset
             Example::class,
             Kanji::class,
             KanjiPart::class,
-            JpSound::class
+            Kana::class
         ],
         version = 1
 )
@@ -32,11 +31,11 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun getInterpretationDao(): InterpretationDao
     abstract fun getExampleDao(): ExampleDao
     abstract fun getKanjiDao(): KanjiDao
-    abstract fun getJpSoundDao(): JpSoundDao
+    abstract fun getKanaDao(): KanaDao
 
     companion object {
         private const val DB_NAME = "jr2.db"
-        private const val PREPOPULATE_DATA = "words.json"
+        private const val PREPOPULATE_DATA = "word.json"
 
         fun create(context: Context, memoryOnly: Boolean) = if (memoryOnly) {
             Room.inMemoryDatabaseBuilder(context.applicationContext, AppDatabase::class.java)

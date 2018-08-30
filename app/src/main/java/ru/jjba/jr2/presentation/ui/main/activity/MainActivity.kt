@@ -55,12 +55,12 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
 
     override fun onResumeFragments() {
         super.onResumeFragments()
-        NavigationHolder.navigator.setNavigator(navigator)
+        //NavigationHolder.navigator.setNavigator(navigator)
     }
 
     override fun onPause() {
         super.onPause()
-        NavigationHolder.navigator.removeNavigator()
+        //NavigationHolder.navigator.removeNavigator()
     }
 
     override fun onBackPressed() {

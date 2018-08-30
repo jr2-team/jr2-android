@@ -18,7 +18,7 @@ class WordListPresenter(
 
     private val wordAdapter = WordAdapter()
 
-    fun setContent(){
+    /*fun setContent(){
         insertWords(
                 listOf(
                         Word("1", "家", "いえ", 5),
@@ -29,28 +29,28 @@ class WordListPresenter(
         insertInterpretation(Interpretation("2", "family; household", "noun", "1"))
         insertInterpretation(Interpretation("3", "hello; good day; good afternoon", "", "2"))
         fillAdapter()
-    }
+    }*/
 
     fun getAdapter(): WordAdapter = wordAdapter
 
     private fun insertInterpretation(interpretation: Interpretation) {
-        interpretationDbRepository.insert(interpretation).subscribeBy {  }
+        interpretationDbRepository.insert(interpretation).subscribeBy { }
     }
 
     private fun insertWords(words: List<Word>) {
-        wordDbRepository.insert(words).subscribeBy { }
+        wordDbRepository.insert(listOf(
+                Word("1", "家", "いえ", 5),
+                Word("2", "今日は", "こんにち", 5)
+        )).subscribeBy { }
     }
 
-    private fun fillAdapter() {
+    fun fillAdapter() {
         wordDbRepository.getAll()
                 .first(emptyList())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
                         onSuccess = {
-                            wordAdapter.wordList = it
-                        },
-                        onError = {
-                            it.printStackTrace()
+                            viewState.setWordAdapter(it)
                         }
                 )
     }

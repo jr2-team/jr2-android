@@ -1,29 +1,32 @@
 package ru.jjba.jr2.data.repository.kana
 
-import ru.jjba.jr2.domain.entity.JpSound
+import io.reactivex.Completable
+import io.reactivex.Flowable
+import io.reactivex.Scheduler
+import io.reactivex.schedulers.Schedulers
+import ru.jjba.jr2.App
+import ru.jjba.jr2.data.db.AppDatabase
+import ru.jjba.jr2.data.db.dao.KanaDao
+import ru.jjba.jr2.domain.entity.Kana
 
-class KanaRepository {
-    // TODO : move to file "JP_SOUNDS.json" and load to local DB where new instance is creating
-    val kana = listOf(JpSound("1", "あ", "ア", "a", "а", false))/*listOf(
+class KanaDbRepository(
+        db: AppDatabase = App.instance.db,
+        private val scheduler: Scheduler = Schedulers.io()
+) {
+    private val kanaDao: KanaDao = db.getKanaDao()
+
+    fun getAll(): Flowable<List<Kana>> =
+            kanaDao.getAll()
+                    .subscribeOn(scheduler)
+
+    fun insert(piecesOfKana: List<Kana>): Completable =
+            Completable.fromCallable { kanaDao.insert(piecesOfKana) }
+                    .subscribeOn(scheduler)
+
+    // TODO : move to file "kana.json" and load to local DB where new instance is creating
+    val kana = listOf(Kana("1", "あ", "ア", "a", "а", false))
+    /*listOf(
             //main character
-            Kana(UUID.randomUUID(), "あ", "ア", "a", "а"),
-            Kana(UUID.randomUUID(), "い", "イ", "i", "и"),
-            Kana(UUID.randomUUID(), "う", "ウ", "u", "у"),
-            Kana(UUID.randomUUID(), "え", "エ", "e", "э"),
-            Kana(UUID.randomUUID(), "お", "オ", "o", "о"),
-
-            Kana(UUID.randomUUID(), "か", "カ", "ka", "ка"),
-            Kana(UUID.randomUUID(), "き", "キ", "ki", "ки"),
-            Kana(UUID.randomUUID(), "く", "ク", "ku", "ку"),
-            Kana(UUID.randomUUID(), "け", "ケ", "ke", "кэ"),
-            Kana(UUID.randomUUID(), "こ", "コ", "ko", "ко"),
-
-            Kana(UUID.randomUUID(), "さ", "サ", "sa", "са"),
-            Kana(UUID.randomUUID(), "し", "シ", "shi", "си"),
-            Kana(UUID.randomUUID(), "せ", "ス", "su", "су"),
-            Kana(UUID.randomUUID(), "す", "セ", "se", "сэ"),
-            Kana(UUID.randomUUID(), "そ", "ソ", "so", "со"),
-
             Kana(UUID.randomUUID(), "た", "タ", "ta", "та"),
             Kana(UUID.randomUUID(), "ち", "チ", "chi", "ти"),
             Kana(UUID.randomUUID(), "つ", "ツ", "tsu", "ту"),

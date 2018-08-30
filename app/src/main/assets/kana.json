@@ -1,0 +1,322 @@
+[
+  {
+    "id": "1",
+    "hiragana": "あ",
+    "katakana": "ア",
+    "eng": "a",
+    "rus": "a",
+    "isNigori": 0
+  },
+  {
+    "id": "2",
+    "hiragana": "い",
+    "katakana": "イ",
+    "eng": "i",
+    "rus": "и",
+    "isNigori": 0
+  },
+  {
+    "id": "3",
+    "hiragana": "う",
+    "katakana": "ウ",
+    "eng": "u",
+    "rus": "у",
+    "isNigori": 0
+  },
+  {
+    "id": "4",
+    "hiragana": "え",
+    "katakana": "エ",
+    "eng": "e",
+    "rus": "э",
+    "isNigori": 0
+  },
+  {
+    "id": "5",
+    "hiragana": "お",
+    "katakana": "オ",
+    "eng": "o",
+    "rus": "о",
+    "isNigori": 0
+  },
+  {
+    "id": "6",
+    "hiragana": "か",
+    "katakana": "",
+    "eng": "ka",
+    "rus": "ка",
+    "isNigori": 0
+  },
+  {
+    "id": "7",
+    "hiragana": "き",
+    "katakana": "キ",
+    "eng": "ki",
+    "rus": "ки",
+    "isNigori": 0
+  },
+  {
+    "id": "8",
+    "hiragana": "く",
+    "katakana": "ク",
+    "eng": "ku",
+    "rus": "ку",
+    "isNigori": 0
+  },
+  {
+    "id": "9",
+    "hiragana": "け",
+    "katakana": "ケ",
+    "eng": "ke",
+    "rus": "кэ",
+    "isNigori": 0
+  },
+  {
+    "id": "10",
+    "hiragana": "こ",
+    "katakana": "コ",
+    "eng": "ko",
+    "rus": "ко",
+    "isNigori": 0
+  },
+  {
+    "id": "11",
+    "hiragana": "さ",
+    "katakana": "サ",
+    "eng": "sa",
+    "rus": "са",
+    "isNigori": 0
+  },
+  {
+    "id": "12",
+    "hiragana": "し",
+    "katakana": "シ",
+    "eng": "shi",
+    "rus": "си",
+    "isNigori": 0
+  },
+  {
+    "id": "13",
+    "hiragana": "せ",
+    "katakana": "ス",
+    "eng": "su",
+    "rus": "су",
+    "isNigori": 0
+  },
+  {
+    "id": "14",
+    "hiragana": "す",
+    "katakana": "セ",
+    "eng": "se",
+    "rus": "сэ",
+    "isNigori": 0
+  },
+  {
+    "id": "15",
+    "hiragana": "そ",
+    "katakana": "ソ",
+    "eng": "so",
+    "rus": "со",
+    "isNigori": 0
+  },
+  {
+    "id": "16",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "17",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "18",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "19",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "20",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "21",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "22",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "23",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "24",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "25",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "26",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "27",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "28",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "29",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "30",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "31",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "32",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "33",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "34",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "35",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "36",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "37",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "38",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "39",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  },
+  {
+    "id": "40",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": 0
+  }
+]
