@@ -2,6 +2,8 @@ package ru.jjba.jr2.presentation.presenters.kana
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.subscribeBy
 import ru.jjba.jr2.domain.interactor.KanaInteractor
 import ru.jjba.jr2.presentation.ui.kana.KanaAdapter
 
@@ -21,7 +23,15 @@ class KanaPresenter(
     }
 
     private fun fillAdapter() {
-        kanaAdapter.kanaList = kanaInteractor.getAllKana()
+        //kanaAdapter.kanaList = kanaInteractor.getAllKana()
+        kanaInteractor.getAllKana()
+                .first(emptyList())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                        onSuccess = {
+                            kanaAdapter.kanaList = it
+                        }
+                )
     }
 
     fun setAdapterMode(englishMode: Boolean, katakanaMode: Boolean) {

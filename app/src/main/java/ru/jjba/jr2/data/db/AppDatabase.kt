@@ -9,8 +9,8 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
-import io.reactivex.schedulers.Schedulers
 import ru.jjba.jr2.data.db.dao.*
+import ru.jjba.jr2.data.repository.kana.KanaDbRepository
 import ru.jjba.jr2.data.repository.word.WordDbRepository
 import ru.jjba.jr2.domain.entity.*
 import ru.jjba.jr2.utils.loadJSONFromAsset
@@ -49,14 +49,21 @@ abstract class AppDatabase : RoomDatabase() {
                              * so need to show loader while data is loading.
                              * Need to move code below to other layer with loader render
                              */
-                            WordDbRepository().insert(
-                                    Gson().fromJson<List<Word>>(
-                                            context.loadJSONFromAsset(PREPOPULATE_DATA),
-                                            object : TypeToken<List<Word>>() {}.type
+                            KanaDbRepository().insert(
+                                    Gson().fromJson<List<Kana>>(
+                                            context.loadJSONFromAsset("kana.json"),
+                                            object : TypeToken<List<Kana>>() {}.type
                                     )
-                            ).subscribeOn(Schedulers.io())
-                                    .observeOn(AndroidSchedulers.mainThread())
-                                    .subscribeBy { }
+                            ).observeOn(AndroidSchedulers.mainThread())
+                                    .subscribeBy {
+                                        WordDbRepository().insert(
+                                                Gson().fromJson<List<Word>>(
+                                                        context.loadJSONFromAsset(PREPOPULATE_DATA),
+                                                        object : TypeToken<List<Word>>() {}.type
+                                                )
+                                        ).observeOn(AndroidSchedulers.mainThread())
+                                                .subscribeBy { }
+                                    }
                         }
                     })
         }.build()
