@@ -54,4 +54,6 @@ abstract class BaseFragment : MvpAppCompatFragment() {
     fun isBnMainShown(isShown: Boolean = true) {
         requireActivity().bnMain.isVisible = isShown
     }
+
+
 }
