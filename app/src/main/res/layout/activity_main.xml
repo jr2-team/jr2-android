@@ -7,7 +7,7 @@
     tools:context=".presentation.ui.main.activity.MainActivity">
 
     <com.ss.bottomnavigation.BottomNavigation
-        android:id="@+id/bottomNavigation"
+        android:id="@+id/bnMain"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"
@@ -38,22 +38,14 @@
             android:layout_weight="1"
             app:tab_icon="@drawable/ic_gakushu"
             app:tab_text="@string/menu_kana_title" />
-
-        <com.ss.bottomnavigation.TabItem
-            android:id="@+id/tiTest"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:tab_icon="@drawable/ic_test"
-            app:tab_text="@string/menu_test_title" />
     </com.ss.bottomnavigation.BottomNavigation>
 
     <FrameLayout
         android:id="@+id/flContent"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_above="@id/bottomNavigation"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        android:layout_above="@id/bnMain"
+        app:layout_constraintBottom_toTopOf="@+id/bnMain"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,4 +1,4 @@
-package ru.jjba.jr2.data.repository.interpretation
+package ru.jjba.jr2.data.repository
 
 import io.reactivex.Completable
 import io.reactivex.Flowable

@@ -1,19 +1,11 @@
 package ru.jjba.jr2.presentation.ui.word.list
 
-import android.app.AlertDialog
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.item_word.view.*
 import ru.jjba.jr2.R
-import ru.jjba.jr2.data.repository.example.ExampleDbRepository
-import ru.jjba.jr2.data.repository.interpretation.InterpretationDbRepository
 import ru.jjba.jr2.domain.entity.Word
 import ru.jjba.jr2.presentation.navigation.DefaultRouter
 import ru.jjba.jr2.presentation.navigation.NavigationHolder

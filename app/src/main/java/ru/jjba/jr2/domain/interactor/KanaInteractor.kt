@@ -1,7 +1,7 @@
 package ru.jjba.jr2.domain.interactor
 
 import io.reactivex.Completable
-import ru.jjba.jr2.data.repository.kana.KanaDbRepository
+import ru.jjba.jr2.data.repository.KanaDbRepository
 import ru.jjba.jr2.domain.entity.Kana
 
 class KanaInteractor(

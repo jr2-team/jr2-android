@@ -10,8 +10,8 @@ import com.google.gson.reflect.TypeToken
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import ru.jjba.jr2.data.db.dao.*
-import ru.jjba.jr2.data.repository.kana.KanaDbRepository
-import ru.jjba.jr2.data.repository.word.WordDbRepository
+import ru.jjba.jr2.data.repository.KanaDbRepository
+import ru.jjba.jr2.data.repository.WordDbRepository
 import ru.jjba.jr2.domain.entity.*
 import ru.jjba.jr2.utils.loadJSONFromAsset
 

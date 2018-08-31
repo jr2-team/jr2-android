@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import ru.jjba.jr2.R
 import ru.jjba.jr2.utils.BottomNavigationItem
 import ru.jjba.jr2.utils.inflate
+import ru.jjba.jr2.utils.isVisible
 
 abstract class BaseFragment : MvpAppCompatFragment() {
 
@@ -37,13 +38,20 @@ abstract class BaseFragment : MvpAppCompatFragment() {
         super.onResume()
         when(this.layoutRes) {
             R.layout.fragment_main->
-                requireActivity().bottomNavigation.selectedItem = BottomNavigationItem.MAIN.item
+                requireActivity().bnMain.selectedItem = BottomNavigationItem.MAIN.item
             R.layout.fragment_word_list ->
-                requireActivity().bottomNavigation.selectedItem = BottomNavigationItem.WORD_LIST.item
+                requireActivity().bnMain.selectedItem = BottomNavigationItem.WORD_LIST.item
             R.layout.fragment_kana ->
-                requireActivity().bottomNavigation.selectedItem = BottomNavigationItem.KANA.item
-            R.layout.fragment_test->
-                requireActivity().bottomNavigation.selectedItem = BottomNavigationItem.TEST.item
+                requireActivity().bnMain.selectedItem = BottomNavigationItem.KANA.item
         }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        isBnMainShown()
+    }
+
+    fun isBnMainShown(isShown: Boolean = true) {
+        requireActivity().bnMain.isVisible = isShown
     }
 }

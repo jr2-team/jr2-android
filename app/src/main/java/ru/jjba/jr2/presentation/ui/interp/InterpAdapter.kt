@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.item_interp.view.*
 import ru.jjba.jr2.R
-import ru.jjba.jr2.data.repository.example.ExampleDbRepository
+import ru.jjba.jr2.data.repository.ExampleDbRepository
 import ru.jjba.jr2.domain.entity.Interpretation
 import kotlin.properties.Delegates
 

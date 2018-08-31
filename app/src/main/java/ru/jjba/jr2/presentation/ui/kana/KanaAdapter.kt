@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.item_kana.view.*
 import ru.jjba.jr2.R
-import ru.jjba.jr2.data.repository.kana.KanaDbRepository
+import ru.jjba.jr2.data.repository.KanaDbRepository
 import ru.jjba.jr2.domain.entity.Kana
 import kotlin.properties.Delegates
 

@@ -45,4 +45,6 @@ class WordListFragment : BaseFragment(), WordListView {
     override fun setWordAdapter(words: List<Word>) {
         wordAdapter.wordList = words
     }
+
+
 }

@@ -1,4 +1,4 @@
-package ru.jjba.jr2.data.repository.kana
+package ru.jjba.jr2.data.repository
 
 import io.reactivex.Completable
 import io.reactivex.Flowable

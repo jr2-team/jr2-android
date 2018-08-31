@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.navigation.DefaultNavigator
 import ru.jjba.jr2.presentation.navigation.NavigationHolder
@@ -30,12 +31,11 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
     }
 
     private fun initContent() {
-        bottomNavigation.setOnSelectedItemChangeListener {
+        bnMain.setOnSelectedItemChangeListener {
             when (it) {
                 R.id.tiMain -> presenter.onMainClicked()
                 R.id.tiKana -> presenter.onKanaClicked()
                 R.id.tiWordList -> presenter.onWordListClicked()
-                R.id.tiTest -> presenter.onTestClicked()
             }
         }
     }
