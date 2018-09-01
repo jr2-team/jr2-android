@@ -110,5 +110,261 @@
     "eng": "se",
     "rus": "сэ",
     "isNigori": false
-  }
+  },
+  {
+    "id": "15",
+    "hiragana": "そ",
+    "katakana": "ソ",
+    "eng": "so",
+    "rus": "со",
+    "isNigori": false
+  },
+  {
+    "id": "16",
+    "hiragana": "た",
+    "katakana": "タ",
+    "eng": "ta",
+    "rus": "та",
+    "isNigori": false
+  },
+  {
+    "id": "17",
+    "hiragana": "ち",
+    "katakana": "チ",
+    "eng": "chi",
+    "rus": "ти",
+    "isNigori": false
+  },
+  {
+    "id": "18",
+    "hiragana": "つ",
+    "katakana": "ツ",
+    "eng": "tsu",
+    "rus": "ту",
+    "isNigori": false
+  },
+  {
+    "id": "19",
+    "hiragana": "て",
+    "katakana": "テ",
+    "eng": "te",
+    "rus": "тэ",
+    "isNigori": false
+  },
+  {
+    "id": "20",
+    "hiragana": "と",
+    "katakana": "ト",
+    "eng": "to",
+    "rus": "то",
+    "isNigori": false
+  },
+  {
+    "id": "21",
+    "hiragana": "な",
+    "katakana": "ナ",
+    "eng": "na",
+    "rus": "на",
+    "isNigori": false
+  },
+  {
+    "id": "22",
+    "hiragana": "に",
+    "katakana": "ニ",
+    "eng": "ni",
+    "rus": "ни",
+    "isNigori": false
+  },
+  {
+    "id": "23",
+    "hiragana": "ぬ",
+    "katakana": "ヌ",
+    "eng": "nu",
+    "rus": "ну",
+    "isNigori": false
+  },
+  {
+    "id": "24",
+    "hiragana": "ね",
+    "katakana": "ネ",
+    "eng": "ne",
+    "rus": "нэ",
+    "isNigori": false
+  },
+  {
+    "id": "25",
+    "hiragana": "の",
+    "katakana": "ノ",
+    "eng": "no",
+    "rus": "но",
+    "isNigori": false
+  },
+  {
+    "id": "26",
+    "hiragana": "は",
+    "katakana": "ハ",
+    "eng": "ha",
+    "rus": "ха",
+    "isNigori": false
+  },
+  {
+    "id": "27",
+    "hiragana": "ひ",
+    "katakana": "ヒ",
+    "eng": "hi",
+    "rus": "хи",
+    "isNigori": false
+  },
+  {
+    "id": "28",
+    "hiragana": "ふ",
+    "katakana": "フ",
+    "eng": "fu",
+    "rus": "фу",
+    "isNigori": false
+  },
+  {
+    "id": "29",
+    "hiragana": "へ",
+    "katakana": "ヘ",
+    "eng": "he",
+    "rus": "хэ",
+    "isNigori": false
+  },
+  {
+    "id": "30",
+    "hiragana": "ほ",
+    "katakana": "ホ",
+    "eng": "ho",
+    "rus": "хо",
+    "isNigori": false
+  },
+  {
+    "id": "31",
+    "hiragana": "ま",
+    "katakana": "マ",
+    "eng": "ma",
+    "rus": "ма",
+    "isNigori": false
+  },
+  {
+    "id": "32",
+    "hiragana": "み",
+    "katakana": "ミ",
+    "eng": "mi",
+    "rus": "ми",
+    "isNigori": false
+  },
+  {
+    "id": "33",
+    "hiragana": "む",
+    "katakana": "ム",
+    "eng": "mu",
+    "rus": "му",
+    "isNigori": false
+  },
+  {
+    "id": "34",
+    "hiragana": "め",
+    "katakana": "メ",
+    "eng": "me",
+    "rus": "мэ",
+    "isNigori": false
+  },
+  {
+    "id": "35",
+    "hiragana": "も",
+    "katakana": "モ",
+    "eng": "mo",
+    "rus": "мо",
+    "isNigori": false
+  },
+  {
+    "id": "36",
+    "hiragana": "や",
+    "katakana": "ヤ",
+    "eng": "ya",
+    "rus": "я",
+    "isNigori": false
+  },
+  {
+    "id": "37",
+    "hiragana": "ゆ",
+    "katakana": "ユ",
+    "eng": "yu",
+    "rus": "ю",
+    "isNigori": false
+  },
+  {
+    "id": "38",
+    "hiragana": "よ",
+    "katakana": "ヨ",
+    "eng": "yo",
+    "rus": "ё",
+    "isNigori": false
+  },
+  {
+    "id": "39",
+    "hiragana": "ら",
+    "katakana": "ラ",
+    "eng": "ra",
+    "rus": "ра",
+    "isNigori": false
+  },
+  {
+    "id": "40",
+    "hiragana": "り",
+    "katakana": "リ",
+    "eng": "ri",
+    "rus": "ри",
+    "isNigori": false
+  },
+  {
+    "id": "41",
+    "hiragana": "る",
+    "katakana": "ル",
+    "eng": "ru",
+    "rus": "ру",
+    "isNigori": false
+  },
+  {
+    "id": "42",
+    "hiragana": "れ",
+    "katakana": "レ",
+    "eng": "re",
+    "rus": "рэ",
+    "isNigori": false
+  },
+  {
+    "id": "43",
+    "hiragana": "ろ",
+    "katakana": "ロ",
+    "eng": "ro",
+    "rus": "ро",
+    "isNigori": false
+  },
+  {
+    "id": "44",
+    "hiragana": "わ",
+    "katakana": "ワ",
+    "eng": "wa",
+    "rus": "ва",
+    "isNigori": false
+  },
+  {
+    "id": "45",
+    "hiragana": "を",
+    "katakana": "ヲ",
+    "eng": "wo",
+    "rus": "о",
+    "isNigori": false
+  },
+  {
+    "id": "46",
+    "hiragana": "ん",
+    "katakana": "ン",
+    "eng": "n",
+    "rus": "н",
+    "isNigori": false
+  } 
 ]
