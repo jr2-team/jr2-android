@@ -366,5 +366,493 @@
     "eng": "n",
     "rus": "н",
     "isNigori": false
-  } 
+  },
+  {
+    "id": "47",
+    "hiragana": "が",
+    "katakana": "ガ",
+    "eng": "ga",
+    "rus": "га",
+    "isNigori": true
+  },
+  {
+    "id": "48",
+    "hiragana": "ぎ",
+    "katakana": "ギ",
+    "eng": "gi",
+    "rus": "ги",
+    "isNigori": true
+  },
+  {
+    "id": "49",
+    "hiragana": "ぐ",
+    "katakana": "グ",
+    "eng": "gu",
+    "rus": "гу",
+    "isNigori": true
+  },
+  {
+    "id": "50",
+    "hiragana": "げ",
+    "katakana": "ゲ",
+    "eng": "ge",
+    "rus": "ге",
+    "isNigori": true
+  },
+  {
+    "id": "51",
+    "hiragana": "ご",
+    "katakana": "ゴ",
+    "eng": "go",
+    "rus": "го",
+    "isNigori": true
+  },
+  {
+    "id": "52",
+    "hiragana": "ざ",
+    "katakana": "ザ",
+    "eng": "za",
+    "rus": "дза",
+    "isNigori": true
+  },
+  {
+    "id": "53",
+    "hiragana": "じ",
+    "katakana": "ジ",
+    "eng": "ji",
+    "rus": "дзи",
+    "isNigori": true
+  },
+  {
+    "id": "54",
+    "hiragana": "ず",
+    "katakana": "ズ",
+    "eng": "zu",
+    "rus": "дзу",
+    "isNigori": true
+  },
+  {
+    "id": "55",
+    "hiragana": "ぜ",
+    "katakana": "ゼ",
+    "eng": "ze",
+    "rus": "дзэ",
+    "isNigori": true
+  },
+  {
+    "id": "56",
+    "hiragana": "ぞ",
+    "katakana": "ゾ",
+    "eng": "zo",
+    "rus": "дзо",
+    "isNigori": true
+  },
+  {
+    "id": "57",
+    "hiragana": "だ",
+    "katakana": "ダ",
+    "eng": "da",
+    "rus": "да",
+    "isNigori": true
+  },
+  {
+    "id": "58",
+    "hiragana": "ぢ",
+    "katakana": "ヂ",
+    "eng": "ji",
+    "rus": "дзи",
+    "isNigori": true
+  },
+  {
+    "id": "59",
+    "hiragana": "づ",
+    "katakana": "ヅ",
+    "eng": "zu",
+    "rus": "дзу",
+    "isNigori": true
+  },
+  {
+    "id": "60",
+    "hiragana": "で",
+    "katakana": "デ",
+    "eng": "de",
+    "rus": "дэ",
+    "isNigori": true
+  },
+  {
+    "id": "61",
+    "hiragana": "ど",
+    "katakana": "ド",
+    "eng": "do",
+    "rus": "до",
+    "isNigori": true
+  },
+  {
+    "id": "62",
+    "hiragana": "ば",
+    "katakana": "バ",
+    "eng": "ba",
+    "rus": "ба",
+    "isNigori": true
+  },
+  {
+    "id": "63",
+    "hiragana": "び",
+    "katakana": "ビ",
+    "eng": "bi",
+    "rus": "би",
+    "isNigori": true
+  },
+  {
+    "id": "64",
+    "hiragana": "ぶ",
+    "katakana": "ブ",
+    "eng": "bu",
+    "rus": "бу",
+    "isNigori": true
+  },
+  {
+    "id": "65",
+    "hiragana": "べ",
+    "katakana": "ベ",
+    "eng": "be",
+    "rus": "бэ",
+    "isNigori": true
+  },
+  {
+    "id": "66",
+    "hiragana": "ぼ",
+    "katakana": "ボ",
+    "eng": "bo",
+    "rus": "бо",
+    "isNigori": true
+  },
+  {
+    "id": "62",
+    "hiragana": "ぱ",
+    "katakana": "パ",
+    "eng": "pa",
+    "rus": "па",
+    "isNigori": true
+  },
+  {
+    "id": "63",
+    "hiragana": "ぴ",
+    "katakana": "ピ",
+    "eng": "pi",
+    "rus": "пи",
+    "isNigori": true
+  },
+  {
+    "id": "64",
+    "hiragana": "ぷ",
+    "katakana": "プ",
+    "eng": "pu",
+    "rus": "пу",
+    "isNigori": true
+  },
+  {
+    "id": "65",
+    "hiragana": "ぺ",
+    "katakana": "ペ",
+    "eng": "pe",
+    "rus": "пэ",
+    "isNigori": true
+  },
+  {
+    "id": "66",
+    "hiragana": "ぽ",
+    "katakana": "ポ",
+    "eng": "po",
+    "rus": "по",
+    "isNigori": true
+  },
+  {
+    "id": "67",
+    "hiragana": "きゃ",
+    "katakana": "キャ",
+    "eng": "kya",
+    "rus": "кя",
+    "isNigori": false
+  },
+  {
+    "id": "68",
+    "hiragana": "きゅ",
+    "katakana": "キュ",
+    "eng": "kyu",
+    "rus": "кю",
+    "isNigori": false
+  },
+  {
+    "id": "69",
+    "hiragana": "きょ",
+    "katakana": "キョ",
+    "eng": "kyo",
+    "rus": "кё",
+    "isNigori": false
+  },
+  {
+    "id": "70",
+    "hiragana": "しゃ",
+    "katakana": "シャ",
+    "eng": "sha",
+    "rus": "ся",
+    "isNigori": false
+  },
+  {
+    "id": "71",
+    "hiragana": "しゅ",
+    "katakana": "シュ",
+    "eng": "shu",
+    "rus": "сю",
+    "isNigori": false
+  },
+  {
+    "id": "72",
+    "hiragana": "しょ",
+    "katakana": "ショ",
+    "eng": "sho",
+    "rus": "сё",
+    "isNigori": false
+  },
+  {
+    "id": "73",
+    "hiragana": "ちゃ",
+    "katakana": "チャ",
+    "eng": "cha",
+    "rus": "тя",
+    "isNigori": false
+  },
+  {
+    "id": "74",
+    "hiragana": "ちゅ",
+    "katakana": "チュ",
+    "eng": "chu",
+    "rus": "тю",
+    "isNigori": false
+  },
+  {
+    "id": "75",
+    "hiragana": "ちょ",
+    "katakana": "チョ",
+    "eng": "cho",
+    "rus": "тё",
+    "isNigori": false
+  },
+  {
+    "id": "76",
+    "hiragana": "にゃ",
+    "katakana": "ニャ",
+    "eng": "nya",
+    "rus": "ня",
+    "isNigori": false
+  },
+  {
+    "id": "77",
+    "hiragana": "にゅ",
+    "katakana": "ニュ",
+    "eng": "nyu",
+    "rus": "ню",
+    "isNigori": false
+  },
+  {
+    "id": "78",
+    "hiragana": "にょ",
+    "katakana": "ニョ",
+    "eng": "nyo",
+    "rus": "нё",
+    "isNigori": false
+  },
+  {
+    "id": "79",
+    "hiragana": "ひゃ",
+    "katakana": "ヒャ",
+    "eng": "hya",
+    "rus": "хя",
+    "isNigori": false
+  },
+  {
+    "id": "80",
+    "hiragana": "ひゅ",
+    "katakana": "ヒュ",
+    "eng": "hyu",
+    "rus": "хю",
+    "isNigori": false
+  },
+  {
+    "id": "81",
+    "hiragana": "ひょ",
+    "katakana": "ヒョ",
+    "eng": "hyo",
+    "rus": "хё",
+    "isNigori": false
+  },
+  {
+    "id": "82",
+    "hiragana": "みゃ",
+    "katakana": "ミャ",
+    "eng": "mya",
+    "rus": "мя",
+    "isNigori": false
+  },
+  {
+    "id": "83",
+    "hiragana": "みゅ",
+    "katakana": "ミュ",
+    "eng": "myu",
+    "rus": "мю",
+    "isNigori": false
+  },
+  {
+    "id": "84",
+    "hiragana": "みょ",
+    "katakana": "ミョ",
+    "eng": "myo",
+    "rus": "мё",
+    "isNigori": false
+  },
+  {
+    "id": "85",
+    "hiragana": "りゃ",
+    "katakana": "リャ",
+    "eng": "rya",
+    "rus": "ря",
+    "isNigori": false
+  },
+  {
+    "id": "86",
+    "hiragana": "りゅ",
+    "katakana": "リュ",
+    "eng": "ryu",
+    "rus": "рю",
+    "isNigori": false
+  },
+  {
+    "id": "87",
+    "hiragana": "りょ",
+    "katakana": "リョ",
+    "eng": "ryo",
+    "rus": "рё",
+    "isNigori": false
+  },
+  {
+    "id": "88",
+    "hiragana": "ぎゃ",
+    "katakana": "ギャ",
+    "eng": "gya",
+    "rus": "гя",
+    "isNigori": true
+  },
+  {
+    "id": "89",
+    "hiragana": "ぎゅ",
+    "katakana": "ギュ",
+    "eng": "gyu",
+    "rus": "гю",
+    "isNigori": true
+  },
+  {
+    "id": "90",
+    "hiragana": "ぎょ",
+    "katakana": "ギョ",
+    "eng": "gyo",
+    "rus": "гё",
+    "isNigori": true
+  },
+  {
+    "id": "91",
+    "hiragana": "じゃ",
+    "katakana": "ジャ",
+    "eng": "ja",
+    "rus": "дзя",
+    "isNigori": true
+  },
+  {
+    "id": "92",
+    "hiragana": "じゅ",
+    "katakana": "ジュ",
+    "eng": "ju",
+    "rus": "дзю",
+    "isNigori": true
+  },
+  {
+    "id": "93",
+    "hiragana": "じょ",
+    "katakana": "ジョ",
+    "eng": "jo",
+    "rus": "дзё",
+    "isNigori": true
+  },
+  {
+    "id": "94",
+    "hiragana": "ぢゃ",
+    "katakana": "ヂャ",
+    "eng": "ja",
+    "rus": "дзя",
+    "isNigori": true
+  },
+  {
+    "id": "95",
+    "hiragana": "ぢゅ",
+    "katakana": "ヂュ",
+    "eng": "ju",
+    "rus": "дзю",
+    "isNigori": true
+  },
+  {
+    "id": "96",
+    "hiragana": "ぢょ",
+    "katakana": "ヂョ",
+    "eng": "jo",
+    "rus": "дзё",
+    "isNigori": true
+  },
+  {
+    "id": "97",
+    "hiragana": "びゃ",
+    "katakana": "ビャ",
+    "eng": "bya",
+    "rus": "бя",
+    "isNigori": true
+  },
+  {
+    "id": "98",
+    "hiragana": "びゅ",
+    "katakana": "ビュ",
+    "eng": "byu",
+    "rus": "бю",
+    "isNigori": true
+  },
+  {
+    "id": "99",
+    "hiragana": "びょ",
+    "katakana": "ビョ",
+    "eng": "byo",
+    "rus": "бё",
+    "isNigori": true
+  },
+  {
+    "id": "100",
+    "hiragana": "ぴゃ",
+    "katakana": "ピャ",
+    "eng": "pya",
+    "rus": "пя",
+    "isNigori": true
+  },
+  {
+    "id": "101",
+    "hiragana": "ぴゅ",
+    "katakana": "ピュ",
+    "eng": "pyu",
+    "rus": "пю",
+    "isNigori": true
+  },
+  {
+    "id": "102",
+    "hiragana": "ぴょ",
+    "katakana": "ピョ",
+    "eng": "pyo",
+    "rus": "пё",
+    "isNigori": true
+  }
 ]
