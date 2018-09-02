@@ -80,6 +80,10 @@ class KanaFragment : BaseFragment(), KanaView {
     override fun setRecyclerViewParam() {
         rvKana.also {
             it.layoutManager = GridLayoutManager(activity, 5)
+            it.layoutManager
+            it.setHasFixedSize(true)
+            it.setItemViewCacheSize(30)
+            it.drawingCacheQuality = View.DRAWING_CACHE_QUALITY_HIGH
             it.adapter = presenter.getAdapter()
             it.adapter.notifyDataSetChanged()
         }
