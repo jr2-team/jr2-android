@@ -8,7 +8,4 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface KanaView : MvpView {
     fun setRecyclerViewParam()
-
-    @StateStrategyType(OneExecutionStateStrategy::class)
-    fun createSettingsDialog(englishMode: Boolean, katakanaMode: Boolean)
 }

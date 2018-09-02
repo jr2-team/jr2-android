@@ -4,6 +4,7 @@ import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 import ru.jjba.jr2.domain.interactor.KanaInteractor
 import ru.jjba.jr2.presentation.ui.kana.KanaAdapter
 
@@ -12,18 +13,12 @@ class KanaPresenter(
         private val kanaInteractor: KanaInteractor = KanaInteractor()
 ) : MvpPresenter<KanaView>() {
 
-    private var kanaAdapter = KanaAdapter(false, false)
+    private var kanaAdapter = KanaAdapter()
 
-    private var englishMode = false
-    private var katakanaMode = false
+    var englishMode = false
+    var katakanaMode = false
 
-    override fun onFirstViewAttach() {
-        super.onFirstViewAttach()
-        fillAdapter()
-    }
-
-    private fun fillAdapter() {
-        //kanaAdapter.kanaList = kanaInteractor.getAllKana()
+    fun fillAdapter() {
         kanaInteractor.getAllKana()
                 .first(emptyList())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -34,16 +29,10 @@ class KanaPresenter(
                 )
     }
 
-    fun setAdapterMode(englishMode: Boolean, katakanaMode: Boolean) {
-        this.englishMode = englishMode
-        this.katakanaMode = katakanaMode
-        kanaAdapter = KanaAdapter(englishMode, katakanaMode)
-        fillAdapter()
+    fun setAdapterMode() {
+        kanaAdapter.englishMode = englishMode
+        kanaAdapter.katakanaMode = katakanaMode
     }
 
     fun getAdapter(): KanaAdapter = kanaAdapter
-
-    fun setSettingsDialog() {
-        viewState.createSettingsDialog(englishMode, katakanaMode)
-    }
 }

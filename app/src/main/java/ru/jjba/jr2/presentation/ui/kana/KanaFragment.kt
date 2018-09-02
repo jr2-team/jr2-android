@@ -29,42 +29,34 @@ class KanaFragment : BaseFragment(), KanaView {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean = when (item?.itemId) {
-        R.id.miSettings -> presenter.setSettingsDialog().let { true }
+        R.id.miSettings -> createSettingsDialog().let { true }
         else -> super.onOptionsItemSelected(item)
     }
 
-    override fun createSettingsDialog(englishMode: Boolean, katakanaMode: Boolean) {
+    private fun createSettingsDialog() {
         val view = LayoutInflater.from(context).inflate(R.layout.fragment_kana_settings, null)
         val swEnglishMode = view.findViewById<Switch>(R.id.swEnglishMode)
         val swKatakanaMode = view.findViewById<Switch>(R.id.swKatakanaMode)
 
-        var eng = englishMode
-        swEnglishMode.isChecked = eng
-        var katakana = katakanaMode
-        swKatakanaMode.isChecked = katakana
+        swEnglishMode.isChecked = presenter.englishMode
+        swKatakanaMode.isChecked = presenter.katakanaMode
 
         swEnglishMode.setOnCheckedChangeListener {
-            _, it -> eng = it
+            _, it -> presenter.englishMode = it
         }
 
         swKatakanaMode.setOnCheckedChangeListener {
-            _, it -> katakana = it
+            _, it -> presenter.katakanaMode = it
         }
 
         val listener = DialogInterface.OnClickListener {
-            _, _ ->
-            setAdapterWithSettings(eng, katakana)
+            _, _ -> presenter.setAdapterMode()
         }
 
         val dialog = AlertDialog.Builder(requireContext())
                 .setView(view)
-                .setPositiveButton("Сохранить", listener)
+                .setPositiveButton("Закрыть", listener)
                 .show()
-    }
-
-    open fun setAdapterWithSettings(englishMode: Boolean, katakanaMode: Boolean) {
-        presenter.setAdapterMode(englishMode, katakanaMode)
-        setRecyclerViewParam()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -73,6 +65,7 @@ class KanaFragment : BaseFragment(), KanaView {
     }
 
     private fun initContent() {
+        presenter.fillAdapter()
         setRecyclerViewParam()
         rvKana.addItemDecoration(ItemOffsetDecoration(4))
     }
@@ -80,12 +73,10 @@ class KanaFragment : BaseFragment(), KanaView {
     override fun setRecyclerViewParam() {
         rvKana.also {
             it.layoutManager = GridLayoutManager(activity, 5)
-            it.layoutManager
             it.setHasFixedSize(true)
             it.setItemViewCacheSize(30)
             it.drawingCacheQuality = View.DRAWING_CACHE_QUALITY_HIGH
             it.adapter = presenter.getAdapter()
-            it.adapter.notifyDataSetChanged()
         }
     }
 }

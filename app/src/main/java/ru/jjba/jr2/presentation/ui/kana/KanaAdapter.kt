@@ -11,12 +11,18 @@ import ru.jjba.jr2.domain.entity.Kana
 import kotlin.properties.Delegates
 
 class KanaAdapter(
-        val englishMode: Boolean,
-        val katakanaMode: Boolean,
         private val kanaDbRepository: KanaDbRepository = KanaDbRepository()
 ) : RecyclerView.Adapter<KanaAdapter.ViewHolder>() {
 
     var kanaList: List<Kana> by Delegates.observable(emptyList()) { _, _, _ ->
+        notifyDataSetChanged()
+    }
+
+    var englishMode: Boolean by Delegates.observable(false) { _, _, _ ->
+        notifyDataSetChanged()
+    }
+
+    var katakanaMode: Boolean by Delegates.observable(false) { _, _, _ ->
         notifyDataSetChanged()
     }
 
