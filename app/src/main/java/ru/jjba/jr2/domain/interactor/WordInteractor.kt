@@ -2,7 +2,7 @@ package ru.jjba.jr2.domain.interactor
 
 import io.reactivex.Completable
 import io.reactivex.rxkotlin.subscribeBy
-import ru.jjba.jr2.data.repository.ExampleDbRepository
+//import ru.jjba.jr2.data.repository.ExampleDbRepository
 import ru.jjba.jr2.data.repository.InterpretationDbRepository
 import ru.jjba.jr2.data.repository.WordDbRepository
 import ru.jjba.jr2.domain.entity.Example
@@ -11,8 +11,8 @@ import ru.jjba.jr2.domain.entity.Word
 
 class WordInteractor(
         private val wordDbRepository: WordDbRepository = WordDbRepository(),
-        private val interpretationDbRepository: InterpretationDbRepository = InterpretationDbRepository(),
-        private val exampleDbRepository: ExampleDbRepository = ExampleDbRepository()
+        private val interpretationDbRepository: InterpretationDbRepository = InterpretationDbRepository()//,
+        //private val exampleDbRepository: ExampleDbRepository = ExampleDbRepository()
 ) {
     fun getAllWords() = wordDbRepository.getAll()
 
@@ -30,10 +30,10 @@ class WordInteractor(
             interpretationDbRepository.insert(interpretation)
                     .doOnComplete {
                         examples.forEach {
-                            insertExample(it).subscribeBy()
+                            //insertExample(it).subscribeBy()
                         }
                     }
 
-    fun insertExample(example: Example): Completable =
-            exampleDbRepository.insert(example)
+    /*fun insertExample(example: Example): Completable =
+            exampleDbRepository.insert(example)*/
 }

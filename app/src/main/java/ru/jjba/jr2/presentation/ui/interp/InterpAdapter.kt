@@ -8,12 +8,12 @@ import android.view.ViewGroup
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.item_interp.view.*
 import ru.jjba.jr2.R
-import ru.jjba.jr2.data.repository.ExampleDbRepository
+//import ru.jjba.jr2.data.repository.ExampleDbRepository
 import ru.jjba.jr2.domain.entity.Interpretation
 import kotlin.properties.Delegates
 
 class InterpAdapter(
-        val exampleDbRepository: ExampleDbRepository = ExampleDbRepository()
+        //val exampleDbRepository: ExampleDbRepository = ExampleDbRepository()
 ) : RecyclerView.Adapter<InterpAdapter.ViewHolder>() {
     var interpList: List<Interpretation> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
@@ -36,7 +36,7 @@ class InterpAdapter(
             tvPos.text = interpretation.pos
 
             setOnClickListener {
-                exampleDbRepository.getExampleByInterpretationId(interpretation.id)
+                /*exampleDbRepository.getExampleByInterpretationId(interpretation.id)
                         .first(kotlin.collections.emptyList())
                         .observeOn(io.reactivex.android.schedulers.AndroidSchedulers.mainThread())
                         .subscribeBy(
@@ -45,7 +45,7 @@ class InterpAdapter(
                                         Snackbar.make(this, it.toString(), Snackbar.LENGTH_LONG).show()
                                     }
                                 }
-                        )
+                        )*/
             }
         }
     }
