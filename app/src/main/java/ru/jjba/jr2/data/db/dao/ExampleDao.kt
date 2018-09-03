@@ -9,8 +9,8 @@ import ru.jjba.jr2.domain.entity.Example
 
 @Dao
 abstract class ExampleDao {
-    @Query("SELECT * FROM Example WHERE interpretation=:interpretationId")
-    abstract fun getByInterpretationId(interpretationId: String): Flowable<List<Example>>
+    @Query("SELECT * FROM Example WHERE interp=:interpId")
+    abstract fun getByInterpId(interpId: String): Flowable<List<Example>>
 
     @Query("SELECT * FROM Example")
     abstract fun getAll(): Flowable<List<Example>>

@@ -11,7 +11,7 @@ class Example(
         val exampleFurigana: String,
         val exampleTranslate: String,
         /*@Embedded(prefix = "interpretation_")*/
-        val interpretation: String
+        val interp: String
 ) {
     override fun toString() = "$id $exampleJp $exampleFurigana $exampleTranslate"
 }

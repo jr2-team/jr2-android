@@ -9,7 +9,6 @@ import io.reactivex.Single
 import ru.jjba.jr2.domain.entity.Kanji
 import ru.jjba.jr2.domain.entity.KanjiPart
 
-// TODO : Улучшить работу с kanji
 @Dao
 abstract class KanjiDao {
     @Query("SELECT * FROM Kanji WHERE id=:id")

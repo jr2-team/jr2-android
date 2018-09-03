@@ -36,7 +36,7 @@ class InterpAdapter(
             tvPos.text = interpretation.pos
 
             setOnClickListener {
-                /*exampleDbRepository.getExampleByInterpretationId(interpretation.id)
+                /*exampleDbRepository.getExampleByInterpretationId(interp.id)
                         .first(kotlin.collections.emptyList())
                         .observeOn(io.reactivex.android.schedulers.AndroidSchedulers.mainThread())
                         .subscribeBy(

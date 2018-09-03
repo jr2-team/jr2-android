@@ -18,9 +18,9 @@ object Serializer {
     val interpretation = JsonSerializer<Interpretation> { interpretation, _, _ ->
         JsonObject().apply {
             addProperty("id", interpretation.id)
-            addProperty("interpretation", interpretation.interpretation)
+            addProperty("interp", interpretation.interpretation)
             addProperty("pos", interpretation.pos)
-            //addProperty("wordId", interpretation.word.id)
+            //addProperty("wordId", interp.word.id)
             addProperty("wordId", interpretation.word)
         }
     }
