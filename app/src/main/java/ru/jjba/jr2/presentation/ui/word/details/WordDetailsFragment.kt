@@ -9,7 +9,7 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import kotlinx.android.synthetic.main.fragment_word_details.*
 import org.jetbrains.anko.bundleOf
 import ru.jjba.jr2.R
-import ru.jjba.jr2.domain.entity.Interpretation
+import ru.jjba.jr2.domain.entity.Interp
 import ru.jjba.jr2.domain.entity.Word
 import ru.jjba.jr2.presentation.presenters.word.details.WordDetailsPresenter
 import ru.jjba.jr2.presentation.presenters.word.details.WordDetailsView
@@ -55,9 +55,10 @@ class WordDetailsFragment : BaseFragment(), WordDetailsView {
         tvWorddetailsFurigana.text = word.wordFurigana
         tvJlptLevel.text = "N${word.jlptLevel}"
 
+        setTitle(word.wordJp)
     }
 
-    override fun showInterps(interps: List<Interpretation>) {
+    override fun showInterps(interps: List<Interp>) {
         interpAdapter.interpList = interps
     }
 

@@ -55,5 +55,7 @@ abstract class BaseFragment : MvpAppCompatFragment() {
         requireActivity().bnMain.isVisible = isShown
     }
 
-
+    fun setTitle(title: String) {
+        activity?.title = title
+    }
 }

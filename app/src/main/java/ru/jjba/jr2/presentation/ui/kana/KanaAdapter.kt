@@ -6,13 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.item_kana.view.*
 import ru.jjba.jr2.R
-import ru.jjba.jr2.data.repository.KanaDbRepository
 import ru.jjba.jr2.domain.entity.Kana
 import kotlin.properties.Delegates
 
-class KanaAdapter(
-        private val kanaDbRepository: KanaDbRepository = KanaDbRepository()
-) : RecyclerView.Adapter<KanaAdapter.ViewHolder>() {
+class KanaAdapter : RecyclerView.Adapter<KanaAdapter.ViewHolder>() {
 
     var kanaList: List<Kana> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()

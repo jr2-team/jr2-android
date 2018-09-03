@@ -2,7 +2,7 @@ package ru.jjba.jr2.data
 
 import com.google.gson.JsonObject
 import com.google.gson.JsonSerializer
-import ru.jjba.jr2.domain.entity.Interpretation
+import ru.jjba.jr2.domain.entity.Interp
 import ru.jjba.jr2.domain.entity.Word
 
 object Serializer {
@@ -15,13 +15,13 @@ object Serializer {
         }
     }
 
-    val interpretation = JsonSerializer<Interpretation> { interpretation, _, _ ->
+    val interpretation = JsonSerializer<Interp> { interpretation, _, _ ->
         JsonObject().apply {
             addProperty("id", interpretation.id)
-            addProperty("interp", interpretation.interpretation)
+            addProperty("interp", interpretation.interp)
             addProperty("pos", interpretation.pos)
             //addProperty("wordId", interp.word.id)
-            addProperty("wordId", interpretation.word)
+            addProperty("wordId", interpretation.word.id)
         }
     }
 }

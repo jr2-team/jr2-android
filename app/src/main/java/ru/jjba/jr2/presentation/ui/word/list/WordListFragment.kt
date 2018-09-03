@@ -34,20 +34,13 @@ class WordListFragment : BaseFragment(), WordListView {
     }
 
     private fun initContent(){
-        //presenter.setContent()
-        presenter.fillAdapter()
-        wordAdapter = presenter.getAdapter()
-        setRecyclerViewParam()
-    }
-
-    override fun setRecyclerViewParam() {
         rvWord.setHasFixedSize(true)
         rvWord.layoutManager = LinearLayoutManager(activity)
         rvWord.addItemDecoration(DividerItemDecoration(activity, LinearLayoutManager.VERTICAL))
         rvWord.adapter = wordAdapter
     }
 
-    override fun setWordAdapter(words: List<Word>) {
-        wordAdapter.wordList = words
+    override fun showWordList(wordList: List<Word>) {
+        wordAdapter.wordList = wordList
     }
 }

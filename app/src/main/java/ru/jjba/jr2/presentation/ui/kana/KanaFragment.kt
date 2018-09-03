@@ -65,12 +65,6 @@ class KanaFragment : BaseFragment(), KanaView {
     }
 
     private fun initContent() {
-        presenter.fillAdapter()
-        setRecyclerViewParam()
-        rvKana.addItemDecoration(ItemOffsetDecoration(4))
-    }
-
-    override fun setRecyclerViewParam() {
         rvKana.also {
             it.layoutManager = GridLayoutManager(activity, 5)
             it.setHasFixedSize(true)
@@ -78,5 +72,6 @@ class KanaFragment : BaseFragment(), KanaView {
             it.drawingCacheQuality = View.DRAWING_CACHE_QUALITY_HIGH
             it.adapter = presenter.getAdapter()
         }
+        rvKana.addItemDecoration(ItemOffsetDecoration(4))
     }
 }

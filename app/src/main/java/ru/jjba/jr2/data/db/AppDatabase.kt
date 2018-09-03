@@ -18,7 +18,7 @@ import ru.jjba.jr2.utils.loadJSONFromAsset
 @Database(
         entities = [
             Word::class,
-            Interpretation::class,
+            Interp::class,
             Example::class,
             Kanji::class,
             KanjiPart::class,

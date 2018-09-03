@@ -7,8 +7,5 @@ import ru.jjba.jr2.domain.entity.Word
 
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface WordListView : MvpView {
-
-    fun setRecyclerViewParam()
-
-    fun setWordAdapter(words: List<Word>)
+    fun showWordList(wordList: List<Word>)
 }

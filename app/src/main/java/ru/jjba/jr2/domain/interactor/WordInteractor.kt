@@ -6,7 +6,7 @@ import ru.jjba.jr2.data.repository.ExampleDbRepository
 import ru.jjba.jr2.data.repository.InterpretationDbRepository
 import ru.jjba.jr2.data.repository.WordDbRepository
 import ru.jjba.jr2.domain.entity.Example
-import ru.jjba.jr2.domain.entity.Interpretation
+import ru.jjba.jr2.domain.entity.Interp
 import ru.jjba.jr2.domain.entity.Word
 
 class WordInteractor(
@@ -18,7 +18,7 @@ class WordInteractor(
 
     fun getWordById(wordId: String) = wordDbRepository.getById(wordId)
 
-    fun insertWord(word: Word, interpretationMap: Map<Interpretation, List<Example>>): Completable =
+    fun insertWord(word: Word, interpretationMap: Map<Interp, List<Example>>): Completable =
             wordDbRepository.insert(word)
                     .doOnComplete {
                         interpretationMap.forEach {
@@ -26,7 +26,7 @@ class WordInteractor(
                         }
                     }
 
-    fun insertInterpretation(interpretation: Interpretation, examples: List<Example>): Completable =
+    fun insertInterpretation(interpretation: Interp, examples: List<Example>): Completable =
             interpretationDbRepository.insert(interpretation)
                     .doOnComplete {
                         examples.forEach {
