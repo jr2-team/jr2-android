@@ -15,14 +15,7 @@ import ru.jjba.jr2.presentation.ui.kana.KanaAdapter
 class KanaPresenter(
         private val kanaInteractor: KanaInteractor = KanaInteractor()
 ) : MvpPresenter<KanaView>() {
-
-    // TODO : Вынести адаптер во фрагмент
-    private var kanaAdapter = KanaAdapter()
-
     private var kanaTask: Disposable = Disposables.disposed()
-
-    var englishMode = false
-    var katakanaMode = false
 
     override fun onFirstViewAttach() {
         kanaTask = kanaInteractor.getAllKana()
@@ -30,7 +23,7 @@ class KanaPresenter(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
                         onSuccess = {
-                            kanaAdapter.kanaList = it
+                            viewState.setKanaList(it)
                         }
                 )
     }
@@ -38,11 +31,4 @@ class KanaPresenter(
     override fun onDestroy() {
         kanaTask.dispose()
     }
-
-    fun setAdapterMode() {
-        kanaAdapter.englishMode = englishMode
-        kanaAdapter.katakanaMode = katakanaMode
-    }
-
-    fun getAdapter(): KanaAdapter = kanaAdapter
 }
