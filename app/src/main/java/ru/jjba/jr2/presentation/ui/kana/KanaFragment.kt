@@ -20,9 +20,9 @@ class KanaFragment : BaseFragment(), KanaView {
     override val titleDefault: String
         get() = getString(R.string.kana_title)
 
-    private var kanaAdapter = KanaAdapter()
+    private var kanaAdapter = KanaAdapter()/*
     private var englishMode = false
-    private var katakanaMode = false
+    private var katakanaMode = false*/
 
     @InjectPresenter
     lateinit var presenter: KanaPresenter
@@ -33,7 +33,14 @@ class KanaFragment : BaseFragment(), KanaView {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean = when (item?.itemId) {
-        R.id.miSettings -> createSettingsDialog().let { true }
+        R.id.miSwitchLang -> {
+            kanaAdapter.englishMode = !kanaAdapter.englishMode
+            true
+        }
+        R.id.miSwitchAlphabet -> {
+            kanaAdapter.katakanaMode = !kanaAdapter.katakanaMode
+            true
+        }
         else -> super.onOptionsItemSelected(item)
     }
 
@@ -57,7 +64,7 @@ class KanaFragment : BaseFragment(), KanaView {
         rvKana.addItemDecoration(ItemOffsetDecoration(4))
     }
 
-    private fun createSettingsDialog() {
+    /*private fun createSettingsDialog() {
         val view = LayoutInflater.from(context).inflate(R.layout.fragment_kana_settings, null)
         val swEnglishMode = view.findViewById<Switch>(R.id.swEnglishMode)
         val swKatakanaMode = view.findViewById<Switch>(R.id.swKatakanaMode)
@@ -82,9 +89,9 @@ class KanaFragment : BaseFragment(), KanaView {
                 .setPositiveButton("Закрыть", listener)
                 .show()
     }
-
-    private fun setAdapterMode() {
+*/
+    /*private fun setAdapterMode() {
         kanaAdapter.englishMode = englishMode
         kanaAdapter.katakanaMode = katakanaMode
-    }
+    }*/
 }
