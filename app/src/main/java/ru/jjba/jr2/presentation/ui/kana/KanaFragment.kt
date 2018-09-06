@@ -38,7 +38,7 @@ class KanaFragment : BaseFragment(), KanaView {
     }
 
     override fun setKanaList(list: List<Kana>) {
-        kanaAdapter.kanaList = list
+        if (list.isNotEmpty()) kanaAdapter.kanaList = list
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
