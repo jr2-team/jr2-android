@@ -1,11 +1,8 @@
 package ru.jjba.jr2.presentation.ui.kana
 
-import android.content.DialogInterface
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
 import android.support.v7.widget.GridLayoutManager
 import android.view.*
-import android.widget.Switch
 import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.android.synthetic.main.fragment_kana.*
 import ru.jjba.jr2.R
@@ -20,9 +17,7 @@ class KanaFragment : BaseFragment(), KanaView {
     override val titleDefault: String
         get() = getString(R.string.kana_title)
 
-    private var kanaAdapter = KanaAdapter()/*
-    private var englishMode = false
-    private var katakanaMode = false*/
+    private var kanaAdapter = KanaAdapter()
 
     @InjectPresenter
     lateinit var presenter: KanaPresenter
@@ -63,35 +58,4 @@ class KanaFragment : BaseFragment(), KanaView {
         }
         rvKana.addItemDecoration(ItemOffsetDecoration(4))
     }
-
-    /*private fun createSettingsDialog() {
-        val view = LayoutInflater.from(context).inflate(R.layout.fragment_kana_settings, null)
-        val swEnglishMode = view.findViewById<Switch>(R.id.swEnglishMode)
-        val swKatakanaMode = view.findViewById<Switch>(R.id.swKatakanaMode)
-
-        swEnglishMode.isChecked = englishMode
-        swKatakanaMode.isChecked = katakanaMode
-
-        swEnglishMode.setOnCheckedChangeListener {
-            _, it -> englishMode = it
-        }
-
-        swKatakanaMode.setOnCheckedChangeListener {
-            _, it -> katakanaMode = it
-        }
-
-        val listener = DialogInterface.OnClickListener {
-            _, _ -> setAdapterMode()
-        }
-
-        val dialog = AlertDialog.Builder(requireContext())
-                .setView(view)
-                .setPositiveButton("Закрыть", listener)
-                .show()
-    }
-*/
-    /*private fun setAdapterMode() {
-        kanaAdapter.englishMode = englishMode
-        kanaAdapter.katakanaMode = katakanaMode
-    }*/
 }
