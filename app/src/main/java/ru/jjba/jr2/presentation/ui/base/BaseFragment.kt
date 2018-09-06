@@ -38,11 +38,11 @@ abstract class BaseFragment : MvpAppCompatFragment() {
         super.onResume()
         when(this.layoutRes) {
             R.layout.fragment_main->
-                requireActivity().bnMain.selectedItem = BottomNavigationItem.MAIN.item
+                requireActivity().navigation.selectedItemId = BottomNavigationItem.MAIN.item
             R.layout.fragment_word_list ->
-                requireActivity().bnMain.selectedItem = BottomNavigationItem.WORD_LIST.item
+                requireActivity().navigation.selectedItemId  = BottomNavigationItem.WORD_LIST.item
             R.layout.fragment_kana ->
-                requireActivity().bnMain.selectedItem = BottomNavigationItem.KANA.item
+                requireActivity().navigation.selectedItemId = BottomNavigationItem.KANA.item
         }
     }
 
@@ -52,7 +52,7 @@ abstract class BaseFragment : MvpAppCompatFragment() {
     }
 
     fun isBnMainShown(isShown: Boolean = true) {
-        requireActivity().bnMain.isVisible = isShown
+        requireActivity().navigation.isVisible = isShown
     }
 
     fun setTitle(title: String) {

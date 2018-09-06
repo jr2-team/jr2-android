@@ -34,11 +34,12 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
     }
 
     private fun initContent() {
-        bnMain.setOnSelectedItemChangeListener {
-            when (it) {
-                R.id.tiMain -> presenter.onMainClicked()
-                R.id.tiKana -> presenter.onKanaClicked()
-                R.id.tiWordList -> presenter.onWordListClicked()
+        navigation.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.tiMain -> presenter.onMainClicked().let { true }
+                R.id.tiKana -> presenter.onKanaClicked().let { true }
+                R.id.tiWordList -> presenter.onWordListClicked().let { true }
+                else -> presenter.onMainClicked().let { true }
             }
         }
     }
