@@ -18,6 +18,7 @@ class KanaFragment : BaseFragment(), KanaView {
         get() = getString(R.string.kana_title)
 
     private var kanaAdapter = KanaAdapter()
+    private var nigoriMode = false
 
     @InjectPresenter
     lateinit var presenter: KanaPresenter
@@ -36,6 +37,11 @@ class KanaFragment : BaseFragment(), KanaView {
             kanaAdapter.katakanaMode = !kanaAdapter.katakanaMode
             true
         }
+        R.id.miSwitchNigori -> {
+            nigoriMode = !nigoriMode
+            presenter.getKana(nigoriMode)
+            true
+        }
         else -> super.onOptionsItemSelected(item)
     }
 
@@ -45,6 +51,7 @@ class KanaFragment : BaseFragment(), KanaView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        presenter.fillList()
         initContent()
     }
 

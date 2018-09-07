@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.item_kana.view.*
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Kana
+import ru.jjba.jr2.utils.isVisible
 import kotlin.properties.Delegates
 
 class KanaAdapter : RecyclerView.Adapter<KanaAdapter.ViewHolder>() {

@@ -3,13 +3,12 @@ package ru.jjba.jr2.presentation.presenters.kana
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.disposables.Disposables
 import io.reactivex.rxkotlin.subscribeBy
-import io.reactivex.schedulers.Schedulers
+import ru.jjba.jr2.domain.entity.Kana
 import ru.jjba.jr2.domain.interactor.KanaInteractor
-import ru.jjba.jr2.presentation.ui.kana.KanaAdapter
+import java.util.*
 
 @InjectViewState
 class KanaPresenter(
@@ -17,18 +16,29 @@ class KanaPresenter(
 ) : MvpPresenter<KanaView>() {
     private var kanaTask: Disposable = Disposables.disposed()
 
-    override fun onFirstViewAttach() {
+    var kanaList = emptyList<Kana>()
+
+    override fun onDestroy() {
+        kanaTask.dispose()
+    }
+
+    fun getKana(nigoriMode: Boolean){
+        if (!nigoriMode) {
+            viewState.setKanaList(kanaList.subList(0, 50)+kanaList.subList(75, 110))
+        } else {
+            viewState.setKanaList(kanaList.subList(50, 75)+kanaList.subList(110, kanaList.size))
+        }
+    }
+
+    fun fillList() {
         kanaTask = kanaInteractor.getAllKana()
                 .first(emptyList())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
                         onSuccess = {
-                            viewState.setKanaList(it)
+                            kanaList = it
+                            getKana(false)
                         }
                 )
-    }
-
-    override fun onDestroy() {
-        kanaTask.dispose()
     }
 }

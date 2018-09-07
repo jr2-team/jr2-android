@@ -27,6 +27,7 @@
     <string name="kana_toolbar_menu_switch_alphabet_katakana">Катакана</string>
     <string name="kana_toolbar_menu_switch_lang_eng">Английская транскрипция</string>
     <string name="kana_toolbar_menu_switch_lang_rus">Русская транскрипция</string>
+    <string name="kana_toolbar_menu_switch_nigori">Нигори</string>
 
     <!-- Kana Settings Fragment -->
     <string name="kana_settings_english_mode">English mode</string>
