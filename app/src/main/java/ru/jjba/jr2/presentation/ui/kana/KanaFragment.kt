@@ -39,7 +39,7 @@ class KanaFragment : BaseFragment(), KanaView {
         }
         R.id.miSwitchNigori -> {
             nigoriMode = !nigoriMode
-            presenter.getKana(nigoriMode)
+            presenter.fillList(nigoriMode)
             true
         }
         else -> super.onOptionsItemSelected(item)
@@ -51,7 +51,7 @@ class KanaFragment : BaseFragment(), KanaView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        presenter.fillList()
+        presenter.fillList(nigoriMode)
         initContent()
     }
 

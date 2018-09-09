@@ -31,9 +31,8 @@ class KanaAdapter : RecyclerView.Adapter<KanaAdapter.ViewHolder>() {
 
     override fun getItemCount() = kanaList.size
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(kanaList[position])
-    }
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) =
+            holder.bind(kanaList[position])
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(kana: Kana) = with(itemView) {

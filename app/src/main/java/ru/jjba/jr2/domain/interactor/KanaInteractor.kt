@@ -9,6 +9,10 @@ class KanaInteractor(
 ) {
     fun getAllKana() = kanaDbRepository.getAll()
 
+    fun getOnlyKana() = kanaDbRepository.getOnlyKana()
+
+    fun getOnlyAdditionalSound() = kanaDbRepository.getOnlyAdditionalSound()
+
     fun insertPiecesOfKana(piecesOfKana: List<Kana>): Completable =
             kanaDbRepository.insert(piecesOfKana)
 }

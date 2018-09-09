@@ -8,7 +8,6 @@ import io.reactivex.disposables.Disposables
 import io.reactivex.rxkotlin.subscribeBy
 import ru.jjba.jr2.domain.entity.Kana
 import ru.jjba.jr2.domain.interactor.KanaInteractor
-import java.util.*
 
 @InjectViewState
 class KanaPresenter(
@@ -16,29 +15,35 @@ class KanaPresenter(
 ) : MvpPresenter<KanaView>() {
     private var kanaTask: Disposable = Disposables.disposed()
 
-    var kanaList = emptyList<Kana>()
+    private var kanaList: List<Kana> = emptyList()
 
     override fun onDestroy() {
         kanaTask.dispose()
     }
 
-    fun getKana(nigoriMode: Boolean){
-        if (!nigoriMode) {
-            viewState.setKanaList(kanaList.subList(0, 50)+kanaList.subList(75, 110))
-        } else {
-            viewState.setKanaList(kanaList.subList(50, 75)+kanaList.subList(110, kanaList.size))
-        }
+    fun getKana(){
+        viewState.setKanaList(kanaList)
     }
 
-    fun fillList() {
-        kanaTask = kanaInteractor.getAllKana()
-                .first(emptyList())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeBy(
-                        onSuccess = {
-                            kanaList = it
-                            getKana(false)
-                        }
-                )
+    fun fillList(nigoriMode: Boolean) {
+        kanaTask = if (nigoriMode) {
+            kanaInteractor.getOnlyAdditionalSound()
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeBy(
+                            onNext = {
+                                kanaList = it
+                                getKana()
+                            }
+                    )
+        } else {
+            kanaInteractor.getOnlyKana()
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeBy(
+                            onNext = {
+                                kanaList = it
+                                getKana()
+                            }
+                    )
+        }
     }
 }
