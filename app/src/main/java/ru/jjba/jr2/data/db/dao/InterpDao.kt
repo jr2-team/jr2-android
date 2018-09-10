@@ -8,9 +8,10 @@ import io.reactivex.Flowable
 import ru.jjba.jr2.domain.entity.Interp
 
 @Dao
-abstract class InterpretationDao {
-    @Query("SELECT * FROM Interp WHERE word_id=:wordId")
-    abstract fun getByWordId(wordId: String): Flowable<List<Interp>>
+abstract class InterpDao {
+    //@Query("SELECT * FROM Interp WHERE word_id=:wordId")
+    @Query("SELECT * FROM Interp WHERE word=:wordId")
+    abstract fun getByWordId(wordId: Long): Flowable<List<Interp>>
 
     @Query("SELECT * FROM Interp")
     abstract fun getAll(): Flowable<List<Interp>>

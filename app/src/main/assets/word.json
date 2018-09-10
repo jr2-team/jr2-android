@@ -1,108 +1,110 @@
 ﻿[
 	{
-		"id": "1",
 		"wordJp": "それ",
 		"wordFurigana": "それ",
-		"jlptLevel": "5"
+		"jlptLevel": "5",
+		"listOfInterps": [
+			{
+				"interp": "that (indicating an item or person near the listener, the action of the listener, or something on their mind)",
+				"pos": "pronoun"
+			},
+			{
+				"interp": "that time; then​",
+				"pos": "pronoun"
+			}
+		]
 	},
 	{
-		"id": "2",
 		"wordJp": "一つ",
 		"wordFurigana": "一[ひと]つ",
-		"jlptLevel": "5"
+		"jlptLevel": "5",
+		"listOfInterps": [
+			{
+				"interp": "one​",
+				"pos": "numeric"
+			},
+			{
+				"interp": "for one thing - often used in itemized lists",
+				"pos": "noun"
+			}
+		]
 	},
 	{
-		"id": "3",
 		"wordJp": "一",
 		"wordFurigana": "一[いち]",
 		"jlptLevel": "5"
 	},
 	{
-		"id": "4",
 		"wordJp": "二",
 		"wordFurigana": "二[に]",
 		"jlptLevel": "5"
 	},
 	{
-		"id": "5",
 		"wordJp": "二つ",
 		"wordFurigana": "二[ふた]つ",
 		"jlptLevel": "5"
 	},
 	{
-		"id": "6",
 		"wordJp": "三",
 		"wordFurigana": "三[さん]",
 		"jlptLevel": "5"
 	},
 	{
-		"id": "7",
 		"wordJp": "三つ",
 		"wordFurigana": "三[みっ]つ",
 		"jlptLevel": "5"
 	},
 	{
-		"id": "8",
 		"wordJp": "四つ",
 		"wordFurigana": "四[よっ]つ",
 		"jlptLevel": "5"
 	},
 	{
-		"id": "9",
 		"wordJp": "四",
 		"wordFurigana": "四[し]",
 		"jlptLevel": "5"
 	},
 	{
-		"id": "10",
 		"wordJp": "これ",
 		"wordFurigana": "これ",
 		"jlptLevel": "5"
 	},
 	{
-		"id": "11",
 		"wordJp": "四",
 		"wordFurigana": "四[よん]",
 		"jlptLevel": "5"
 	},
 	{
-		"id": "12",
 		"wordJp": "五つ",
 		"wordFurigana": "五[いつ]つ",
 		"jlptLevel": "5"
 	},
 	{
-		"id": "13",
 		"wordJp": "五",
 		"wordFurigana": "五[ご]",
 		"jlptLevel": "5"
 	},
 	{
-		"id": "14",
 		"wordJp": "六つ",
 		"wordFurigana": "六[むっ]つ",
 		"jlptLevel": "5"
 	},
 	{
-		"id": "15",
 		"wordJp": "六",
 		"wordFurigana": "六[ろく]",
 		"jlptLevel": "5"
 	},
 	{
-		"id": "16",
 		"wordJp": "七",
 		"wordFurigana": "七[なな]",
 		"jlptLevel": "5"
 	},
 	{
-		"id": "17",
 		"wordJp": "七つ",
 		"wordFurigana": "七[なな]つ",
 		"jlptLevel": "5"
 	},
 	{
-		"id": "18",
 		"wordJp": "八",
 		"wordFurigana": "八[はち]",
 		"jlptLevel": "5"

@@ -25,8 +25,8 @@ class WordDetailsFragment : BaseFragment(), WordDetailsView {
     @InjectPresenter
     lateinit var presenter: WordDetailsPresenter
 
-    private val wordId: String?
-        get() = arguments?.getString(WORD_ID).takeUnless { it.isNullOrEmpty() }
+    private val wordId: Long?
+        get() = arguments?.getLong(WORD_ID)
     private val interpAdapter = InterpAdapter()
 
     @ProvidePresenter
@@ -65,7 +65,7 @@ class WordDetailsFragment : BaseFragment(), WordDetailsView {
     companion object {
         const val WORD_ID = "word id"
 
-        fun newInstance(wordId: String?): WordDetailsFragment =
+        fun newInstance(wordId: Long?): WordDetailsFragment =
                 WordDetailsFragment().also {
                     it.arguments = bundleOf(WORD_ID to wordId)
                 }

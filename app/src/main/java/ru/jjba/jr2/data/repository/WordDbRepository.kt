@@ -7,7 +7,9 @@ import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import ru.jjba.jr2.App
 import ru.jjba.jr2.data.db.AppDatabase
+import ru.jjba.jr2.data.db.dao.InterpDao
 import ru.jjba.jr2.data.db.dao.WordDao
+import ru.jjba.jr2.domain.entity.Interp
 import ru.jjba.jr2.domain.entity.Word
 
 class WordDbRepository(
@@ -15,8 +17,9 @@ class WordDbRepository(
         private val scheduler: Scheduler = Schedulers.io()
 ) {
     private val wordDao: WordDao = db.getWordDao()
+    private val interpDao: InterpDao = db.getInterpDao()
 
-    fun getById(wordId: String): Single<Word> =
+    fun getById(wordId: Long): Single<Word> =
             wordDao.getById(wordId)
                     .subscribeOn(scheduler)
 
@@ -29,6 +32,13 @@ class WordDbRepository(
                     .subscribeOn(scheduler)
 
     fun insert(words: List<Word>): Completable =
-            Completable.fromCallable { wordDao.insert(words) }
-                    .subscribeOn(scheduler)
+            Completable.fromAction {
+                words.forEach {word ->
+                    val wordId = wordDao.insert(word)
+                    word.listOfInterps.forEach {
+                        it.word = wordId
+                    }
+                    interpDao.insert(word.listOfInterps)
+                }
+            }.subscribeOn(scheduler)
 }

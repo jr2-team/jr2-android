@@ -13,6 +13,7 @@ import ru.jjba.jr2.data.db.dao.*
 import ru.jjba.jr2.data.repository.KanaDbRepository
 import ru.jjba.jr2.data.repository.WordDbRepository
 import ru.jjba.jr2.domain.entity.*
+import ru.jjba.jr2.domain.interactor.WordInteractor
 import ru.jjba.jr2.utils.loadJSONFromAsset
 
 @Database(
@@ -28,7 +29,7 @@ import ru.jjba.jr2.utils.loadJSONFromAsset
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun getWordDao(): WordDao
-    abstract fun getInterpretationDao(): InterpretationDao
+    abstract fun getInterpDao(): InterpDao
     abstract fun getExampleDao(): ExampleDao
     abstract fun getKanjiDao(): KanjiDao
     abstract fun getKanaDao(): KanaDao
@@ -49,19 +50,19 @@ abstract class AppDatabase : RoomDatabase() {
                              * so need to show loader while data is loading.
                              * Need to move code below to other layer with loader render
                              */
-                            val list = Gson().fromJson<List<Kana>>(
-                                    context.loadJSONFromAsset("kana.json"),
-                                    object : TypeToken<List<Kana>>() {}.type
-                            )
-                            KanaDbRepository().insert(list
+                            // TODO: Разобраться с ключами в таблицах и порядком слов
+                            KanaDbRepository().insert(
+                                    Gson().fromJson<List<Kana>>(
+                                            context.loadJSONFromAsset("kana.json"),
+                                            object : TypeToken<List<Kana>>() {}.type
+                                    )
                             ).observeOn(AndroidSchedulers.mainThread())
                                     .subscribeBy {
-                                        val list2 = Gson().fromJson<List<Word>>(
-                                                context.loadJSONFromAsset(PREPOPULATE_DATA),
-                                                object : TypeToken<List<Word>>() {}.type
-                                        )
-                                        WordDbRepository().insert(
-                                         list2
+                                        WordInteractor().insertWords(
+                                                Gson().fromJson<List<Word>>(
+                                                        context.loadJSONFromAsset(PREPOPULATE_DATA),
+                                                        object : TypeToken<List<Word>>() {}.type
+                                                )
                                         ).observeOn(AndroidSchedulers.mainThread())
                                                 .subscribeBy { }
                                     }

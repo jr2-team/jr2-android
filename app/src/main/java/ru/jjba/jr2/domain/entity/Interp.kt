@@ -1,17 +1,17 @@
 package ru.jjba.jr2.domain.entity
 
-import android.arch.persistence.room.Embedded
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
+import java.util.*
 
 @Entity
 class Interp(
-        @PrimaryKey
-        val id: String,
-        val interp: String,
-        val pos: String,
-        @Embedded(prefix = "word_")
-        val word: Word
+        @PrimaryKey(autoGenerate = true)
+        var id: Long,
+        var interp: String,
+        var pos: String,
+        //@Embedded(prefix = "word_")
+        var word: Long
 ) {
         override fun toString() = "$id $pos $interp"
 }

@@ -11,7 +11,7 @@ import ru.jjba.jr2.domain.entity.Word
 @Dao
 abstract class WordDao {
     @Query("SELECT * FROM Word WHERE id=:id")
-    abstract fun getById(id: String): Single<Word>
+    abstract fun getById(id: Long): Single<Word>
 
     @Query("SELECT * FROM Word")
     abstract fun getAll(): Flowable<List<Word>>
