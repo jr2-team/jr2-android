@@ -49,18 +49,19 @@ abstract class AppDatabase : RoomDatabase() {
                              * so need to show loader while data is loading.
                              * Need to move code below to other layer with loader render
                              */
-                            KanaDbRepository().insert(
-                                    Gson().fromJson<List<Kana>>(
-                                            context.loadJSONFromAsset("kana.json"),
-                                            object : TypeToken<List<Kana>>() {}.type
-                                    )
+                            val list = Gson().fromJson<List<Kana>>(
+                                    context.loadJSONFromAsset("kana.json"),
+                                    object : TypeToken<List<Kana>>() {}.type
+                            )
+                            KanaDbRepository().insert(list
                             ).observeOn(AndroidSchedulers.mainThread())
                                     .subscribeBy {
+                                        val list2 = Gson().fromJson<List<Word>>(
+                                                context.loadJSONFromAsset(PREPOPULATE_DATA),
+                                                object : TypeToken<List<Word>>() {}.type
+                                        )
                                         WordDbRepository().insert(
-                                                Gson().fromJson<List<Word>>(
-                                                        context.loadJSONFromAsset(PREPOPULATE_DATA),
-                                                        object : TypeToken<List<Word>>() {}.type
-                                                )
+                                         list2
                                         ).observeOn(AndroidSchedulers.mainThread())
                                                 .subscribeBy { }
                                     }
