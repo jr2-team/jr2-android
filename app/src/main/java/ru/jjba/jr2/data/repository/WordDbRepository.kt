@@ -9,7 +9,6 @@ import ru.jjba.jr2.App
 import ru.jjba.jr2.data.db.AppDatabase
 import ru.jjba.jr2.data.db.dao.InterpDao
 import ru.jjba.jr2.data.db.dao.WordDao
-import ru.jjba.jr2.domain.entity.Interp
 import ru.jjba.jr2.domain.entity.Word
 
 class WordDbRepository(
@@ -35,10 +34,10 @@ class WordDbRepository(
             Completable.fromAction {
                 words.forEach {word ->
                     val wordId = wordDao.insert(word)
-                    word.listOfInterps.forEach {
+                    word.interps.forEach {
                         it.word = wordId
                     }
-                    interpDao.insert(word.listOfInterps)
+                    interpDao.insert(word.interps)
                 }
             }.subscribeOn(scheduler)
 }

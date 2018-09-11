@@ -10,9 +10,8 @@ import com.google.gson.reflect.TypeToken
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import ru.jjba.jr2.data.db.dao.*
-import ru.jjba.jr2.data.repository.KanaDbRepository
-import ru.jjba.jr2.data.repository.WordDbRepository
 import ru.jjba.jr2.domain.entity.*
+import ru.jjba.jr2.domain.interactor.KanaInteractor
 import ru.jjba.jr2.domain.interactor.WordInteractor
 import ru.jjba.jr2.utils.loadJSONFromAsset
 
@@ -51,14 +50,14 @@ abstract class AppDatabase : RoomDatabase() {
                              * Need to move code below to other layer with loader render
                              */
                             // TODO: Разобраться с ключами в таблицах и порядком слов
-                            KanaDbRepository().insert(
+                            KanaInteractor().insertPiecesOfKana(
                                     Gson().fromJson<List<Kana>>(
                                             context.loadJSONFromAsset("kana.json"),
                                             object : TypeToken<List<Kana>>() {}.type
                                     )
                             ).observeOn(AndroidSchedulers.mainThread())
                                     .subscribeBy {
-                                        WordInteractor().insertWords(
+                                        WordInteractor().insert(
                                                 Gson().fromJson<List<Word>>(
                                                         context.loadJSONFromAsset(PREPOPULATE_DATA),
                                                         object : TypeToken<List<Word>>() {}.type

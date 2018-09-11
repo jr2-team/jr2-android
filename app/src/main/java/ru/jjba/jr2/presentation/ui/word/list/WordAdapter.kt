@@ -32,6 +32,7 @@ class WordAdapter(
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(word: Word) = with(itemView) {
+            tvWordId.text = word.id.toString()
             tvWordJp.text = word.wordJp
             tvWordFurigana.text = word.wordFurigana
             tvJlptLevel.text = "N${word.jlptLevel}"

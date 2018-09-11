@@ -18,5 +18,5 @@ class WordInteractor(
 
     fun getWordById(wordId: Long) = wordDbRepository.getById(wordId)
 
-    fun insertWords(words: List<Word>): Completable = wordDbRepository.insert(words)
+    fun insert(words: List<Word>): Completable = wordDbRepository.insert(words)
 }

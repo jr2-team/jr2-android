@@ -12,7 +12,7 @@ class Word(
         var wordJp: String,
         var wordFurigana: String,
         var jlptLevel: Int,
-        @Ignore val listOfInterps: MutableList<Interp>
+        @Ignore val interps: MutableList<Interp>
 ) {
     constructor() : this(0, "", "", 0, mutableListOf())
 
