@@ -77,7 +77,7 @@ dependencies {
     // Material Bottom Navigation
     implementation 'com.ss.bottomnavigation:bottomnavigation:1.5.2'
 
-    //furigana textview
+    // Furigana TextView
     implementation project(':furiganatextview')
 
     testImplementation 'junit:junit:4.12'

@@ -49,7 +49,7 @@ abstract class AppDatabase : RoomDatabase() {
                              * so need to show loader while data is loading.
                              * Need to move code below to other layer with loader render
                              */
-                            // TODO: Разобраться с ключами в таблицах и порядком слов
+                            //TODO : Разобраться с ключами в таблицах и порядком слов
                             KanaInteractor().insertPiecesOfKana(
                                     Gson().fromJson<List<Kana>>(
                                             context.loadJSONFromAsset("kana.json"),

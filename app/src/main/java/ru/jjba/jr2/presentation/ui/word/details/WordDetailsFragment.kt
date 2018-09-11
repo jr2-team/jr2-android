@@ -50,7 +50,7 @@ class WordDetailsFragment : BaseFragment(), WordDetailsView, TextToSpeech.OnInit
         initContent()
     }
 
-    // TODO : Refactor textToSpeech code to an appropriate format
+    //TODO : Сделать рефактор кода с textToSpeech, перенести в App.kt?
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
             val result = textToSpeech.setLanguage(Locale.JAPANESE)

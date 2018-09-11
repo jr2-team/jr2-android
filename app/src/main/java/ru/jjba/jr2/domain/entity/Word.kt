@@ -5,23 +5,18 @@ import android.arch.persistence.room.Ignore
 import android.arch.persistence.room.PrimaryKey
 import java.util.*
 
+//TODO : Добавить TypeConverter
 @Entity
 class Word(
         @PrimaryKey(autoGenerate = true)
         var id: Long,
         var wordJp: String,
         var wordFurigana: String,
+        var basicInterp: String,
         var jlptLevel: Int,
         @Ignore val interps: MutableList<Interp>
 ) {
-    constructor() : this(0, "", "", 0, mutableListOf())
-
-    @Ignore
-    constructor(
-            wordJp: String,
-            wordFurigana: String,
-            jlptLevel: Int
-    ) : this(0, wordJp, wordFurigana, jlptLevel, mutableListOf())
+    constructor() : this(0, "", "", "", 0, mutableListOf())
 
     override fun toString() = "$id $wordJp $wordFurigana $jlptLevel"
 }
