@@ -21,7 +21,7 @@ object Serializer {
             addProperty("interp", interpretation.interp)
             addProperty("pos", interpretation.pos)
             //addProperty("wordId", interp.word.id)
-            addProperty("wordId", interpretation.word.id)
+            addProperty("wordId", interpretation.word)
         }
     }
 }

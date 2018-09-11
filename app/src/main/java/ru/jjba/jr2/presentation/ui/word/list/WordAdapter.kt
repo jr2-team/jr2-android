@@ -27,13 +27,19 @@ class WordAdapter(
     override fun getItemCount() = wordList.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(wordList[position])
+        holder.bind(wordList[position], position)
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(word: Word) = with(itemView) {
-            tvWordJp.text = word.wordJp
-            tvWordFurigana.text = word.wordFurigana
+        fun bind(word: Word, position: Int) = with(itemView) {
+            tvWordId.text = (position + 1).toString()
+            /*tvWordJp.text = word.wordJp
+            tvWordFurigana.text = word.wordFurigana*/
+            /* TODO : Заимплементить функцию для форматирования текста с фуриганой
+             * вставка пробелов, чтобы влезала вся фуригана
+             */
+            ftvWord.setFuriganaText("<ruby>${word.wordJp}<rt>${word.wordFurigana}</rt></ruby>")
+            tvBasicInterp.text = word.basicInterp
             tvJlptLevel.text = "N${word.jlptLevel}"
 
             this.setOnClickListener {

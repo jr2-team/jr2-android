@@ -6,16 +6,16 @@ import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 import ru.jjba.jr2.App
 import ru.jjba.jr2.data.db.AppDatabase
-import ru.jjba.jr2.data.db.dao.InterpretationDao
+import ru.jjba.jr2.data.db.dao.InterpDao
 import ru.jjba.jr2.domain.entity.Interp
 
 class InterpretationDbRepository(
         db: AppDatabase = App.instance.db,
         private val scheduler: Scheduler = Schedulers.io()
 ) {
-    private val interpretationDao: InterpretationDao = db.getInterpretationDao()
+    private val interpretationDao: InterpDao = db.getInterpDao()
 
-    fun getByWordId(wordId: String): Flowable<List<Interp>> =
+    fun getByWordId(wordId: Long): Flowable<List<Interp>> =
             interpretationDao.getByWordId(wordId)
                     .flatMap {
                         Flowable.fromIterable(it)

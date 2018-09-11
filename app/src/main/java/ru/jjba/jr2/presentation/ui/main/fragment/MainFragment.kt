@@ -1,9 +1,6 @@
 package ru.jjba.jr2.presentation.ui.main.fragment
 
-import android.os.Bundle
-import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
-import kotlinx.android.synthetic.main.fragment_main.*
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.presenters.main.fragment.MainFragmentPresenter
 import ru.jjba.jr2.presentation.presenters.main.fragment.MainFragmentView
@@ -17,8 +14,4 @@ class MainFragment : BaseFragment(), MainFragmentView {
 
     @InjectPresenter
     lateinit var presenter: MainFragmentPresenter
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        ftvTest.setFuriganaText("サンシャイン６０の<ruby>展望台<rt>てんぼうだい</rt></ruby>が<ruby>新<rt>あたら</rt></ruby>しくなる")
-    }
 }
