@@ -72,13 +72,11 @@ dependencies {
     // Anko
     implementation "org.jetbrains.anko:anko-commons:0.10.5"
 
-    implementation 'com.brandongogetap:stickyheaders:0.5.1'
-
     // Material Bottom Navigation
     implementation 'com.ss.bottomnavigation:bottomnavigation:1.5.2'
 
     // Furigana TextView
-    implementation project(':furiganatextview')
+    implementation project(':libs:furiganatextview')
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
