@@ -50,13 +50,13 @@ class WordDetailsFragment : BaseFragment(), WordDetailsView {
         rvInterp.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
         rvInterp.adapter = interpAdapter
 
-        tvWordDetailsJp.setOnClickListener { speakOut((it as TextView).text.toString()) }
-        tvWorddetailsFurigana.setOnClickListener { speakOut((it as TextView).text.toString()) }
+        ftvWord.setOnClickListener { speakOut((it as TextView).text.toString()) }
+        tvBasicInterp.setOnClickListener { speakOut((it as TextView).text.toString()) }
     }
 
     override fun showWord(word: Word) {
-        tvWordDetailsJp.text = word.wordJp
-        tvWorddetailsFurigana.text = word.wordFurigana
+        ftvWord.setFuriganaText("<ruby>${word.wordJp}<rt>${word.wordFurigana}</rt></ruby>")
+        tvBasicInterp.text = word.basicInterp
         tvJlptLevel.text = "N${word.jlptLevel}"
 
         setTitle(word.wordJp)
