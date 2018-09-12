@@ -1,8 +1,6 @@
 package ru.jjba.jr2.presentation.ui.word.details
 
-import android.os.Build
 import android.os.Bundle
-import android.speech.tts.TextToSpeech
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
@@ -11,7 +9,6 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import kotlinx.android.synthetic.main.fragment_word_details.*
 import org.jetbrains.anko.bundleOf
-import ru.jjba.jr2.App
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Interp
 import ru.jjba.jr2.domain.entity.Word

@@ -33,8 +33,6 @@ class WordAdapter(
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(word: Word, position: Int) = with(itemView) {
             tvWordId.text = (position + 1).toString()
-            /*tvWordJp.text = word.wordJp
-            tvWordFurigana.text = word.wordFurigana*/
             /* TODO : Заимплементить функцию для форматирования текста с фуриганой
              * вставка пробелов, чтобы влезала вся фуригана
              */
