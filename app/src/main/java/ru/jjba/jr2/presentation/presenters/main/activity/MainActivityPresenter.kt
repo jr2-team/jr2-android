@@ -2,6 +2,8 @@ package ru.jjba.jr2.presentation.presenters.main.activity
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
+import io.reactivex.disposables.Disposable
+import io.reactivex.disposables.Disposables
 import ru.jjba.jr2.presentation.navigation.DefaultRouter
 import ru.jjba.jr2.presentation.navigation.NavigationHolder
 import ru.jjba.jr2.presentation.navigation.Screen

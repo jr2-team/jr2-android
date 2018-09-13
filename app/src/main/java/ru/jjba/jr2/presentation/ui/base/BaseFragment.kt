@@ -34,18 +34,6 @@ abstract class BaseFragment : MvpAppCompatFragment() {
         Snackbar.make(view, resMsg, Snackbar.LENGTH_SHORT).show()
     }
 
-    override fun onResume() {
-        super.onResume()
-        when(this.layoutRes) {
-            R.layout.fragment_main->
-                requireActivity().navigation.selectedItemId = BottomNavigationItem.MAIN.item
-            R.layout.fragment_word_list ->
-                requireActivity().navigation.selectedItemId  = BottomNavigationItem.WORD_LIST.item
-            R.layout.fragment_kana ->
-                requireActivity().navigation.selectedItemId = BottomNavigationItem.KANA.item
-        }
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         isBnMainShown()
