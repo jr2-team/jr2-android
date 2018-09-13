@@ -9,7 +9,6 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.navigation.DefaultNavigator
 import ru.jjba.jr2.presentation.navigation.NavigationHolder
-import ru.jjba.jr2.presentation.navigation.NavigationHolder.router
 import ru.jjba.jr2.presentation.navigation.Screen
 import ru.jjba.jr2.presentation.presenters.main.activity.MainActivityPresenter
 import ru.jjba.jr2.presentation.presenters.main.activity.MainActivityView
@@ -44,6 +43,28 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
         }
     }
 
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        NavigationHolder.navigator.setNavigator(navigator)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        NavigationHolder.navigator.removeNavigator()
+    }
+
+    override fun onBackPressed() {
+        presenter.onBackPressed()
+    }
+
+    override fun selectBottomMenuItem(screenKey: String) {
+        when (screenKey) {
+            Screen.MAIN.title -> navigation.selectedItemId = R.id.tiMain
+            Screen.WORD_LIST.title -> navigation.selectedItemId = R.id.tiWordList
+            Screen.KANA.title -> navigation.selectedItemId = R.id.tiKana
+        }
+    }
+
     private val navigator = object : DefaultNavigator(this, R.id.flContent) {
         override fun createFragment(screenKey: String?, data: Any?): Fragment? {
             return when (screenKey) {
@@ -57,17 +78,5 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
         }
     }
 
-    override fun onResumeFragments() {
-        super.onResumeFragments()
-        NavigationHolder.navigator.setNavigator(navigator)
-    }
 
-    override fun onPause() {
-        super.onPause()
-        NavigationHolder.navigator.removeNavigator()
-    }
-
-    override fun onBackPressed() {
-        router.exit()
-    }
 }

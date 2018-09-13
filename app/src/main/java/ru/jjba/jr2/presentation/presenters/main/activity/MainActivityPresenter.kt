@@ -2,8 +2,6 @@ package ru.jjba.jr2.presentation.presenters.main.activity
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import io.reactivex.disposables.Disposable
-import io.reactivex.disposables.Disposables
 import ru.jjba.jr2.presentation.navigation.DefaultRouter
 import ru.jjba.jr2.presentation.navigation.NavigationHolder
 import ru.jjba.jr2.presentation.navigation.Screen
@@ -26,15 +24,12 @@ class MainActivityPresenter(
         router.navigateTo(Screen.WORD_LIST.title)
     }
 
-    fun onWordDetailsClicked(){
-        router.navigateTo(Screen.WORD_DETAILS.title)
-    }
-
-    fun onTestClicked(){
-        router.navigateTo(Screen.TEST.title)
-    }
-
     fun onKanaClicked(){
         router.navigateTo(Screen.KANA.title)
+    }
+
+    fun onBackPressed(){
+        router.exit()
+        viewState.selectBottomMenuItem(router.getCurrentScreenKey())
     }
 }

@@ -5,4 +5,6 @@ import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 
 @StateStrategyType(AddToEndSingleStrategy::class)
-interface MainActivityView : MvpView
+interface MainActivityView : MvpView {
+    fun selectBottomMenuItem(screenKey: String)
+}
