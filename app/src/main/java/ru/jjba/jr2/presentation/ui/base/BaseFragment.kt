@@ -24,27 +24,15 @@ abstract class BaseFragment : MvpAppCompatFragment() {
         activity?.title = titleDefault
     }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean = when(item?.itemId) {
+        android.R.id.home -> requireActivity().onBackPressed().let { true }
+        else -> super.onOptionsItemSelected(item)
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View? =
             container?.inflate(layoutRes).also {
                 setHasOptionsMenu(true)
             }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        isBnMainShown()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        when(this.layoutRes) {
-            R.layout.fragment_main->
-                requireActivity().bnMain.selectedItem = BottomNavigationItem.MAIN.item
-            R.layout.fragment_word_list ->
-                requireActivity().bnMain.selectedItem = BottomNavigationItem.WORD_LIST.item
-            R.layout.fragment_kana ->
-                requireActivity().bnMain.selectedItem = BottomNavigationItem.KANA.item
-        }
-    }
 
     open fun showMessage(msg: String) {
         val view = view ?: return
@@ -56,8 +44,13 @@ abstract class BaseFragment : MvpAppCompatFragment() {
         Snackbar.make(view, resMsg, Snackbar.LENGTH_SHORT).show()
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        isBnMainShown()
+    }
+
     fun isBnMainShown(isShown: Boolean = true) {
-        requireActivity().bnMain.isVisible = isShown
+        requireActivity().navigation.isVisible = isShown
     }
 
     fun setTitle(title: String) {

@@ -6,5 +6,6 @@ enum class Screen(val title: String) {
     WORD_DETAILS("fragment word details"),
     WORD_SEARCH("fragment word search"),
     TEST("fragment test"),
-    KANA("frgment kana")
+    KANA("fragment kana"),
+    KANA_DETAILS("fragment kana details")
 }

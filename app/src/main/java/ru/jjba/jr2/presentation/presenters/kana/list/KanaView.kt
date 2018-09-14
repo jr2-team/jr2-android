@@ -1,11 +1,11 @@
-package ru.jjba.jr2.presentation.presenters.main.activity
+package ru.jjba.jr2.presentation.presenters.kana.list
 
 import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
+import ru.jjba.jr2.domain.entity.Kana
 
 @StateStrategyType(AddToEndSingleStrategy::class)
-interface MainActivityView : MvpView {
-    fun selectBottomMenuItem(screenKey: String)
-    fun setItemUpMode(mode: Boolean = false)
+interface KanaView : MvpView {
+    fun setKanaList(list: List<Kana>)
 }

@@ -3,8 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/miSettings"
+        android:id="@+id/miSwitchAlphabet"
         android:icon="@drawable/ic_settings"
-        android:title="@string/kana_toolbar_menu_settings"
+        android:title="@string/kana_toolbar_menu_switch_alphabet_hiragana"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/miSwitchLang"
+        android:icon="@drawable/ic_translate"
+        android:title="@string/kana_toolbar_menu_switch_lang_rus"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/miSwitchNigori"
+        android:icon="@drawable/ic_test"
+        android:title="@string/kana_toolbar_menu_switch_nigori"
         app:showAsAction="always" />
 </menu>

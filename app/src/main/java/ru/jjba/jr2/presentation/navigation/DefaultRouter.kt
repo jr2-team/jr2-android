@@ -29,6 +29,8 @@ class DefaultRouter : BaseRouter() {
         executeCommands(Forward(screenKey, data))
     }
 
+    fun getCurrentScreenKey(): String = screenStack.peek()
+
     fun newRootScreen(screenKey: String) {
         screenStack.clear()
         screenStack.push(screenKey)

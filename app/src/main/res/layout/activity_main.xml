@@ -10,11 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/bnMain"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintTop_toTopOf="parent">
 
         <include
             layout="@layout/app_bar_main"
+            android:id="@+id/appToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -24,38 +25,12 @@
             android:layout_height="match_parent" />
     </LinearLayout>
 
-    <com.ss.bottomnavigation.BottomNavigation
-        android:id="@+id/bnMain"
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
+        android:layout_gravity="start"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:mode="phone">
-
-        <com.ss.bottomnavigation.TabItem
-            android:id="@+id/tiMain"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:tab_icon="@drawable/ic_home"
-            app:tab_text="@string/menu_main_title" />
-
-        <com.ss.bottomnavigation.TabItem
-            android:id="@+id/tiWordList"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:tab_icon="@drawable/ic_word_list"
-            app:tab_text="@string/menu_word_list_title" />
-
-        <com.ss.bottomnavigation.TabItem
-            android:id="@+id/tiKana"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:tab_icon="@drawable/ic_gakushu"
-            app:tab_text="@string/menu_kana_title" />
-    </com.ss.bottomnavigation.BottomNavigation>
+        app:menu="@menu/main_bottom_menu" />
 
 </android.support.constraint.ConstraintLayout>

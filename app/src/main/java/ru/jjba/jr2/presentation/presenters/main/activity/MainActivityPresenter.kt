@@ -16,6 +16,11 @@ class MainActivityPresenter(
         router.newRootScreen(Screen.MAIN.title)
     }
 
+    fun selectBottomMenuItem() {
+        val screen = router.getCurrentScreenKey()
+        viewState.selectBottomMenuItem(screen)
+    }
+
     fun onMainClicked(){
         router.navigateTo(Screen.MAIN.title)
     }
@@ -24,15 +29,17 @@ class MainActivityPresenter(
         router.navigateTo(Screen.WORD_LIST.title)
     }
 
-    fun onWordDetailsClicked(){
-        router.navigateTo(Screen.WORD_DETAILS.title)
-    }
-
-    fun onTestClicked(){
-        router.navigateTo(Screen.TEST.title)
-    }
-
     fun onKanaClicked(){
         router.navigateTo(Screen.KANA.title)
     }
+
+    fun onBackPressed(){
+        val screen = router.getCurrentScreenKey()
+        when (screen) {
+            Screen.WORD_LIST.title, Screen.KANA.title -> router.newRootScreen(Screen.MAIN.title)
+            else -> router.exit()
+        }
+    }
+
+    fun setItemUpMode(mode: Boolean) = viewState.setItemUpMode(mode)
 }

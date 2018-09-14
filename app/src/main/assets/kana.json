@@ -97,7 +97,7 @@
   },
   {
     "id": "13",
-    "hiragana": "せ",
+    "hiragana": "す",
     "katakana": "ス",
     "eng": "su",
     "rus": "су",
@@ -105,7 +105,7 @@
   },
   {
     "id": "14",
-    "hiragana": "す",
+    "hiragana": "せ",
     "katakana": "セ",
     "eng": "se",
     "rus": "сэ",
@@ -288,11 +288,27 @@
     "isNigori": false
   },
   {
+    "id": "109",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": false
+  },
+  {
     "id": "37",
     "hiragana": "ゆ",
     "katakana": "ユ",
     "eng": "yu",
     "rus": "ю",
+    "isNigori": false
+  },
+  {
+    "id": "110",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
     "isNigori": false
   },
   {
@@ -352,11 +368,27 @@
     "isNigori": false
   },
   {
+    "id": "111",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": false
+  },
+  {
     "id": "45",
     "hiragana": "を",
     "katakana": "ヲ",
     "eng": "wo",
     "rus": "о",
+    "isNigori": false
+  },
+  {
+    "id": "112",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
     "isNigori": false
   },
   {
@@ -528,7 +560,7 @@
     "isNigori": true
   },
   {
-    "id": "62",
+    "id": "67",
     "hiragana": "ぱ",
     "katakana": "パ",
     "eng": "pa",
@@ -536,7 +568,7 @@
     "isNigori": true
   },
   {
-    "id": "63",
+    "id": "68",
     "hiragana": "ぴ",
     "katakana": "ピ",
     "eng": "pi",
@@ -544,7 +576,7 @@
     "isNigori": true
   },
   {
-    "id": "64",
+    "id": "69",
     "hiragana": "ぷ",
     "katakana": "プ",
     "eng": "pu",
@@ -552,7 +584,7 @@
     "isNigori": true
   },
   {
-    "id": "65",
+    "id": "70",
     "hiragana": "ぺ",
     "katakana": "ペ",
     "eng": "pe",
@@ -560,7 +592,7 @@
     "isNigori": true
   },
   {
-    "id": "66",
+    "id": "71",
     "hiragana": "ぽ",
     "katakana": "ポ",
     "eng": "po",
@@ -568,7 +600,7 @@
     "isNigori": true
   },
   {
-    "id": "67",
+    "id": "72",
     "hiragana": "きゃ",
     "katakana": "キャ",
     "eng": "kya",
@@ -576,7 +608,15 @@
     "isNigori": false
   },
   {
-    "id": "68",
+    "id": "113",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": false
+  },
+  {
+    "id": "73",
     "hiragana": "きゅ",
     "katakana": "キュ",
     "eng": "kyu",
@@ -584,7 +624,15 @@
     "isNigori": false
   },
   {
-    "id": "69",
+    "id": "114",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": false
+  },
+  {
+    "id": "74",
     "hiragana": "きょ",
     "katakana": "キョ",
     "eng": "kyo",
@@ -592,7 +640,7 @@
     "isNigori": false
   },
   {
-    "id": "70",
+    "id": "75",
     "hiragana": "しゃ",
     "katakana": "シャ",
     "eng": "sha",
@@ -600,7 +648,15 @@
     "isNigori": false
   },
   {
-    "id": "71",
+    "id": "115",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": false
+  },
+  {
+    "id": "76",
     "hiragana": "しゅ",
     "katakana": "シュ",
     "eng": "shu",
@@ -608,7 +664,15 @@
     "isNigori": false
   },
   {
-    "id": "72",
+    "id": "116",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": false
+  },
+  {
+    "id": "77",
     "hiragana": "しょ",
     "katakana": "ショ",
     "eng": "sho",
@@ -616,7 +680,7 @@
     "isNigori": false
   },
   {
-    "id": "73",
+    "id": "78",
     "hiragana": "ちゃ",
     "katakana": "チャ",
     "eng": "cha",
@@ -624,7 +688,15 @@
     "isNigori": false
   },
   {
-    "id": "74",
+    "id": "117",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": false
+  },
+  {
+    "id": "79",
     "hiragana": "ちゅ",
     "katakana": "チュ",
     "eng": "chu",
@@ -632,7 +704,15 @@
     "isNigori": false
   },
   {
-    "id": "75",
+    "id": "118",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": false
+  },
+  {
+    "id": "80",
     "hiragana": "ちょ",
     "katakana": "チョ",
     "eng": "cho",
@@ -640,7 +720,7 @@
     "isNigori": false
   },
   {
-    "id": "76",
+    "id": "81",
     "hiragana": "にゃ",
     "katakana": "ニャ",
     "eng": "nya",
@@ -648,7 +728,15 @@
     "isNigori": false
   },
   {
-    "id": "77",
+    "id": "119",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": false
+  },
+  {
+    "id": "82",
     "hiragana": "にゅ",
     "katakana": "ニュ",
     "eng": "nyu",
@@ -656,7 +744,15 @@
     "isNigori": false
   },
   {
-    "id": "78",
+    "id": "120",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": false
+  },
+  {
+    "id": "83",
     "hiragana": "にょ",
     "katakana": "ニョ",
     "eng": "nyo",
@@ -664,7 +760,7 @@
     "isNigori": false
   },
   {
-    "id": "79",
+    "id": "84",
     "hiragana": "ひゃ",
     "katakana": "ヒャ",
     "eng": "hya",
@@ -672,7 +768,15 @@
     "isNigori": false
   },
   {
-    "id": "80",
+    "id": "121",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": false
+  },
+  {
+    "id": "85",
     "hiragana": "ひゅ",
     "katakana": "ヒュ",
     "eng": "hyu",
@@ -680,7 +784,15 @@
     "isNigori": false
   },
   {
-    "id": "81",
+    "id": "122",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": false
+  },
+  {
+    "id": "86",
     "hiragana": "ひょ",
     "katakana": "ヒョ",
     "eng": "hyo",
@@ -688,7 +800,7 @@
     "isNigori": false
   },
   {
-    "id": "82",
+    "id": "87",
     "hiragana": "みゃ",
     "katakana": "ミャ",
     "eng": "mya",
@@ -696,7 +808,15 @@
     "isNigori": false
   },
   {
-    "id": "83",
+    "id": "123",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": false
+  },
+  {
+    "id": "88",
     "hiragana": "みゅ",
     "katakana": "ミュ",
     "eng": "myu",
@@ -704,7 +824,15 @@
     "isNigori": false
   },
   {
-    "id": "84",
+    "id": "124",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": false
+  },
+  {
+    "id": "89",
     "hiragana": "みょ",
     "katakana": "ミョ",
     "eng": "myo",
@@ -712,7 +840,7 @@
     "isNigori": false
   },
   {
-    "id": "85",
+    "id": "90",
     "hiragana": "りゃ",
     "katakana": "リャ",
     "eng": "rya",
@@ -720,7 +848,15 @@
     "isNigori": false
   },
   {
-    "id": "86",
+    "id": "125",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": false
+  },
+  {
+    "id": "91",
     "hiragana": "りゅ",
     "katakana": "リュ",
     "eng": "ryu",
@@ -728,7 +864,15 @@
     "isNigori": false
   },
   {
-    "id": "87",
+    "id": "126",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": false
+  },
+  {
+    "id": "92",
     "hiragana": "りょ",
     "katakana": "リョ",
     "eng": "ryo",
@@ -736,7 +880,7 @@
     "isNigori": false
   },
   {
-    "id": "88",
+    "id": "93",
     "hiragana": "ぎゃ",
     "katakana": "ギャ",
     "eng": "gya",
@@ -744,7 +888,15 @@
     "isNigori": true
   },
   {
-    "id": "89",
+    "id": "127",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": true
+  },
+  {
+    "id": "94",
     "hiragana": "ぎゅ",
     "katakana": "ギュ",
     "eng": "gyu",
@@ -752,7 +904,15 @@
     "isNigori": true
   },
   {
-    "id": "90",
+    "id": "128",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": true
+  },
+  {
+    "id": "95",
     "hiragana": "ぎょ",
     "katakana": "ギョ",
     "eng": "gyo",
@@ -760,7 +920,7 @@
     "isNigori": true
   },
   {
-    "id": "91",
+    "id": "96",
     "hiragana": "じゃ",
     "katakana": "ジャ",
     "eng": "ja",
@@ -768,7 +928,15 @@
     "isNigori": true
   },
   {
-    "id": "92",
+    "id": "129",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": true
+  },
+  {
+    "id": "97",
     "hiragana": "じゅ",
     "katakana": "ジュ",
     "eng": "ju",
@@ -776,7 +944,15 @@
     "isNigori": true
   },
   {
-    "id": "93",
+    "id": "130",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": true
+  },
+  {
+    "id": "98",
     "hiragana": "じょ",
     "katakana": "ジョ",
     "eng": "jo",
@@ -784,7 +960,7 @@
     "isNigori": true
   },
   {
-    "id": "94",
+    "id": "99",
     "hiragana": "ぢゃ",
     "katakana": "ヂャ",
     "eng": "ja",
@@ -792,7 +968,15 @@
     "isNigori": true
   },
   {
-    "id": "95",
+    "id": "131",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": true
+  },
+  {
+    "id": "100",
     "hiragana": "ぢゅ",
     "katakana": "ヂュ",
     "eng": "ju",
@@ -800,7 +984,15 @@
     "isNigori": true
   },
   {
-    "id": "96",
+    "id": "132",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": true
+  },
+  {
+    "id": "101",
     "hiragana": "ぢょ",
     "katakana": "ヂョ",
     "eng": "jo",
@@ -808,7 +1000,7 @@
     "isNigori": true
   },
   {
-    "id": "97",
+    "id": "102",
     "hiragana": "びゃ",
     "katakana": "ビャ",
     "eng": "bya",
@@ -816,7 +1008,15 @@
     "isNigori": true
   },
   {
-    "id": "98",
+    "id": "133",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": true
+  },
+  {
+    "id": "103",
     "hiragana": "びゅ",
     "katakana": "ビュ",
     "eng": "byu",
@@ -824,7 +1024,15 @@
     "isNigori": true
   },
   {
-    "id": "99",
+    "id": "134",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": true
+  },
+  {
+    "id": "104",
     "hiragana": "びょ",
     "katakana": "ビョ",
     "eng": "byo",
@@ -832,7 +1040,7 @@
     "isNigori": true
   },
   {
-    "id": "100",
+    "id": "105",
     "hiragana": "ぴゃ",
     "katakana": "ピャ",
     "eng": "pya",
@@ -840,7 +1048,15 @@
     "isNigori": true
   },
   {
-    "id": "101",
+    "id": "135",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": true
+  },
+  {
+    "id": "106",
     "hiragana": "ぴゅ",
     "katakana": "ピュ",
     "eng": "pyu",
@@ -848,7 +1064,15 @@
     "isNigori": true
   },
   {
-    "id": "102",
+    "id": "136",
+    "hiragana": "",
+    "katakana": "",
+    "eng": "",
+    "rus": "",
+    "isNigori": true
+  },
+  {
+    "id": "107",
     "hiragana": "ぴょ",
     "katakana": "ピョ",
     "eng": "pyo",

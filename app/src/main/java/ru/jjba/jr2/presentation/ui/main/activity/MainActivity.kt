@@ -9,11 +9,11 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.navigation.DefaultNavigator
 import ru.jjba.jr2.presentation.navigation.NavigationHolder
-import ru.jjba.jr2.presentation.navigation.NavigationHolder.router
 import ru.jjba.jr2.presentation.navigation.Screen
 import ru.jjba.jr2.presentation.presenters.main.activity.MainActivityPresenter
 import ru.jjba.jr2.presentation.presenters.main.activity.MainActivityView
-import ru.jjba.jr2.presentation.ui.kana.KanaFragment
+import ru.jjba.jr2.presentation.ui.kana.details.KanaDetailsFragment
+import ru.jjba.jr2.presentation.ui.kana.list.KanaFragment
 import ru.jjba.jr2.presentation.ui.main.fragment.MainFragment
 import ru.jjba.jr2.presentation.ui.tests.TestFragment
 import ru.jjba.jr2.presentation.ui.word.details.WordDetailsFragment
@@ -28,32 +28,17 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         setSupportActionBar(toolbar)
-
         initContent()
     }
 
     private fun initContent() {
-        bnMain.setOnSelectedItemChangeListener {
-            when (it) {
-                R.id.tiMain -> presenter.onMainClicked()
-                R.id.tiKana -> presenter.onKanaClicked()
-                R.id.tiWordList -> presenter.onWordListClicked()
-            }
-        }
-    }
-
-    private val navigator = object : DefaultNavigator(this, R.id.flContent) {
-        override fun createFragment(screenKey: String?, data: Any?): Fragment? {
-            return when (screenKey) {
-                Screen.MAIN.title -> MainFragment()
-                Screen.WORD_LIST.title -> WordListFragment()
-                Screen.WORD_DETAILS.title -> WordDetailsFragment.newInstance(data as? Long)
-                Screen.WORD_SEARCH.title -> WordSearchFragment()
-                Screen.TEST.title -> TestFragment()
-                Screen.KANA.title -> KanaFragment()
-                else -> null
+        navigation.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.tiMain -> presenter.onMainClicked().let { true }
+                R.id.tiKana -> presenter.onKanaClicked().let { true }
+                R.id.tiWordList -> presenter.onWordListClicked().let { true }
+                else -> presenter.onMainClicked().let { true }
             }
         }
     }
@@ -69,6 +54,42 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
     }
 
     override fun onBackPressed() {
-        router.exit()
+        presenter.onBackPressed()
+        presenter.setItemUpMode(false)
+        presenter.selectBottomMenuItem()
+    }
+
+    override fun selectBottomMenuItem(screenKey: String) {
+        when (screenKey) {
+            Screen.MAIN.title -> navigation.selectedItemId = R.id.tiMain
+            Screen.WORD_LIST.title -> navigation.selectedItemId = R.id.tiWordList
+            Screen.KANA.title -> navigation.selectedItemId = R.id.tiKana
+            else -> return
+        }
+    }
+
+    private val navigator = object : DefaultNavigator(this, R.id.flContent) {
+        override fun createFragment(screenKey: String?, data: Any?): Fragment? {
+            return when (screenKey) {
+                Screen.MAIN.title -> MainFragment().also { presenter.selectBottomMenuItem() }
+                Screen.WORD_LIST.title -> WordListFragment().also { presenter.selectBottomMenuItem() }
+                Screen.WORD_DETAILS.title -> WordDetailsFragment.newInstance(data as? Long).also {
+                    presenter.setItemUpMode(true)
+                    presenter.selectBottomMenuItem()
+                }
+                Screen.WORD_SEARCH.title -> WordSearchFragment()
+                Screen.TEST.title -> TestFragment()
+                Screen.KANA.title -> KanaFragment().also { presenter.selectBottomMenuItem() }
+                Screen.KANA_DETAILS.title -> KanaDetailsFragment.newInstance(data as? String).also {
+                    presenter.setItemUpMode(true)
+                    presenter.selectBottomMenuItem()
+                }
+                else -> null
+            }
+        }
+    }
+
+    override fun setItemUpMode(mode: Boolean){
+        supportActionBar?.setDisplayHomeAsUpEnabled(mode)
     }
 }
