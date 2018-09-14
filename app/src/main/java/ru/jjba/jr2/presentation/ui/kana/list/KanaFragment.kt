@@ -2,6 +2,7 @@ package ru.jjba.jr2.presentation.ui.kana.list
 
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import android.view.*
 import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.android.synthetic.main.fragment_kana.*
@@ -57,7 +58,7 @@ class KanaFragment : BaseFragment(), KanaView {
 
     private fun initContent() {
         rvKana.also {
-            it.layoutManager = GridLayoutManager(activity, 5)
+            it.layoutManager = LinearLayoutManager(requireContext())
             it.setHasFixedSize(true)
             it.setItemViewCacheSize(30)
             it.drawingCacheQuality = View.DRAWING_CACHE_QUALITY_HIGH
