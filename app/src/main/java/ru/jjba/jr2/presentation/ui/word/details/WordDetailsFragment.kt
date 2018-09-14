@@ -1,24 +1,20 @@
 package ru.jjba.jr2.presentation.ui.word.details
 
-import android.os.Build
 import android.os.Bundle
-import android.speech.tts.TextToSpeech
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import android.widget.TextView
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import kotlinx.android.synthetic.main.fragment_word_details.*
 import org.jetbrains.anko.bundleOf
-import ru.jjba.jr2.App
+import org.zakariya.stickyheaders.StickyHeaderLayoutManager
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Interp
 import ru.jjba.jr2.domain.entity.Word
 import ru.jjba.jr2.presentation.presenters.word.details.WordDetailsPresenter
 import ru.jjba.jr2.presentation.presenters.word.details.WordDetailsView
 import ru.jjba.jr2.presentation.ui.base.BaseFragment
-import ru.jjba.jr2.presentation.ui.interp.InterpAdapter
 
 class WordDetailsFragment : BaseFragment(), WordDetailsView {
     override val layoutRes: Int = R.layout.fragment_word_details
@@ -30,7 +26,8 @@ class WordDetailsFragment : BaseFragment(), WordDetailsView {
 
     private val wordId: Long?
         get() = arguments?.getLong(WORD_ID)
-    private val interpAdapter = InterpAdapter()
+
+    private lateinit var sections: MutableList<WordDetailsAdapter.Section>
 
     @ProvidePresenter
     fun provideWordDetailsPresenter(): WordDetailsPresenter =
@@ -46,24 +43,47 @@ class WordDetailsFragment : BaseFragment(), WordDetailsView {
 
     private fun initContent() {
         rvInterp.setHasFixedSize(true)
-        rvInterp.layoutManager = LinearLayoutManager(context)
+        rvInterp.layoutManager = StickyHeaderLayoutManager()
         rvInterp.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
-        rvInterp.adapter = interpAdapter
-
-        ftvWord.setOnClickListener { speakOut((it as TextView).text.toString()) }
-        tvBasicInterp.setOnClickListener { speakOut((it as TextView).text.toString()) }
+        /**/
     }
 
     override fun showWord(word: Word) {
-        ftvWord.setFuriganaText("<ruby>${word.wordJp}<rt>${word.wordFurigana}</rt></ruby>")
-        tvBasicInterp.text = word.basicInterp
-        tvJlptLevel.text = "N${word.jlptLevel}"
+
+        val mainSection = WordDetailsAdapter.Section(
+                WordDetailsAdapter.HEADER_TYPE_FUNCTIONAL,
+                "FUNCTIONAL",
+                mutableListOf(WordDetailsAdapter.ItemWord(word))
+        )
+
+        sections = mutableListOf(mainSection)
 
         setTitle(word.wordJp)
     }
 
     override fun showInterps(interps: List<Interp>) {
-        interpAdapter.interpList = interps
+        //interpAdapter.interpList = interps
+        val items = mutableListOf<WordDetailsAdapter.Item>().also { items ->
+            interps.forEach {
+                items.add(WordDetailsAdapter.ItemInterp(it))
+            }
+        }
+        val section = WordDetailsAdapter.Section(
+                WordDetailsAdapter.HEADER_TYPE_SECTION,
+                "Interp 1 (${items.size})",
+                items
+        )
+        sections.add(section)
+        sections.add(section)
+        sections.add(section)
+        sections.add(section)
+        sections.add(section)
+        sections.add(section)
+        sections.add(section)
+        sections.add(section)
+        sections.add(section)
+
+        rvInterp.adapter = WordDetailsAdapter(sections)
     }
 
     companion object {
