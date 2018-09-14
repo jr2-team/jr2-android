@@ -69,5 +69,4 @@ abstract class BaseFragment : MvpAppCompatFragment() {
             textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
         }
     }
-
 }

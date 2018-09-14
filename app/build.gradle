@@ -75,6 +75,9 @@ dependencies {
     // Material Bottom Navigation
     implementation 'com.ss.bottomnavigation:bottomnavigation:1.5.2'
 
+    // StickyHeaders
+    implementation 'org.zakariya.stickyheaders:stickyheaders:0.7.6'
+
     // Furigana TextView
     implementation project(':libs:furiganatextview')
 
