@@ -1,10 +1,8 @@
 package ru.jjba.jr2.presentation.ui.word.list
 
-import android.content.Context
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.Toolbar
 import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.android.synthetic.main.fragment_word_list.*
@@ -13,9 +11,6 @@ import ru.jjba.jr2.domain.entity.Word
 import ru.jjba.jr2.presentation.presenters.word.list.WordListPresenter
 import ru.jjba.jr2.presentation.presenters.word.list.WordListView
 import ru.jjba.jr2.presentation.ui.base.BaseFragment
-import android.support.v7.app.AppCompatActivity
-
-
 
 class WordListFragment : BaseFragment(), WordListView {
 
@@ -33,7 +28,7 @@ class WordListFragment : BaseFragment(), WordListView {
         initContent()
     }
 
-    private fun initContent(){
+    private fun initContent() {
         rvWord.setHasFixedSize(true)
         rvWord.layoutManager = LinearLayoutManager(activity)
         rvWord.addItemDecoration(DividerItemDecoration(activity, LinearLayoutManager.VERTICAL))

@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.item_interp.view.*
+import kotlinx.android.synthetic.main.item_word_details_item_interp.view.*
 import ru.jjba.jr2.R
 //import ru.jjba.jr2.data.repository.ExampleDbRepository
 import ru.jjba.jr2.domain.entity.Interp
@@ -18,7 +18,7 @@ class InterpAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_interp, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_word_details_item_interp, parent, false)
         return ViewHolder(v)
     }
 

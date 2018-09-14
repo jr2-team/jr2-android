@@ -1,14 +1,21 @@
 package ru.jjba.jr2.presentation.ui.base
 
+import android.os.Build
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.support.design.widget.Snackbar
 import android.view.*
 import com.arellomobile.mvp.MvpAppCompatFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import ru.jjba.jr2.App
+import ru.jjba.jr2.R
+import ru.jjba.jr2.utils.BottomNavigationItem
 import ru.jjba.jr2.utils.inflate
 import ru.jjba.jr2.utils.isVisible
 
 abstract class BaseFragment : MvpAppCompatFragment() {
+
+    private val textToSpeech: TextToSpeech = App.instance.tts
 
     abstract val layoutRes: Int
     abstract val titleDefault: String
@@ -48,5 +55,11 @@ abstract class BaseFragment : MvpAppCompatFragment() {
 
     fun setTitle(title: String) {
         activity?.title = title
+    }
+
+    fun speakOut(text: String) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
+        }
     }
 }

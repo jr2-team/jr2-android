@@ -20,6 +20,7 @@ import ru.jjba.jr2.presentation.ui.main.fragment.MainFragment
 import ru.jjba.jr2.presentation.ui.tests.TestFragment
 import ru.jjba.jr2.presentation.ui.word.details.WordDetailsFragment
 import ru.jjba.jr2.presentation.ui.word.list.WordListFragment
+import ru.jjba.jr2.presentation.ui.word.search.WordSearchFragment
 
 class MainActivity : MvpAppCompatActivity(), MainActivityView {
 
@@ -78,6 +79,7 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
                     presenter.setItemUpMode(true)
                     presenter.selectBottomMenuItem()
                 }
+                Screen.WORD_SEARCH.title -> WordSearchFragment()
                 Screen.TEST.title -> TestFragment()
                 Screen.KANA.title -> KanaFragment().also { presenter.selectBottomMenuItem() }
                 Screen.KANA_DETAILS.title -> KanaDetailsFragment.newInstance(data as? String).also {

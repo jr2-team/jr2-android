@@ -9,7 +9,7 @@ import ru.jjba.jr2.domain.interactor.WordInteractor
 
 @InjectViewState
 class WordDetailsPresenter(
-        private val wordId: String?,
+        private val wordId: Long?,
         val wordInteractor: WordInteractor = WordInteractor(),
         val interpretationDbRepository: InterpretationDbRepository = InterpretationDbRepository()
 ) : MvpPresenter<WordDetailsView>() {

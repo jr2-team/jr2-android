@@ -16,7 +16,7 @@ class Kanji(
         val strokeCount: Int,
         val isRadical: Boolean
 ) {
-    // TODO : Выпилить конструктор
+    //TODO : Выпилить конструктор
     @Ignore
     constructor(
             id: String,

@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView
 import android.support.annotation.DimenRes
 import android.view.View
 
-
 class ItemOffsetDecoration(
         val itemOffset: Int
 ) : RecyclerView.ItemDecoration() {
