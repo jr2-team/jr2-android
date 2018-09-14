@@ -18,6 +18,7 @@ import ru.jjba.jr2.presentation.ui.main.fragment.MainFragment
 import ru.jjba.jr2.presentation.ui.tests.TestFragment
 import ru.jjba.jr2.presentation.ui.word.details.WordDetailsFragment
 import ru.jjba.jr2.presentation.ui.word.list.WordListFragment
+import ru.jjba.jr2.presentation.ui.word.search.WordSearchFragment
 
 class MainActivity : MvpAppCompatActivity(), MainActivityView {
 
@@ -49,6 +50,7 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
                 Screen.MAIN.title -> MainFragment()
                 Screen.WORD_LIST.title -> WordListFragment()
                 Screen.WORD_DETAILS.title -> WordDetailsFragment.newInstance(data as? Long)
+                Screen.WORD_SEARCH.title -> WordSearchFragment()
                 Screen.TEST.title -> TestFragment()
                 Screen.KANA.title -> KanaFragment()
                 else -> null
