@@ -72,9 +72,6 @@ dependencies {
     // Anko
     implementation "org.jetbrains.anko:anko-commons:0.10.5"
 
-    // Material Bottom Navigation
-    implementation 'com.ss.bottomnavigation:bottomnavigation:1.5.2'
-
     // StickyHeaders
     implementation 'org.zakariya.stickyheaders:stickyheaders:0.7.6'
 

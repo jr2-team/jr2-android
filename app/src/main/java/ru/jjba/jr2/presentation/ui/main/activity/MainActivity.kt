@@ -2,8 +2,6 @@ package ru.jjba.jr2.presentation.ui.main.activity
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.view.View
-import android.widget.Button
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -75,7 +73,7 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
             return when (screenKey) {
                 Screen.MAIN.title -> MainFragment().also { presenter.selectBottomMenuItem() }
                 Screen.WORD_LIST.title -> WordListFragment().also { presenter.selectBottomMenuItem() }
-                Screen.WORD_DETAILS.title -> WordDetailsFragment.newInstance(data as? String).also {
+                Screen.WORD_DETAILS.title -> WordDetailsFragment.newInstance(data as? Long).also {
                     presenter.setItemUpMode(true)
                     presenter.selectBottomMenuItem()
                 }
