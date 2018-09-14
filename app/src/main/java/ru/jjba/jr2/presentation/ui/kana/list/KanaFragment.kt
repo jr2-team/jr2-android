@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.ui.kana
+package ru.jjba.jr2.presentation.ui.kana.list
 
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
@@ -7,8 +7,8 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.android.synthetic.main.fragment_kana.*
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Kana
-import ru.jjba.jr2.presentation.presenters.kana.KanaPresenter
-import ru.jjba.jr2.presentation.presenters.kana.KanaView
+import ru.jjba.jr2.presentation.presenters.kana.list.KanaPresenter
+import ru.jjba.jr2.presentation.presenters.kana.list.KanaView
 import ru.jjba.jr2.presentation.ui.base.BaseFragment
 import ru.jjba.jr2.utils.ItemOffsetDecoration
 

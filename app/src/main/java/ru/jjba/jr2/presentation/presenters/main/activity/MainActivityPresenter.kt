@@ -30,6 +30,7 @@ class MainActivityPresenter(
 
     fun onBackPressed(){
         router.exit()
+        viewState.setItemUpMode()
         viewState.selectBottomMenuItem(router.getCurrentScreenKey())
     }
 }

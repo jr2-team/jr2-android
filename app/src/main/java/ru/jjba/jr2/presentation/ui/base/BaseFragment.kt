@@ -5,8 +5,6 @@ import android.support.design.widget.Snackbar
 import android.view.*
 import com.arellomobile.mvp.MvpAppCompatFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import ru.jjba.jr2.R
-import ru.jjba.jr2.utils.BottomNavigationItem
 import ru.jjba.jr2.utils.inflate
 import ru.jjba.jr2.utils.isVisible
 
@@ -17,6 +15,11 @@ abstract class BaseFragment : MvpAppCompatFragment() {
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         activity?.title = titleDefault
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean = when(item?.itemId) {
+        android.R.id.home -> requireActivity().onBackPressed().let { true }
+        else -> super.onOptionsItemSelected(item)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View? =

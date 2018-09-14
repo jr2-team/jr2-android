@@ -2,6 +2,8 @@ package ru.jjba.jr2.presentation.ui.main.activity
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.view.View
+import android.widget.Button
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -12,7 +14,8 @@ import ru.jjba.jr2.presentation.navigation.NavigationHolder
 import ru.jjba.jr2.presentation.navigation.Screen
 import ru.jjba.jr2.presentation.presenters.main.activity.MainActivityPresenter
 import ru.jjba.jr2.presentation.presenters.main.activity.MainActivityView
-import ru.jjba.jr2.presentation.ui.kana.KanaFragment
+import ru.jjba.jr2.presentation.ui.kana.details.KanaDetailsFragment
+import ru.jjba.jr2.presentation.ui.kana.list.KanaFragment
 import ru.jjba.jr2.presentation.ui.main.fragment.MainFragment
 import ru.jjba.jr2.presentation.ui.tests.TestFragment
 import ru.jjba.jr2.presentation.ui.word.details.WordDetailsFragment
@@ -26,9 +29,7 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         setSupportActionBar(toolbar)
-
         initContent()
     }
 
@@ -70,13 +71,20 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
             return when (screenKey) {
                 Screen.MAIN.title -> MainFragment()
                 Screen.WORD_LIST.title -> WordListFragment()
-                Screen.WORD_DETAILS.title -> WordDetailsFragment.newInstance(data as? String)
+                Screen.WORD_DETAILS.title -> WordDetailsFragment.newInstance(data as? String).also {
+                    setItemUpMode(true)
+                }
                 Screen.TEST.title -> TestFragment()
                 Screen.KANA.title -> KanaFragment()
+                Screen.KANA_DETAILS.title -> KanaDetailsFragment.newInstance(data as? String).also {
+                    setItemUpMode(true)
+                }
                 else -> null
             }
         }
     }
 
-
+    override fun setItemUpMode(mode: Boolean){
+        supportActionBar?.setDisplayHomeAsUpEnabled(mode)
+    }
 }

@@ -1,9 +1,6 @@
 package ru.jjba.jr2.data.repository
 
-import io.reactivex.Completable
-import io.reactivex.Flowable
-import io.reactivex.Observable
-import io.reactivex.Scheduler
+import io.reactivex.*
 import io.reactivex.schedulers.Schedulers
 import org.intellij.lang.annotations.Flow
 import ru.jjba.jr2.App
@@ -23,6 +20,8 @@ class KanaDbRepository(
 
     fun getOnlyAdditionalSound(): Flowable<List<Kana>> =
             kanaDao.getOnlyAdditionalSound().subscribeOn(scheduler)
+
+    fun getKana(kanaId: String): Single<Kana> = kanaDao.getKana(kanaId).subscribeOn(scheduler)
 
     fun insert(piecesOfKana: List<Kana>): Completable =
             Completable.fromCallable { kanaDao.insert(piecesOfKana) }

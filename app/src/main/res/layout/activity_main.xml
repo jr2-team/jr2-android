@@ -15,6 +15,7 @@
 
         <include
             layout="@layout/app_bar_main"
+            android:id="@+id/appToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

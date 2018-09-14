@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.presenters.kana
+package ru.jjba.jr2.presentation.presenters.kana.list
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
