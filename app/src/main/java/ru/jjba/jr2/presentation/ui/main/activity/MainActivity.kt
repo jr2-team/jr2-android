@@ -56,6 +56,8 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
 
     override fun onBackPressed() {
         presenter.onBackPressed()
+        presenter.setItemUpMode(false)
+        presenter.selectBottomMenuItem()
     }
 
     override fun selectBottomMenuItem(screenKey: String) {
@@ -63,21 +65,24 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
             Screen.MAIN.title -> navigation.selectedItemId = R.id.tiMain
             Screen.WORD_LIST.title -> navigation.selectedItemId = R.id.tiWordList
             Screen.KANA.title -> navigation.selectedItemId = R.id.tiKana
+            else -> return
         }
     }
 
     private val navigator = object : DefaultNavigator(this, R.id.flContent) {
         override fun createFragment(screenKey: String?, data: Any?): Fragment? {
             return when (screenKey) {
-                Screen.MAIN.title -> MainFragment()
-                Screen.WORD_LIST.title -> WordListFragment()
+                Screen.MAIN.title -> MainFragment().also { presenter.selectBottomMenuItem() }
+                Screen.WORD_LIST.title -> WordListFragment().also { presenter.selectBottomMenuItem() }
                 Screen.WORD_DETAILS.title -> WordDetailsFragment.newInstance(data as? String).also {
-                    setItemUpMode(true)
+                    presenter.setItemUpMode(true)
+                    presenter.selectBottomMenuItem()
                 }
                 Screen.TEST.title -> TestFragment()
-                Screen.KANA.title -> KanaFragment()
+                Screen.KANA.title -> KanaFragment().also { presenter.selectBottomMenuItem() }
                 Screen.KANA_DETAILS.title -> KanaDetailsFragment.newInstance(data as? String).also {
-                    setItemUpMode(true)
+                    presenter.setItemUpMode(true)
+                    presenter.selectBottomMenuItem()
                 }
                 else -> null
             }

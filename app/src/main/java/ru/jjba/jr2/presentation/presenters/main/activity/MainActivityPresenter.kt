@@ -16,6 +16,11 @@ class MainActivityPresenter(
         router.newRootScreen(Screen.MAIN.title)
     }
 
+    fun selectBottomMenuItem() {
+        val screen = router.getCurrentScreenKey()
+        viewState.selectBottomMenuItem(screen)
+    }
+
     fun onMainClicked(){
         router.navigateTo(Screen.MAIN.title)
     }
@@ -30,7 +35,7 @@ class MainActivityPresenter(
 
     fun onBackPressed(){
         router.exit()
-        viewState.setItemUpMode()
-        viewState.selectBottomMenuItem(router.getCurrentScreenKey())
     }
+
+    fun setItemUpMode(mode: Boolean) = viewState.setItemUpMode(mode)
 }

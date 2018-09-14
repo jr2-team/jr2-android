@@ -15,7 +15,7 @@ import ru.jjba.jr2.presentation.ui.base.BaseFragment
 class KanaDetailsFragment: BaseFragment(), KanaDetailsView {
     override val layoutRes: Int = R.layout.fragment_kana_details
     override val titleDefault: String
-        get() = getString(R.string.word_details_title)
+        get() = ""
 
     private val kanaId: String
         get() = arguments?.getString(KanaDetailsFragment.KANA_ID) ?: "0"
@@ -38,6 +38,7 @@ class KanaDetailsFragment: BaseFragment(), KanaDetailsView {
     private fun initContent() {
         isBnMainShown(false)
         secondKana.setOnClickListener {
+            //todo переделать листенер доп каны в деталях каны
             if(kanaMode) {
                 mainKana.text = kana.hiragana
                 secondKana.text = kana.katakana
