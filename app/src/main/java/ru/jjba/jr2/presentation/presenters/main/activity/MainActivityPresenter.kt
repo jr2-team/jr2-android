@@ -34,7 +34,11 @@ class MainActivityPresenter(
     }
 
     fun onBackPressed(){
-        router.exit()
+        val screen = router.getCurrentScreenKey()
+        when (screen) {
+            Screen.WORD_LIST.title, Screen.KANA.title -> router.newRootScreen(Screen.MAIN.title)
+            else -> router.exit()
+        }
     }
 
     fun setItemUpMode(mode: Boolean) = viewState.setItemUpMode(mode)
