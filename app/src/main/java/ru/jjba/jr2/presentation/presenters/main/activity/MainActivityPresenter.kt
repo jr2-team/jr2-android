@@ -18,7 +18,9 @@ class MainActivityPresenter(
 
     fun selectBottomMenuItem() {
         val screen = router.getCurrentScreenKey()
-        viewState.selectBottomMenuItem(screen)
+        if (screen != null) {
+            viewState.selectBottomMenuItem(screen)
+        }
     }
 
     fun onMainClicked(){
