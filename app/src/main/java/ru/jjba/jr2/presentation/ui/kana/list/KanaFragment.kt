@@ -1,9 +1,11 @@
 package ru.jjba.jr2.presentation.ui.kana.list
 
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
-import android.view.*
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import kotlinx.android.synthetic.main.fragment_kana.*
 import ru.jjba.jr2.R
@@ -46,8 +48,8 @@ class KanaFragment : BaseFragment(), KanaView {
         else -> super.onOptionsItemSelected(item)
     }
 
-    override fun setKanaList(list: List<Kana>) {
-        if (list.isNotEmpty()) kanaAdapter.kanaList = list
+    override fun showPiecesOfKana(piecesOfKana: List<Kana>) {
+        if (piecesOfKana.isNotEmpty()) kanaAdapter.kanaList = piecesOfKana
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

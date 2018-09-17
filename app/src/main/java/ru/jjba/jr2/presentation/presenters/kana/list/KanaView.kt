@@ -7,5 +7,5 @@ import ru.jjba.jr2.domain.entity.Kana
 
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface KanaView : MvpView {
-    fun setKanaList(list: List<Kana>)
+    fun showPiecesOfKana(piecesOfKana: List<Kana>)
 }
