@@ -9,9 +9,8 @@ class KanaInteractor(
 ) {
     fun getAllKana() = kanaDbRepository.getAll()
 
-    fun getOnlyKana() = kanaDbRepository.getOnlyKana()
-
-    fun getOnlyAdditionalSound() = kanaDbRepository.getOnlyAdditionalSound()
+    fun getSpecificKana(isNigoriMode: Boolean = false) =
+            if (isNigoriMode) kanaDbRepository.getOnlyAdditionalSound() else kanaDbRepository.getOnlyKana()
 
     fun getKana(kanaId: String) = kanaDbRepository.getKana(kanaId)
 

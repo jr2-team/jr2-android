@@ -21,29 +21,18 @@ class KanaPresenter(
         kanaTask.dispose()
     }
 
-    fun getKana(){
+    fun getKana() {
         viewState.setKanaList(kanaList)
     }
 
     fun fillList(nigoriMode: Boolean) {
-        kanaTask = if (nigoriMode) {
-            kanaInteractor.getOnlyAdditionalSound()
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeBy(
-                            onNext = {
-                                kanaList = it
-                                getKana()
-                            }
-                    )
-        } else {
-            kanaInteractor.getOnlyKana()
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeBy(
-                            onNext = {
-                                kanaList = it
-                                getKana()
-                            }
-                    )
-        }
+        kanaTask = kanaInteractor.getSpecificKana(nigoriMode)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                        onNext = {
+                            kanaList = it
+                            getKana()
+                        }
+                )
     }
 }
