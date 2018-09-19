@@ -37,26 +37,25 @@ class KanaDetailsFragment: BaseFragment(), KanaDetailsView {
 
     private fun initContent() {
         isBnMainShown(false)
+        kanaSVGView.loadSvg(resources.assets.open("kanjivg/04e0b.svg"))
         secondKana.setOnClickListener {
             //todo переделать листенер доп каны в деталях каны
             if(kanaMode) {
-                mainKana.text = kana.hiragana
                 secondKana.text = kana.katakana
                 secondKanaTitle.text = "Katakana"
                 requireActivity().title = kana.hiragana
             } else {
-                mainKana.text = kana.katakana
                 secondKana.text = kana.hiragana
                 secondKanaTitle.text = "Hiragana"
                 requireActivity().title = kana.katakana
             }
             kanaMode = !kanaMode
         }
+
     }
 
     override fun showKana(kana: Kana) {
         this.kana = kana
-        mainKana.text = kana.hiragana
         secondKana.text = kana.katakana
         setTitle(kana.hiragana)
     }

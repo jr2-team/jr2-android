@@ -75,6 +75,9 @@ dependencies {
     // StickyHeaders
     implementation 'org.zakariya.stickyheaders:stickyheaders:0.7.6'
 
+    //SVG library
+    implementation 'com.github.badoualy:kanji-strokeview:1.0.1'
+
     // Furigana TextView
     implementation project(':libs:furiganatextview')
 
