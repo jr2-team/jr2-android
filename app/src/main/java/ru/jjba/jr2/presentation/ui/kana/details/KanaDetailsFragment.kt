@@ -38,6 +38,11 @@ class KanaDetailsFragment: BaseFragment(), KanaDetailsView {
     private fun initContent() {
         isBnMainShown(false)
         kanaSVGView.loadSvg(resources.assets.open("kanjivg/04e0b.svg"))
+        kanaSVGView.animate = true
+        kanaSVGView.autoRun = true
+        kanaSVGView.setOnClickListener{
+            kanaSVGView.startDrawAnimation(0L)
+        }
         secondKana.setOnClickListener {
             //todo переделать листенер доп каны в деталях каны
             if(kanaMode) {
