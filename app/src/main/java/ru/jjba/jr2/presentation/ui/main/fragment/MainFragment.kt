@@ -24,8 +24,6 @@ class MainFragment : BaseFragment(), MainFragmentView {
     private val router: DefaultRouter = NavigationHolder.router
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        fabSearch.setOnClickListener {
-            router.navigateTo(Screen.WORD_SEARCH.title)
-        }
+
     }
 }

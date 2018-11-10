@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.ui.word.details
+package ru.jjba.jr2.presentation.ui.word.detail
 
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
@@ -6,32 +6,32 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import kotlinx.android.synthetic.main.fragment_word_details.*
+import kotlinx.android.synthetic.main.fragment_word_detail.*
 import org.jetbrains.anko.bundleOf
 import org.zakariya.stickyheaders.StickyHeaderLayoutManager
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Interp
 import ru.jjba.jr2.domain.entity.Word
-import ru.jjba.jr2.presentation.presenters.word.details.WordDetailsPresenter
-import ru.jjba.jr2.presentation.presenters.word.details.WordDetailsView
+import ru.jjba.jr2.presentation.presenters.word.detail.WordDetailPresenter
+import ru.jjba.jr2.presentation.presenters.word.detail.WordDetailView
 import ru.jjba.jr2.presentation.ui.base.BaseFragment
 
-class WordDetailsFragment : BaseFragment(), WordDetailsView {
-    override val layoutRes: Int = R.layout.fragment_word_details
+class WordDetailFragment : BaseFragment(), WordDetailView {
+    override val layoutRes: Int = R.layout.fragment_word_detail
     override val titleDefault: String
         get() = getString(R.string.word_details_title)
 
     @InjectPresenter
-    lateinit var presenter: WordDetailsPresenter
+    lateinit var presenter: WordDetailPresenter
 
     private val wordId: Long?
         get() = arguments?.getLong(WORD_ID)
 
-    private lateinit var sections: MutableList<WordDetailsAdapter.Section>
+    private lateinit var sections: MutableList<WordDetailAdapter.Section>
 
     @ProvidePresenter
-    fun provideWordDetailsPresenter(): WordDetailsPresenter =
-            WordDetailsPresenter(wordId)
+    fun provideWordDetailsPresenter(): WordDetailPresenter =
+            WordDetailPresenter(wordId)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,10 +50,10 @@ class WordDetailsFragment : BaseFragment(), WordDetailsView {
 
     override fun showWord(word: Word) {
 
-        val mainSection = WordDetailsAdapter.Section(
-                WordDetailsAdapter.HEADER_TYPE_FUNCTIONAL,
+        val mainSection = WordDetailAdapter.Section(
+                WordDetailAdapter.HEADER_TYPE_FUNCTIONAL,
                 "FUNCTIONAL",
-                mutableListOf(WordDetailsAdapter.ItemWord(word))
+                mutableListOf(WordDetailAdapter.ItemWord(word))
         )
 
         sections = mutableListOf(mainSection)
@@ -63,13 +63,13 @@ class WordDetailsFragment : BaseFragment(), WordDetailsView {
 
     override fun showInterps(interps: List<Interp>) {
         //interpAdapter.interpList = interps
-        val items = mutableListOf<WordDetailsAdapter.Item>().also { items ->
+        val items = mutableListOf<WordDetailAdapter.Item>().also { items ->
             interps.forEach {
-                items.add(WordDetailsAdapter.ItemInterp(it))
+                items.add(WordDetailAdapter.ItemInterp(it))
             }
         }
-        val section = WordDetailsAdapter.Section(
-                WordDetailsAdapter.HEADER_TYPE_SECTION,
+        val section = WordDetailAdapter.Section(
+                WordDetailAdapter.HEADER_TYPE_SECTION,
                 "Interp 1 (${items.size})",
                 items
         )
@@ -83,14 +83,14 @@ class WordDetailsFragment : BaseFragment(), WordDetailsView {
         sections.add(section)
         sections.add(section)
 
-        rvInterp.adapter = WordDetailsAdapter(sections)
+        rvInterp.adapter = WordDetailAdapter(sections)
     }
 
     companion object {
         const val WORD_ID = "word id"
 
-        fun newInstance(wordId: Long?): WordDetailsFragment =
-                WordDetailsFragment().also {
+        fun newInstance(wordId: Long?): WordDetailFragment =
+                WordDetailFragment().also {
                     it.arguments = bundleOf(WORD_ID to wordId)
                 }
     }

@@ -4,31 +4,31 @@ import android.os.Bundle
 import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import kotlinx.android.synthetic.main.fragment_kana_details.*
+import kotlinx.android.synthetic.main.fragment_kana_detail.*
 import org.jetbrains.anko.bundleOf
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Kana
-import ru.jjba.jr2.presentation.presenters.kana.details.KanaDetailsPresenter
-import ru.jjba.jr2.presentation.presenters.kana.details.KanaDetailsView
+import ru.jjba.jr2.presentation.presenters.kana.detail.KanaDetailPresenter
+import ru.jjba.jr2.presentation.presenters.kana.detail.KanaDetailView
 import ru.jjba.jr2.presentation.ui.base.BaseFragment
 
-class KanaDetailsFragment: BaseFragment(), KanaDetailsView {
-    override val layoutRes: Int = R.layout.fragment_kana_details
+class KanaDetailFragment: BaseFragment(), KanaDetailView {
+    override val layoutRes: Int = R.layout.fragment_kana_detail
     override val titleDefault: String
         get() = ""
 
     private val kanaId: String
-        get() = arguments?.getString(KanaDetailsFragment.KANA_ID) ?: "0"
+        get() = arguments?.getString(KanaDetailFragment.KANA_ID) ?: "0"
 
     private var kanaMode: Boolean = false
     private lateinit var kana: Kana
 
     @InjectPresenter
-    lateinit var presenter: KanaDetailsPresenter
+    lateinit var presenter: KanaDetailPresenter
 
     @ProvidePresenter
-    fun provideKanaDetailsPresenter(): KanaDetailsPresenter =
-            KanaDetailsPresenter(kanaId)
+    fun provideKanaDetailsPresenter(): KanaDetailPresenter =
+            KanaDetailPresenter(kanaId)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -64,8 +64,8 @@ class KanaDetailsFragment: BaseFragment(), KanaDetailsView {
     companion object {
         const val KANA_ID = "kana id"
 
-        fun newInstance(kanaId: String?): KanaDetailsFragment =
-                KanaDetailsFragment().also {
+        fun newInstance(kanaId: String?): KanaDetailFragment =
+                KanaDetailFragment().also {
                     it.arguments = bundleOf(KANA_ID to kanaId)
                 }
     }

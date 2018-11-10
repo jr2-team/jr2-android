@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.view.*
 import com.arellomobile.mvp.presenter.InjectPresenter
-import kotlinx.android.synthetic.main.fragment_kana.*
+import kotlinx.android.synthetic.main.fragment_kana_list.*
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Kana
 import ru.jjba.jr2.presentation.presenters.kana.list.KanaPresenter
@@ -13,7 +13,7 @@ import ru.jjba.jr2.presentation.ui.base.BaseFragment
 import ru.jjba.jr2.utils.ItemOffsetDecoration
 
 class KanaFragment : BaseFragment(), KanaView {
-    override val layoutRes: Int = R.layout.fragment_kana
+    override val layoutRes: Int = R.layout.fragment_kana_list
     override val titleDefault: String
         get() = getString(R.string.kana_title)
 

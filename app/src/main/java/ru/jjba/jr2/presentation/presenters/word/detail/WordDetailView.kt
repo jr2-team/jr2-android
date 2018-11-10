@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.presenters.word.details
+package ru.jjba.jr2.presentation.presenters.word.detail
 
 import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
@@ -7,7 +7,7 @@ import ru.jjba.jr2.domain.entity.Interp
 import ru.jjba.jr2.domain.entity.Word
 
 @StateStrategyType(AddToEndSingleStrategy::class)
-interface WordDetailsView : MvpView {
+interface WordDetailView : MvpView {
     fun showWord(word: Word)
 
     fun showInterps(interps: List<Interp>)

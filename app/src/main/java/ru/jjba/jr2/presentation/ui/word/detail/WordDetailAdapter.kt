@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.ui.word.details
+package ru.jjba.jr2.presentation.ui.word.detail
 
 import android.os.Build
 import android.speech.tts.TextToSpeech
@@ -13,7 +13,7 @@ import ru.jjba.jr2.domain.entity.Interp
 import ru.jjba.jr2.domain.entity.Word
 import se.fekete.furiganatextview.furiganaview.FuriganaTextView
 
-class WordDetailsAdapter(val sections: MutableList<Section>) : SectioningAdapter() {
+class WordDetailAdapter(val sections: MutableList<Section>) : SectioningAdapter() {
 
     open class Item(open val type: Int)
 
@@ -47,9 +47,9 @@ class WordDetailsAdapter(val sections: MutableList<Section>) : SectioningAdapter
 
         when (itemType) {
             ITEM_TYPE_WORD ->
-                return ItemWordViewHolder(inflater.inflate(R.layout.item_word_details_item_main, parent, false))
+                return ItemWordViewHolder(inflater.inflate(R.layout.item_word_detail_item_main, parent, false))
             ITEM_TYPE_INTERP ->
-                return ItemInterpViewHolder(inflater.inflate(R.layout.item_word_details_item_interp, parent, false))
+                return ItemInterpViewHolder(inflater.inflate(R.layout.item_word_detail_item_interp, parent, false))
         }
 
         throw IllegalArgumentException("Unrecognized itemType: $itemType")
@@ -60,9 +60,9 @@ class WordDetailsAdapter(val sections: MutableList<Section>) : SectioningAdapter
 
         when (headerUserType) {
             HEADER_TYPE_FUNCTIONAL ->
-                return HeaderFunctionalViewHolder(inflater.inflate(R.layout.item_word_details_functional, parent, false))
+                return HeaderFunctionalViewHolder(inflater.inflate(R.layout.item_word_detail_functional, parent, false))
             HEADER_TYPE_SECTION ->
-                return HeaderSectionViewHolder(inflater.inflate(R.layout.item_word_details_header, parent, false))
+                return HeaderSectionViewHolder(inflater.inflate(R.layout.item_word_detail_header, parent, false))
         }
 
         throw IllegalArgumentException("Unrecognized headerType: $headerUserType")

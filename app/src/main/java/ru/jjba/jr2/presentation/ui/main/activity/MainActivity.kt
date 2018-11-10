@@ -12,13 +12,11 @@ import ru.jjba.jr2.presentation.navigation.NavigationHolder
 import ru.jjba.jr2.presentation.navigation.Screen
 import ru.jjba.jr2.presentation.presenters.main.activity.MainActivityPresenter
 import ru.jjba.jr2.presentation.presenters.main.activity.MainActivityView
-import ru.jjba.jr2.presentation.ui.kana.details.KanaDetailsFragment
+import ru.jjba.jr2.presentation.ui.kana.details.KanaDetailFragment
 import ru.jjba.jr2.presentation.ui.kana.list.KanaFragment
 import ru.jjba.jr2.presentation.ui.main.fragment.MainFragment
-import ru.jjba.jr2.presentation.ui.tests.TestFragment
-import ru.jjba.jr2.presentation.ui.word.details.WordDetailsFragment
+import ru.jjba.jr2.presentation.ui.word.detail.WordDetailFragment
 import ru.jjba.jr2.presentation.ui.word.list.WordListFragment
-import ru.jjba.jr2.presentation.ui.word.search.WordSearchFragment
 
 class MainActivity : MvpAppCompatActivity(), MainActivityView {
 
@@ -73,14 +71,12 @@ class MainActivity : MvpAppCompatActivity(), MainActivityView {
             return when (screenKey) {
                 Screen.MAIN.title -> MainFragment().also { presenter.selectBottomMenuItem() }
                 Screen.WORD_LIST.title -> WordListFragment().also { presenter.selectBottomMenuItem() }
-                Screen.WORD_DETAILS.title -> WordDetailsFragment.newInstance(data as? Long).also {
+                Screen.WORD_DETAILS.title -> WordDetailFragment.newInstance(data as? Long).also {
                     presenter.setItemUpMode(true)
                     presenter.selectBottomMenuItem()
                 }
-                Screen.WORD_SEARCH.title -> WordSearchFragment()
-                Screen.TEST.title -> TestFragment()
                 Screen.KANA.title -> KanaFragment().also { presenter.selectBottomMenuItem() }
-                Screen.KANA_DETAILS.title -> KanaDetailsFragment.newInstance(data as? String).also {
+                Screen.KANA_DETAILS.title -> KanaDetailFragment.newInstance(data as? String).also {
                     presenter.setItemUpMode(true)
                     presenter.selectBottomMenuItem()
                 }

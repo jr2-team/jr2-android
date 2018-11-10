@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.presenters.kana.details
+package ru.jjba.jr2.presentation.presenters.kana.detail
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
@@ -7,10 +7,10 @@ import io.reactivex.rxkotlin.subscribeBy
 import ru.jjba.jr2.domain.interactor.KanaInteractor
 
 @InjectViewState
-class KanaDetailsPresenter(
+class KanaDetailPresenter(
         private val kanaId: String,
         private val kanaInteractor: KanaInteractor = KanaInteractor()
-): MvpPresenter<KanaDetailsView>() {
+): MvpPresenter<KanaDetailView>() {
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         kanaInteractor.getKana(kanaId)
