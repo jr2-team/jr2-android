@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/tiMain"
+        android:id="@+id/navigation_main"
         android:icon="@drawable/ic_home"
         android:title="@string/menu_main_title" />
     <item
-        android:id="@+id/tiWordList"
+        android:id="@+id/navigation_word_list"
         android:icon="@drawable/ic_word_list"
         android:title="@string/menu_word_list_title" />
     <item
-        android:id="@+id/tiKana"
+        android:id="@+id/navigation_kana"
         android:icon="@drawable/ic_word_list"
         android:title="@string/menu_kana_title" />
 </menu>

@@ -7,6 +7,8 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
+import org.jetbrains.anko.support.v4.act
 import ru.jjba.jr2.App
 import ru.jjba.jr2.utils.inflate
 import ru.jjba.jr2.utils.isVisible
@@ -18,20 +20,6 @@ abstract class BaseFragment : Fragment() {
     abstract val layoutRes: Int
     abstract val titleDefault: String
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        activity?.title = titleDefault
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean = when (item?.itemId) {
-        android.R.id.home -> requireActivity().onBackPressed().let { true }
-        else -> super.onOptionsItemSelected(item)
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View? =
-            container?.inflate(layoutRes).also {
-                setHasOptionsMenu(true)
-            }
-
     open fun showMessage(msg: String) {
         val view = view ?: return
         Snackbar.make(view, msg, Snackbar.LENGTH_SHORT).show()
@@ -42,22 +30,41 @@ abstract class BaseFragment : Fragment() {
         Snackbar.make(view, resMsg, Snackbar.LENGTH_SHORT).show()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        isBnMainShown()
+    protected fun setTitle(title: String) {
+        act.toolbar.title = titleDefault
     }
 
-    fun isBnMainShown(isShown: Boolean = true) {
-        requireActivity().navigation.isVisible = isShown
+    protected fun showBottomNavigationView(isShown: Boolean = true) {
+        requireActivity().bottomNavigationView.isVisible = isShown
     }
 
-    fun setTitle(title: String) {
-        activity?.title = title
-    }
-
-    fun speakOut(text: String) {
+    protected fun speakOut(text: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return when (item?.itemId) {
+            android.R.id.home -> requireActivity().onBackPressed().let { true }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View? {
+        return container?.inflate(layoutRes).also {
+            setHasOptionsMenu(true)
+        }
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setTitle(titleDefault)
+        showBottomNavigationView()
     }
 }

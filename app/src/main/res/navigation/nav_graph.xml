@@ -3,10 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainActivity">
+    app:startDestination="@id/navigation_main">
 
     <fragment
-        android:id="@+id/mainFragment2"
+        android:id="@+id/navigation_main"
         android:name="ru.jjba.jr2.presentation.ui.main.fragment.MainFragment"
-        android:label="MainFragment" />
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/navigation_word_list"
+        android:name="ru.jjba.jr2.presentation.ui.word.list.WordListFragment"
+        android:label="WordListFragment"
+        tools:layout="@layout/fragment_word_list" />
+    <fragment
+        android:id="@+id/navigation_kana"
+        android:name="ru.jjba.jr2.presentation.ui.kana.list.KanaFragment"
+        android:label="KanaFragment"
+        tools:layout="@layout/fragment_kana_list" />
 </navigation>

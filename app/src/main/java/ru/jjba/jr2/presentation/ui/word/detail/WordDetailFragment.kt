@@ -20,7 +20,7 @@ class WordDetailFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        isBnMainShown(false)
+        showBottomNavigationView(false)
 
         initContent()
     }

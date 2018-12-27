@@ -32,7 +32,7 @@ class KanaDetailFragment: BaseFragment() {
     }
 
     private fun initContent() {
-        isBnMainShown(false)
+        showBottomNavigationView(false)
         secondKana.setOnClickListener {
             //todo переделать листенер доп каны в деталях каны
             if(kanaMode) {
