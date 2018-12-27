@@ -1,14 +1,12 @@
 package ru.jjba.jr2.presentation.ui.kana.list
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_kana.view.*
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Kana
-import ru.jjba.jr2.presentation.navigation.NavigationHolder.router
-import ru.jjba.jr2.presentation.navigation.Screen
 import kotlin.properties.Delegates
 
 class KanaAdapter : RecyclerView.Adapter<KanaAdapter.ViewHolder>() {
@@ -48,7 +46,7 @@ class KanaAdapter : RecyclerView.Adapter<KanaAdapter.ViewHolder>() {
             if (!englishMode) tvKanaForeignSound.text = kana.rus else tvKanaForeignSound.text = kana.eng
 
             this.setOnClickListener {
-                router.navigateTo(Screen.KANA_DETAILS.title, kana.id)
+                //router.navigateTo(Screen.KANA_DETAILS.title, kana.id)
             }
         }
     }

@@ -1,16 +1,15 @@
 package ru.jjba.jr2.presentation.presenters.kana.detail
 
-import com.arellomobile.mvp.InjectViewState
-import com.arellomobile.mvp.MvpPresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import ru.jjba.jr2.domain.interactor.KanaInteractor
 
+/*
 @InjectViewState
 class KanaDetailPresenter(
         private val kanaId: String,
         private val kanaInteractor: KanaInteractor = KanaInteractor()
-): MvpPresenter<KanaDetailView>() {
+) : MvpPresenter<KanaDetailView>() {
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         kanaInteractor.getKana(kanaId)
@@ -21,4 +20,4 @@ class KanaDetailPresenter(
                         }
                 )
     }
-}
+}*/

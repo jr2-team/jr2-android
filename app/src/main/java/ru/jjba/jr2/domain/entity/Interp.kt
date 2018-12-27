@@ -1,8 +1,7 @@
 package ru.jjba.jr2.domain.entity
 
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.PrimaryKey
-import java.util.*
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity
 class Interp(
@@ -13,5 +12,5 @@ class Interp(
         //@Embedded(prefix = "word_")
         var word: Long
 ) {
-        override fun toString() = "$id $pos $interp"
+    override fun toString() = "$id $pos $interp"
 }

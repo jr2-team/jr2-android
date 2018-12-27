@@ -1,19 +1,17 @@
-package ru.jjba.jr2.presentation.ui.base
+package ru.jjba.jr2.presentation.ui
 
 import android.os.Build
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
-import android.support.design.widget.Snackbar
 import android.view.*
-import com.arellomobile.mvp.MvpAppCompatFragment
+import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.jjba.jr2.App
-import ru.jjba.jr2.R
-import ru.jjba.jr2.utils.BottomNavigationItem
 import ru.jjba.jr2.utils.inflate
 import ru.jjba.jr2.utils.isVisible
 
-abstract class BaseFragment : MvpAppCompatFragment() {
+abstract class BaseFragment : Fragment() {
 
     private val textToSpeech: TextToSpeech = App.instance.tts
 
@@ -24,7 +22,7 @@ abstract class BaseFragment : MvpAppCompatFragment() {
         activity?.title = titleDefault
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean = when(item?.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean = when (item?.itemId) {
         android.R.id.home -> requireActivity().onBackPressed().let { true }
         else -> super.onOptionsItemSelected(item)
     }

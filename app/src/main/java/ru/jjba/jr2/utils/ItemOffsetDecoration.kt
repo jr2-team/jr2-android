@@ -2,9 +2,9 @@ package ru.jjba.jr2.utils
 
 import android.content.Context
 import android.graphics.Rect
-import android.support.v7.widget.RecyclerView
-import android.support.annotation.DimenRes
 import android.view.View
+import androidx.annotation.DimenRes
+import androidx.recyclerview.widget.RecyclerView
 
 class ItemOffsetDecoration(
         val itemOffset: Int

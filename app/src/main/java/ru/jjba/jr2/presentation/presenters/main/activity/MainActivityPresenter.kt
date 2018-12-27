@@ -1,11 +1,6 @@
 package ru.jjba.jr2.presentation.presenters.main.activity
 
-import com.arellomobile.mvp.InjectViewState
-import com.arellomobile.mvp.MvpPresenter
-import ru.jjba.jr2.presentation.navigation.DefaultRouter
-import ru.jjba.jr2.presentation.navigation.NavigationHolder
-import ru.jjba.jr2.presentation.navigation.Screen
-
+/*
 @InjectViewState
 class MainActivityPresenter(
         private val router: DefaultRouter = NavigationHolder.router
@@ -44,4 +39,4 @@ class MainActivityPresenter(
     }
 
     fun setItemUpMode(mode: Boolean) = viewState.setItemUpMode(mode)
-}
+}*/

@@ -1,12 +1,10 @@
 package ru.jjba.jr2.data.db
 
-import android.arch.persistence.db.SupportSQLiteDatabase
-import android.arch.persistence.room.Database
-import android.arch.persistence.room.Room
-import android.arch.persistence.room.RoomDatabase
 import android.content.Context
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import ru.jjba.jr2.data.db.dao.*
@@ -50,7 +48,7 @@ abstract class AppDatabase : RoomDatabase() {
                              * Need to move code below to other layer with loader render
                              */
                             //TODO : Разобраться с ключами в таблицах и порядком слов
-                            KanaInteractor().insertPiecesOfKana(
+                            /*KanaInteractor().insertPiecesOfKana(
                                     Gson().fromJson<List<Kana>>(
                                             context.loadJSONFromAsset("kana.json"),
                                             object : TypeToken<List<Kana>>() {}.type
@@ -64,7 +62,7 @@ abstract class AppDatabase : RoomDatabase() {
                                                 )
                                         ).observeOn(AndroidSchedulers.mainThread())
                                                 .subscribeBy { }
-                                    }
+                                    }*/
                         }
                     })
         }.build()

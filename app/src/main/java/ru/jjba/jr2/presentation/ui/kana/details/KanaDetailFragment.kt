@@ -2,17 +2,13 @@ package ru.jjba.jr2.presentation.ui.kana.details
 
 import android.os.Bundle
 import android.view.View
-import com.arellomobile.mvp.presenter.InjectPresenter
-import com.arellomobile.mvp.presenter.ProvidePresenter
 import kotlinx.android.synthetic.main.fragment_kana_detail.*
 import org.jetbrains.anko.bundleOf
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Kana
-import ru.jjba.jr2.presentation.presenters.kana.detail.KanaDetailPresenter
-import ru.jjba.jr2.presentation.presenters.kana.detail.KanaDetailView
-import ru.jjba.jr2.presentation.ui.base.BaseFragment
+import ru.jjba.jr2.presentation.ui.BaseFragment
 
-class KanaDetailFragment: BaseFragment(), KanaDetailView {
+class KanaDetailFragment: BaseFragment() {
     override val layoutRes: Int = R.layout.fragment_kana_detail
     override val titleDefault: String
         get() = ""
@@ -23,12 +19,12 @@ class KanaDetailFragment: BaseFragment(), KanaDetailView {
     private var kanaMode: Boolean = false
     private lateinit var kana: Kana
 
-    @InjectPresenter
+    /*@InjectPresenter
     lateinit var presenter: KanaDetailPresenter
 
     @ProvidePresenter
     fun provideKanaDetailsPresenter(): KanaDetailPresenter =
-            KanaDetailPresenter(kanaId)
+            KanaDetailPresenter(kanaId)*/
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -54,12 +50,12 @@ class KanaDetailFragment: BaseFragment(), KanaDetailView {
         }
     }
 
-    override fun showKana(kana: Kana) {
+    /*override fun showKana(kana: Kana) {
         this.kana = kana
         mainKana.text = kana.hiragana
         secondKana.text = kana.katakana
         setTitle(kana.hiragana)
-    }
+    }*/
 
     companion object {
         const val KANA_ID = "kana id"

@@ -1,18 +1,15 @@
 package ru.jjba.jr2.presentation.ui.interp
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_word_detail_item_interp.view.*
 import ru.jjba.jr2.R
-//import ru.jjba.jr2.data.repository.ExampleDbRepository
 import ru.jjba.jr2.domain.entity.Interp
 import kotlin.properties.Delegates
 
-class InterpAdapter(
-        //val exampleDbRepository: ExampleDbRepository = ExampleDbRepository()
-) : RecyclerView.Adapter<InterpAdapter.ViewHolder>() {
+class InterpAdapter() : RecyclerView.Adapter<InterpAdapter.ViewHolder>() {
     var interpList: List<Interp> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
     }
@@ -34,16 +31,7 @@ class InterpAdapter(
             tvPos.text = interpretation.pos
 
             setOnClickListener {
-                /*exampleDbRepository.getExampleByInterpretationId(interp.id)
-                        .first(kotlin.collections.emptyList())
-                        .observeOn(io.reactivex.android.schedulers.AndroidSchedulers.mainThread())
-                        .subscribeBy(
-                                onSuccess = {
-                                    it.forEach {
-                                        Snackbar.make(this, it.toString(), Snackbar.LENGTH_LONG).show()
-                                    }
-                                }
-                        )*/
+
             }
         }
     }

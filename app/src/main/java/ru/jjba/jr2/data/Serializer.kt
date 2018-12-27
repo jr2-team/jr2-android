@@ -1,12 +1,10 @@
 package ru.jjba.jr2.data
 
-import com.google.gson.JsonObject
-import com.google.gson.JsonSerializer
 import ru.jjba.jr2.domain.entity.Interp
 import ru.jjba.jr2.domain.entity.Word
 
 object Serializer {
-    val word = JsonSerializer<Word> { word, _, _ ->
+    /*val word = JsonSerializer<Word> { word, _, _ ->
         JsonObject().apply {
             addProperty("id", word.id)
             addProperty("wordJp", word.wordJp)
@@ -23,5 +21,5 @@ object Serializer {
             //addProperty("wordId", interp.word.id)
             addProperty("wordId", interpretation.word)
         }
-    }
+    }*/
 }
