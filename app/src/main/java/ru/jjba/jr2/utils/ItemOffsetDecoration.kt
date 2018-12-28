@@ -7,7 +7,7 @@ import androidx.annotation.DimenRes
 import androidx.recyclerview.widget.RecyclerView
 
 class ItemOffsetDecoration(
-        val itemOffset: Int
+        private val itemOffset: Int
 ) : RecyclerView.ItemDecoration() {
 
     constructor(context: Context, @DimenRes itemOffsetId: Int) :

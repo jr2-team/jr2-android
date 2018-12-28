@@ -3,49 +3,56 @@ package ru.jjba.jr2.presentation.ui
 import android.os.Build
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
-import android.view.*
+import android.view.LayoutInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.google.android.material.snackbar.Snackbar
+import androidx.lifecycle.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.support.v4.act
 import ru.jjba.jr2.App
+import ru.jjba.jr2.utils.createFactory
 import ru.jjba.jr2.utils.inflate
 import ru.jjba.jr2.utils.isVisible
 
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment : Fragment(), LifecycleObserver {
+    abstract val layoutRes: Int
+    abstract val titleDefault: String
+    abstract var viewModel: ViewModel
 
     private val textToSpeech: TextToSpeech = App.instance.tts
 
-    abstract val layoutRes: Int
-    abstract val titleDefault: String
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    protected abstract fun initContent()
 
-    open fun showMessage(msg: String) {
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    protected abstract fun observeData()
+
+    fun showMessage(msg: String) {
         val view = view ?: return
-        Snackbar.make(view, msg, Snackbar.LENGTH_SHORT).show()
+        view.snackbar(msg)
     }
 
-    open fun showMessage(resMsg: Int) {
+    fun showMessage(resMsg: Int) {
         val view = view ?: return
-        Snackbar.make(view, resMsg, Snackbar.LENGTH_SHORT).show()
+        view.snackbar(resMsg)
     }
 
-    protected fun setTitle(title: String) {
+    fun setTitle(title: String) {
         act.toolbar.title = titleDefault
     }
 
-    protected fun showBottomNavigationView(isShown: Boolean = true) {
-        requireActivity().bottomNavigationView.isVisible = isShown
+    fun showBottomNavigationView(isShown: Boolean = true) {
+        act.bottomNavigationView.isVisible = isShown
     }
 
-    protected fun speakOut(text: String) {
+    fun speakOut(text: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -55,16 +62,25 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View? {
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            state: Bundle?
+    ): View? {
         return container?.inflate(layoutRes).also {
             setHasOptionsMenu(true)
         }
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setTitle(titleDefault)
         showBottomNavigationView()
+
+        viewModel = ViewModelProviders
+                .of(act, viewModel.createFactory())
+                .get(viewModel::class.java)
+
+        lifecycle.addObserver(this)
     }
 }

@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.ui.interp
+package ru.jjba.jr2.presentation.ui.interpritatinos
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Interp
 import kotlin.properties.Delegates
 
-class InterpAdapter() : RecyclerView.Adapter<InterpAdapter.ViewHolder>() {
+class InterpritationAdapter() : RecyclerView.Adapter<InterpritationAdapter.ViewHolder>() {
     var interpList: List<Interp> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
     }

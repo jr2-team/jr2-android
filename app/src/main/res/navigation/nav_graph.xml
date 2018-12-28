@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_word_list" />
     <fragment
         android:id="@+id/navigation_kana"
-        android:name="ru.jjba.jr2.presentation.ui.kana.list.KanaFragment"
+        android:name="ru.jjba.jr2.presentation.ui.kana.list.KanaListFragment"
         android:label="KanaFragment"
         tools:layout="@layout/fragment_kana_list" />
 </navigation>

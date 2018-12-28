@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.ui.word.detail
+package ru.jjba.jr2.presentation.ui.word.details
 
 import android.os.Build
 import android.speech.tts.TextToSpeech
@@ -13,7 +13,7 @@ import ru.jjba.jr2.domain.entity.Interp
 import ru.jjba.jr2.domain.entity.Word
 import se.fekete.furiganatextview.furiganaview.FuriganaTextView
 
-class WordDetailAdapter(val sections: MutableList<Section>) : SectioningAdapter() {
+class WordDetailsAdapter(val sections: MutableList<Section>) : SectioningAdapter() {
 
     open class Item(open val type: Int)
 

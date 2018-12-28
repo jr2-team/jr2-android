@@ -1,12 +1,15 @@
-package ru.jjba.jr2.presentation.ui.word.detail
+package ru.jjba.jr2.presentation.ui.word.details
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.ViewModel
 import org.jetbrains.anko.bundleOf
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
+import ru.jjba.jr2.presentation.viewmodel.word.list.WordListViewModel
 
-class WordDetailFragment : BaseFragment() {
+class WordDetailsFragment : BaseFragment() {
+    override var viewModel: ViewModel = WordListViewModel()
     override val layoutRes: Int = R.layout.fragment_word_detail
     override val titleDefault: String
         get() = getString(R.string.word_details_title)
@@ -14,7 +17,7 @@ class WordDetailFragment : BaseFragment() {
     private val wordId: Long?
         get() = arguments?.getLong(WORD_ID)
 
-    private lateinit var sections: MutableList<WordDetailAdapter.Section>
+    private lateinit var sections: MutableList<WordDetailsAdapter.Section>
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -25,18 +28,22 @@ class WordDetailFragment : BaseFragment() {
         initContent()
     }
 
-    private fun initContent() {
+    override fun initContent() {
         /*rvInterp.setHasFixedSize(true)
         rvInterp.layoutManager = StickyHeaderLayoutManager()
         rvInterp.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))*/
     }
 
+    override fun observeData() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     /*override fun showWord(word: Word) {
 
-        val mainSection = WordDetailAdapter.Section(
-                WordDetailAdapter.HEADER_TYPE_FUNCTIONAL,
+        val mainSection = WordDetailsAdapter.Section(
+                WordDetailsAdapter.HEADER_TYPE_FUNCTIONAL,
                 "FUNCTIONAL",
-                mutableListOf(WordDetailAdapter.ItemWord(word))
+                mutableListOf(WordDetailsAdapter.ItemWord(word))
         )
 
         sections = mutableListOf(mainSection)
@@ -46,13 +53,13 @@ class WordDetailFragment : BaseFragment() {
 
     /*override fun showInterps(interps: List<Interp>) {
         //interpAdapter.interpList = interps
-        val items = mutableListOf<WordDetailAdapter.Item>().also { items ->
+        val items = mutableListOf<WordDetailsAdapter.Item>().also { items ->
             interps.forEach {
-                items.add(WordDetailAdapter.ItemInterp(it))
+                items.add(WordDetailsAdapter.ItemInterp(it))
             }
         }
-        val section = WordDetailAdapter.Section(
-                WordDetailAdapter.HEADER_TYPE_SECTION,
+        val section = WordDetailsAdapter.Section(
+                WordDetailsAdapter.HEADER_TYPE_SECTION,
                 "Interp 1 (${items.size})",
                 items
         )
@@ -66,14 +73,14 @@ class WordDetailFragment : BaseFragment() {
         sections.add(section)
         sections.add(section)
 
-        rvInterp.adapter = WordDetailAdapter(sections)
+        rvInterp.adapter = WordDetailsAdapter(sections)
     }*/
 
     companion object {
         const val WORD_ID = "word id"
 
-        fun newInstance(wordId: Long?): WordDetailFragment =
-                WordDetailFragment().also {
+        fun newInstance(wordId: Long?): WordDetailsFragment =
+                WordDetailsFragment().also {
                     it.arguments = bundleOf(WORD_ID to wordId)
                 }
     }

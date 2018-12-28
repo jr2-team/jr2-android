@@ -1,21 +1,21 @@
 package ru.jjba.jr2.presentation.ui.kana.list
 
-import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
+import androidx.lifecycle.ViewModel
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
+import ru.jjba.jr2.presentation.viewmodel.kana.list.KanaListViewModel
 
-class KanaFragment : BaseFragment() {
+class KanaListFragment : BaseFragment() {
+    override var viewModel: ViewModel = KanaListViewModel()
     override val layoutRes: Int = R.layout.fragment_kana_list
     override val titleDefault: String
         get() = getString(R.string.kana_title)
 
     private var kanaAdapter = KanaAdapter()
     private var nigoriMode = false
-
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         super.onCreateOptionsMenu(menu, inflater)
@@ -39,17 +39,9 @@ class KanaFragment : BaseFragment() {
         else -> super.onOptionsItemSelected(item)
     }
 
-    /*override fun setKanaList(list: List<Kana>) {
-        if (list.isNotEmpty()) kanaAdapter.kanaList = list
-    }*/
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun initContent() {
         //presenter.fillList(nigoriMode)
-        initContent()
-    }
-
-    private fun initContent() {
         /*rvKana.also {
             it.layoutManager = GridLayoutManager(activity, 5)
             it.setHasFixedSize(true)
@@ -58,5 +50,11 @@ class KanaFragment : BaseFragment() {
             it.adapter = kanaAdapter
         }
         rvKana.addItemDecoration(ItemOffsetDecoration(4))*/
+    }
+
+    override fun observeData() {
+        /*override fun setKanaList(list: List<Kana>) {
+        if (list.isNotEmpty()) kanaAdapter.kanaList = list
+        }*/
     }
 }

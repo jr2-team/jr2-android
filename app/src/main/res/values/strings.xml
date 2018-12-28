@@ -20,7 +20,7 @@
     <string name="test_title">Тестирование</string>
     <string name="menu_test_title">Тест</string>
 
-    <!-- KanaFragment -->
+    <!-- KanaListFragment -->
     <string name="kana_title">Алфавит</string>
     <string name="menu_kana_title">Алфавит</string>
     <string name="kana_toolbar_menu_switch_alphabet_hiragana">Хирагана</string>

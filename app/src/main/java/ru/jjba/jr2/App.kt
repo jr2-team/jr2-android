@@ -7,6 +7,12 @@ import ru.jjba.jr2.data.db.AppDatabase
 import java.util.*
 
 class App : MultiDexApplication(), TextToSpeech.OnInitListener {
+    /*val moshi = Moshi.Builder()
+        .add(DefaultOnDataMismatchAdapter.newFactory(Currency::class.java, Currency()))
+        .add(DefaultOnDataMismatchAdapter.newFactory(Record::class.java, Record()))
+        .add(KotlinJsonAdapterFactory())
+        .build()*/
+
     lateinit var db: AppDatabase
     lateinit var tts: TextToSpeech
 
