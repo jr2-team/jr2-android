@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_word_detail_item_interp.view.*
 import ru.jjba.jr2.R
-import ru.jjba.jr2.domain.entity.Interp
+import ru.jjba.jr2.domain.entity.Interpretation
 import kotlin.properties.Delegates
 
 class InterpritationAdapter() : RecyclerView.Adapter<InterpritationAdapter.ViewHolder>() {
-    var interpList: List<Interp> by Delegates.observable(emptyList()) { _, _, _ ->
+    var interpList: List<Interpretation> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
     }
 
@@ -26,7 +26,7 @@ class InterpritationAdapter() : RecyclerView.Adapter<InterpritationAdapter.ViewH
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(interpretation: Interp) = with(itemView) {
+        fun bind(interpretation: Interpretation) = with(itemView) {
             tvInterp.text = interpretation.interp
             tvPos.text = interpretation.pos
 

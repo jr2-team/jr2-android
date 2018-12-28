@@ -9,7 +9,7 @@ import android.widget.TextView
 import org.zakariya.stickyheaders.SectioningAdapter
 import ru.jjba.jr2.App
 import ru.jjba.jr2.R
-import ru.jjba.jr2.domain.entity.Interp
+import ru.jjba.jr2.domain.entity.Interpretation
 import ru.jjba.jr2.domain.entity.Word
 import se.fekete.furiganatextview.furiganaview.FuriganaTextView
 
@@ -19,7 +19,7 @@ class WordDetailsAdapter(val sections: MutableList<Section>) : SectioningAdapter
 
     class ItemWord(val word: Word, override val type: Int = ITEM_TYPE_WORD) : Item(type)
 
-    class ItemInterp(val interp: Interp, override val type: Int = ITEM_TYPE_INTERP) : Item(type)
+    class ItemInterp(val interp: Interpretation, override val type: Int = ITEM_TYPE_INTERP) : Item(type)
 
     class Section(val type: Int, val title: String, val items: MutableList<Item>)
 
@@ -82,7 +82,7 @@ class WordDetailsAdapter(val sections: MutableList<Section>) : SectioningAdapter
                 val word = (section.items[itemIndex] as ItemWord).word
                 ivh.ftvWord.setFuriganaText("<ruby>${word.wordJp}<rt>${word.wordFurigana}</rt></ruby>")
                 ivh.tvJlptLevel.text = "N${word.jlptLevel}"
-                ivh.tvBasicInterp.text = word.basicInterp
+                ivh.tvBasicInterp.text = word.basicInterpretation
             }
             ITEM_TYPE_INTERP -> {
                 val ivh = viewHolder as ItemInterpViewHolder

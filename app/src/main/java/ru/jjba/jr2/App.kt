@@ -4,17 +4,31 @@ import android.speech.tts.TextToSpeech
 import android.util.Log
 import androidx.multidex.MultiDexApplication
 import ru.jjba.jr2.data.db.AppDatabase
+import java.io.IOException
+import java.nio.charset.Charset
 import java.util.*
 
 class App : MultiDexApplication(), TextToSpeech.OnInitListener {
-    /*val moshi = Moshi.Builder()
-        .add(DefaultOnDataMismatchAdapter.newFactory(Currency::class.java, Currency()))
-        .add(DefaultOnDataMismatchAdapter.newFactory(Record::class.java, Record()))
-        .add(KotlinJsonAdapterFactory())
-        .build()*/
-
     lateinit var db: AppDatabase
     lateinit var tts: TextToSpeech
+
+    fun getAssetContext(assetName: String): String {
+        var contetn = String()
+
+        try {
+            val inputStream = assets.open(assetName)
+            kotlin.ByteArray(inputStream.available()).also {
+                inputStream.read(it)
+                inputStream.close()
+                contetn = String(it, Charset.forName("UTF-8"))
+            }
+            contetn = contetn.filter { it != '\uFEFF' }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        return contetn
+    }
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
@@ -23,7 +37,7 @@ class App : MultiDexApplication(), TextToSpeech.OnInitListener {
                 Log.e("TTS", "The Language specified is not supported!")
             }
         } else {
-            Log.e("TTS", "Initilization Failed!")
+            Log.e("TTS", "Initialization Failed!")
         }
     }
 

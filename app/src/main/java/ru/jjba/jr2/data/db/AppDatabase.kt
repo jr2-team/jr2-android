@@ -5,18 +5,13 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.rxkotlin.subscribeBy
 import ru.jjba.jr2.data.db.dao.*
 import ru.jjba.jr2.domain.entity.*
-import ru.jjba.jr2.domain.interactor.KanaInteractor
-import ru.jjba.jr2.domain.interactor.WordInteractor
-import ru.jjba.jr2.utils.loadJSONFromAsset
 
 @Database(
         entities = [
             Word::class,
-            Interp::class,
+            Interpretation::class,
             Example::class,
             Kanji::class,
             KanjiPart::class,
@@ -50,14 +45,14 @@ abstract class AppDatabase : RoomDatabase() {
                             //TODO : Разобраться с ключами в таблицах и порядком слов
                             /*KanaInteractor().insertPiecesOfKana(
                                     Gson().fromJson<List<Kana>>(
-                                            context.loadJSONFromAsset("kana.json"),
+                                            context.loadJsonFromAsset("kana.json"),
                                             object : TypeToken<List<Kana>>() {}.type
                                     )
                             ).observeOn(AndroidSchedulers.mainThread())
                                     .subscribeBy {
                                         WordInteractor().insert(
                                                 Gson().fromJson<List<Word>>(
-                                                        context.loadJSONFromAsset(PREPOPULATE_DATA),
+                                                        context.loadJsonFromAsset(PREPOPULATE_DATA),
                                                         object : TypeToken<List<Word>>() {}.type
                                                 )
                                         ).observeOn(AndroidSchedulers.mainThread())

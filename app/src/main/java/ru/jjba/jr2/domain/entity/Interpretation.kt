@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-class Interp(
+class Interpretation(
         @PrimaryKey(autoGenerate = true)
         var id: Long,
         var interp: String,

@@ -1,17 +1,14 @@
 package ru.jjba.jr2.presentation.ui.kana.details
 
-import android.os.Bundle
-import android.view.View
-import androidx.lifecycle.ViewModel
 import org.jetbrains.anko.bundleOf
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Kana
 import ru.jjba.jr2.presentation.ui.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.kana.details.KanaDetailsViewModel
 
-class KanaDetailsFragment : BaseFragment() {
-    override var viewModel: ViewModel = KanaDetailsViewModel()
-    override val layoutRes: Int = R.layout.fragment_kana_detail
+class KanaDetailsFragment : BaseFragment<KanaDetailsViewModel>() {
+    override var viewModel = KanaDetailsViewModel()
+    override val layoutRes: Int = R.layout.fragment_kana_details
     override val titleDefault: String
         get() = ""
 
@@ -22,7 +19,7 @@ class KanaDetailsFragment : BaseFragment() {
     private lateinit var kana: Kana
 
     override fun initContent() {
-        /*showBottomNavigationView(false)
+        /*showBottomNavigation(false)
         secondKana.setOnClickListener {
             //todo переделать листенер доп каны в деталях каны
             if(kanaMode) {

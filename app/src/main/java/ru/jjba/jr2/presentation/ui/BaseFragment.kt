@@ -3,10 +3,7 @@ package ru.jjba.jr2.presentation.ui
 import android.os.Build
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -14,14 +11,15 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.support.v4.act
 import ru.jjba.jr2.App
+import ru.jjba.jr2.R
 import ru.jjba.jr2.utils.createFactory
 import ru.jjba.jr2.utils.inflate
 import ru.jjba.jr2.utils.isVisible
 
-abstract class BaseFragment : Fragment(), LifecycleObserver {
+abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
     abstract val layoutRes: Int
     abstract val titleDefault: String
-    abstract var viewModel: ViewModel
+    abstract var viewModel: VT
 
     private val textToSpeech: TextToSpeech = App.instance.tts
 
@@ -42,10 +40,14 @@ abstract class BaseFragment : Fragment(), LifecycleObserver {
     }
 
     fun setTitle(title: String) {
-        act.toolbar.title = titleDefault
+        act.toolbar.title = title
     }
 
-    fun showBottomNavigationView(isShown: Boolean = true) {
+    fun showToolbar(isShown: Boolean = true) {
+        act.toolbar.isVisible = isShown
+    }
+
+    fun showBottomNavigation(isShown: Boolean = true) {
         act.bottomNavigationView.isVisible = isShown
     }
 
@@ -57,7 +59,7 @@ abstract class BaseFragment : Fragment(), LifecycleObserver {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item?.itemId) {
-            android.R.id.home -> requireActivity().onBackPressed().let { true }
+            android.R.id.home -> act.onBackPressed().let { true }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -67,15 +69,17 @@ abstract class BaseFragment : Fragment(), LifecycleObserver {
             container: ViewGroup?,
             state: Bundle?
     ): View? {
-        return container?.inflate(layoutRes).also {
-            setHasOptionsMenu(true)
-        }
+        val view = container?.inflate(layoutRes)
+        // TODO: Разобраться с toolbar
+        setHasOptionsMenu(true)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setTitle(titleDefault)
-        showBottomNavigationView()
+        showToolbar()
+        showBottomNavigation()
 
         viewModel = ViewModelProviders
                 .of(act, viewModel.createFactory())

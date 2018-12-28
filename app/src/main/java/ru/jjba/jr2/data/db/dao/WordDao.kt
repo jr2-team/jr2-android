@@ -16,7 +16,7 @@ abstract class WordDao {
     @Query("SELECT * FROM Word")
     abstract fun getAll(): Flowable<List<Word>>
 
-    @Query("SELECT * FROM Word WHERE basicInterp LIKE :query OR wordJp LIKE :query")
+    @Query("SELECT * FROM Word WHERE basicInterpretation LIKE :query OR wordJp LIKE :query")
     abstract fun find(query: String): Flowable<List<Word>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

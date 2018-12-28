@@ -2,15 +2,14 @@ package ru.jjba.jr2.presentation.ui.word.details
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModel
 import org.jetbrains.anko.bundleOf
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.word.list.WordListViewModel
 
-class WordDetailsFragment : BaseFragment() {
-    override var viewModel: ViewModel = WordListViewModel()
-    override val layoutRes: Int = R.layout.fragment_word_detail
+class WordDetailsFragment : BaseFragment<WordListViewModel>() {
+    override var viewModel = WordListViewModel()
+    override val layoutRes: Int = R.layout.fragment_word_details
     override val titleDefault: String
         get() = getString(R.string.word_details_title)
 
@@ -23,7 +22,7 @@ class WordDetailsFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        showBottomNavigationView(false)
+        showBottomNavigation(false)
 
         initContent()
     }
@@ -51,7 +50,7 @@ class WordDetailsFragment : BaseFragment() {
         setTitle(word.wordJp)
     }*/
 
-    /*override fun showInterps(interps: List<Interp>) {
+    /*override fun showInterps(interps: List<Interpretation>) {
         //interpAdapter.interpList = interps
         val items = mutableListOf<WordDetailsAdapter.Item>().also { items ->
             interps.forEach {
@@ -60,7 +59,7 @@ class WordDetailsFragment : BaseFragment() {
         }
         val section = WordDetailsAdapter.Section(
                 WordDetailsAdapter.HEADER_TYPE_SECTION,
-                "Interp 1 (${items.size})",
+                "Interpretation 1 (${items.size})",
                 items
         )
         sections.add(section)

@@ -5,7 +5,7 @@
     <!-- MainActivity -->
 
     <!-- MainFragment -->
-    <string name="main_title">Прототип обучалки</string>
+    <string name="main_title">JR2</string>
     <string name="menu_main_title">Главная</string>
 
     <!-- WordListFragment -->

@@ -38,10 +38,10 @@ class WordDbRepository(
             Completable.fromAction {
                 words.forEach {word ->
                     val wordId = wordDao.insert(word)
-                    word.interps.forEach {
+                    /*word.interps.forEach {
                         it.word = wordId
                     }
-                    interpDao.insert(word.interps)
+                    interpDao.insert(word.interps)*/
                 }
             }.subscribeOn(scheduler)
 }
