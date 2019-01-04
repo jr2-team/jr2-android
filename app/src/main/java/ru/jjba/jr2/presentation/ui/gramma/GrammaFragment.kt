@@ -7,7 +7,8 @@ import ru.jjba.jr2.presentation.viewmodel.gramma.GrammaViewModel
 class GrammaFragment : BaseFragment<GrammaViewModel>() {
     override var viewModel = GrammaViewModel()
     override val layoutRes: Int = R.layout.fragment_gramma
-    override val titleDefault: String = getString(R.string.gramma_fragment_title)
+    override val titleDefault: String
+        get() = getString(R.string.gramma_fragment_title)
 
     override fun initContent() {
 

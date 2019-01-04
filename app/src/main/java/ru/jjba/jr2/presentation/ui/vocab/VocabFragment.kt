@@ -7,7 +7,8 @@ import ru.jjba.jr2.presentation.viewmodel.vocab.VocabViewModel
 class VocabFragment : BaseFragment<VocabViewModel>() {
     override var viewModel = VocabViewModel()
     override val layoutRes: Int = R.layout.fragment_vocab
-    override val titleDefault: String = getString(R.string.vocab_fragment_title)
+    override val titleDefault: String
+        get() = getString(R.string.vocab_fragment_title)
 
     override fun initContent() {
 
