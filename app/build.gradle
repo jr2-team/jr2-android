@@ -36,13 +36,13 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     // Jet Pack - Layout
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
     // Jet Pack - Navigation
     ext.nav_version='1.0.0-alpha09'
-    implementation "android.arch.navigation:navigation-fragment:$nav_version"
-    implementation "android.arch.navigation:navigation-ui:$nav_version"
+    implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
     // Jet Pack - Room
     ext.room_version = "2.1.0-alpha03"
     implementation "androidx.room:room-runtime:$room_version"

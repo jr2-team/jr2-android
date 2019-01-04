@@ -7,11 +7,10 @@ import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.vocab.word.WordListViewModel
 
-class WordDetailsFragment : BaseFragment<WordListViewModel>() {
+class WordDetailFragment : BaseFragment<WordListViewModel>() {
     override var viewModel = WordListViewModel()
     override val layoutRes: Int = R.layout.fragment_word_detail
-    override val titleDefault: String
-        get() = getString(R.string.word_details_title)
+    override val titleDefault: String = "Word Detail"
 
     private val wordId: Long?
         get() = arguments?.getLong(WORD_ID)
@@ -78,8 +77,8 @@ class WordDetailsFragment : BaseFragment<WordListViewModel>() {
     companion object {
         const val WORD_ID = "word id"
 
-        fun newInstance(wordId: Long?): WordDetailsFragment =
-                WordDetailsFragment().also {
+        fun newInstance(wordId: Long?): WordDetailFragment =
+                WordDetailFragment().also {
                     it.arguments = bundleOf(WORD_ID to wordId)
                 }
     }

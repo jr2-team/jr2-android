@@ -1,7 +1,5 @@
 package ru.jjba.jr2.presentation.ui.vocab.kana
 
-import kotlinx.android.synthetic.main.app_bar_main.*
-import org.jetbrains.anko.support.v4.act
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.vocab.kana.KanaListViewModel
@@ -9,15 +7,13 @@ import ru.jjba.jr2.presentation.viewmodel.vocab.kana.KanaListViewModel
 class KanaListFragment : BaseFragment<KanaListViewModel>() {
     override var viewModel = KanaListViewModel()
     override val layoutRes: Int = R.layout.fragment_kana_list
-    override val titleDefault: String
-        get() = getString(R.string.kana_title)
+    override val titleDefault: String = "Kana list"
 
     private var kanaAdapter = KanaListAdapter()
     private var nigoriMode = false
 
     override fun initContent() {
-        // TODO: Set an action bar
-        act.toolbar.setOnMenuItemClickListener { item ->
+        /*act.toolbar.setOnMenuItemClickListener { item ->
             when (item?.itemId) {
                 R.id.miSwitchLang -> {
                     kanaAdapter.englishMode = !kanaAdapter.englishMode
@@ -34,16 +30,16 @@ class KanaListFragment : BaseFragment<KanaListViewModel>() {
                 }
                 else -> super.onOptionsItemSelected(item)
             }
-            //presenter.fillList(nigoriMode)
-            /*rvKana.also {
-                it.layoutManager = GridLayoutManager(activity, 5)
-                it.setHasFixedSize(true)
-                it.setItemViewCacheSize(30)
-                it.drawingCacheQuality = View.DRAWING_CACHE_QUALITY_HIGH
-                it.adapter = kanaAdapter
-            }
-            rvKana.addItemDecoration(ItemOffsetDecoration(4))*/
+        }*/
+        //presenter.fillList(nigoriMode)
+        /*rvKana.also {
+            it.layoutManager = GridLayoutManager(activity, 5)
+            it.setHasFixedSize(true)
+            it.setItemViewCacheSize(30)
+            it.drawingCacheQuality = View.DRAWING_CACHE_QUALITY_HIGH
+            it.adapter = kanaAdapter
         }
+        rvKana.addItemDecoration(ItemOffsetDecoration(4))*/
     }
 
     override fun observeData() {

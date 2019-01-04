@@ -8,16 +8,21 @@
     <fragment
         android:id="@+id/navigation_main"
         android:name="ru.jjba.jr2.presentation.ui.main.MainFragment"
-        android:label="fragment_main"
+        android:label="MainFragment"
         tools:layout="@layout/fragment_main" />
     <fragment
-        android:id="@+id/navigation_word_list"
-        android:name="ru.jjba.jr2.presentation.ui.vocab.word.list.WordListFragment"
-        android:label="WordListFragment"
-        tools:layout="@layout/fragment_word_list" />
+        android:id="@+id/navigation_vocab"
+        android:name="ru.jjba.jr2.presentation.ui.vocab.VocabFragment"
+        android:label="VocabFragment"
+        tools:layout="@layout/fragment_vocab" />
     <fragment
-        android:id="@+id/navigation_kana"
-        android:name="ru.jjba.jr2.presentation.ui.vocab.kana.KanaListFragment"
-        android:label="KanaFragment"
-        tools:layout="@layout/fragment_kana_list" />
+        android:id="@+id/navigation_gramma"
+        android:name="ru.jjba.jr2.presentation.ui.gramma.GrammaFragment"
+        android:label="GrammaFragment"
+        tools:layout="@layout/fragment_gramma" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="ru.jjba.jr2.presentation.ui.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

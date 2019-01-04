@@ -6,4 +6,17 @@
     <string name="menu_vocab_title">Словарь</string>
     <string name="menu_gramma_title">Грамматика</string>
     <string name="menu_profile_title">Профиль</string>
+
+    <!--Main Fragment-->
+    <string name="main_fragment_title">Главная</string>
+
+    <!--Vocab Fragment-->
+    <string name="vocab_fragment_title">Словарь</string>
+
+    <!--Gramma Fragment-->
+    <string name="gramma_fragment_title">Грамматика</string>
+
+    <!--Profile Fragment-->
+    <string name="profile_fragment_title">Профиль</string>
+
 </resources>

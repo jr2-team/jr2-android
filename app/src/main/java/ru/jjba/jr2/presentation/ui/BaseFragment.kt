@@ -3,23 +3,24 @@ package ru.jjba.jr2.presentation.ui
 import android.os.Build
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
-import android.view.*
+import android.view.LayoutInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_main.*
 import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.support.v4.act
 import ru.jjba.jr2.App
-import ru.jjba.jr2.R
 import ru.jjba.jr2.utils.createFactory
 import ru.jjba.jr2.utils.inflate
 import ru.jjba.jr2.utils.isVisible
 
 abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
+    abstract var viewModel: VT
     abstract val layoutRes: Int
     abstract val titleDefault: String
-    abstract var viewModel: VT
 
     private val textToSpeech: TextToSpeech = App.instance.tts
 
@@ -48,7 +49,7 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
     }
 
     fun showBottomNavigation(isShown: Boolean = true) {
-        act.bottomNavigationView.isVisible = isShown
+        act.bottomNavigation.isVisible = isShown
     }
 
     fun speakOut(text: String) {
@@ -68,11 +69,8 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
             inflater: LayoutInflater,
             container: ViewGroup?,
             state: Bundle?
-    ): View? {
-        val view = container?.inflate(layoutRes)
-        // TODO: Разобраться с toolbar
+    ): View? = container?.inflate(layoutRes).also {
         setHasOptionsMenu(true)
-        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -12,8 +12,7 @@ import ru.jjba.jr2.presentation.viewmodel.vocab.word.WordListViewModel
 class WordListFragment : BaseFragment<WordListViewModel>() {
     override var viewModel = WordListViewModel()
     override val layoutRes: Int = R.layout.fragment_word_list
-    override val titleDefault: String
-        get() = getString(R.string.word_list_title)
+    override val titleDefault: String = "Word list"
 
     private var wordAdapter = WordAdapter()
 
