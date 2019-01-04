@@ -1,44 +1,9 @@
 <resources>
-
     <string name="app_name">jr2</string>
 
-    <!-- MainActivity -->
-
-    <!-- MainFragment -->
-    <string name="main_title">JR2</string>
-    <string name="menu_main_title">Главная</string>
-
-    <!-- WordListFragment -->
-    <string name="word_list_title">Список слов</string>
-    <string name="menu_word_list_title">Список слов</string>
-
-    <!-- WordDetailsFragment -->
-    <string name="word_details_title">Слово</string>
-    <string name="menu_word_details_title">Слово</string>
-
-    <!-- TestFragment -->
-    <string name="test_title">Тестирование</string>
-    <string name="menu_test_title">Тест</string>
-
-    <!-- KanaListFragment -->
-    <string name="kana_title">Алфавит</string>
-    <string name="menu_kana_title">Алфавит</string>
-    <string name="kana_toolbar_menu_switch_alphabet_hiragana">Хирагана</string>
-    <string name="kana_toolbar_menu_switch_alphabet_katakana">Катакана</string>
-    <string name="kana_toolbar_menu_switch_lang_eng">Английская транскрипция</string>
-    <string name="kana_toolbar_menu_switch_lang_rus">Русская транскрипция</string>
-    <string name="kana_toolbar_menu_switch_nigori">Нигори</string>
-
-    <!-- Kana Settings Fragment -->
-    <string name="kana_settings_english_mode">English mode</string>
-    <string name="kana_settings_katakana_mode">Katakana mode</string>
-
-    <!-- Item Kana-->
-    <string name="item_kana_hiragana_title">Хирагана: </string>
-    <string name="item_kana_katakana_title">Катакана: </string>
-    <string name="item_kana_eng_title">Английское звучание: </string>
-    <string name="item_kana_rus_title">Русское звучание: </string>
-
-
-
+    <!--Bottom Navigation-->
+    <string name="menu_main_title">Главаня</string>
+    <string name="menu_vocab_title">Словарь</string>
+    <string name="menu_gramma_title">Грамматика</string>
+    <string name="menu_profile_title">Профиль</string>
 </resources>
