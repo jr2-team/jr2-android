@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.ui.vocab.word.details
+package ru.jjba.jr2.presentation.ui.vocab.word.detail
 
 import android.os.Build
 import android.speech.tts.TextToSpeech
@@ -9,11 +9,10 @@ import android.widget.TextView
 import org.zakariya.stickyheaders.SectioningAdapter
 import ru.jjba.jr2.App
 import ru.jjba.jr2.R
-import ru.jjba.jr2.domain.entity.Interpretation
 import ru.jjba.jr2.domain.entity.Word
 import se.fekete.furiganatextview.furiganaview.FuriganaTextView
 
-class WordDetailsAdapter(val sections: MutableList<Section>) : SectioningAdapter() {
+/*class WordDetailAdapter(val sections: MutableList<Section>) : SectioningAdapter() {
 
     open class Item(open val type: Int)
 
@@ -153,4 +152,4 @@ class WordDetailsAdapter(val sections: MutableList<Section>) : SectioningAdapter
         val ITEM_TYPE_WORD = 0
         val ITEM_TYPE_INTERP = 1
     }
-}
+}*/

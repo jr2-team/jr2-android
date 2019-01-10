@@ -6,10 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_kana.view.*
 import ru.jjba.jr2.R
-import ru.jjba.jr2.domain.entity.Kana
 import kotlin.properties.Delegates
 
-class KanaListAdapter : RecyclerView.Adapter<KanaListAdapter.ViewHolder>() {
+/*class KanaListAdapter : RecyclerView.Adapter<KanaListAdapter.ViewHolder>() {
 
     var kanaList: List<Kana> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
@@ -50,4 +49,4 @@ class KanaListAdapter : RecyclerView.Adapter<KanaListAdapter.ViewHolder>() {
             }
         }
     }
-}
+}*/

@@ -2,7 +2,6 @@ package ru.jjba.jr2.presentation.ui.vocab.kana
 
 import org.jetbrains.anko.bundleOf
 import ru.jjba.jr2.R
-import ru.jjba.jr2.domain.entity.Kana
 import ru.jjba.jr2.presentation.ui.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.vocab.kana.KanaDetailViewModel
 
@@ -16,7 +15,7 @@ class KanaDetailFragment : BaseFragment<KanaDetailViewModel>() {
         get() = arguments?.getString(KANA_ID) ?: "0"
 
     private var kanaMode: Boolean = false
-    private lateinit var kana: Kana
+//    private lateinit var kana: Kana
 
     override fun initContent() {
         /*showBottomNavigation(false)

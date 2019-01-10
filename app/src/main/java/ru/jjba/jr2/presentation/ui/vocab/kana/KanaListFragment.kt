@@ -10,7 +10,7 @@ class KanaListFragment : BaseFragment<KanaListViewModel>() {
     override val titleDefault
         get() = getString(R.string.kana_list_fragment_title)
 
-    private var kanaAdapter = KanaListAdapter()
+    //private var kanaAdapter = KanaListAdapter()
     private var nigoriMode = false
 
     override fun initContent() {

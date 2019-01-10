@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.ui.vocab.word.details
+package ru.jjba.jr2.presentation.ui.vocab.word.detail
 
 import android.os.Bundle
 import android.view.View
@@ -15,7 +15,7 @@ class WordDetailFragment : BaseFragment<WordListViewModel>() {
     private val wordId: Long?
         get() = arguments?.getLong(WORD_ID)
 
-    private lateinit var sections: MutableList<WordDetailsAdapter.Section>
+    //private lateinit var sections: MutableList<WordDetailAdapter.Section>
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,10 +38,10 @@ class WordDetailFragment : BaseFragment<WordListViewModel>() {
 
     /*override fun showWord(word: Word) {
 
-        val mainSection = WordDetailsAdapter.Section(
-                WordDetailsAdapter.HEADER_TYPE_FUNCTIONAL,
+        val mainSection = WordDetailAdapter.Section(
+                WordDetailAdapter.HEADER_TYPE_FUNCTIONAL,
                 "FUNCTIONAL",
-                mutableListOf(WordDetailsAdapter.ItemWord(word))
+                mutableListOf(WordDetailAdapter.ItemWord(word))
         )
 
         sections = mutableListOf(mainSection)
@@ -51,13 +51,13 @@ class WordDetailFragment : BaseFragment<WordListViewModel>() {
 
     /*override fun showInterps(interps: List<Interpretation>) {
         //interpAdapter.interpList = interps
-        val items = mutableListOf<WordDetailsAdapter.Item>().also { items ->
+        val items = mutableListOf<WordDetailAdapter.Item>().also { items ->
             interps.forEach {
-                items.add(WordDetailsAdapter.ItemInterp(it))
+                items.add(WordDetailAdapter.ItemInterp(it))
             }
         }
-        val section = WordDetailsAdapter.Section(
-                WordDetailsAdapter.HEADER_TYPE_SECTION,
+        val section = WordDetailAdapter.Section(
+                WordDetailAdapter.HEADER_TYPE_SECTION,
                 "Interpretation 1 (${items.size})",
                 items
         )
@@ -71,7 +71,7 @@ class WordDetailFragment : BaseFragment<WordListViewModel>() {
         sections.add(section)
         sections.add(section)
 
-        rvInterp.adapter = WordDetailsAdapter(sections)
+        rvInterp.adapter = WordDetailAdapter(sections)
     }*/
 
     companion object {

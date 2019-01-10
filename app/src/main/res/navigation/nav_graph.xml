@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/wordDetailFragment"
-        android:name="ru.jjba.jr2.presentation.ui.vocab.word.details.WordDetailFragment"
+        android:name="ru.jjba.jr2.presentation.ui.vocab.word.detail.WordDetailFragment"
         android:label="WordDetailFragment" />
     <fragment
         android:id="@+id/kanaDetailFragment"

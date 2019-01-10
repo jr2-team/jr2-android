@@ -12,7 +12,7 @@ class App : MultiDexApplication(), TextToSpeech.OnInitListener {
     lateinit var db: AppDatabase
     lateinit var tts: TextToSpeech
 
-    fun getAssetContext(assetName: String): String {
+    fun getAssetContent(assetName: String): String {
         var contetn = String()
 
         try {

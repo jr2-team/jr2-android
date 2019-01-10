@@ -22,7 +22,7 @@ class WordListViewModel(
             val wordsAdapter: JsonAdapter<List<Word>> = moshi.adapter(
                     Types.newParameterizedType(List::class.java, Word::class.java)
             )
-            val testWords = wordsAdapter.fromJson(app.getAssetContext("word.json"))
+            val testWords = wordsAdapter.fromJson(app.getAssetContent("word.json"))
             words.value = testWords
         }
         return words
