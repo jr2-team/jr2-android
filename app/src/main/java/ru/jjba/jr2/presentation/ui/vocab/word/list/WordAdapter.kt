@@ -5,10 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_word.view.*
+import org.jetbrains.anko.sdk25.coroutines.onClick
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Word
 import kotlin.properties.Delegates
 
+/**
+ * Адаптер для [RecyclerView] для [WordListFragment]
+ */
 class WordAdapter : RecyclerView.Adapter<WordAdapter.ViewHolder>() {
     var words: List<Word> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
@@ -19,11 +23,11 @@ class WordAdapter : RecyclerView.Adapter<WordAdapter.ViewHolder>() {
         return ViewHolder(v)
     }
 
-    override fun getItemCount() = words.size
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(words[position], position)
     }
+
+    override fun getItemCount() = words.size
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(word: Word, position: Int) = with(itemView) {
@@ -32,8 +36,7 @@ class WordAdapter : RecyclerView.Adapter<WordAdapter.ViewHolder>() {
             ftvWord.setFuriganaText("<ruby>${word.wordJp}<rt>${word.wordFurigana}</rt></ruby>")
             tvBasicInterp.text = word.basicInterpretation
             tvJlptLevel.text = "N${word.jlptLevel}"
-
-            this.setOnClickListener {
+            onClick {
                 //router.navigateTo(Screen.WORD_DETAILS.title, word.id)
             }
         }

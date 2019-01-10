@@ -1,5 +1,7 @@
 package ru.jjba.jr2.presentation.ui.vocab.kana
 
+import android.os.Bundle
+import android.view.View
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.vocab.kana.KanaListViewModel
@@ -11,41 +13,17 @@ class KanaListFragment : BaseFragment<KanaListViewModel>() {
         get() = getString(R.string.kana_list_fragment_title)
 
     //private var kanaAdapter = KanaListAdapter()
-    private var nigoriMode = false
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        showBottomNavigation(false)
+    }
 
     override fun initContent() {
-        /*act.toolbar.setOnMenuItemClickListener { item ->
-            when (item?.itemId) {
-                R.id.miSwitchLang -> {
-                    kanaAdapter.englishMode = !kanaAdapter.englishMode
-                    true
-                }
-                R.id.miSwitchAlphabet -> {
-                    kanaAdapter.katakanaMode = !kanaAdapter.katakanaMode
-                    true
-                }
-                R.id.miSwitchNigori -> {
-                    nigoriMode = !nigoriMode
-                    //presenter.fillList(nigoriMode)
-                    true
-                }
-                else -> super.onOptionsItemSelected(item)
-            }
-        }*/
-        //presenter.fillList(nigoriMode)
-        /*rvKana.also {
-            it.layoutManager = GridLayoutManager(activity, 5)
-            it.setHasFixedSize(true)
-            it.setItemViewCacheSize(30)
-            it.drawingCacheQuality = View.DRAWING_CACHE_QUALITY_HIGH
-            it.adapter = kanaAdapter
-        }
-        rvKana.addItemDecoration(ItemOffsetDecoration(4))*/
+
     }
 
     override fun observeData() {
-        /*override fun setKanaList(list: List<Kana>) {
-        if (list.isNotEmpty()) kanaAdapter.kanaList = list
-        }*/
+
     }
 }

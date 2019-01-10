@@ -7,14 +7,19 @@ import androidx.annotation.DimenRes
 import androidx.recyclerview.widget.RecyclerView
 
 class ItemOffsetDecoration(
-        private val itemOffset: Int
+        private val ctx: Context,
+        @DimenRes private val resId: Int
 ) : RecyclerView.ItemDecoration() {
 
-    constructor(context: Context, @DimenRes itemOffsetId: Int) :
-            this(context.resources.getDimensionPixelSize(itemOffsetId))
-
-    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+    override fun getItemOffsets(
+            outRect: Rect,
+            view: View,
+            parent: RecyclerView,
+            state: RecyclerView.State
+    ) {
         super.getItemOffsets(outRect, view, parent, state)
+
+        val itemOffset = ctx.resources.getDimensionPixelSize(resId)
         outRect.set(itemOffset, itemOffset, itemOffset, itemOffset)
     }
 }

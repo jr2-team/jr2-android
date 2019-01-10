@@ -17,12 +17,14 @@ class WordListViewModel(
     fun getWords(): LiveData<List<Word>> {
         if (!::words.isInitialized) {
             words = MutableLiveData()
-            // TODO: Refactor
+
+            //TODO: Удалить
             val moshi = Moshi.Builder().build()
             val wordsAdapter: JsonAdapter<List<Word>> = moshi.adapter(
                     Types.newParameterizedType(List::class.java, Word::class.java)
             )
             val testWords = wordsAdapter.fromJson(app.getAssetContent("word.json"))
+
             words.value = testWords
         }
         return words
