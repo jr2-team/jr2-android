@@ -14,7 +14,17 @@
         android:id="@+id/navigation_vocab"
         android:name="ru.jjba.jr2.presentation.ui.vocab.VocabFragment"
         android:label="VocabFragment"
-        tools:layout="@layout/fragment_vocab" />
+        tools:layout="@layout/fragment_vocab">
+        <action
+            android:id="@+id/action_vocab_to_kanaList"
+            app:destination="@id/kanaListFragment" />
+        <action
+            android:id="@+id/action_vocab_to_kanjiGroup"
+            app:destination="@id/kanjiGroupFragment" />
+        <action
+            android:id="@+id/action_vocab_to_wordGroup"
+            app:destination="@id/wordGroupListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_gramma"
         android:name="ru.jjba.jr2.presentation.ui.gramma.GrammaFragment"
@@ -25,4 +35,56 @@
         android:name="ru.jjba.jr2.presentation.ui.profile.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/wordListFragment"
+        android:name="ru.jjba.jr2.presentation.ui.vocab.word.list.WordListFragment"
+        android:label="WordListFragment">
+        <action
+            android:id="@+id/action_wordList_to_wordDetail"
+            app:destination="@id/wordDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kanaListFragment"
+        android:name="ru.jjba.jr2.presentation.ui.vocab.kana.KanaListFragment"
+        android:label="KanaListFragment">
+        <action
+            android:id="@+id/action_kanaList_to_kanaDetail"
+            app:destination="@id/kanaDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wordDetailFragment"
+        android:name="ru.jjba.jr2.presentation.ui.vocab.word.details.WordDetailFragment"
+        android:label="WordDetailFragment" />
+    <fragment
+        android:id="@+id/kanaDetailFragment"
+        android:name="ru.jjba.jr2.presentation.ui.vocab.kana.KanaDetailFragment"
+        android:label="KanaDetailFragment" />
+    <fragment
+        android:id="@+id/wordGroupListFragment"
+        android:name="ru.jjba.jr2.presentation.ui.vocab.word.group.WordGroupFragment"
+        android:label="WordGroupListFragment">
+        <action
+            android:id="@+id/action_wordGroup_to_wordList"
+            app:destination="@id/wordListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kanjiDetailFragment"
+        android:name="ru.jjba.jr2.presentation.ui.vocab.kanji.detail.KanjiDetailFragment"
+        android:label="KanjiDetailFragment" />
+    <fragment
+        android:id="@+id/kanjiGroupFragment"
+        android:name="ru.jjba.jr2.presentation.ui.vocab.kanji.group.KanjiGroupFragment"
+        android:label="KanjiGroupFragment">
+        <action
+            android:id="@+id/action_kanjiGroup_to_kanjiList"
+            app:destination="@id/kanjiListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kanjiListFragment"
+        android:name="ru.jjba.jr2.presentation.ui.vocab.kanji.list.KanjiListFragment"
+        android:label="KanjiListFragment">
+        <action
+            android:id="@+id/action_kanjiList_to_kanjiDetail"
+            app:destination="@id/kanjiDetailFragment" />
+    </fragment>
 </navigation>

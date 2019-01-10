@@ -7,7 +7,8 @@ import ru.jjba.jr2.presentation.viewmodel.vocab.kana.KanaListViewModel
 class KanaListFragment : BaseFragment<KanaListViewModel>() {
     override var viewModel = KanaListViewModel()
     override val layoutRes: Int = R.layout.fragment_kana_list
-    override val titleDefault: String = "Kana list"
+    override val titleDefault
+        get() = getString(R.string.kana_list_fragment_title)
 
     private var kanaAdapter = KanaListAdapter()
     private var nigoriMode = false

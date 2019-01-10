@@ -13,6 +13,15 @@
     <!--Vocab Fragment-->
     <string name="vocab_fragment_title">Словарь</string>
 
+    <!--Kanji Group Fragment-->
+    <string name="kanji_group_fragment_title">Словарь кандзи</string>
+
+    <!--Word Group Fragment-->
+    <string name="word_group_fragment_title">Словарь слов</string>
+
+    <!--Kana List Fragment-->
+    <string name="kana_list_fragment_title">Кана</string>
+
     <!--Gramma Fragment-->
     <string name="gramma_fragment_title">Грамматика</string>
 

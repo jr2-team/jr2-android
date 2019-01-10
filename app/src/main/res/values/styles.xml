@@ -22,4 +22,10 @@
         <item name="homeAsUpIndicator">@drawable/ic_arrow_back</item>
     </style>
 
+    <style name="VocabFragmentCardViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+    </style>
+
 </resources>
