@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.support.v4.act
 import ru.jjba.jr2.App
+import ru.jjba.jr2.utils.InstanceStateProvider
 import ru.jjba.jr2.utils.createFactory
 import ru.jjba.jr2.utils.inflate
 import ru.jjba.jr2.utils.isVisible
@@ -23,6 +24,11 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
     abstract val titleDefault: String
 
     private val textToSpeech: TextToSpeech = App.instance.tts
+    private val savable = Bundle()
+
+    protected fun <T> instanceState() = InstanceStateProvider.Nullable<T>(savable)
+    protected fun <T> instanceState(defaultValue: T) =
+            InstanceStateProvider.NotNull(savable, defaultValue)
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     protected abstract fun initContent()
@@ -84,5 +90,17 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
                 .get(viewModel::class.java)
 
         lifecycle.addObserver(this)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        if(savedInstanceState != null) {
+            savable.putAll(savedInstanceState.getBundle("_state"))
+        }
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putBundle("_state", savable)
+        super.onSaveInstanceState(outState)
     }
 }
