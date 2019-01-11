@@ -1,10 +1,12 @@
 package ru.jjba.jr2.utils
 
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 
 fun ViewGroup.inflate(layoutRes: Int): View =
         LayoutInflater.from(context).inflate(layoutRes, this, false)
@@ -20,5 +22,17 @@ fun <T : ViewModel> T.createFactory(): ViewModelProvider.Factory {
     return object : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T = viewModel as T
+    }
+}
+
+fun RecyclerView.restoreState(
+        layoutState: Parcelable?,
+        itemDecorCnt: Int = 1
+) = with(this) {
+    if (layoutState != null) {
+        if (itemDecorationCount > itemDecorCnt) {
+            while (itemDecorationCount > 0) removeItemDecorationAt(0)
+        }
+        layoutManager?.onRestoreInstanceState(layoutState)
     }
 }

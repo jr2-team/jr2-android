@@ -31,7 +31,7 @@ class WordListViewModel(
     fun observeWords(): LiveData<List<Word>> {
         if (!::words.isInitialized) {
             // TODO: Удалить
-            val wordsAdapter: JsonAdapter<List<Word>> =  Moshi.Builder().build().adapter(
+            /*val wordsAdapter: JsonAdapter<List<Word>> =  Moshi.Builder().build().adapter(
                     Types.newParameterizedType(List::class.java, Word::class.java)
             )
             val testWords = wordsAdapter.fromJson(app.getAssetContent("word.json"))
@@ -39,7 +39,7 @@ class WordListViewModel(
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeBy()
-                    .addTo(compDisp)
+                    .addTo(compDisp)*/
 
             val repository = WordDbRepository()
             words = repository.getAll()

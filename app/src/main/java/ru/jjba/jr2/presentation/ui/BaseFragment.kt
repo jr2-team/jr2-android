@@ -36,6 +36,9 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     protected abstract fun observeData()
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    open fun saveInstanceState() {}
+
     fun showMessage(msg: String) {
         val view = view ?: return
         view.snackbar(msg)
