@@ -14,6 +14,6 @@ class ActsDbHelper(ctx: Context) : SQLiteOpenHelper(ctx, DATABASE_NAME, null, DA
 
     companion object {
         const val DATABASE_NAME = "jr2.db"
-        const val DATABASE_VERSION = 0
+        const val DATABASE_VERSION = 1
     }
 }
