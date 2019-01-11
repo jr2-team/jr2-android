@@ -27,11 +27,12 @@ open class InstanceStateProvider<T>(private val savable: Bundle) {
     }
 
     @Suppress("UNCHECKED_CAST")
-    protected fun getAndCache(key: String): T? = cache
-            ?: (savable.get(key) as T?).apply { cache = this }
+    protected fun getAndCache(key: String): T? =
+            cache ?: (savable.get(key) as T?).apply { cache = this }
 
     class Nullable<T>(savable: Bundle) : InstanceStateProvider<T>(savable) {
-        operator fun getValue(thisRef: Any?, property: KProperty<*>): T? = getAndCache(property.name)
+        operator fun getValue(thisRef: Any?, property: KProperty<*>): T? =
+                getAndCache(property.name)
     }
 
     class NotNull<T>(savable: Bundle, private val defaultValue: T) :

@@ -26,7 +26,8 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
     private val textToSpeech: TextToSpeech = App.instance.tts
     private val savable = Bundle()
 
-    protected fun <T> instanceState() = InstanceStateProvider.Nullable<T>(savable)
+    protected fun <T> instanceState() =
+            InstanceStateProvider.Nullable<T>(savable)
     protected fun <T> instanceState(defaultValue: T) =
             InstanceStateProvider.NotNull(savable, defaultValue)
 
