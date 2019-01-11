@@ -3,6 +3,7 @@ package ru.jjba.jr2.presentation.ui.vocab.word.group
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_word_group.*
 import org.jetbrains.anko.support.v4.ctx
@@ -25,6 +26,7 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
     }
 
     override fun initContent() {
+        wordGroupListAdapter.onItemClicked = viewModel::onWordClick
         rvWordGroup.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(ctx)
@@ -33,9 +35,12 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
         }
     }
 
-    override fun observeData() {
-        viewModel.getWordGroups().observe(viewLifecycleOwner, Observer { wordGroups ->
+    override fun observeData() = with(viewModel) {
+        getWordGroups().observe(viewLifecycleOwner, Observer { wordGroups ->
             wordGroupListAdapter.wordGroups = wordGroups
+        })
+        getNavigationToWordList().observe(viewLifecycleOwner, Observer {
+            it.getContentIfNotHandled()?.let { d -> findNavController().navigate(d)}
         })
     }
 }

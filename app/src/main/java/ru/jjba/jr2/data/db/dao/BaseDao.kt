@@ -2,16 +2,16 @@ package ru.jjba.jr2.data.db.dao
 
 import androidx.room.*
 
-interface BaseDao<T> {
+interface BaseDao<ET> {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(obj: T)
+    fun insertSingle(o: ET)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(vararg obj: T)
+    fun insertMany(o: List<ET>)
 
     @Update
-    fun update(obj: T)
+    fun update(o: ET)
 
     @Delete
-    fun delete(obj: T)
+    fun delete(o: ET)
 }

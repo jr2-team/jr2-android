@@ -10,13 +10,13 @@ open class BaseDbRepository<ET>(
 ) {
     internal val scheduler: Scheduler = Schedulers.io()
 
-    fun insert(value: ET): Completable =
+    fun insertSingle(value: ET): Completable =
             Completable
-                    .fromCallable { dao.insert(value) }
+                    .fromCallable { dao.insertSingle(value) }
                     .subscribeOn(scheduler)
 
-    fun insert(vararg values: ET): Completable =
+    fun insertMany(values: List<ET>): Completable =
             Completable
-                    .fromCallable { dao.insert(*values) }
+                    .fromCallable { dao.insertMany(values) }
                     .subscribeOn(scheduler)
 }

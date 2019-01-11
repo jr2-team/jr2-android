@@ -9,7 +9,7 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 class Word(
         @PrimaryKey(autoGenerate = true)
-        val id: Long = 0,
+        val id: Int = 0,
         val wordJp: String = "",
         val wordFurigana: String = "",
         val basicInterpretation: String = "", //TODO: Заменить String -> Interpretation
