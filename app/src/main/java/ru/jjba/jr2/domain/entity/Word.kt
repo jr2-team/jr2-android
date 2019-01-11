@@ -1,22 +1,17 @@
 package ru.jjba.jr2.domain.entity
 
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.Ignore
-import android.arch.persistence.room.PrimaryKey
-import java.util.*
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.squareup.moshi.JsonClass
 
-//TODO : Добавить TypeConverter
+// TODO: Добавить TypeConverter
 @Entity
+@JsonClass(generateAdapter = true)
 class Word(
         @PrimaryKey(autoGenerate = true)
-        var id: Long,
-        var wordJp: String,
-        var wordFurigana: String,
-        var basicInterp: String,
-        var jlptLevel: Int,
-        @Ignore val interps: MutableList<Interp>
-) {
-    constructor() : this(0, "", "", "", 0, mutableListOf())
-
-    override fun toString() = "$id $wordJp $wordFurigana $jlptLevel"
-}
+        val id: Int = 0,
+        val wordJp: String = "",
+        val wordFurigana: String = "",
+        val basicInterpretation: String = "", // TODO: Заменить String -> Interpretation
+        val jlptLevel: Int = 5
+)

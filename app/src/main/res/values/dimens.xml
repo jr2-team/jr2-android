@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="rv_offset_between_items">4dp</dimen>
+</resources>

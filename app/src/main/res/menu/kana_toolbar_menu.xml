@@ -5,16 +5,16 @@
     <item
         android:id="@+id/miSwitchAlphabet"
         android:icon="@drawable/ic_settings"
-        android:title="@string/kana_toolbar_menu_switch_alphabet_hiragana"
+        android:title="1"
         app:showAsAction="always" />
     <item
         android:id="@+id/miSwitchLang"
         android:icon="@drawable/ic_translate"
-        android:title="@string/kana_toolbar_menu_switch_lang_rus"
+        android:title="2"
         app:showAsAction="always" />
     <item
         android:id="@+id/miSwitchNigori"
         android:icon="@drawable/ic_test"
-        android:title="@string/kana_toolbar_menu_switch_nigori"
+        android:title="3"
         app:showAsAction="always" />
 </menu>
