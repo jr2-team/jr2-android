@@ -5,14 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavDirections
 import ru.jjba.jr2.presentation.ui.vocab.word.group.WordGroupFragmentDirections
+import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
 import ru.jjba.jr2.presentation.viewmodel.ViewModelEvent
 
-class WordGroupViewModel : ViewModel() {
+class WordGroupViewModel : BaseViewModel() {
     private lateinit var wordGroups: MutableLiveData<List<String>>
 
-    private val navigateToWordList = MutableLiveData<ViewModelEvent<NavDirections>>()
+    private val navToWordListEvent = MutableLiveData<ViewModelEvent<NavDirections>>()
 
-    fun getWordGroups(): LiveData<List<String>> {
+    fun observeWordGroups(): LiveData<List<String>> {
         if (!::wordGroups.isInitialized) {
             wordGroups = MutableLiveData()
 
@@ -24,12 +25,12 @@ class WordGroupViewModel : ViewModel() {
         return wordGroups
     }
 
-    fun getNavigationToWordList(): LiveData<ViewModelEvent<NavDirections>> = navigateToWordList
+    fun observeNavToWordListEvent(): LiveData<ViewModelEvent<NavDirections>> = navToWordListEvent
 
     fun onWordGroupClick(wordGroup: String/*WordGroup*/) {
         val direction = WordGroupFragmentDirections.actionWordGroupToWordList().apply {
             wordGroupId = 0//wordGroup.id
         }
-        navigateToWordList.value = ViewModelEvent(direction)
+        navToWordListEvent.value = ViewModelEvent(direction)
     }
 }

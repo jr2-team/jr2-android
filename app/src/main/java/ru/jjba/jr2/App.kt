@@ -45,6 +45,7 @@ class App : MultiDexApplication(), TextToSpeech.OnInitListener {
         super.onCreate()
         instance = this
 
+        // TODO : Заполнение базы при первом лаунче
         db = AppDatabase.create(context = this, memoryOnly = false)
         tts = TextToSpeech(this, this)
     }

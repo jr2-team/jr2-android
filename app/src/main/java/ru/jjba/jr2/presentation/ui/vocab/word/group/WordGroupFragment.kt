@@ -37,10 +37,10 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
     }
 
     override fun observeData() = with(viewModel) {
-        getWordGroups().observe(viewLifecycleOwner, Observer { wordGroups ->
+        observeWordGroups().observe(viewLifecycleOwner, Observer { wordGroups ->
             wordGroupListAdapter.wordGroups = wordGroups
         })
-        getNavigationToWordList().observe(viewLifecycleOwner, Observer {
+        observeNavToWordListEvent().observe(viewLifecycleOwner, Observer {
             it.getContentIfNotHandled()?.let { d -> findNavController().navigate(d) }
         })
     }

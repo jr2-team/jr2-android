@@ -2,7 +2,9 @@ package ru.jjba.jr2.presentation.ui.vocab.word.detail
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
 import org.jetbrains.anko.bundleOf
+import org.jetbrains.anko.support.v4.act
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.vocab.word.WordDetailViewModel
@@ -18,8 +20,10 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
         super.onViewCreated(view, savedInstanceState)
         showBottomNavigation(false)
 
-        WordDetailFragmentArgs.fromBundle(arguments!!).let {
-            //viewModel.setArgs(it.id)
+        arguments?.let {
+            WordDetailFragmentArgs.fromBundle(it).apply {
+                viewModel.setArgs(wordId)
+            }
         }
     }
 
@@ -27,7 +31,9 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
 
     }
 
-    override fun observeData() {
-
+    override fun observeData() = with(viewModel) {
+        observeWord().observe(viewLifecycleOwner, Observer { word ->
+            setTitle(word.wordJp)
+        })
     }
 }

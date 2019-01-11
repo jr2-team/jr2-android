@@ -10,7 +10,7 @@ import ru.jjba.jr2.R
 import kotlin.properties.Delegates.observable
 
 /**
- * Адаптер для [RecyclerView] для [WordGroupFragment]
+ * Адаптер для [RecyclerView] из [WordGroupFragment]
  */
 class WordGroupAdapter : RecyclerView.Adapter<WordGroupAdapter.ViewHolder>() {
     var wordGroups: List<String> by observable(emptyList()) { _, _, _ ->
