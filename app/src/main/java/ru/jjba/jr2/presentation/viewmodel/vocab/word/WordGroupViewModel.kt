@@ -10,7 +10,7 @@ import ru.jjba.jr2.presentation.viewmodel.ViewModelEvent
 class WordGroupViewModel : ViewModel() {
     private lateinit var wordGroups: MutableLiveData<List<String>>
 
-    private var navigateToWordList = MutableLiveData<ViewModelEvent<NavDirections>>()
+    private val navigateToWordList = MutableLiveData<ViewModelEvent<NavDirections>>()
 
     fun getWordGroups(): LiveData<List<String>> {
         if (!::wordGroups.isInitialized) {

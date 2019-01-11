@@ -15,13 +15,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
-        navController = findNavController(R.id.navigationHost)
         setupBottomNavigation()
     }
 
     private fun setupBottomNavigation() {
+        navController = findNavController(R.id.navController)
         NavigationUI.setupWithNavController(bottomNavigation, navController)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            run {
+                when (destination.id) {
+                    R.id.kanaListFragment -> showUpButton()
+                    R.id.kanaDetailFragment -> showUpButton()
+                    R.id.kanjiGroupFragment -> showUpButton()
+                    R.id.kanjiListFragment -> showUpButton()
+                    R.id.kanjiDetailFragment -> showUpButton()
+                    R.id.wordGroupListFragment -> showUpButton()
+                    R.id.wordListFragment -> showUpButton()
+                    R.id.wordDetailFragment -> showUpButton()
+                    else -> showUpButton(false)
+                }
+            }
+        }
+    }
+
+    private fun showUpButton(isShown: Boolean = true) {
+        supportActionBar?.setDisplayHomeAsUpEnabled(isShown)
     }
 
     override fun onSupportNavigateUp() = navController.navigateUp()

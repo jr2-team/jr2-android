@@ -5,7 +5,7 @@ import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 import ru.jjba.jr2.data.db.dao.BaseDao
 
-open class BaseDbRepository<ET>(
+abstract class BaseDbRepository<ET>(
         internal val dao: BaseDao<ET>
 ) {
     internal val scheduler: Scheduler = Schedulers.io()
