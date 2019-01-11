@@ -13,21 +13,21 @@ class App : MultiDexApplication(), TextToSpeech.OnInitListener {
     lateinit var tts: TextToSpeech
 
     fun getAssetContent(assetName: String): String {
-        var contetn = String()
+        var content = String()
 
         try {
             val inputStream = assets.open(assetName)
             kotlin.ByteArray(inputStream.available()).also {
                 inputStream.read(it)
                 inputStream.close()
-                contetn = String(it, Charset.forName("UTF-8"))
+                content = String(it, Charset.forName("UTF-8"))
             }
-            contetn = contetn.filter { it != '\uFEFF' }
+            content = content.filter { it != '\uFEFF' }
         } catch (e: IOException) {
             e.printStackTrace()
         }
 
-        return contetn
+        return content
     }
 
     override fun onInit(status: Int) {
