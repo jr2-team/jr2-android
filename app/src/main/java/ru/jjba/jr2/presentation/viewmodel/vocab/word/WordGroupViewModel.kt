@@ -9,6 +9,7 @@ import ru.jjba.jr2.presentation.viewmodel.ViewModelEvent
 
 class WordGroupViewModel : ViewModel() {
     private lateinit var wordGroups: MutableLiveData<List<String>>
+
     private var navigateToWordList = MutableLiveData<ViewModelEvent<NavDirections>>()
 
     fun getWordGroups(): LiveData<List<String>> {
@@ -25,7 +26,7 @@ class WordGroupViewModel : ViewModel() {
 
     fun getNavigationToWordList(): LiveData<ViewModelEvent<NavDirections>> = navigateToWordList
 
-    fun onWordClick(wordGroup: String/*WordGroup*/) {
+    fun onWordGroupClick(wordGroup: String/*WordGroup*/) {
         val direction = WordGroupFragmentDirections.actionWordGroupToWordList().apply {
             wordGroupId = 0//wordGroup.id
         }

@@ -13,12 +13,11 @@ import kotlin.properties.Delegates.observable
  * Адаптер для [RecyclerView] для [WordGroupFragment]
  */
 class WordGroupAdapter : RecyclerView.Adapter<WordGroupAdapter.ViewHolder>() {
-
-    var onItemClicked: ((String) -> Unit)? = null
-
     var wordGroups: List<String> by observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
     }
+
+    var onItemClicked: ((String) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -36,14 +35,15 @@ class WordGroupAdapter : RecyclerView.Adapter<WordGroupAdapter.ViewHolder>() {
             itemView: View,
             onItemClicked: ((String) -> Unit)? = null
     ) : RecyclerView.ViewHolder(itemView) {
-        private lateinit var wordGroup: String
+        private lateinit var wordGroupArg: String
 
         init {
-            itemView.onClick { onItemClicked?.invoke(wordGroup) }
+            itemView.onClick { onItemClicked?.invoke(wordGroupArg) }
         }
 
         fun bindView(wordGroup: String) {
-            this.wordGroup = wordGroup
+            wordGroupArg = wordGroup
+
             itemView.tvWordGroup.text = wordGroup
         }
     }

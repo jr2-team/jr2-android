@@ -26,11 +26,12 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
     }
 
     override fun initContent() {
-        wordGroupListAdapter.onItemClicked = viewModel::onWordClick
         rvWordGroup.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(ctx)
-            adapter = wordGroupListAdapter
+            adapter = wordGroupListAdapter.apply {
+                onItemClicked = viewModel::onWordGroupClick
+            }
             addItemDecoration(ItemOffsetDecoration(ctx, R.dimen.rv_offset_between_items))
         }
     }
@@ -40,7 +41,7 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
             wordGroupListAdapter.wordGroups = wordGroups
         })
         getNavigationToWordList().observe(viewLifecycleOwner, Observer {
-            it.getContentIfNotHandled()?.let { d -> findNavController().navigate(d)}
+            it.getContentIfNotHandled()?.let { d -> findNavController().navigate(d) }
         })
     }
 }
