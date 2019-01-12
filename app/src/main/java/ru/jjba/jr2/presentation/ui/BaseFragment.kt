@@ -68,13 +68,6 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return when (item?.itemId) {
-            android.R.id.home -> act.onBackPressed().let { true }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,

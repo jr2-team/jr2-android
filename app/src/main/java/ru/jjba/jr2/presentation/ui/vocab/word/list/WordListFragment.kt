@@ -4,15 +4,15 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.view.View
 import androidx.lifecycle.Observer
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_word_list.*
-import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.ctx
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.vocab.word.WordListViewModel
+import ru.jjba.jr2.utils.isVisible
 import ru.jjba.jr2.utils.restoreState
 
 class WordListFragment : BaseFragment<WordListViewModel>() {
@@ -51,7 +51,10 @@ class WordListFragment : BaseFragment<WordListViewModel>() {
             rvWord.restoreState(rvWordState)
         })
         observeNavToWordDetailEvent().observe(viewLifecycleOwner, Observer {
-            it.getContentIfNotHandled()?.let { d -> act.findNavController(R.id.navController).navigate(d) }
+            it.getContentIfNotHandled()?.let { d -> findNavController().navigate(d) }
+        })
+        observeWordsIsLoading().observe(viewLifecycleOwner, Observer {
+            pbWordsLoading.isVisible = it
         })
     }
 
