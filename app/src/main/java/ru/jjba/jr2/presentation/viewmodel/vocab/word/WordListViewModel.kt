@@ -37,7 +37,8 @@ class WordListViewModel(
             val wordsAdapter: JsonAdapter<List<Word>> =  Moshi.Builder().build().adapter(
                     Types.newParameterizedType(List::class.java, Word::class.java)
             )
-            val testWords = wordsAdapter.fromJson(app.getAssetContent("word.json"))
+            val s = app.readAsset("word.json")
+            val testWords = wordsAdapter.fromJson(s)
             WordDbRepository().dropAndInsert(testWords!!)
                     .delay(10, TimeUnit.SECONDS)
                     .doOnSubscribe {wordsIsLoading.postValue(true)}
