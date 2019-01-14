@@ -34,7 +34,7 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     protected abstract fun initContent()
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     protected abstract fun observeData()
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)

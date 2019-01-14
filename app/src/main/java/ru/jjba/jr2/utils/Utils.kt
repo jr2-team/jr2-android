@@ -27,11 +27,11 @@ fun <T : ViewModel> T.createFactory(): ViewModelProvider.Factory {
 
 fun RecyclerView.restoreState(
         layoutState: Parcelable?,
-        itemDecorCnt: Int = 1
+        decorationsToRemove: Int = 1
 ) = with(this) {
     if (layoutState != null) {
-        if (itemDecorationCount > itemDecorCnt) {
-            while (itemDecorationCount > 0) removeItemDecorationAt(0)
+        while (itemDecorationCount > decorationsToRemove) {
+            removeItemDecorationAt(0)
         }
         layoutManager?.onRestoreInstanceState(layoutState)
     }

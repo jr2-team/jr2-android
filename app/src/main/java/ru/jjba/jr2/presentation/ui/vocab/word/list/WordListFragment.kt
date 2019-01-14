@@ -18,7 +18,8 @@ import ru.jjba.jr2.utils.restoreState
 class WordListFragment : BaseFragment<WordListViewModel>() {
     override var viewModel = WordListViewModel()
     override val layoutRes: Int = R.layout.fragment_word_list
-    override val titleDefault: String = ""
+    override val titleDefault: String
+            get() = ""
 
     private var wordListAdapter = WordListAdapter()
     private var rvWordState: Parcelable? by instanceState()
