@@ -33,7 +33,7 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
 
     override fun observeData() = with(viewModel) {
         observeWord().observe(viewLifecycleOwner, Observer { word ->
-            setTitle(word.wordJp)
+            setTitle(word.value)
         })
     }
 }

@@ -9,17 +9,17 @@ import ru.jjba.jr2.domain.entity.Word
 
 @Dao
 abstract class WordDao : BaseDao<Word> {
-    @Query("SELECT * FROM Word WHERE id=:id")
-    abstract fun getById(id: Int): Single<Word>
+    @Query("SELECT * FROM Word WHERE id = :wordId")
+    abstract fun getById(wordId: Int): Single<Word>
 
     @Query("SELECT * FROM Word")
     abstract fun getAll(): LiveData<List<Word>>
 
-    @Transaction
     @Query("DELETE FROM Word")
     abstract fun deleteAll()
 
-    fun dropAndInsert(words: List<Word>) {
+    @Transaction
+    open fun dropAndInsert(words: List<Word>) {
         deleteAll()
         insertMany(words)
     }
