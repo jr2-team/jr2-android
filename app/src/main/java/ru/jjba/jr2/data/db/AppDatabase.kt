@@ -1,14 +1,13 @@
 package ru.jjba.jr2.data.db
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 import ru.jjba.jr2.data.db.dao.*
 import ru.jjba.jr2.domain.entity.*
 
 @Database(
         entities = [
+            Kana::class,
             Kanji::class,
             Word::class,
             Sentence::class,
@@ -17,7 +16,9 @@ import ru.jjba.jr2.domain.entity.*
         ],
         version = ActsDbHelper.DATABASE_VERSION
 )
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
+    abstract fun getKanaDao(): KanaDao
     abstract fun getKanjiDao(): KanjiDao
     abstract fun getWordDao(): WordDao
     abstract fun getSentenceDao(): SentenceDao
@@ -35,4 +36,17 @@ abstract class AppDatabase : RoomDatabase() {
             )
         }.build()
     }
+}
+
+class Converters {
+    @TypeConverter
+    fun fromKanaType(value: KanaType?) = value?.value
+
+    @TypeConverter
+    fun toKanaType(value: Int) =
+            when (value) {
+                0 -> KanaType.HIROGANA
+                1 -> KanaType.HIROGANA
+                else -> throw IllegalArgumentException()
+            }
 }

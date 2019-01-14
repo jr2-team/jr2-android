@@ -13,4 +13,14 @@ abstract class KanjiDao : BaseDao<Kanji> {
 
     @Query("SELECT * FROM Kanji")
     abstract fun getAll(): LiveData<List<Kanji>>
+
+    @Query(
+            // @formatter:off
+            "SELECT k.* FROM Kanji as k " +
+            "INNER JOIN Component AS c " +
+                "ON k.id = c.kanjiIdComp " +
+            "WHERE c.kanjiId = :kanjiId"
+            // @formatter:on
+    )
+    abstract fun getKanjiComponents(kanjiId: Int): LiveData<List<Kanji>>
 }

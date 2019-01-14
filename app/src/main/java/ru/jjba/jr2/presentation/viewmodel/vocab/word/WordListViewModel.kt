@@ -37,9 +37,10 @@ class WordListViewModel(
             val wordsAdapter: JsonAdapter<List<Word>> =  Moshi.Builder().build().adapter(
                     Types.newParameterizedType(List::class.java, Word::class.java)
             )
-            val s = app.readAsset("word.json")
-            val testWords = wordsAdapter.fromJson(s)
-            WordDbRepository().dropAndInsert(testWords!!)
+            val testWords = wordsAdapter.fromJson(app.readAsset("word.json"))
+
+            val repository = WordDbRepository()
+            repository.dropAndInsert(testWords!!)
                     .delay(10, TimeUnit.SECONDS)
                     .doOnSubscribe {wordsIsLoading.postValue(true)}
                     .subscribeOn(Schedulers.io())
@@ -47,7 +48,6 @@ class WordListViewModel(
                     .subscribeBy(onComplete = { wordsIsLoading.postValue(false) })
                     .addTo(compDisp)
 
-            val repository = WordDbRepository()
             words = repository.getAll()
         }
         return words
