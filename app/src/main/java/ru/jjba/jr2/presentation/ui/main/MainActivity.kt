@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.design.snackbar
 import ru.jjba.jr2.R
 
 class MainActivity : AppCompatActivity() {

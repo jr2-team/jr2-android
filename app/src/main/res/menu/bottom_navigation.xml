@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navigation_main"
+        android:id="@+id/fragmentMain"
         android:icon="@drawable/ic_home"
         android:title="@string/menu_main_title" />
     <item
-        android:id="@+id/navigation_vocab"
+        android:id="@+id/fragmentVocab"
         android:icon="@drawable/ic_word_list"
         android:title="@string/menu_vocab_title" />
     <item
-        android:id="@+id/navigation_gramma"
+        android:id="@+id/fragmentGamma"
         android:icon="@drawable/ic_word_list"
         android:title="@string/menu_gramma_title" />
     <item
-        android:id="@+id/navigation_profile"
+        android:id="@+id/fragmentProfile"
         android:icon="@drawable/ic_word_list"
         android:title="@string/menu_profile_title" />
 </menu>

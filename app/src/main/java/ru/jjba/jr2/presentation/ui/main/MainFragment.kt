@@ -1,5 +1,9 @@
 package ru.jjba.jr2.presentation.ui.main
 
+import android.os.Bundle
+import android.view.View
+import androidx.navigation.fragment.findNavController
+import org.jetbrains.anko.design.snackbar
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.main.MainViewModel
