@@ -48,7 +48,7 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-coroutines:$room_version"
     implementation "androidx.room:room-rxjava2:$room_version"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0-alpha1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "androidx.room:room-compiler:$room_version"
 
     // Anko - Commons
