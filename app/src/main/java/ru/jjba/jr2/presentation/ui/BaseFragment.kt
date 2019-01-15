@@ -32,10 +32,10 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
             InstanceStateProvider.NotNull(savable, defaultValue)
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    protected abstract fun initContent()
+    open fun initContent() {}
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    protected abstract fun observeData()
+    open fun observeData() {}
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     open fun saveInstanceState() {}
@@ -68,6 +68,13 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
         }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        if(savedInstanceState != null) {
+            savable.putAll(savedInstanceState.getBundle("_state"))
+        }
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -87,13 +94,6 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
                 .get(viewModel::class.java)
 
         lifecycle.addObserver(this)
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        if(savedInstanceState != null) {
-            savable.putAll(savedInstanceState.getBundle("_state"))
-        }
-        super.onCreate(savedInstanceState)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

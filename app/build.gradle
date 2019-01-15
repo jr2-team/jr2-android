@@ -32,7 +32,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0-alpha02'
 
     // Jet Pack - Lifecycle
-    ext.lifecycle_version='2.0.0'
+    ext.lifecycle_version = '2.0.0'
     implementation "androidx.lifecycle:lifecycle-common:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
@@ -40,7 +40,7 @@ dependencies {
     // Jet Pack - Layout
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
     // Jet Pack - Navigation
-    ext.nav_version='1.0.0-alpha09'
+    ext.nav_version = '1.0.0-alpha09'
     implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
     implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
     // Jet Pack - Room
@@ -48,12 +48,14 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-coroutines:$room_version"
     implementation "androidx.room:room-rxjava2:$room_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-alpha1'
     kapt "androidx.room:room-compiler:$room_version"
 
     // Anko - Commons
-    ext.anko_version='0.10.8'
+    ext.anko_version = '0.10.8'
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
-    implementation "org.jetbrains.anko:anko-sdk25:$anko_version" // sdk15, sdk19, sdk21, sdk23 are also available
+    implementation "org.jetbrains.anko:anko-sdk25:$anko_version"
+    // sdk15, sdk19, sdk21, sdk23 are also available
     implementation "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
     implementation "org.jetbrains.anko:anko-sdk25-coroutines:$anko_version"
     implementation "org.jetbrains.anko:anko-appcompat-v7-coroutines:$anko_version"
@@ -81,14 +83,14 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'
 
     // Retrofit2
-    ext.retrofit2_version='2.5.0'
+    ext.retrofit2_version = '2.5.0'
     implementation "com.squareup.retrofit2:retrofit:$retrofit2_version"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofit2_version"
     // Retrofit2 - Coroutines adapter
     implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
 
     // TikXML
-    ext.tikxml_version='0.8.13'
+    ext.tikxml_version = '0.8.13'
     implementation "com.tickaroo.tikxml:core:$tikxml_version"
     implementation "com.tickaroo.tikxml:annotation:$tikxml_version"
     implementation "com.tickaroo.tikxml:retrofit-converter:$tikxml_version"
