@@ -3,12 +3,9 @@ package ru.jjba.jr2.presentation.ui.vocab.word.detail
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
-import org.jetbrains.anko.bundleOf
-import org.jetbrains.anko.support.v4.act
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.vocab.word.WordDetailViewModel
-import ru.jjba.jr2.presentation.viewmodel.vocab.word.WordListViewModel
 
 class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
     override var viewModel = WordDetailViewModel()
@@ -25,10 +22,6 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
                 viewModel.setArgs(wordId)
             }
         }
-    }
-
-    override fun initContent() {
-
     }
 
     override fun observeData() = with(viewModel) {

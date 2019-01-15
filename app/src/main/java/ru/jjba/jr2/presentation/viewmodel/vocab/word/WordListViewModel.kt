@@ -1,62 +1,38 @@
 package ru.jjba.jr2.presentation.viewmodel.vocab.word
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavDirections
-import com.squareup.moshi.JsonAdapter
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.Types
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.rxkotlin.addTo
-import io.reactivex.rxkotlin.subscribeBy
-import io.reactivex.schedulers.Schedulers
-import ru.jjba.jr2.App
 import ru.jjba.jr2.data.repository.WordDbRepository
 import ru.jjba.jr2.domain.entity.Word
 import ru.jjba.jr2.presentation.ui.vocab.word.list.WordListFragmentDirections
 import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
 import ru.jjba.jr2.presentation.viewmodel.ViewModelEvent
-import java.util.concurrent.TimeUnit
+import kotlin.properties.Delegates.observable
 
 class WordListViewModel(
-        private val app: App = App.instance
+        private val wordRepository: WordDbRepository = WordDbRepository()
 ) : BaseViewModel() {
-    private lateinit var words: LiveData<List<Word>>
+    private var wordListIdArg by observable(0) { _, oldValue, newValue ->
+        if (oldValue != newValue) getWords()
+    }
+    private val words = MediatorLiveData<List<Word>>().apply {
+        value = emptyList()
+    }
 
     private val navToWordDetailEvent = MutableLiveData<ViewModelEvent<NavDirections>>()
-    private val wordsIsLoading = MutableLiveData<Boolean>()
+    private val areWordsLoading = MutableLiveData<Boolean>()
 
     fun setArgs(wordListId: Int) {
-
+        wordListIdArg = wordListId
+        getWords()
     }
 
-    fun observeWords(): LiveData<List<Word>> {
-        if (!::words.isInitialized) {
-            // TODO: Удалить
-
-            val wordsAdapter: JsonAdapter<List<Word>> =  Moshi.Builder().build().adapter(
-                    Types.newParameterizedType(List::class.java, Word::class.java)
-            )
-            val testWords = wordsAdapter.fromJson(app.readAsset("word.json"))
-
-            val repository = WordDbRepository()
-            repository.dropAndInsert(testWords!!)
-                    .delay(10, TimeUnit.SECONDS)
-                    .doOnSubscribe {wordsIsLoading.postValue(true)}
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeBy(onComplete = { wordsIsLoading.postValue(false) })
-                    .addTo(compDisp)
-
-            words = repository.getAll()
-        }
-        return words
-    }
-
+    fun observeWords(): LiveData<List<Word>> = words
+    fun observeWordsIsLoading(): LiveData<Boolean> = areWordsLoading
     fun observeNavToWordDetailEvent(): LiveData<ViewModelEvent<NavDirections>> =
             navToWordDetailEvent
-
-    fun observeWordsIsLoading(): LiveData<Boolean> = wordsIsLoading
 
     fun onWordClick(word: Word) {
         val direction = WordListFragmentDirections.actionWordListToWordDetail().apply {
@@ -65,4 +41,7 @@ class WordListViewModel(
         navToWordDetailEvent.value = ViewModelEvent(direction)
     }
 
+    private fun getWords() {
+        words.addSource(wordRepository.getAll(), words::setValue)
+    }
 }

@@ -1,22 +1,17 @@
 package ru.jjba.jr2.data.repository
 
-import io.reactivex.Completable
-import io.reactivex.Scheduler
-import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.withContext
 import ru.jjba.jr2.data.db.dao.BaseDao
 
-abstract class BaseDbRepository<ET>(
+abstract class BaseDbRepository<ET> internal constructor(
         internal val dao: BaseDao<ET>
 ) {
-    internal val scheduler: Scheduler = Schedulers.io()
+    suspend fun insertSingle(value: ET) = withContext(IO) {
+        dao.insertSingle(value)
+    }
 
-    fun insertSingle(value: ET): Completable =
-            Completable
-                    .fromCallable { dao.insertSingle(value) }
-                    .subscribeOn(scheduler)
-
-    fun insertMany(values: List<ET>): Completable =
-            Completable
-                    .fromCallable { dao.insertMany(values) }
-                    .subscribeOn(scheduler)
+    suspend fun insertMany(values: List<ET>) = withContext(IO) {
+        dao.insertMany(values)
+    }
 }

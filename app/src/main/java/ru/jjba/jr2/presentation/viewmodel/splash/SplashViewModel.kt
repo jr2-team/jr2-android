@@ -2,37 +2,32 @@ package ru.jjba.jr2.presentation.viewmodel.splash
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.rxkotlin.addTo
-import io.reactivex.rxkotlin.subscribeBy
-import io.reactivex.rxkotlin.toObservable
-import io.reactivex.schedulers.Schedulers
-import java.util.concurrent.TimeUnit
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
+import kotlinx.coroutines.launch
+import ru.jjba.jr2.App
+import ru.jjba.jr2.data.repository.WordDbRepository
+import ru.jjba.jr2.domain.entity.Word
+import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
 
-class SplashViewModel : ViewModel() {
-    // TODO: Найти лучший способ роутить между активностями через ViewModel
-    private val isAllowedNavToMain = MutableLiveData<Boolean>()
+class SplashViewModel(
+        private val app: App = App.instance,
+        private val wordRepository: WordDbRepository = WordDbRepository()
+) : BaseViewModel() {
+    // TODO: Найти способ роутить между активностями через ViewModel
+    private val isAllowedToNavToMain = MutableLiveData<Boolean>().apply { value = false }
 
-    private val tasks = CompositeDisposable()
+    fun onSetupDb() = launch {
+        val wordsAdapter: JsonAdapter<List<Word>> = Moshi.Builder().build().adapter(
+                Types.newParameterizedType(List::class.java, Word::class.java)
+        )
+        wordsAdapter.fromJson(app.readAsset("word.json"))?.let { words ->
+            wordRepository.dropAndInsert(words)
+        }
 
-    fun onSetupDb() {
-        emptyList<Unit>().toObservable()
-                .delay(2, TimeUnit.SECONDS)
-                .doOnComplete {
-                    isAllowedNavToMain.postValue(true)
-                }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeBy()
-                .addTo(tasks)
+        isAllowedToNavToMain.postValue(true)
     }
 
-    fun observeIsAllowedNavToMain(): LiveData<Boolean> = isAllowedNavToMain
-
-    override fun onCleared() {
-        tasks.clear()
-        super.onCleared()
-    }
+    fun observeIsAllowedToNavToMain(): LiveData<Boolean> = isAllowedToNavToMain
 }
