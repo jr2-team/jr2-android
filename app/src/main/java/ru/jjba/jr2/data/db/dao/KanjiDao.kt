@@ -16,7 +16,7 @@ abstract class KanjiDao : BaseDao<Kanji> {
     @Query(
             // @formatter:off
             "SELECT k.* FROM Kanji as k " +
-            "INNER JOIN Component AS c " +
+            "INNER JOIN ComponentOfKanjiJoin AS c " +
                 "ON k.id = c.kanjiIdComp " +
             "WHERE c.kanjiId = :kanjiId"
             // @formatter:on

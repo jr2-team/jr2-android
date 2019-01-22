@@ -1,9 +1,10 @@
-package ru.jjba.jr2.domain.entity
+package ru.jjba.jr2.domain.join
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.squareup.moshi.JsonClass
+import ru.jjba.jr2.domain.entity.Kanji
 
 @Entity(
         foreignKeys = [
@@ -20,7 +21,7 @@ import com.squareup.moshi.JsonClass
         ]
 )
 @JsonClass(generateAdapter = true)
-class Component(
+class ComponentOfKanjiJoin(
         @PrimaryKey(autoGenerate = true)
         val id: Int = 0,
         val kanjiId: Int = 0,

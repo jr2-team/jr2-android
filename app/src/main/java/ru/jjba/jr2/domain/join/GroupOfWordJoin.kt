@@ -1,8 +1,10 @@
-package ru.jjba.jr2.domain.entity
+package ru.jjba.jr2.domain.join
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import ru.jjba.jr2.domain.entity.Group
+import ru.jjba.jr2.domain.entity.Word
 
 @Entity(
         foreignKeys = [
@@ -12,17 +14,17 @@ import androidx.room.PrimaryKey
                     childColumns = ["groupId"]
             ),
             ForeignKey(
-                    entity = Kanji::class,
+                    entity = Word::class,
                     parentColumns = ["id"],
-                    childColumns = ["kanjiId"]
+                    childColumns = ["wordId"]
             )
         ]
 )
-class KanjiGroup(
-        @PrimaryKey(autoGenerate = true)
+class GroupOfWordJoin(
+        @PrimaryKey
         val id: Int,
         val groupId: Int,
-        val kanjiId: Int,
+        val wordId: Int,
         val defaultPossition: Int,
         val customPossition: Int
 )

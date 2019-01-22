@@ -1,9 +1,14 @@
 package ru.jjba.jr2.data.db
 
 import android.content.Context
-import androidx.room.*
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import ru.jjba.jr2.data.db.dao.*
 import ru.jjba.jr2.domain.entity.*
+import ru.jjba.jr2.domain.join.ComponentOfKanjiJoin
+import ru.jjba.jr2.domain.join.WordInSentenceJoin
 
 @Database(
         entities = [
@@ -11,10 +16,11 @@ import ru.jjba.jr2.domain.entity.*
             Kanji::class,
             Word::class,
             Sentence::class,
-            Component::class,
-            WordSentence::class
+            ComponentOfKanjiJoin::class,
+            WordInSentenceJoin::class,
+            Group::class
         ],
-        version = ActsDbHelper.DATABASE_VERSION
+        version = DbProviderFromAssets.DATABASE_VERSION
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
@@ -22,8 +28,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun getKanjiDao(): KanjiDao
     abstract fun getWordDao(): WordDao
     abstract fun getSentenceDao(): SentenceDao
-    abstract fun getComponentDao(): ComponentDao
-    abstract fun getWordSentenceDao(): WordSentenceDao
+    abstract fun getGroupDao(): GroupDao
 
     companion object {
         fun create(context: Context, memoryOnly: Boolean) = if (memoryOnly) {
@@ -32,21 +37,8 @@ abstract class AppDatabase : RoomDatabase() {
             Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    ActsDbHelper.DATABASE_NAME
+                    DbProviderFromAssets.DATABASE_NAME
             )
         }.build()
     }
-}
-
-class Converters {
-    @TypeConverter
-    fun fromKanaType(value: KanaType?) = value?.value
-
-    @TypeConverter
-    fun toKanaType(value: Int) =
-            when (value) {
-                0 -> KanaType.HIROGANA
-                1 -> KanaType.HIROGANA
-                else -> throw IllegalArgumentException()
-            }
 }

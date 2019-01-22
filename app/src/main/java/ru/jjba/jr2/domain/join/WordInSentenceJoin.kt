@@ -1,8 +1,10 @@
-package ru.jjba.jr2.domain.entity
+package ru.jjba.jr2.domain.join
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import ru.jjba.jr2.domain.entity.Sentence
+import ru.jjba.jr2.domain.entity.Word
 
 @Entity(
         foreignKeys = [
@@ -18,7 +20,7 @@ import androidx.room.PrimaryKey
                 )
         ]
 )
-class WordSentence(
+class WordInSentenceJoin(
         @PrimaryKey
         val id: Int,
         val wordId: Int,

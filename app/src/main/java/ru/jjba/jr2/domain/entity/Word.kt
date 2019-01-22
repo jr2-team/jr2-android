@@ -10,8 +10,8 @@ import com.squareup.moshi.JsonClass
 class Word(
         @PrimaryKey(autoGenerate = true)
         val id: Int = 0,
-        val value: String = "",
-        val furigana: String = "",
-        val basicInterpretation: String = "",
+        val value: String = String(),
+        val furigana: String = String(),
+        val basicInterpretation: String = String(),
         val jlptLevel: Int = 5
 )

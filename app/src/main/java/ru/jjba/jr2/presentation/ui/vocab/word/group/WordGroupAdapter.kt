@@ -13,10 +13,10 @@ import kotlin.properties.Delegates.observable
 class WordGroupAdapterCollapsed : SectioningAdapter() {
     class Section(
             val title: String,
-            val items: List<String>
+            val items: MutableList<String>
     )
 
-    var sections: MutableList<Section> by observable(mutableListOf()) { _, _, _ ->
+    var sections: List<Section> by observable(mutableListOf()) { _, _, _ ->
         notifyDataSetChanged()
     }
 

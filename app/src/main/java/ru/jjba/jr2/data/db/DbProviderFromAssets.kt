@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper
 /**
  * Класс для поулчения локальной БД из ассетов
  */
-class ActsDbHelper(ctx: Context) : SQLiteOpenHelper(ctx, DATABASE_NAME, null, DATABASE_VERSION) {
+class DbProviderFromAssets(ctx: Context) : SQLiteOpenHelper(ctx, DATABASE_NAME, null, DATABASE_VERSION) {
     override fun onCreate(db: SQLiteDatabase?) {}
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {}
