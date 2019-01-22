@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavDirections
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.Job
 import ru.jjba.jr2.data.repository.WordDbRepository
 import ru.jjba.jr2.domain.entity.Word
 import ru.jjba.jr2.presentation.ui.vocab.word.list.WordListFragmentDirections
@@ -17,12 +19,9 @@ class WordListViewModel(
     private var wordListIdArg by observable(0) { _, oldValue, newValue ->
         if (oldValue != newValue) getWords()
     }
-    private val words = MediatorLiveData<List<Word>>().apply {
-        value = emptyList()
-    }
-
-    private val navToWordDetailEvent = MutableLiveData<ViewModelEvent<NavDirections>>()
+    private val words = MediatorLiveData<List<Word>>().apply { value = emptyList() }
     private val areWordsLoading = MutableLiveData<Boolean>()
+    private val navToWordDetailEvent = MutableLiveData<ViewModelEvent<NavDirections>>()
 
     fun setArgs(wordListId: Int) {
         wordListIdArg = wordListId
@@ -40,6 +39,9 @@ class WordListViewModel(
         }
         navToWordDetailEvent.value = ViewModelEvent(direction)
     }
+
+    fun onWordSearch(query: String): LiveData<List<Word>> =
+            wordRepository.getByQuery(query)
 
     private fun getWords() {
         words.addSource(wordRepository.getAll(), words::setValue)

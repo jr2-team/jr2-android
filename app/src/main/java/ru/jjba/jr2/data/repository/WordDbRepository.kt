@@ -11,11 +11,15 @@ import ru.jjba.jr2.domain.entity.Word
 class WordDbRepository(
         db: AppDatabase = App.instance.db
 ) : BaseDbRepository<Word>(db.getWordDao()) {
-    fun getById(wordId: Int): LiveData<Word> = (dao as WordDao).getById(wordId)
+    private val wordDao = dao as WordDao
 
-    fun getAll(): LiveData<List<Word>> = (dao as WordDao).getAll()
+    fun getById(wordId: Int) = wordDao.getById(wordId)
+
+    fun getAll() = wordDao.getAll()
+
+    fun getByQuery(query: String) = wordDao.getByQuery(query)
 
     suspend fun dropAndInsert(words: List<Word>) = withContext(IO) {
-        (dao as WordDao).dropAndInsert(words)
+        wordDao.dropAndInsert(words)
     }
 }

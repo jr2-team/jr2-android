@@ -14,6 +14,9 @@ abstract class WordDao : BaseDao<Word> {
     @Query("SELECT * FROM Word")
     abstract fun getAll(): LiveData<List<Word>>
 
+    @Query("SELECT * FROM Word as w WHERE w.basicInterpretation LIKE '%' || :query || '%'")
+    abstract fun getByQuery(query: String): LiveData<List<Word>>
+
     @Query("DELETE FROM Word")
     abstract fun deleteAll()
 

@@ -9,7 +9,7 @@ class Group(
         val id: Int = 0,
         val name: String = String(),
         val isUserGroup: Boolean = false,
-        val groupTyle: GroupType = GroupType.KANJI_GROUP
+        val groupType: GroupType = GroupType.KANJI_GROUP
         //TODO: Добавить поля: CreationDate, LastStudyDate
 )
 
