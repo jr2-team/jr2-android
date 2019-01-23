@@ -8,6 +8,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_word_list.*
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.async
 import org.jetbrains.anko.support.v4.ctx
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment

@@ -13,7 +13,7 @@ class WordDetailViewModel(
     private val word = MutableLiveData<Word>()
     private var wordId: Int by observable(Int.MIN_VALUE) { _, oldValue, newValue ->
         if (oldValue != newValue) {
-            word.postValue(wordRepository.getById(newValue).value)
+            //word.postValue(wordRepository.getById(newValue))
         }
     }
 
@@ -21,5 +21,5 @@ class WordDetailViewModel(
         this.wordId = wordId
     }
 
-    fun observeWord(): LiveData<Word> = wordRepository.getById(wordId)
+    fun observeWord(): LiveData<Word> = word//wordRepository.getById(wordId).await()
 }

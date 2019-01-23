@@ -3,10 +3,7 @@ package ru.jjba.jr2.presentation.viewmodel.vocab.word
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavDirections
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import ru.jjba.jr2.data.repository.GroupDbRepository
 import ru.jjba.jr2.data.repository.WordDbRepository
 import ru.jjba.jr2.domain.entity.Group
@@ -49,17 +46,12 @@ class WordListViewModel(
         navToWordDetailEvent.value = ViewModelEvent(direction)
     }
 
-    private fun fetchData() {
+    private fun fetchData() = launch {
         areWordsLoading.postValue(true)
-        launch {
-            delay(2000L)
-            withContext(Dispatchers.Default) {
-                wordGroup.postValue(groupRepository.getById(wordGroupIdArg))
-                words.postValue(wordRepository.getWordsByGroupId(wordGroupIdArg))
-            }
-        }.invokeOnCompletion {
-            areWordsLoading.postValue(false)
-        }
+        wordGroup.postValue(groupRepository.getById(wordGroupIdArg).await())
+        words.postValue(wordRepository.getWordsByGroupId(wordGroupIdArg).await())
+    }.invokeOnCompletion {
+        areWordsLoading.postValue(false)
     }
 
     private fun clearData() {

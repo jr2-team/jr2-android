@@ -1,5 +1,6 @@
 package ru.jjba.jr2.data.repository
 
+import kotlinx.coroutines.async
 import ru.jjba.jr2.App
 import ru.jjba.jr2.data.db.AppDatabase
 import ru.jjba.jr2.data.db.dao.GroupDao
@@ -10,7 +11,9 @@ class GroupDbRepository(
 ) : BaseDbRepository<Group>(db.getGroupDao()) {
     private val groupDao = dao as GroupDao
 
-    fun getById(groupId: Int) = groupDao.getById(groupId)
+    fun getById(groupId: Int) = async {
+        groupDao.getById(groupId)
+    }
 
     fun getAllKanjiGroup() = groupDao.getAllKanjiGroups()
 

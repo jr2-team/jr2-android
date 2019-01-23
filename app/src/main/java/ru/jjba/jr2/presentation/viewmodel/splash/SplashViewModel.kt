@@ -6,6 +6,7 @@ import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import ru.jjba.jr2.App
@@ -28,34 +29,30 @@ class SplashViewModel(
     private val isAllowedToNavToMain = MutableLiveData<Boolean>().apply { value = false }
 
     // Метод для наполнения БД тестовыми данными
-    fun onSetupDb() = launch {
-        withContext(Dispatchers.Default) {
-            app.db.clearAllTables()
-
-            val wordsAdapter: JsonAdapter<List<Word>> = Moshi.Builder().build().adapter(
-                    Types.newParameterizedType(List::class.java, Word::class.java)
-            )
-            wordsAdapter.fromJson(app.readAsset("word.json"))?.let { words ->
-                wordRepository.dropAndInsert(words)
-            }
-
-            sectionRepository.insertMany(listOf(
-                    Section(0, "Пользовательские группы"),
-                    Section(1, "JLPT 5"),
-                    Section(2, "JLPT 4")
-            ))
-
-            val groups = mutableListOf<Group>()
-            groups.add(Group(id = 1, name = "Custom group", sectionId = 0))
-            groups.add(Group(id = 2, name = "JLPT 5 group", sectionId = 1))
-            groups.add(Group(id = 3, name = "JLPT 4 group", sectionId = 2))
-            groupRepository.insertMany(groups)
-            wordRepository.insertWordIntoGroup(listOf(
-                    GroupOfWordJoin(groupId = 1, wordId = 5),
-                    GroupOfWordJoin(groupId = 1, wordId = 6),
-                    GroupOfWordJoin(groupId = 1, wordId = 7)
-            ))
+    fun onSetupDb() = launch(coroutineContext + Dispatchers.Default) {
+        val wordsAdapter: JsonAdapter<List<Word>> = Moshi.Builder().build().adapter(
+                Types.newParameterizedType(List::class.java, Word::class.java)
+        )
+        wordsAdapter.fromJson(app.readAsset("word.json"))?.let { words ->
+            wordRepository.dropAndInsert(words)
         }
+
+        sectionRepository.insertMany(listOf(
+                Section(0, "Пользовательские группы"),
+                Section(1, "JLPT 5"),
+                Section(2, "JLPT 4")
+        ))
+
+        val groups = mutableListOf<Group>()
+        groups.add(Group(id = 1, name = "Custom group", sectionId = 0))
+        groups.add(Group(id = 2, name = "JLPT 5 group", sectionId = 1))
+        groups.add(Group(id = 3, name = "JLPT 4 group", sectionId = 2))
+        groupRepository.insertMany(groups)
+        wordRepository.insertWordIntoGroup(listOf(
+                GroupOfWordJoin(groupId = 1, wordId = 5),
+                GroupOfWordJoin(groupId = 1, wordId = 6),
+                GroupOfWordJoin(groupId = 1, wordId = 7)
+        ))
     }.invokeOnCompletion {
         isAllowedToNavToMain.postValue(true)
     }

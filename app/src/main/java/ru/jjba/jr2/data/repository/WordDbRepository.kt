@@ -1,6 +1,7 @@
 package ru.jjba.jr2.data.repository
 
 import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
 import ru.jjba.jr2.App
 import ru.jjba.jr2.data.db.AppDatabase
@@ -13,14 +14,17 @@ class WordDbRepository(
 ) : BaseDbRepository<Word>(db.getWordDao()) {
     private val wordDao = dao as WordDao
 
-    fun getById(wordId: Int) =
-            wordDao.getById(wordId)
+    fun getById(wordId: Int) = async {
+        wordDao.getById(wordId)
+    }
 
-    fun getAll() =
-            wordDao.getAll()
+    fun getAll() = async {
+        wordDao.getAll()
+    }
 
-    fun getWordsByGroupId(groupId: Int) =
-            wordDao.getWordsByGroupId(groupId)
+    fun getWordsByGroupId(groupId: Int) = async {
+        wordDao.getWordsByGroupId(groupId)
+    }
 
     suspend fun insertWordIntoGroup(groupOfWordJoin: List<GroupOfWordJoin>) = withContext(IO) {
         wordDao.insertWordIntoGroup(groupOfWordJoin)
