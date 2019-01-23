@@ -4,10 +4,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.squareup.moshi.JsonClass
 
-// TODO: Придумать навание получше, хранить в одной таблице и канджи и радикалы?
 @Entity
 @JsonClass(generateAdapter = true)
-class Kanji(
+class Moji(
         @PrimaryKey
         val id: Int = 0,
         val value: Char = Char.MIN_VALUE,
@@ -16,5 +15,18 @@ class Kanji(
         val kunReading: String = "",
         val basicInterpretation: String = "",
         val jlptLevel: Short = 5,
-        val isRadical: Boolean = false
+        val mojiType: MojiType = MojiType.KANJI
 )
+
+enum class MojiType(val code: Int) {
+    RADICAL(0),
+    KANJI(1);
+
+    companion object {
+        fun fromCode(code: Int): MojiType = when (code) {
+            RADICAL.code -> RADICAL
+            KANJI.code -> KANJI
+            else -> throw IllegalArgumentException()
+        }
+    }
+}

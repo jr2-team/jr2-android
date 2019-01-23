@@ -4,9 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavDirections
 import ru.jjba.jr2.data.repository.GroupDbRepository
+import ru.jjba.jr2.domain.entity.Group
 import ru.jjba.jr2.domain.entity.GroupSection
-import ru.jjba.jr2.presentation.ui.vocab.word.group.WordGroupAdapterCollapsed.Section
 import ru.jjba.jr2.presentation.ui.vocab.word.group.WordGroupFragmentDirections
+import ru.jjba.jr2.presentation.ui.vocab.word.group.WordGroupSection
 import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
 import ru.jjba.jr2.presentation.viewmodel.ViewModelEvent
 
@@ -32,26 +33,26 @@ class WordGroupViewModel(
 
     val groups = groupRepository.getAllWordGroup()
 
-    val bar = MutableLiveData<List<Section>>()
+    val bar = MutableLiveData<List<WordGroupSection>>()
 
     fun loadSections() {
         val sections = listOf(
-                Section("Пользовательские группы", mutableListOf()),
-                Section("JLPT 1", mutableListOf()),
-                Section("JLPT 2", mutableListOf()),
-                Section("JLPT 3", mutableListOf()),
-                Section("JLPT 4", mutableListOf()),
-                Section("JLPT 5", mutableListOf())
+                WordGroupSection("Пользовательские группы", mutableListOf()),
+                WordGroupSection("JLPT 1", mutableListOf()),
+                WordGroupSection("JLPT 2", mutableListOf()),
+                WordGroupSection("JLPT 3", mutableListOf()),
+                WordGroupSection("JLPT 4", mutableListOf()),
+                WordGroupSection("JLPT 5", mutableListOf())
         )
 
         groups.value?.forEach { group ->
             when (group.groupSection) {
-                GroupSection.CUSTOM -> sections[0].items.add(group.name)
-                GroupSection.JLPT_1 -> sections[1].items.add(group.name)
-                GroupSection.JLPT_2 -> sections[2].items.add(group.name)
-                GroupSection.JLPT_3 -> sections[3].items.add(group.name)
-                GroupSection.JLPT_4 -> sections[4].items.add(group.name)
-                GroupSection.JLPT_5 -> sections[5].items.add(group.name)
+                GroupSection.CUSTOM -> sections[0].groups.add(group)
+                GroupSection.JLPT_1 -> sections[1].groups.add(group)
+                GroupSection.JLPT_2 -> sections[2].groups.add(group)
+                GroupSection.JLPT_3 -> sections[3].groups.add(group)
+                GroupSection.JLPT_4 -> sections[4].groups.add(group)
+                GroupSection.JLPT_5 -> sections[5].groups.add(group)
             }
         }
         bar.value = sections
@@ -59,9 +60,9 @@ class WordGroupViewModel(
 
     fun observeGroupsOfKanjis() = groupRepository.getAllKanjiGroup()
 
-    fun onWordGroupClick(wordGroup: String/*GroupOfWordJoin*/) {
+    fun onWordGroupClick(wordGroup: Group) {
         val direction = WordGroupFragmentDirections.actionWordGroupToWordList().apply {
-            wordGroupId = 0//wordGroup.id
+            wordGroupId = wordGroup.id
         }
         navToWordListEvent.value = ViewModelEvent(direction)
     }

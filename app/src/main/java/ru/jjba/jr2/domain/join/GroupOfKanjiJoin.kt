@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import ru.jjba.jr2.domain.entity.Group
-import ru.jjba.jr2.domain.entity.Kanji
+import ru.jjba.jr2.domain.entity.Moji
 
 @Entity(
         foreignKeys = [
@@ -14,9 +14,9 @@ import ru.jjba.jr2.domain.entity.Kanji
                     childColumns = ["groupId"]
             ),
             ForeignKey(
-                    entity = Kanji::class,
+                    entity = Moji::class,
                     parentColumns = ["id"],
-                    childColumns = ["kanjiId"]
+                    childColumns = ["mojiId"]
             )
         ]
 )

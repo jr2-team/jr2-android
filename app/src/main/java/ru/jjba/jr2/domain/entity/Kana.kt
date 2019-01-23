@@ -10,9 +10,9 @@ import com.squareup.moshi.JsonClass
 class Kana(
         @PrimaryKey
         val id: Int = 0,
-        val value: String = String(),
-        val engReading: String = String(),
-        val rusReading: String = String(),
+        val value: String = "",
+        val engReading: String = "",
+        val rusReading: String = "",
         val kanaType: KanaType = KanaType.HIROGANA
 )
 

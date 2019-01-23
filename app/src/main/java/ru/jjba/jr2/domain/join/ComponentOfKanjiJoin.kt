@@ -4,19 +4,19 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.squareup.moshi.JsonClass
-import ru.jjba.jr2.domain.entity.Kanji
+import ru.jjba.jr2.domain.entity.Moji
 
 @Entity(
         foreignKeys = [
             ForeignKey(
-                    entity = Kanji::class,
+                    entity = Moji::class,
                     parentColumns = ["id"],
-                    childColumns = ["kanjiId"]
+                    childColumns = ["mojiId"]
             ),
             ForeignKey(
-                    entity = Kanji::class,
+                    entity = Moji::class,
                     parentColumns = ["id"],
-                    childColumns = ["kanjiIdComp"]
+                    childColumns = ["mojiComponentId"]
             )
         ]
 )
@@ -24,7 +24,7 @@ import ru.jjba.jr2.domain.entity.Kanji
 class ComponentOfKanjiJoin(
         @PrimaryKey(autoGenerate = true)
         val id: Int = 0,
-        val kanjiId: Int = 0,
-        val kanjiIdComp: Int = 0,
+        val mojiId: Int = 0,
+        val mojiComponentId: Int = 0,
         val order: Short = 0
 )

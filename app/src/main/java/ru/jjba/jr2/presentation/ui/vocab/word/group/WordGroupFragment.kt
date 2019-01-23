@@ -19,7 +19,7 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
     override val titleDefault
         get() = getString(R.string.word_group_fragment_title)
 
-    private val wordGroupListAdapter = WordGroupAdapterCollapsed()
+    private val wordGroupListAdapter = WordGroupAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,7 +31,7 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
             setHasFixedSize(true)
             layoutManager = StickyHeaderLayoutManager()
             adapter = wordGroupListAdapter.apply {
-                onItemClicked = viewModel::onWordGroupClick
+                onWordGroupItemClicked = viewModel::onWordGroupClick
             }
             addItemDecoration(DividerItemDecoration(ctx, LinearLayoutManager.VERTICAL))
             //addItemDecoration(ItemOffsetDecoration(ctx, R.dimen.rv_offset_between_items))
@@ -44,7 +44,7 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
             //wordGroupListAdapter.wordGroups = wordGroups
             /*for (i in 1..100) {
                 wordGroupListAdapter.sections.add(
-                        Section("Header $i", listOf("item $i", "item ${i + 1}")))
+                        WordGroupSection("Header $i", listOf("item $i", "item ${i + 1}")))
             }*/
             wordGroupListAdapter.onCollapseAllSections()
         })

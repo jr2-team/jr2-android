@@ -13,7 +13,7 @@ import ru.jjba.jr2.domain.join.WordInSentenceJoin
 @Database(
         entities = [
             Kana::class,
-            Kanji::class,
+            Moji::class,
             Word::class,
             Sentence::class,
             ComponentOfKanjiJoin::class,
