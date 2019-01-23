@@ -47,6 +47,9 @@ class WordListFragment : BaseFragment<WordListViewModel>() {
     }
 
     override fun observeData() = with(viewModel) {
+        observeWordGroup().observe(viewLifecycleOwner, Observer { wordGrpoup ->
+            setTitle(wordGrpoup?.name ?: "Слова загружаются...")
+        })
         observeWords().observe(viewLifecycleOwner, Observer { words ->
             wordListAdapter.words = words
             rvWord.restoreState(rvWordState)

@@ -10,6 +10,8 @@ class GroupDbRepository(
 ) : BaseDbRepository<Group>(db.getGroupDao()) {
     private val groupDao = dao as GroupDao
 
+    fun getById(groupId: Int) = groupDao.getById(groupId)
+
     fun getAllKanjiGroup() = groupDao.getAllKanjiGroups()
 
     fun getAllWordGroup() = groupDao.getAllWordGroups()

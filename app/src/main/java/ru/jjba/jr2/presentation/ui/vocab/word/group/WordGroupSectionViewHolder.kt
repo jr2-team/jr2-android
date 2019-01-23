@@ -4,6 +4,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.item_word_group_section.view.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.zakariya.stickyheaders.SectioningAdapter
+import ru.jjba.jr2.domain.select.SectionWithGroups
 
 class WordGroupSectionViewHolder(
         private val view: View,
@@ -18,7 +19,7 @@ class WordGroupSectionViewHolder(
         }
     }
 
-    fun bindView(section: WordGroupSection) = with(view) {
-        tvWordGroupHeaderTitle.text = section.sectionTitle
+    fun bindView(sectionWithGroups: SectionWithGroups) = with(view) {
+        tvWordGroupHeaderTitle.text = sectionWithGroups.section.name
     }
 }

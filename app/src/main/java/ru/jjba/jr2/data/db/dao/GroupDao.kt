@@ -7,6 +7,9 @@ import ru.jjba.jr2.domain.entity.Group
 
 @Dao
 abstract class GroupDao : BaseDao<Group> {
+    @Query("SELECT * FROM `Group` WHERE id = :groupId")
+    abstract fun getById(groupId: Int): Group
+
     @Query("SELECT * FROM `Group` WHERE groupType = 0")
     abstract fun getAllKanjiGroups(): LiveData<List<Group>>
 

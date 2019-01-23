@@ -11,7 +11,7 @@ abstract class BaseActivity<VT : ViewModel> : AppCompatActivity(), LifecycleObse
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     open fun initContent() {}
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
     open fun observeData() {}
 
     override fun onCreate(savedInstanceState: Bundle?) {

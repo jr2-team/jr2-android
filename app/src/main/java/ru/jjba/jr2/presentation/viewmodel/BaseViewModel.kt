@@ -12,7 +12,7 @@ abstract class BaseViewModel : ViewModel(), CoroutineScope {
         get() = Job() + Dispatchers.Main
 
     override fun onCleared() {
-        super.onCleared()
         coroutineContext.cancelChildren()
+        super.onCleared()
     }
 }

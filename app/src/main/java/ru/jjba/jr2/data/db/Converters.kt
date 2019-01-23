@@ -1,7 +1,6 @@
 package ru.jjba.jr2.data.db
 
 import androidx.room.TypeConverter
-import ru.jjba.jr2.domain.entity.GroupSection
 import ru.jjba.jr2.domain.entity.GroupType
 import ru.jjba.jr2.domain.entity.KanaType
 import ru.jjba.jr2.domain.entity.MojiType
@@ -24,15 +23,6 @@ class Converters {
     @TypeConverter
     fun fromGroupType(groupType: GroupType?) =
             groupType?.code?.toString() ?: ""
-
-    @TypeConverter
-    fun toGroupSection(value: String?): GroupSection? = value
-            ?.toIntOrNull()
-            ?.let { GroupSection.fromCode(it) }
-
-    @TypeConverter
-    fun fromGroupSection(groupSection: GroupSection?) =
-            groupSection?.code?.toString() ?: ""
 
     @TypeConverter
     fun toMojiType(value: String?): MojiType? = value

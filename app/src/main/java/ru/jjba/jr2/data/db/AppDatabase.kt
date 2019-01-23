@@ -8,6 +8,7 @@ import androidx.room.TypeConverters
 import ru.jjba.jr2.data.db.dao.*
 import ru.jjba.jr2.domain.entity.*
 import ru.jjba.jr2.domain.join.ComponentOfKanjiJoin
+import ru.jjba.jr2.domain.join.GroupOfWordJoin
 import ru.jjba.jr2.domain.join.WordInSentenceJoin
 
 @Database(
@@ -18,7 +19,9 @@ import ru.jjba.jr2.domain.join.WordInSentenceJoin
             Sentence::class,
             ComponentOfKanjiJoin::class,
             WordInSentenceJoin::class,
-            Group::class
+            Group::class,
+            GroupOfWordJoin::class,
+            Section::class
         ],
         version = DbProviderFromAssets.DATABASE_VERSION
 )
@@ -29,6 +32,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun getWordDao(): WordDao
     abstract fun getSentenceDao(): SentenceDao
     abstract fun getGroupDao(): GroupDao
+    abstract fun getSectionDao(): SectionDao
 
     companion object {
         fun create(context: Context, memoryOnly: Boolean) = if (memoryOnly) {

@@ -21,10 +21,10 @@ import ru.jjba.jr2.domain.entity.Word
         ]
 )
 class GroupOfWordJoin(
-        @PrimaryKey
-        val id: Int,
+        @PrimaryKey(autoGenerate = true)
+        val id: Int = 0,
         val groupId: Int,
         val wordId: Int,
-        val defaultPossition: Int,
-        val customPossition: Int
+        val defaultPossition: Int = 0,
+        val customPossition: Int = 0
 )

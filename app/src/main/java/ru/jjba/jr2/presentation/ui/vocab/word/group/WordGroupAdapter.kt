@@ -8,19 +8,14 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import org.zakariya.stickyheaders.SectioningAdapter
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Group
+import ru.jjba.jr2.domain.select.SectionWithGroups
 import kotlin.properties.Delegates.observable
 
 class WordGroupAdapter : SectioningAdapter() {
-    var sections: List<WordGroupSection> by observable(mutableListOf()) { _, _, _ ->
-        notifyDataSetChanged()
+    var sections: List<SectionWithGroups> by observable(emptyList()) { _, _, _ ->
+        notifyAllSectionsDataSetChanged()
     }
     var onWordGroupItemClicked: ((Group) -> Unit)? = null
-
-    fun onCollapseAllSections() {
-        for (i in 0 until sections.size - 1) {
-            setSectionIsCollapsed(i, true)
-        }
-    }
 
     override fun getNumberOfSections(): Int =
             sections.size

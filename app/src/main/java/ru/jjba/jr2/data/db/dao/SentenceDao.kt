@@ -13,13 +13,11 @@ abstract class SentenceDao : BaseDao<Sentence> {
     @Query("SELECT * FROM Sentence")
     abstract fun getAll(): LiveData<List<Sentence>>
 
-    @Query(
-        // @formatter:off
+    @Query(// @formatter:off
         "SELECT * FROM Sentence AS s " +
         "INNER JOIN WordInSentenceJoin AS ws " +
             "ON s.id = ws.sentenceId " +
-        "WHERE ws.wordId = :wordId"
-        // @formatter:on
+        "WHERE ws.wordId = :wordId"// @formatter:on
     )
     abstract fun getSentencesByWordId(wordId: Int): LiveData<List<Sentence>>
 }

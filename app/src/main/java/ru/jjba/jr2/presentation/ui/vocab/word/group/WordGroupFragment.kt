@@ -34,28 +34,15 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
                 onWordGroupItemClicked = viewModel::onWordGroupClick
             }
             addItemDecoration(DividerItemDecoration(ctx, LinearLayoutManager.VERTICAL))
-            //addItemDecoration(ItemOffsetDecoration(ctx, R.dimen.rv_offset_between_items))
         }
-
     }
 
     override fun observeData() = with(viewModel) {
-        observeWordGroups().observe(viewLifecycleOwner, Observer { wordGroups ->
-            //wordGroupListAdapter.wordGroups = wordGroups
-            /*for (i in 1..100) {
-                wordGroupListAdapter.sections.add(
-                        WordGroupSection("Header $i", listOf("item $i", "item ${i + 1}")))
-            }*/
-            wordGroupListAdapter.onCollapseAllSections()
+        observeWordGroupSections().observe(viewLifecycleOwner, Observer { sections ->
+            wordGroupListAdapter.sections = sections
         })
         observeNavToWordListEvent().observe(viewLifecycleOwner, Observer {
             it.getContentIfNotHandled()?.let { d -> findNavController().navigate(d) }
-        })
-        groups.observe(viewLifecycleOwner, Observer {
-            viewModel.loadSections()
-        })
-        bar.observe(viewLifecycleOwner, Observer {
-            wordGroupListAdapter.sections = it
         })
     }
 }
