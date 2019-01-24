@@ -21,6 +21,7 @@ open class InstanceStateProvider<T>(private val savable: Bundle) {
             is Float -> savable.putFloat(property.name, value)
             is String -> savable.putString(property.name, value)
             is Bundle -> savable.putBundle(property.name, value)
+            is IntArray -> savable.putIntArray(property.name, value)
             is Serializable -> savable.putSerializable(property.name, value)
             is Parcelable -> savable.putParcelable(property.name, value)
         }

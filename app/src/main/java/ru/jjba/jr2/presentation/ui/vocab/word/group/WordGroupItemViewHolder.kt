@@ -21,5 +21,6 @@ class WordGroupItemViewHolder(
     fun bindView(wordGroup: Group) = with(view) {
         wordGroupArg = wordGroup
         tvWordGroupName.text = wordGroup.name
+        tvWordsCount.text = "${wordGroup.itemsCount} слов"
     }
 }

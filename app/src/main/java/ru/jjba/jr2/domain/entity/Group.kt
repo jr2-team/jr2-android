@@ -1,11 +1,12 @@
 package ru.jjba.jr2.domain.entity
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
 @Entity
 class Group(
-        @PrimaryKey
+        @PrimaryKey(autoGenerate = true)
         val id: Int = 0,
         val name: String = String(),
         val isUserGroup: Boolean = false,
@@ -13,7 +14,10 @@ class Group(
         val sectionId: Int = 0
         //val creationDate: DateTime,
         //val lastStudyDate: DateTime
-)
+) {
+    @Ignore
+    var itemsCount: Int = 0
+}
 
 enum class GroupType(val code: Int) {
     KANJI_GROUP(0),

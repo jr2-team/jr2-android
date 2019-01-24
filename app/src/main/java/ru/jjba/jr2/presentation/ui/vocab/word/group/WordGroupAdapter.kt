@@ -17,6 +17,18 @@ class WordGroupAdapter : SectioningAdapter() {
     }
     var onWordGroupItemClicked: ((Group) -> Unit)? = null
 
+
+    fun getCollapsedSectionIndexes(): IntArray =
+        (0 until sections.size).filter { isSectionCollapsed(it) }.toIntArray()
+
+    fun restoreCollapsedSectionState(collapsedSectionsIndexes: IntArray) {
+        collapsedSectionsIndexes.forEach { sectionIdx ->
+            if (sectionIdx in 0 until sections.size) {
+                setSectionIsCollapsed(sectionIdx, true)
+            }
+        }
+    }
+
     override fun getNumberOfSections(): Int =
             sections.size
 

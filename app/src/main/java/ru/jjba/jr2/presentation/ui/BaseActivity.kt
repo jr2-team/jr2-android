@@ -8,18 +8,21 @@ abstract class BaseActivity<VT : ViewModel> : AppCompatActivity(), LifecycleObse
     abstract var viewModel: VT
     abstract val layoutRes: Int
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     open fun initContent() {}
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     open fun observeData() {}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layoutRes)
-
         viewModel = ViewModelProviders.of(this).get(viewModel::class.java)
-
         lifecycle.addObserver(this)
+    }
+
+    override fun onPause() {
+        lifecycle.removeObserver(this)
+        super.onPause()
     }
 }

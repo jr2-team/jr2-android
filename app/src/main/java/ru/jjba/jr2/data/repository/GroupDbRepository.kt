@@ -11,11 +11,16 @@ class GroupDbRepository(
 ) : BaseDbRepository<Group>(db.getGroupDao()) {
     private val groupDao = dao as GroupDao
 
-    fun getById(groupId: Int) = async {
-        groupDao.getById(groupId)
-    }
+    fun getById(groupId: Int) =
+            async { groupDao.getById(groupId) }
 
-    fun getAllKanjiGroup() = groupDao.getAllKanjiGroups()
+    fun getAllKanjiGroup() =
+            async { groupDao.getAllGroupsOfKanjis() }
 
-    fun getAllWordGroup() = groupDao.getAllWordGroups()
+    fun getAllWordGroup() =
+            async { groupDao.getAllGroupsOfWords() }
+
+    fun getItemsCountInGroup(groupId: Int) =
+            async { groupDao.getItemsCountInGroup(groupId) }
+
 }

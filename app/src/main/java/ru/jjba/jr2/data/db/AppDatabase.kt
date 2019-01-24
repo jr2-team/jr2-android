@@ -8,7 +8,7 @@ import androidx.room.TypeConverters
 import ru.jjba.jr2.data.db.dao.*
 import ru.jjba.jr2.domain.entity.*
 import ru.jjba.jr2.domain.join.ComponentOfKanjiJoin
-import ru.jjba.jr2.domain.join.GroupOfWordJoin
+import ru.jjba.jr2.domain.join.GroupOfWordsJoin
 import ru.jjba.jr2.domain.join.WordInSentenceJoin
 
 @Database(
@@ -20,7 +20,7 @@ import ru.jjba.jr2.domain.join.WordInSentenceJoin
             ComponentOfKanjiJoin::class,
             WordInSentenceJoin::class,
             Group::class,
-            GroupOfWordJoin::class,
+            GroupOfWordsJoin::class,
             Section::class
         ],
         version = DbProviderFromAssets.DATABASE_VERSION
@@ -28,7 +28,7 @@ import ru.jjba.jr2.domain.join.WordInSentenceJoin
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun getKanaDao(): KanaDao
-    abstract fun getKanjiDao(): KanjiDao
+    abstract fun getMojiDao(): MojiDao
     abstract fun getWordDao(): WordDao
     abstract fun getSentenceDao(): SentenceDao
     abstract fun getGroupDao(): GroupDao

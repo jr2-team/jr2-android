@@ -1,36 +1,29 @@
 package ru.jjba.jr2.data.repository
 
-import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.async
-import kotlinx.coroutines.withContext
 import ru.jjba.jr2.App
 import ru.jjba.jr2.data.db.AppDatabase
 import ru.jjba.jr2.data.db.dao.WordDao
 import ru.jjba.jr2.domain.entity.Word
-import ru.jjba.jr2.domain.join.GroupOfWordJoin
+import ru.jjba.jr2.domain.join.GroupOfWordsJoin
 
 class WordDbRepository(
         db: AppDatabase = App.instance.db
 ) : BaseDbRepository<Word>(db.getWordDao()) {
     private val wordDao = dao as WordDao
 
-    fun getById(wordId: Int) = async {
-        wordDao.getById(wordId)
-    }
+    fun getById(wordId: Int) =
+            async { wordDao.getById(wordId) }
 
-    fun getAll() = async {
-        wordDao.getAll()
-    }
+    fun getAll() =
+            async { wordDao.getAll() }
 
-    fun getWordsByGroupId(groupId: Int) = async {
-        wordDao.getWordsByGroupId(groupId)
-    }
+    fun getWordsByGroupId(groupId: Int) =
+            async { wordDao.getWordsByGroupId(groupId) }
 
-    suspend fun insertWordIntoGroup(groupOfWordJoin: List<GroupOfWordJoin>) = withContext(IO) {
-        wordDao.insertWordIntoGroup(groupOfWordJoin)
-    }
+    fun insertWordIntoGroup(groupOfWordJoin: List<GroupOfWordsJoin>) =
+            async { wordDao.insertWordIntoGroup(groupOfWordJoin) }
 
-    suspend fun dropAndInsert(words: List<Word>) = withContext(IO) {
-        wordDao.dropAndInsert(words)
-    }
+    fun dropAndInsert(words: List<Word>) =
+            async { wordDao.dropAndInsert(words) }
 }

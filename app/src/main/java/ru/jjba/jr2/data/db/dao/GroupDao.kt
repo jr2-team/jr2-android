@@ -11,8 +11,11 @@ abstract class GroupDao : BaseDao<Group> {
     abstract fun getById(groupId: Int): Group
 
     @Query("SELECT * FROM `Group` WHERE groupType = 0")
-    abstract fun getAllKanjiGroups(): LiveData<List<Group>>
+    abstract fun getAllGroupsOfKanjis(): List<Group>
 
     @Query("SELECT * FROM `Group` WHERE groupType = 1")
-    abstract fun getAllWordGroups(): LiveData<List<Group>>
+    abstract fun getAllGroupsOfWords(): List<Group>
+
+    @Query("SELECT COUNT(id) FROM `GroupOfWordsJoin` WHERE groupId = :groupId")
+    abstract fun getItemsCountInGroup(groupId: Int): Int
 }

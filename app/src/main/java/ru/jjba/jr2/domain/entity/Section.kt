@@ -7,5 +7,5 @@ import androidx.room.PrimaryKey
 class Section(
         @PrimaryKey
         val id: Int = 0,
-        val name: String = ""
+        var name: String = ""
 )

@@ -1,6 +1,7 @@
 package ru.jjba.jr2.presentation.ui.vocab.word.group
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -12,6 +13,7 @@ import org.zakariya.stickyheaders.StickyHeaderLayoutManager
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.vocab.word.WordGroupViewModel
+import ru.jjba.jr2.utils.restoreLayoutState
 
 class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
     override var viewModel = WordGroupViewModel()
@@ -20,6 +22,8 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
         get() = getString(R.string.word_group_fragment_title)
 
     private val wordGroupListAdapter = WordGroupAdapter()
+    private var sectionsCollapseState: IntArray by instanceState(intArrayOf())
+    private var rvWordGroupState: Parcelable? by instanceState()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,6 +31,7 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
     }
 
     override fun initContent() {
+        viewModel.fetchData()
         rvWordGroup.apply {
             setHasFixedSize(true)
             layoutManager = StickyHeaderLayoutManager()
@@ -40,9 +45,20 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
     override fun observeData() = with(viewModel) {
         observeWordGroupSections().observe(viewLifecycleOwner, Observer { sections ->
             wordGroupListAdapter.sections = sections
+            restoreInstanceState()
         })
         observeNavToWordListEvent().observe(viewLifecycleOwner, Observer {
             it.getContentIfNotHandled()?.let { d -> findNavController().navigate(d) }
         })
+    }
+
+    override fun saveInstanceState() {
+        sectionsCollapseState = wordGroupListAdapter.getCollapsedSectionIndexes()
+        rvWordGroupState = rvWordGroup?.layoutManager?.onSaveInstanceState()
+    }
+
+    private fun restoreInstanceState() {
+        wordGroupListAdapter.restoreCollapsedSectionState(sectionsCollapseState)
+        rvWordGroup.restoreLayoutState(rvWordGroupState)
     }
 }

@@ -25,7 +25,7 @@ fun <T : ViewModel> T.createFactory(): ViewModelProvider.Factory {
     }
 }
 
-fun RecyclerView.restoreState(
+fun RecyclerView.restoreLayoutState(
         layoutState: Parcelable?,
         decorationsToRemove: Int = 1
 ) = with(this) {

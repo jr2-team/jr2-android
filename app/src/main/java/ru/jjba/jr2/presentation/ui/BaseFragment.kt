@@ -100,4 +100,9 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
         outState.putBundle("_state", savable)
         super.onSaveInstanceState(outState)
     }
+
+    override fun onPause() {
+        lifecycle.removeObserver(this)
+        super.onPause()
+    }
 }

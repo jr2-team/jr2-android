@@ -3,6 +3,7 @@ package ru.jjba.jr2.presentation.viewmodel.vocab.word
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavDirections
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.jjba.jr2.data.repository.GroupDbRepository
 import ru.jjba.jr2.data.repository.WordDbRepository
@@ -48,6 +49,7 @@ class WordListViewModel(
 
     private fun fetchData() = launch {
         areWordsLoading.postValue(true)
+        delay(1000L)
         wordGroup.postValue(groupRepository.getById(wordGroupIdArg).await())
         words.postValue(wordRepository.getWordsByGroupId(wordGroupIdArg).await())
     }.invokeOnCompletion {
