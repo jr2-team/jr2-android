@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import ru.jjba.jr2.App
 import ru.jjba.jr2.data.repository.GroupDbRepository
@@ -32,8 +31,8 @@ class SplashViewModel(
         val wordsAdapter: JsonAdapter<List<Word>> = Moshi.Builder().build().adapter(
                 Types.newParameterizedType(List::class.java, Word::class.java)
         )
-        wordsAdapter.fromJson(app.readAsset("word.json"))?.let { words ->
-            wordRepository.dropAndInsert(words).await()
+        wordsAdapter.fromJson(app.readAsset("word.json"))?.run {
+            wordRepository.dropAndInsert(this).await()
         }
 
         sectionRepository.insertMany(listOf(
@@ -53,7 +52,9 @@ class SplashViewModel(
                 GroupOfWordsJoin(groupId = 1, wordId = 6),
                 GroupOfWordsJoin(groupId = 1, wordId = 7)
         )).await()
-    }.invokeOnCompletion {
-        isAllowedToNavToMain.postValue(true)
+    }.invokeOnCompletion { cause ->
+        if (cause == null) {
+            isAllowedToNavToMain.postValue(true)
+        }
     }
 }

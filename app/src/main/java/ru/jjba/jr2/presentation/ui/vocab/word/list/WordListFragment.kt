@@ -53,7 +53,7 @@ class WordListFragment : BaseFragment<WordListViewModel>() {
             rvWord.restoreLayoutState(rvWordState)
         })
         observeNavToWordDetailEvent().observe(viewLifecycleOwner, Observer {
-            it.getContentIfNotHandled()?.let { d -> findNavController().navigate(d) }
+            it.getContentIfNotHandled()?.run { findNavController().navigate(this) }
         })
         observeWordsIsLoading().observe(viewLifecycleOwner, Observer {
             pbWordsLoading.isVisible = it

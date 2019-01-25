@@ -16,24 +16,33 @@ class WordGroupViewModel(
         private val sectionRepository: SectionDbRepository = SectionDbRepository(),
         private val groupRepository: GroupDbRepository = GroupDbRepository()
 ) : BaseViewModel() {
-
     private val navToWordListEvent = MutableLiveData<ViewModelEvent<NavDirections>>()
     private var wordGroupSections = MutableLiveData<List<SectionWithGroups>>()
+    private val areSectionsLoading = MutableLiveData<Boolean>().apply { value = false }
 
     fun fetchData() = launch {
-        // TODO : Сделать из этого, что-то более адекватное
-        wordGroupSections.postValue(sectionRepository.getSectionsWithGroups().await()
-                .apply {
-                    forEach { s ->
-                        s.groups.forEach { g ->
-                            g.itemsCount = groupRepository.getItemsCountInGroup(g.id).await()
-                        }
-                    }
-                })
+        areSectionsLoading.postValue(true)
+        // TODO : Сделать из этого что-нибудть более адекватное
+        val sections = sectionRepository.getSectionsWithGroups().await().apply {
+            forEach { s ->
+                s.groups.forEach { g ->
+                    g.itemsCount = groupRepository
+                            .getItemsCountInGroup(g.id)
+                            .await()
+                }
+            }
+        }
+        wordGroupSections.postValue(sections)
+        areSectionsLoading.postValue(false)
+    }
+
+    fun clearData() {
+        wordGroupSections.value = emptyList()
     }
 
     fun observeNavToWordListEvent(): LiveData<ViewModelEvent<NavDirections>> = navToWordListEvent
     fun observeWordGroupSections(): LiveData<List<SectionWithGroups>> = wordGroupSections
+    fun observeAreSectionsLoading(): LiveData<Boolean> = areSectionsLoading
 
     fun onWordGroupClick(wordGroup: Group) {
         val direction = WordGroupFragmentDirections

@@ -1,8 +1,6 @@
 package ru.jjba.jr2.presentation.ui.splash
 
 import android.content.Intent
-import android.os.Bundle
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseActivity
@@ -18,9 +16,9 @@ class SplashActivity : BaseActivity<SplashViewModel>() {
     }
 
     override fun observeData() {
-        viewModel.observeIsAllowedToNavToMain().observe(this@SplashActivity, Observer { isAllowedToNav ->
+        viewModel.observeIsAllowedToNavToMain().observe(this, Observer { isAllowedToNav ->
             if (isAllowedToNav) {
-                navigateTo(Intent(this@SplashActivity, MainActivity::class.java))
+                navigateTo(Intent(this, MainActivity::class.java))
             }
         })
     }

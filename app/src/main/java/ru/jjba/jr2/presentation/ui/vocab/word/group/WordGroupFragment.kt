@@ -12,6 +12,7 @@ import org.jetbrains.anko.support.v4.ctx
 import org.zakariya.stickyheaders.StickyHeaderLayoutManager
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
+import ru.jjba.jr2.presentation.ui.util.isVisible
 import ru.jjba.jr2.presentation.ui.util.restoreLayoutState
 import ru.jjba.jr2.presentation.viewmodel.vocab.word.WordGroupViewModel
 
@@ -31,6 +32,7 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
     }
 
     override fun initContent() {
+        viewModel.clearData()
         viewModel.fetchData()
         rvWordGroup.apply {
             setHasFixedSize(true)
@@ -48,7 +50,11 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
             restoreInstanceState()
         })
         observeNavToWordListEvent().observe(viewLifecycleOwner, Observer {
-            it.getContentIfNotHandled()?.let { d -> findNavController().navigate(d) }
+            it.getContentIfNotHandled()?.run { findNavController().navigate(this) }
+        })
+        observeAreSectionsLoading().observe(viewLifecycleOwner, Observer {
+            rvWordGroup.isVisible = !it
+            pbWordsLoading.isVisible = it
         })
     }
 

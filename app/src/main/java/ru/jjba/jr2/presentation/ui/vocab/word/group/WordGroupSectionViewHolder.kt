@@ -13,8 +13,8 @@ class WordGroupSectionViewHolder(
 ) : SectioningAdapter.HeaderViewHolder(view) {
     init {
         view.onClick {
-            getSectionPosition?.invoke(adapterPosition)?.let { position ->
-                onItemClicked?.invoke(position)
+            getSectionPosition?.invoke(adapterPosition)?.run {
+                onItemClicked?.invoke(this)
             }
         }
     }
