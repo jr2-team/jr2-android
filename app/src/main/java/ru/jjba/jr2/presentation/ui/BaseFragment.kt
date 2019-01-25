@@ -4,7 +4,6 @@ import android.os.Build
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -13,10 +12,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.support.v4.act
 import ru.jjba.jr2.App
-import ru.jjba.jr2.utils.InstanceStateProvider
-import ru.jjba.jr2.utils.createFactory
-import ru.jjba.jr2.utils.inflate
-import ru.jjba.jr2.utils.isVisible
+import ru.jjba.jr2.presentation.ui.util.InstanceStateProvider
+import ru.jjba.jr2.presentation.ui.util.inflate
+import ru.jjba.jr2.presentation.ui.util.isVisible
+import ru.jjba.jr2.presentation.viewmodel.util.createFactory
 
 abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
     abstract var viewModel: VT
@@ -99,5 +98,10 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putBundle("_state", savable)
         super.onSaveInstanceState(outState)
+    }
+
+    override fun onPause() {
+        lifecycle.removeObserver(this)
+        super.onPause()
     }
 }

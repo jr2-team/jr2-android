@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
-apply plugin: 'androidx.navigation.safeargs'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+
+apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 android {
     compileSdkVersion 28
@@ -40,7 +41,7 @@ dependencies {
     // Jet Pack - Layout
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
     // Jet Pack - Navigation
-    ext.nav_version = '1.0.0-alpha09'
+    ext.nav_version = '1.0.0-alpha11'
     implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
     implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
     // Jet Pack - Room
@@ -117,6 +118,9 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.3'
     implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+
+    // Okio
+    implementation 'com.squareup.okio:okio:2.1.0'
 
     testImplementation 'junit:junit:4.12'
     testImplementation "androidx.room:room-testing:$room_version"

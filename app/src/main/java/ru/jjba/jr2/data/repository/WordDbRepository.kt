@@ -1,25 +1,29 @@
 package ru.jjba.jr2.data.repository
 
-import androidx.lifecycle.LiveData
-import io.reactivex.Completable
-import io.reactivex.Single
+import kotlinx.coroutines.async
 import ru.jjba.jr2.App
 import ru.jjba.jr2.data.db.AppDatabase
 import ru.jjba.jr2.data.db.dao.WordDao
 import ru.jjba.jr2.domain.entity.Word
+import ru.jjba.jr2.domain.join.GroupOfWordsJoin
 
 class WordDbRepository(
         db: AppDatabase = App.instance.db
 ) : BaseDbRepository<Word>(db.getWordDao()) {
-    fun getById(wordId: Int): Single<Word> =
-            (dao as WordDao)
-                    .getById(wordId)
-                    .subscribeOn(scheduler)
+    private val wordDao = dao as WordDao
 
-    fun getAll(): LiveData<List<Word>> = (dao as WordDao).getAll()
+    fun getById(wordId: Int) =
+            async { wordDao.getById(wordId) }
 
-    fun dropAndInsert(words: List<Word>): Completable =
-            Completable
-                    .fromCallable { (dao as WordDao).dropAndInsert(words) }
-                    .subscribeOn(scheduler)
+    fun getAll() =
+            async { wordDao.getAll() }
+
+    fun getWordsByGroupId(groupId: Int) =
+            async { wordDao.getWordsByGroupId(groupId) }
+
+    fun insertWordIntoGroup(groupOfWordJoin: List<GroupOfWordsJoin>) =
+            async { wordDao.insertWordIntoGroup(groupOfWordJoin) }
+
+    fun dropAndInsert(words: List<Word>) =
+            async { wordDao.dropAndInsert(words) }
 }

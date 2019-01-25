@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/kanaListFragment"
-        android:name="ru.jjba.jr2.presentation.ui.vocab.kana.KanaListFragment"
+        android:name="ru.jjba.jr2.presentation.ui.vocab.kana.list.KanaListFragment"
         android:label="KanaListFragment">
         <action
             android:id="@+id/action_kanaList_to_kanaDetail"
@@ -66,7 +66,7 @@
     </fragment>
     <fragment
         android:id="@+id/kanaDetailFragment"
-        android:name="ru.jjba.jr2.presentation.ui.vocab.kana.KanaDetailFragment"
+        android:name="ru.jjba.jr2.presentation.ui.vocab.kana.detail.KanaDetailFragment"
         android:label="KanaDetailFragment" />
     <fragment
         android:id="@+id/wordGroupListFragment"

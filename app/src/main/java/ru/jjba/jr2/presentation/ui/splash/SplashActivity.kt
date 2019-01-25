@@ -2,34 +2,31 @@ package ru.jjba.jr2.presentation.ui.splash
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.*
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.Observer
 import ru.jjba.jr2.R
+import ru.jjba.jr2.presentation.ui.BaseActivity
 import ru.jjba.jr2.presentation.ui.main.MainActivity
 import ru.jjba.jr2.presentation.viewmodel.splash.SplashViewModel
 
-class SplashActivity : AppCompatActivity(), LifecycleObserver {
-    lateinit var viewModel: SplashViewModel
+class SplashActivity : BaseActivity<SplashViewModel>() {
+    override var viewModel = SplashViewModel()
+    override val layoutRes = R.layout.fragment_splash
 
-    // TODO: Добавить бэкграунд (https://plus.google.com/+AndroidDevelopers/posts/Z1Wwainpjhd)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_splash)
-
-        viewModel = ViewModelProviders.of(this).get(SplashViewModel::class.java)
-        viewModel.onSetupDb()
-
-        lifecycle.addObserver(this)
+    override fun initContent() {
+        //viewModel.onSetupDb()
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    private fun observeData() {
-        viewModel.observeIsAllowedNavToMain().observe(this, Observer { isAllowedToNav ->
+    override fun observeData() {
+        viewModel.observeIsAllowedToNavToMain().observe(this@SplashActivity, Observer { isAllowedToNav ->
             if (isAllowedToNav) {
-                intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+                navigateTo(Intent(this@SplashActivity, MainActivity::class.java))
             }
         })
+    }
+
+    private fun navigateTo(intent: Intent) {
+        startActivity(intent)
+        finish()
     }
 }

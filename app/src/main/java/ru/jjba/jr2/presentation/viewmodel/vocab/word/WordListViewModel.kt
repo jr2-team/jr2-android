@@ -3,65 +3,59 @@ package ru.jjba.jr2.presentation.viewmodel.vocab.word
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavDirections
-import com.squareup.moshi.JsonAdapter
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.Types
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.rxkotlin.addTo
-import io.reactivex.rxkotlin.subscribeBy
-import io.reactivex.schedulers.Schedulers
-import ru.jjba.jr2.App
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import ru.jjba.jr2.data.repository.GroupDbRepository
 import ru.jjba.jr2.data.repository.WordDbRepository
+import ru.jjba.jr2.domain.entity.Group
 import ru.jjba.jr2.domain.entity.Word
 import ru.jjba.jr2.presentation.ui.vocab.word.list.WordListFragmentDirections
 import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
 import ru.jjba.jr2.presentation.viewmodel.ViewModelEvent
-import java.util.concurrent.TimeUnit
+import kotlin.properties.Delegates.observable
 
 class WordListViewModel(
-        private val app: App = App.instance
+        private val groupRepository: GroupDbRepository = GroupDbRepository(),
+        private val wordRepository: WordDbRepository = WordDbRepository()
 ) : BaseViewModel() {
-    private lateinit var words: LiveData<List<Word>>
-
-    private val navToWordDetailEvent = MutableLiveData<ViewModelEvent<NavDirections>>()
-    private val wordsIsLoading = MutableLiveData<Boolean>()
-
-    fun setArgs(wordListId: Int) {
-
-    }
-
-    fun observeWords(): LiveData<List<Word>> {
-        if (!::words.isInitialized) {
-            // TODO: Удалить
-
-            val wordsAdapter: JsonAdapter<List<Word>> =  Moshi.Builder().build().adapter(
-                    Types.newParameterizedType(List::class.java, Word::class.java)
-            )
-            val testWords = wordsAdapter.fromJson(app.getAssetContent("word.json"))
-            WordDbRepository().dropAndInsert(testWords!!)
-                    .delay(10, TimeUnit.SECONDS)
-                    .doOnSubscribe {wordsIsLoading.postValue(true)}
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeBy(onComplete = { wordsIsLoading.postValue(false) })
-                    .addTo(compDisp)
-
-            val repository = WordDbRepository()
-            words = repository.getAll()
+    private var wordGroupIdArg: Int by observable(Int.MIN_VALUE) { _, oldValue, newValue ->
+        if (oldValue != newValue) {
+            clearData()
+            fetchData()
         }
-        return words
     }
 
+    private val wordGroup = MutableLiveData<Group?>()
+    private val words = MutableLiveData<List<Word>>()
+    private val areWordsLoading = MutableLiveData<Boolean>()
+    private val navToWordDetailEvent = MutableLiveData<ViewModelEvent<NavDirections>>()
+
+    fun setArgs(wordGroupId: Int) {
+        wordGroupIdArg = wordGroupId
+    }
+
+    fun observeWordGroup(): LiveData<Group?> = wordGroup
+    fun observeWords(): LiveData<List<Word>> = words
+    fun observeWordsIsLoading(): LiveData<Boolean> = areWordsLoading
     fun observeNavToWordDetailEvent(): LiveData<ViewModelEvent<NavDirections>> =
             navToWordDetailEvent
 
-    fun observeWordsIsLoading(): LiveData<Boolean> = wordsIsLoading
-
     fun onWordClick(word: Word) {
-        val direction = WordListFragmentDirections.actionWordListToWordDetail().apply {
-            wordId = word.id
-        }
+        val direction = WordListFragmentDirections.actionWordListToWordDetail(wordId = word.id)
         navToWordDetailEvent.value = ViewModelEvent(direction)
     }
 
+    private fun fetchData() = launch {
+        areWordsLoading.postValue(true)
+        delay(1000L)
+        wordGroup.postValue(groupRepository.getById(wordGroupIdArg).await())
+        words.postValue(wordRepository.getWordsByGroupId(wordGroupIdArg).await())
+    }.invokeOnCompletion {
+        areWordsLoading.postValue(false)
+    }
+
+    private fun clearData() {
+        wordGroup.value = null
+        words.value = emptyList()
+    }
 }

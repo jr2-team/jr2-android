@@ -1,4 +1,4 @@
-package ru.jjba.jr2.utils
+package ru.jjba.jr2.presentation.ui.util
 
 import android.content.Context
 import android.graphics.Rect
@@ -10,7 +10,6 @@ class ItemOffsetDecoration(
         private val ctx: Context,
         @DimenRes private val resId: Int
 ) : RecyclerView.ItemDecoration() {
-
     override fun getItemOffsets(
             outRect: Rect,
             view: View,

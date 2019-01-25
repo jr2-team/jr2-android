@@ -1,4 +1,4 @@
-package ru.jjba.jr2.utils
+package ru.jjba.jr2.presentation.ui.util
 
 import android.os.Bundle
 import android.os.Parcelable
@@ -6,7 +6,6 @@ import java.io.Serializable
 import kotlin.reflect.KProperty
 
 open class InstanceStateProvider<T>(private val savable: Bundle) {
-
     private var cache: T? = null
 
     operator fun setValue(thisRef: Any?, property: KProperty<*>, value: T) {
@@ -21,6 +20,7 @@ open class InstanceStateProvider<T>(private val savable: Bundle) {
             is Float -> savable.putFloat(property.name, value)
             is String -> savable.putString(property.name, value)
             is Bundle -> savable.putBundle(property.name, value)
+            is IntArray -> savable.putIntArray(property.name, value)
             is Serializable -> savable.putSerializable(property.name, value)
             is Parcelable -> savable.putParcelable(property.name, value)
         }

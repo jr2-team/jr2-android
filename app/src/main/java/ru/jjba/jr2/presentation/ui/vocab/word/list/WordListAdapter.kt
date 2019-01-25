@@ -7,7 +7,7 @@ import kotlinx.android.synthetic.main.item_word.view.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Word
-import ru.jjba.jr2.utils.inflate
+import ru.jjba.jr2.presentation.ui.util.inflate
 import kotlin.properties.Delegates
 
 /**
@@ -36,17 +36,14 @@ class WordListAdapter : RecyclerView.Adapter<WordListAdapter.ViewHolder>() {
         private lateinit var wordArg: Word
 
         init {
-            itemView.onClick {
-                onItemClicked?.invoke(wordArg)
-                //router.navigateTo(Screen.WORD_DETAILS.title, word.id)
-            }
+            itemView.onClick { onItemClicked?.invoke(wordArg) }
         }
 
         fun bindView(word: Word, position: Int) = with(itemView) {
             wordArg = word
             tvWordId.text = (position + 1).toString()
             // TODO: Сделать Функцию для форматирования текста с фуриганой
-            ftvWord.setFuriganaText("<ruby>${word.wordJp}<rt>${word.wordFurigana}</rt></ruby>")
+            ftvWord.setFuriganaText("<ruby>${word.value}<rt>${word.furigana}</rt></ruby>")
             tvBasicInterp.text = word.basicInterpretation
             tvJlptLevel.text = "N${word.jlptLevel}"
         }

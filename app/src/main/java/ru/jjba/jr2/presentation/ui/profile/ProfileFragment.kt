@@ -9,12 +9,4 @@ class ProfileFragment : BaseFragment<ProfileViewModel>() {
     override val layoutRes: Int = R.layout.fragment_profile
     override val titleDefault: String
         get() = getString(R.string.profile_fragment_title)
-
-    override fun initContent() {
-
-    }
-
-    override fun observeData() {
-
-    }
 }

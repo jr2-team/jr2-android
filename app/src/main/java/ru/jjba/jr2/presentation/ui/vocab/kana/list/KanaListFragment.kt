@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.ui.vocab.kana
+package ru.jjba.jr2.presentation.ui.vocab.kana.list
 
 import android.os.Bundle
 import android.view.View
@@ -12,18 +12,8 @@ class KanaListFragment : BaseFragment<KanaListViewModel>() {
     override val titleDefault
         get() = getString(R.string.kana_list_fragment_title)
 
-    //private var kanaAdapter = KanaListAdapter()
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showBottomNavigation(false)
-    }
-
-    override fun initContent() {
-
-    }
-
-    override fun observeData() {
-
     }
 }

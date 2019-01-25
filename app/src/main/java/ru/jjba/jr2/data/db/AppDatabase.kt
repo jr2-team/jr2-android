@@ -4,17 +4,35 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import ru.jjba.jr2.data.db.dao.WordDao
-import ru.jjba.jr2.domain.entity.Word
+import androidx.room.TypeConverters
+import ru.jjba.jr2.data.db.dao.*
+import ru.jjba.jr2.domain.entity.*
+import ru.jjba.jr2.domain.join.ComponentOfKanjiJoin
+import ru.jjba.jr2.domain.join.GroupOfWordsJoin
+import ru.jjba.jr2.domain.join.WordInSentenceJoin
 
 @Database(
         entities = [
-            Word::class
+            Kana::class,
+            Moji::class,
+            Word::class,
+            Sentence::class,
+            ComponentOfKanjiJoin::class,
+            WordInSentenceJoin::class,
+            Group::class,
+            GroupOfWordsJoin::class,
+            Section::class
         ],
-        version = ActsDbHelper.DATABASE_VERSION
+        version = DbProviderFromAssets.DATABASE_VERSION
 )
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
+    abstract fun getKanaDao(): KanaDao
+    abstract fun getMojiDao(): MojiDao
     abstract fun getWordDao(): WordDao
+    abstract fun getSentenceDao(): SentenceDao
+    abstract fun getGroupDao(): GroupDao
+    abstract fun getSectionDao(): SectionDao
 
     companion object {
         fun create(context: Context, memoryOnly: Boolean) = if (memoryOnly) {
@@ -23,7 +41,7 @@ abstract class AppDatabase : RoomDatabase() {
             Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    ActsDbHelper.DATABASE_NAME
+                    DbProviderFromAssets.DATABASE_NAME
             )
         }.build()
     }

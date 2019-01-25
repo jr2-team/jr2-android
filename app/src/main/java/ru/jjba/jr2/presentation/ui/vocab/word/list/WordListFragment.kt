@@ -5,22 +5,24 @@ import android.os.Parcelable
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_word_list.*
 import org.jetbrains.anko.support.v4.ctx
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
+import ru.jjba.jr2.presentation.ui.util.isVisible
+import ru.jjba.jr2.presentation.ui.util.restoreLayoutState
 import ru.jjba.jr2.presentation.viewmodel.vocab.word.WordListViewModel
-import ru.jjba.jr2.utils.isVisible
-import ru.jjba.jr2.utils.restoreState
 
 class WordListFragment : BaseFragment<WordListViewModel>() {
     override var viewModel = WordListViewModel()
     override val layoutRes: Int = R.layout.fragment_word_list
     override val titleDefault: String
-            get() = ""
+        get() = ""
 
+    private val args by navArgs<WordListFragmentArgs>()
     private var wordListAdapter = WordListAdapter()
     private var rvWordState: Parcelable? by instanceState()
 
@@ -28,11 +30,7 @@ class WordListFragment : BaseFragment<WordListViewModel>() {
         super.onViewCreated(view, savedInstanceState)
         showBottomNavigation(false)
 
-        arguments?.let {
-            WordListFragmentArgs.fromBundle(it).apply {
-                viewModel.setArgs(wordGroupId)
-            }
-        }
+        viewModel.setArgs(args.wordGroupId)
     }
 
     override fun initContent() {
@@ -47,9 +45,12 @@ class WordListFragment : BaseFragment<WordListViewModel>() {
     }
 
     override fun observeData() = with(viewModel) {
+        observeWordGroup().observe(viewLifecycleOwner, Observer { wordGrpoup ->
+            setTitle(wordGrpoup?.name ?: "Слова загружаются...")
+        })
         observeWords().observe(viewLifecycleOwner, Observer { words ->
             wordListAdapter.words = words
-            rvWord.restoreState(rvWordState)
+            rvWord.restoreLayoutState(rvWordState)
         })
         observeNavToWordDetailEvent().observe(viewLifecycleOwner, Observer {
             it.getContentIfNotHandled()?.let { d -> findNavController().navigate(d) }
