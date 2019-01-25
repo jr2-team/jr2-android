@@ -9,12 +9,4 @@ class GrammaFragment : BaseFragment<GrammaViewModel>() {
     override val layoutRes: Int = R.layout.fragment_gramma
     override val titleDefault: String
         get() = getString(R.string.gramma_fragment_title)
-
-    override fun initContent() {
-
-    }
-
-    override fun observeData() {
-
-    }
 }

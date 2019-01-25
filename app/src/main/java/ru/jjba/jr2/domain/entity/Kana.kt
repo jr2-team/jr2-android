@@ -4,7 +4,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.squareup.moshi.JsonClass
 
-// TODO: Исправить KanaType
 @Entity
 @JsonClass(generateAdapter = true)
 class Kana(

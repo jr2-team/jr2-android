@@ -8,13 +8,5 @@ class KanjiDetailFragment : BaseFragment<KanjiDetailViewModel>() {
     override var viewModel = KanjiDetailViewModel()
     override val layoutRes = R.layout.fragment_kanji_detail
     override val titleDefault: String
-        get() = "KanjiDetailFragment"
-
-    override fun initContent() {
-
-    }
-
-    override fun observeData() {
-
-    }
+        get() = ""
 }

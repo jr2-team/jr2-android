@@ -4,7 +4,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.squareup.moshi.JsonClass
 
-// TODO: Добавить TypeConverter
 @Entity
 @JsonClass(generateAdapter = true)
 class Word(

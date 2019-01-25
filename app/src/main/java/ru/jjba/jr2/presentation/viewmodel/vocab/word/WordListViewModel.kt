@@ -41,9 +41,7 @@ class WordListViewModel(
             navToWordDetailEvent
 
     fun onWordClick(word: Word) {
-        val direction = WordListFragmentDirections.actionWordListToWordDetail().apply {
-            wordId = word.id
-        }
+        val direction = WordListFragmentDirections.actionWordListToWordDetail(wordId = word.id)
         navToWordDetailEvent.value = ViewModelEvent(direction)
     }
 

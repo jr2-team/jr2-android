@@ -8,13 +8,5 @@ class KanjiListFragment : BaseFragment<KanjiListViewModel>() {
     override var viewModel = KanjiListViewModel()
     override val layoutRes = R.layout.fragment_kanji_list
     override val titleDefault
-        get() = "KanjiListFragment"
-
-    override fun initContent() {
-
-    }
-
-    override fun observeData() {
-
-    }
+        get() = ""
 }

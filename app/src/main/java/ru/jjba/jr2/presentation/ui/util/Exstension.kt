@@ -1,11 +1,9 @@
-package ru.jjba.jr2.utils
+package ru.jjba.jr2.presentation.ui.util
 
 import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 
 fun ViewGroup.inflate(layoutRes: Int): View =
@@ -16,14 +14,6 @@ var View.isVisible: Boolean
         this.visibility = if (value) View.VISIBLE else View.GONE
     }
     get() = this.visibility == View.VISIBLE
-
-fun <T : ViewModel> T.createFactory(): ViewModelProvider.Factory {
-    val viewModel = this
-    return object : ViewModelProvider.Factory {
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T = viewModel as T
-    }
-}
 
 fun RecyclerView.restoreLayoutState(
         layoutState: Parcelable?,

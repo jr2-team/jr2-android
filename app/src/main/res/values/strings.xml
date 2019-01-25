@@ -18,6 +18,10 @@
 
     <!--Word Group Fragment-->
     <string name="word_group_fragment_title">Словарь слов</string>
+    <string name="word_group_name">Имя группы слов</string>
+    <string name="word_group_words_count">%d слов</string>
+    <string name="word_group_last_study_date">01.01.2019</string>
+    <string name="word_group_section_name">Название секции</string>
 
     <!--Kana List Fragment-->
     <string name="kana_list_fragment_title">Кана</string>

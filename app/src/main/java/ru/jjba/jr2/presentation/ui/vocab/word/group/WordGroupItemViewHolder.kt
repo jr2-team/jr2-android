@@ -14,13 +14,16 @@ class WordGroupItemViewHolder(
 
     init {
         view.onClick {
-            if (::wordGroupArg.isInitialized) onItemClicked?.invoke(wordGroupArg)
+            if (::wordGroupArg.isInitialized) {
+                onItemClicked?.invoke(wordGroupArg)
+            }
         }
     }
 
     fun bindView(wordGroup: Group) = with(view) {
         wordGroupArg = wordGroup
         tvWordGroupName.text = wordGroup.name
+        // TODO : Инжектить контекст, чтобы получать доступ к ресурсам строк?
         tvWordsCount.text = "${wordGroup.itemsCount} слов"
     }
 }

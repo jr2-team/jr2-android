@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
-apply plugin: 'androidx.navigation.safeargs'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+
+apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 android {
     compileSdkVersion 28
@@ -40,7 +41,7 @@ dependencies {
     // Jet Pack - Layout
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
     // Jet Pack - Navigation
-    ext.nav_version = '1.0.0-alpha09'
+    ext.nav_version = '1.0.0-alpha11'
     implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
     implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
     // Jet Pack - Room

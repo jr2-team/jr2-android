@@ -11,5 +11,6 @@ class SectionDbRepository(
 ) : BaseDbRepository<Section>(db.getSectionDao()) {
     val sectionDao = dao as SectionDao
 
-    fun getSectionsWithGroups() = async { sectionDao.getSectionsWithGroups() }
+    fun getSectionsWithGroups() =
+            async { sectionDao.getSectionsWithGroups() }
 }

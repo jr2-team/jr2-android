@@ -6,20 +6,14 @@ import androidx.room.PrimaryKey
 import com.squareup.moshi.JsonClass
 import ru.jjba.jr2.domain.entity.Moji
 
-@Entity(
-        foreignKeys = [
-            ForeignKey(
-                    entity = Moji::class,
-                    parentColumns = ["id"],
-                    childColumns = ["mojiId"]
-            ),
-            ForeignKey(
-                    entity = Moji::class,
-                    parentColumns = ["id"],
-                    childColumns = ["mojiComponentId"]
-            )
-        ]
-)
+@Entity(foreignKeys = [
+    ForeignKey(entity = Moji::class,
+            parentColumns = ["id"],
+            childColumns = ["mojiId"]),
+    ForeignKey(entity = Moji::class,
+            parentColumns = ["id"],
+            childColumns = ["mojiComponentId"])
+])
 @JsonClass(generateAdapter = true)
 class ComponentOfKanjiJoin(
         @PrimaryKey(autoGenerate = true)

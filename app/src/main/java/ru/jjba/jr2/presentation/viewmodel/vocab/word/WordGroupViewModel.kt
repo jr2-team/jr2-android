@@ -21,6 +21,7 @@ class WordGroupViewModel(
     private var wordGroupSections = MutableLiveData<List<SectionWithGroups>>()
 
     fun fetchData() = launch {
+        // TODO : Сделать из этого, что-то более адекватное
         wordGroupSections.postValue(sectionRepository.getSectionsWithGroups().await()
                 .apply {
                     forEach { s ->
@@ -35,9 +36,8 @@ class WordGroupViewModel(
     fun observeWordGroupSections(): LiveData<List<SectionWithGroups>> = wordGroupSections
 
     fun onWordGroupClick(wordGroup: Group) {
-        val direction = WordGroupFragmentDirections.actionWordGroupToWordList().apply {
-            wordGroupId = wordGroup.id
-        }
+        val direction = WordGroupFragmentDirections
+                .actionWordGroupToWordList(wordGroupId = wordGroup.id)
         navToWordListEvent.value = ViewModelEvent(direction)
     }
 }

@@ -28,8 +28,4 @@ class VocabFragment : BaseFragment<VocabViewModel>() {
             navController.navigate(VocabFragmentDirections.actionVocabToWordGroup())
         }
     }
-
-    override fun observeData() {
-
-    }
 }

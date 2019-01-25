@@ -20,12 +20,13 @@ class SplashActivity : BaseActivity<SplashViewModel>() {
     override fun observeData() {
         viewModel.observeIsAllowedToNavToMain().observe(this@SplashActivity, Observer { isAllowedToNav ->
             if (isAllowedToNav) {
-                intent = Intent(this@SplashActivity, MainActivity::class.java)
-                Lifecycle.State.STARTED
-                startActivity(intent)
-                finish()
+                navigateTo(Intent(this@SplashActivity, MainActivity::class.java))
             }
         })
+    }
 
+    private fun navigateTo(intent: Intent) {
+        startActivity(intent)
+        finish()
     }
 }

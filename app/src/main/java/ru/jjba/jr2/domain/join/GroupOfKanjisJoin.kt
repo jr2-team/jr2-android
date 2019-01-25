@@ -6,20 +6,14 @@ import androidx.room.PrimaryKey
 import ru.jjba.jr2.domain.entity.Group
 import ru.jjba.jr2.domain.entity.Moji
 
-@Entity(
-        foreignKeys = [
-            ForeignKey(
-                    entity = Group::class,
-                    parentColumns = ["id"],
-                    childColumns = ["groupId"]
-            ),
-            ForeignKey(
-                    entity = Moji::class,
-                    parentColumns = ["id"],
-                    childColumns = ["mojiId"]
-            )
-        ]
-)
+@Entity(foreignKeys = [
+    ForeignKey(entity = Group::class,
+            parentColumns = ["id"],
+            childColumns = ["groupId"]),
+    ForeignKey(entity = Moji::class,
+            parentColumns = ["id"],
+            childColumns = ["mojiId"])
+])
 class GroupOfKanjisJoin(
         @PrimaryKey(autoGenerate = true)
         val id: Int,

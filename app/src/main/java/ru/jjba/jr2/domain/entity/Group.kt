@@ -15,8 +15,7 @@ class Group(
         //val creationDate: DateTime,
         //val lastStudyDate: DateTime
 ) {
-    @Ignore
-    var itemsCount: Int = 0
+    @Ignore var itemsCount: Int = 0
 }
 
 enum class GroupType(val code: Int) {

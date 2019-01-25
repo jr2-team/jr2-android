@@ -1,6 +1,7 @@
-package ru.jjba.jr2.presentation.ui.vocab.kana
+package ru.jjba.jr2.presentation.ui.vocab.kana.detail
 
-import org.jetbrains.anko.bundleOf
+import android.os.Bundle
+import android.view.View
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.vocab.kana.KanaDetailViewModel
@@ -11,11 +12,8 @@ class KanaDetailFragment : BaseFragment<KanaDetailViewModel>() {
     override val titleDefault: String
         get() = ""
 
-    override fun initContent() {
-
-    }
-
-    override fun observeData() {
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        showBottomNavigation(false)
     }
 }

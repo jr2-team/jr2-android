@@ -12,8 +12,8 @@ import org.jetbrains.anko.support.v4.ctx
 import org.zakariya.stickyheaders.StickyHeaderLayoutManager
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
+import ru.jjba.jr2.presentation.ui.util.restoreLayoutState
 import ru.jjba.jr2.presentation.viewmodel.vocab.word.WordGroupViewModel
-import ru.jjba.jr2.utils.restoreLayoutState
 
 class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
     override var viewModel = WordGroupViewModel()
@@ -22,7 +22,7 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
         get() = getString(R.string.word_group_fragment_title)
 
     private val wordGroupListAdapter = WordGroupAdapter()
-    private var sectionsCollapseState: IntArray by instanceState(intArrayOf())
+    private var rvWordCollapseSectionsState: IntArray by instanceState(intArrayOf())
     private var rvWordGroupState: Parcelable? by instanceState()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -53,12 +53,12 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
     }
 
     override fun saveInstanceState() {
-        sectionsCollapseState = wordGroupListAdapter.getCollapsedSectionIndexes()
+        rvWordCollapseSectionsState = wordGroupListAdapter.collapseSectionState
         rvWordGroupState = rvWordGroup?.layoutManager?.onSaveInstanceState()
     }
 
     private fun restoreInstanceState() {
-        wordGroupListAdapter.restoreCollapsedSectionState(sectionsCollapseState)
+        wordGroupListAdapter.collapseSectionState = rvWordCollapseSectionsState
         rvWordGroup.restoreLayoutState(rvWordGroupState)
     }
 }

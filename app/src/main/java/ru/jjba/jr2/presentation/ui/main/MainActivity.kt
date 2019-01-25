@@ -6,7 +6,6 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.design.snackbar
 import ru.jjba.jr2.R
 
 class MainActivity : AppCompatActivity() {
@@ -23,18 +22,16 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.navController)
         NavigationUI.setupWithNavController(bottomNavigation, navController)
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            run {
-                when (destination.id) {
-                    R.id.kanaListFragment -> showUpButton()
-                    R.id.kanaDetailFragment -> showUpButton()
-                    R.id.kanjiGroupFragment -> showUpButton()
-                    R.id.kanjiListFragment -> showUpButton()
-                    R.id.kanjiDetailFragment -> showUpButton()
-                    R.id.wordGroupListFragment -> showUpButton()
-                    R.id.wordListFragment -> showUpButton()
-                    R.id.wordDetailFragment -> showUpButton()
-                    else -> showUpButton(false)
-                }
+            when (destination.id) {
+                R.id.kanaListFragment -> showUpButton()
+                R.id.kanaDetailFragment -> showUpButton()
+                R.id.kanjiGroupFragment -> showUpButton()
+                R.id.kanjiListFragment -> showUpButton()
+                R.id.kanjiDetailFragment -> showUpButton()
+                R.id.wordGroupListFragment -> showUpButton()
+                R.id.wordListFragment -> showUpButton()
+                R.id.wordDetailFragment -> showUpButton()
+                else -> showUpButton(false)
             }
         }
     }

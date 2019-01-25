@@ -7,7 +7,7 @@ import kotlinx.android.synthetic.main.item_word.view.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Word
-import ru.jjba.jr2.utils.inflate
+import ru.jjba.jr2.presentation.ui.util.inflate
 import kotlin.properties.Delegates
 
 /**
