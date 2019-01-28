@@ -6,11 +6,14 @@ import androidx.multidex.MultiDexApplication
 import okio.buffer
 import okio.source
 import ru.jjba.jr2.data.db.AppDatabase
+import ru.jjba.jr2.presentation.ui.util.BreadCrumbleController
 import java.util.*
 
 class App : MultiDexApplication(), TextToSpeech.OnInitListener {
     lateinit var db: AppDatabase
     lateinit var tts: TextToSpeech
+
+    val detailCrumbleController = BreadCrumbleController()
 
     fun readAsset(assetName: String): String {
         var content = String()

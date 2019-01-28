@@ -63,6 +63,9 @@
             android:name="wordId"
             android:defaultValue="0"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_wordDetailFragment_self"
+            app:destination="@id/wordDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/kanaDetailFragment"
@@ -96,4 +99,15 @@
             android:id="@+id/action_kanjiList_to_kanjiDetail"
             app:destination="@id/kanjiDetailFragment" />
     </fragment>
+    <action
+        android:id="@+id/action_global_wordDetailFragment"
+        app:destination="@id/wordDetailFragment"
+        app:launchSingleTop="false"
+        app:popUpToInclusive="false" />
+    <action
+        android:id="@+id/action_global_kanjiDetailFragment"
+        app:destination="@id/kanjiDetailFragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/kanjiDetailFragment"
+        app:popUpToInclusive="true" />
 </navigation>

@@ -13,7 +13,7 @@ abstract class WordDao : BaseDao<Word> {
     abstract fun getAll(): List<Word>
 
     @Query(// @formatter:off
-        "SELECT * FROM Word AS w " +
+        "SELECT w.* FROM Word AS w " +
         "INNER JOIN GroupOfWordsJoin AS wj " +
             "ON w.id == wj.wordId " +
         "WHERE wj.groupId = :groupId"// @formatter:on

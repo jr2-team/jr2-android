@@ -2,6 +2,7 @@ package ru.jjba.jr2.presentation.viewmodel.vocab.word
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import kotlinx.coroutines.launch
 import ru.jjba.jr2.data.repository.WordDbRepository
 import ru.jjba.jr2.domain.entity.Word
 import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
@@ -11,15 +12,19 @@ class WordDetailViewModel(
         private val wordRepository: WordDbRepository = WordDbRepository()
 ) : BaseViewModel() {
     private val word = MutableLiveData<Word>()
-    private var wordId: Int by observable(Int.MIN_VALUE) { _, oldValue, newValue ->
+    private var wordIdArg: Int by observable(Int.MIN_VALUE) { _, oldValue, newValue ->
         if (oldValue != newValue) {
             //word.postValue(wordRepository.getById(newValue))
         }
     }
 
     fun setArgs(wordId: Int) {
-        this.wordId = wordId
+        wordIdArg = wordId
     }
 
-    fun observeWord(): LiveData<Word> = word//wordRepository.getById(wordId).await()
+    fun fetchData() = launch {
+        word.postValue(wordRepository.getById(wordIdArg).await())
+    }
+
+    fun observeWord(): LiveData<Word> = word
 }

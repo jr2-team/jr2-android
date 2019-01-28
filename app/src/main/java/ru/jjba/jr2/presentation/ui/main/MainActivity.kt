@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import kotlinx.android.synthetic.main.activity_main.*
+import ru.jjba.jr2.App
 import ru.jjba.jr2.R
 
 class MainActivity : AppCompatActivity() {
@@ -41,4 +42,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp() = navController.navigateUp()
+
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        title = App.instance.detailCrumbleController.getComposedTitle()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        App.instance.detailCrumbleController.onBackPressed()
+    }
 }
