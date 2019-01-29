@@ -36,15 +36,20 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
                 R.id.kanjiDetailFragment -> showUpButton()
                 R.id.wordGroupListFragment -> showUpButton()
                 R.id.wordListFragment -> showUpButton()
-                R.id.wordDetailFragment -> {
-                    showUpButton()
+                R.id.wordDetailFragment -> showUpButton()
+                else -> showUpButton(false)
+            }
+
+            /*when (destination.id) {
+                R.id.wordDetailFragment ->
                     setCustomToolbarLayout(layoutRes = R.layout.toolbar_nav_detail)
-                }
+                R.id.kanjiDetailFragment ->
+                    setCustomToolbarLayout(layoutRes = R.layout.toolbar_nav_detail)
                 else -> {
-                    showUpButton(false)
+                    detailNavigator.navigatedOutOfDetail()
                     setCustomToolbarLayout(false)
                 }
-            }
+            }*/
         }
     }
 
@@ -74,10 +79,6 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
             }
             R.id.wordDetailFragment -> {
                 detailNavigator.navigatedBack()
-            }
-            else -> {
-                detailNavigator.navigatedOutOfDetail()
-                setCustomToolbarLayout(false)
             }
         }
     }

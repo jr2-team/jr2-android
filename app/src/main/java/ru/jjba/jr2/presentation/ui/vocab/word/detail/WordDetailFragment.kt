@@ -8,14 +8,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.fragment_word_detail.*
-import kotlinx.coroutines.selects.select
-import org.jetbrains.anko.noButton
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.support.v4.act
-import org.jetbrains.anko.support.v4.alert
-import org.jetbrains.anko.support.v4.selector
-import org.jetbrains.anko.yesButton
-import ru.jjba.jr2.App
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
 import ru.jjba.jr2.presentation.ui.util.NavigationDetail
@@ -30,7 +24,6 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
 
     private val args by navArgs<WordDetailFragmentArgs>()
     // TODO : Перенести все связанное с наивгацией во ViewModel
-    private val detailNavigator = App.instance.detailNavigator
 
     private lateinit var navigationTitle: TextView
 
@@ -50,12 +43,12 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
             act.supportFragmentManager.popBackStack()
         }
 
-        navigationTitle = act.findViewById(R.id.tvNavigationTitle)
+        //navigationTitle = act.findViewById(R.id.tvNavigationTitle)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean = when (item?.itemId) {
         android.R.id.home -> {
-            detailNavigator.navigatedOutOfDetail()
+            viewModel.detailNavigator.navigatedOutOfDetail()
             findNavController().popBackStack(R.id.wordListFragment, false)
             true
         }
@@ -66,16 +59,23 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
         viewModel.fetchData()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.onContentCleared()
+    }
+
     override fun observeData() = with(viewModel) {
         observeWord().observe(viewLifecycleOwner, Observer { word ->
             tvWordJp.text = word.value
-            detailNavigator.apply {
-                navigatedForward(NavigationDetail(word.value))
-                navigationTitle.text = getFullTitle()
-                navigationTitle.onClick {
-                    selector("Перейти обратно к...", getListOfnavigation()) { _, _ -> }
-                }
-            }
+            detailNavigator.navigatedForward(NavigationDetail(word.value, "слово"))
+            /*To ViewModelEvent
+            navigatedForward(NavigationDetail(word.value))
+            navigationTitle.onClick {
+                selector("Перейти обратно к...", getNavigationDetails()) { _, _ -> }
+            }*/
+        })
+        navTitle.observe(viewLifecycleOwner, Observer {
+            setTitle(it)
         })
     }
 }
