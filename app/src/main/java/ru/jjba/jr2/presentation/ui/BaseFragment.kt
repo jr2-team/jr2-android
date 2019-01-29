@@ -3,6 +3,7 @@ package ru.jjba.jr2.presentation.ui
 import android.os.Build
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,6 +52,10 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
 
     fun setTitle(title: String) {
         act.toolbar.title = title
+    }
+
+    fun setTitle(spannableTitle: SpannableStringBuilder) {
+        act.toolbar.title = spannableTitle
     }
 
     fun showToolbar(isShown: Boolean = true) {

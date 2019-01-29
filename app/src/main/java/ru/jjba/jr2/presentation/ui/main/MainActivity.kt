@@ -10,7 +10,9 @@ import ru.jjba.jr2.App
 import ru.jjba.jr2.R
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var navController: NavController
+    private val detailNavigator = App.instance.detailNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,13 +45,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp() = navController.navigateUp()
 
-    override fun onResumeFragments() {
-        super.onResumeFragments()
-        title = App.instance.detailCrumbleController.getComposedTitle()
-    }
-
     override fun onBackPressed() {
+        val onNavBack = {
+            detailNavigator.navigatedBack()
+            title = detailNavigator.getFullTitle()
+        }
+        when (navController.currentDestination?.id) {
+            R.id.kanjiDetailFragment -> {
+                onNavBack()
+            }
+            R.id.wordDetailFragment -> {
+                onNavBack()
+            }
+            else -> detailNavigator.navigatedOutOfDetail()
+        }
         super.onBackPressed()
-        App.instance.detailCrumbleController.onBackPressed()
     }
 }
