@@ -1,28 +1,31 @@
 package ru.jjba.jr2.presentation.ui.main
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
+import androidx.annotation.LayoutRes
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.jjba.jr2.App
 import ru.jjba.jr2.R
+import ru.jjba.jr2.presentation.ui.BaseActivity
+import ru.jjba.jr2.presentation.viewmodel.main.MainActivityViewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<MainActivityViewModel>() {
+    override var viewModel = MainActivityViewModel()
+    override val layoutRes: Int = R.layout.activity_main
 
-    private lateinit var navController: NavController
+    private val navController by lazy {
+        findNavController(R.id.navController)
+    }
     private val detailNavigator = App.instance.detailNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        setupBottomNavigation()
+        setupNavigation()
     }
 
-    private fun setupBottomNavigation() {
-        navController = findNavController(R.id.navController)
+    private fun setupNavigation() {
         NavigationUI.setupWithNavController(bottomNavigation, navController)
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
@@ -33,8 +36,14 @@ class MainActivity : AppCompatActivity() {
                 R.id.kanjiDetailFragment -> showUpButton()
                 R.id.wordGroupListFragment -> showUpButton()
                 R.id.wordListFragment -> showUpButton()
-                R.id.wordDetailFragment -> showUpButton()
-                else -> showUpButton(false)
+                R.id.wordDetailFragment -> {
+                    showUpButton()
+                    setCustomToolbarLayout(layoutRes = R.layout.toolbar_nav_detail)
+                }
+                else -> {
+                    showUpButton(false)
+                    setCustomToolbarLayout(false)
+                }
             }
         }
     }
@@ -43,22 +52,33 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(isShown)
     }
 
+    private fun setCustomToolbarLayout(
+            isShown: Boolean = true,
+            @LayoutRes layoutRes: Int = -1
+    ) {
+        supportActionBar?.setDisplayShowCustomEnabled(isShown)
+        if (layoutRes != -1 && isShown) {
+            supportActionBar?.setCustomView(layoutRes)
+        } else {
+            supportActionBar?.customView = null
+        }
+    }
+
     override fun onSupportNavigateUp() = navController.navigateUp()
 
     override fun onBackPressed() {
-        val onNavBack = {
-            detailNavigator.navigatedBack()
-            title = detailNavigator.getFullTitle()
-        }
+        super.onBackPressed()
         when (navController.currentDestination?.id) {
             R.id.kanjiDetailFragment -> {
-                onNavBack()
+                detailNavigator.navigatedBack()
             }
             R.id.wordDetailFragment -> {
-                onNavBack()
+                detailNavigator.navigatedBack()
             }
-            else -> detailNavigator.navigatedOutOfDetail()
+            else -> {
+                detailNavigator.navigatedOutOfDetail()
+                setCustomToolbarLayout(false)
+            }
         }
-        super.onBackPressed()
     }
 }

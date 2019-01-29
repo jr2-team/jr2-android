@@ -31,9 +31,10 @@ class DetailNavigator(
         return spannable
     }
 
-    fun getListOfnavigation() {
-
-    }
+    fun getListOfnavigation(): List<String> =
+        items.map {
+            "i) ${it.title} (word/kanji)"
+        }
 
     fun navigatedForward(detail: NavigationDetail) {
         items.update(detail)

@@ -65,7 +65,14 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_wordDetailFragment_self"
-            app:destination="@id/wordDetailFragment" />
+            app:destination="@id/wordDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_wordDetailFragment_to_kanjiDetailFragment"
+            app:destination="@id/kanjiDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/kanaDetailFragment"
@@ -82,7 +89,14 @@
     <fragment
         android:id="@+id/kanjiDetailFragment"
         android:name="ru.jjba.jr2.presentation.ui.vocab.kanji.detail.KanjiDetailFragment"
-        android:label="KanjiDetailFragment" />
+        android:label="KanjiDetailFragment" >
+        <action
+            android:id="@+id/action_kanjiDetailFragment_self"
+            app:destination="@id/kanjiDetailFragment" />
+        <action
+            android:id="@+id/action_kanjiDetailFragment_to_wordDetailFragment"
+            app:destination="@id/wordDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/kanjiGroupFragment"
         android:name="ru.jjba.jr2.presentation.ui.vocab.kanji.group.KanjiGroupFragment"
@@ -99,15 +113,4 @@
             android:id="@+id/action_kanjiList_to_kanjiDetail"
             app:destination="@id/kanjiDetailFragment" />
     </fragment>
-    <action
-        android:id="@+id/action_global_wordDetailFragment"
-        app:destination="@id/wordDetailFragment"
-        app:launchSingleTop="false"
-        app:popUpToInclusive="false" />
-    <action
-        android:id="@+id/action_global_kanjiDetailFragment"
-        app:destination="@id/kanjiDetailFragment"
-        app:launchSingleTop="true"
-        app:popUpTo="@+id/kanjiDetailFragment"
-        app:popUpToInclusive="true" />
 </navigation>
