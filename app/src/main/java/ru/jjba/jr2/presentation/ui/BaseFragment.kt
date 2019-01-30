@@ -58,7 +58,7 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
         act.tbMain.title = spannableTitle
     }
 
-    fun showToolbar(isShown: Boolean = true) {
+    fun showMainToolbar(isShown: Boolean = true) {
         act.tbMain.isVisible = isShown
     }
 
@@ -90,11 +90,11 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setTitle(titleDefault)
-        showToolbar()
+        showMainToolbar()
         showBottomNavigation()
 
         viewModel = ViewModelProviders
-                .of(act, viewModel.createFactory())
+                .of(this, viewModel.createFactory())
                 .get(viewModel::class.java)
 
         lifecycle.addObserver(this)

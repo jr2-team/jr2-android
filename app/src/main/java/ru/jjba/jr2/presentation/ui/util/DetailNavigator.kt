@@ -10,12 +10,6 @@ import com.squareup.moshi.JsonClass
 import com.squareup.moshi.Types
 import ru.jjba.jr2.App
 
-@JsonClass(generateAdapter = true)
-data class NavDetail(
-        val title: String,
-        val fragmentType: String = "слово"
-)
-
 class DetailNavigator {
     private val jsonAdapter: JsonAdapter<MutableList<NavDetail>> by lazy {
         App.instance.moshi.adapter<MutableList<NavDetail>>(navDetailsType)
@@ -24,33 +18,36 @@ class DetailNavigator {
     private val navTitle = MutableLiveData<SpannableStringBuilder>()
 
     fun observeNavTitle(): LiveData<SpannableStringBuilder> = navTitle
-    //fun observeNavDetails(): LiveData<List<String>> =
 
-    // TODO: Возвращать LiveData
-    fun getNavigationDetails(): List<String> =
-            navDetails.mapIndexed { idx, detail ->
-                "${idx + 1}) ${detail.title} (${detail.fragmentType})"
-            }
-
-    fun navigatedForward(detail: NavDetail) {
-        // TODO: Придумать, как правильно проверять: слово А -> кндзи Б -> слово А
-        if (!navDetails.contains(detail)) {
-            navDetails.add(detail)
-            rebuildNavTitle()
+    fun observeNavDetails(): LiveData<List<String>> {
+        val navList = navDetails.mapIndexed { idx, detail ->
+            "${idx + 1}) ${detail.title} (${detail.fragmentType})"
+        }
+        return MutableLiveData<List<String>>().also {
+            it.postValue(navList)
         }
     }
 
-    // TODO: Переписать
-    fun navigatedBack() {
-        if (navDetails.isNotEmpty()) {
-            navDetails.removeAt(navDetails.lastIndex)
-            rebuildNavTitle()
+    fun navigatedForward(detail: NavDetail) {
+        // TODO: Переделать
+        if (!navDetails.contains(detail)) {
+            navDetails.add(detail)
+            updateNavTitle()
         }
+    }
+
+    fun navigatedBack(times: Int = 1) {
+        var i = 0
+        while (navDetails.isNotEmpty() && i in 0..times) {
+            navDetails.removeAt(navDetails.lastIndex)
+            i++
+        }
+        updateNavTitle()
     }
 
     fun navigatedOutOfDetail() {
         navDetails.clear()
-        rebuildNavTitle()
+        updateNavTitle()
     }
 
     fun saveNavDetailsStateToJson(): String =
@@ -60,10 +57,10 @@ class DetailNavigator {
         jsonAdapter.fromJson(navDetailsJson)?.let {
             navDetails = it
         }
-        rebuildNavTitle()
+        updateNavTitle()
     }
 
-    private fun rebuildNavTitle() {
+    private fun updateNavTitle() {
         if (navDetails.isEmpty()) {
             navTitle.postValue(SpannableStringBuilder())
             return
@@ -92,3 +89,9 @@ class DetailNavigator {
         )
     }
 }
+
+@JsonClass(generateAdapter = true)
+data class NavDetail(
+        val title: String,
+        val fragmentType: String = "слово"
+)

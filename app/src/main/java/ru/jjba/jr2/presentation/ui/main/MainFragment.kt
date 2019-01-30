@@ -11,6 +11,6 @@ class MainFragment : BaseFragment<MainViewModel>() {
         get() = getString(R.string.main_fragment_title)
 
     override fun initContent() {
-        showToolbar(false)
+        showMainToolbar(false)
     }
 }

@@ -41,7 +41,11 @@
         android:label="WordListFragment">
         <action
             android:id="@+id/action_wordList_to_wordDetail"
-            app:destination="@id/wordDetailFragment" />
+            app:destination="@id/wordDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <argument
             android:name="wordGroupId"
             android:defaultValue="0"
