@@ -12,7 +12,8 @@ import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.selector
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
-import ru.jjba.jr2.presentation.ui.util.NavigationDetail
+import ru.jjba.jr2.presentation.ui.util.NavDetail
+import ru.jjba.jr2.presentation.ui.util.isVisible
 import ru.jjba.jr2.presentation.viewmodel.vocab.word.WordDetailViewModel
 import kotlin.random.Random
 
@@ -23,6 +24,7 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
         get() = ""
 
     private val args by navArgs<WordDetailFragmentArgs>()
+    private var detailNavigatorState: String? by instanceState()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -30,11 +32,7 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
         showToolbar(false)
         setupCustomToolbar()
         viewModel.setArgs(args.wordId)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        viewModel.clearData()
+        restoreInstanceState()
     }
 
     override fun initContent() {
@@ -54,12 +52,14 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
             if (word == null) return@Observer
             tvWordJp.text = word.value
             // TODO: Убрать во ViewModel
-            detailNavigator.navigatedForward(NavigationDetail(word.value, "слово"))
+            detailNavigator.navigatedForward(NavDetail(word.value, "слово"))
             tvNavTitle.onClick {
                 selector(
                         getString(R.string.word_detail_go_back_to),
                         detailNavigator.getNavigationDetails()
-                ) { _, _ -> }
+                ) { _, _ ->
+                    // viewModel.onNavigateBack(times)
+                }
             }
         })
         observeNavTitle().observe(viewLifecycleOwner, Observer {
@@ -67,11 +67,26 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
         })
     }
 
+    override fun saveInstanceState() {
+        detailNavigatorState = viewModel.detailNavigator.saveNavDetailsStateToJson()
+    }
+
+    private fun restoreInstanceState() {
+        detailNavigatorState?.let {
+            viewModel.detailNavigator.restoreNavDetailFromJson(it)
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.clearData()
+    }
+
     private fun setupCustomToolbar() {
         tbNavDetail.apply {
             setNavigationIcon(R.drawable.ic_arrow_back)
             setNavigationOnClickListener {
-                //viewModel.detailNavigator.navigatedOutOfDetail()
+                tbNavDetail.isVisible = false
                 findNavController().popBackStack(R.id.wordListFragment, false)
             }
         }

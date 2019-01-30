@@ -3,6 +3,7 @@ package ru.jjba.jr2
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import androidx.multidex.MultiDexApplication
+import com.squareup.moshi.Moshi
 import okio.buffer
 import okio.source
 import ru.jjba.jr2.data.db.AppDatabase
@@ -12,8 +13,11 @@ import java.util.*
 class App : MultiDexApplication(), TextToSpeech.OnInitListener {
     lateinit var db: AppDatabase
     lateinit var tts: TextToSpeech
-
-    val detailNavigator = DetailNavigator()
+    lateinit var moshi: Moshi
+    // TODO: Добавить в граф зависимостей при внедрении Dagger
+    val detailNavigator: DetailNavigator by lazy {
+        DetailNavigator()
+    }
 
     fun readAsset(assetName: String): String {
         var content = String()
@@ -40,10 +44,10 @@ class App : MultiDexApplication(), TextToSpeech.OnInitListener {
     override fun onCreate() {
         super.onCreate()
         instance = this
-
         // TODO : Заполнение базы при первом лаунче
         db = AppDatabase.create(context = this, memoryOnly = false)
         tts = TextToSpeech(this, this)
+        moshi = Moshi.Builder().build()
     }
 
     companion object {

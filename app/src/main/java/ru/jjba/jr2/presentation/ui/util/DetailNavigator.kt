@@ -5,14 +5,22 @@ import android.text.Spanned.SPAN_EXCLUSIVE_INCLUSIVE
 import android.text.style.RelativeSizeSpan
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.JsonClass
+import com.squareup.moshi.Types
+import ru.jjba.jr2.App
 
-data class NavigationDetail(
+@JsonClass(generateAdapter = true)
+data class NavDetail(
         val title: String,
         val fragmentType: String = "слово"
 )
 
 class DetailNavigator {
-    private val navDetails = mutableListOf<NavigationDetail>()
+    private val jsonAdapter: JsonAdapter<MutableList<NavDetail>> by lazy {
+        App.instance.moshi.adapter<MutableList<NavDetail>>(navDetailsType)
+    }
+    private var navDetails = mutableListOf<NavDetail>()
     private val navTitle = MutableLiveData<SpannableStringBuilder>()
 
     fun observeNavTitle(): LiveData<SpannableStringBuilder> = navTitle
@@ -24,7 +32,7 @@ class DetailNavigator {
                 "${idx + 1}) ${detail.title} (${detail.fragmentType})"
             }
 
-    fun navigatedForward(detail: NavigationDetail) {
+    fun navigatedForward(detail: NavDetail) {
         // TODO: Придумать, как правильно проверять: слово А -> кндзи Б -> слово А
         if (!navDetails.contains(detail)) {
             navDetails.add(detail)
@@ -45,6 +53,16 @@ class DetailNavigator {
         rebuildNavTitle()
     }
 
+    fun saveNavDetailsStateToJson(): String =
+            jsonAdapter.toJson(navDetails)
+
+    fun restoreNavDetailFromJson(navDetailsJson: String) {
+        jsonAdapter.fromJson(navDetailsJson)?.let {
+            navDetails = it
+        }
+        rebuildNavTitle()
+    }
+
     private fun rebuildNavTitle() {
         if (navDetails.isEmpty()) {
             navTitle.postValue(SpannableStringBuilder())
@@ -59,7 +77,7 @@ class DetailNavigator {
             spannable.append("< ${navDetails[i].title}")
         }
         spannable.setSpan(
-                textSizeOfPrevious,
+                RelativeSizeSpan(0.6f),
                 navDetails.last().title.length,
                 spannable.count(),
                 SPAN_EXCLUSIVE_INCLUSIVE
@@ -68,6 +86,9 @@ class DetailNavigator {
     }
 
     companion object {
-        private val textSizeOfPrevious = RelativeSizeSpan(0.6f)
+        private val navDetailsType = Types.newParameterizedType(
+                List::class.java,
+                NavDetail::class.java
+        )
     }
 }

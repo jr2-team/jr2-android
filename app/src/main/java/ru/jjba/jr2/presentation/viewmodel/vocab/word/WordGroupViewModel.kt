@@ -17,27 +17,12 @@ class WordGroupViewModel(
         private val groupRepository: GroupDbRepository = GroupDbRepository()
 ) : BaseViewModel() {
     private val navToWordListEvent = MutableLiveData<ViewModelEvent<NavDirections>>()
+    // TODO: Перенести во ViewState
     private var wordGroupSections = MutableLiveData<List<SectionWithGroups>>()
     private val areSectionsLoading = MutableLiveData<Boolean>().apply { value = false }
 
-    fun fetchData() = launch {
-        areSectionsLoading.postValue(true)
-        // TODO : Сделать из этого что-нибудть более адекватное
-        val sections = sectionRepository.getSectionsWithGroups().await().apply {
-            forEach { s ->
-                s.groups.forEach { g ->
-                    g.itemsCount = groupRepository
-                            .getItemsCountInGroup(g.id)
-                            .await()
-                }
-            }
-        }
-        wordGroupSections.postValue(sections)
-        areSectionsLoading.postValue(false)
-    }
-
-    fun clearData() {
-        wordGroupSections.value = emptyList()
+    init {
+        fetchData()
     }
 
     fun observeNavToWordListEvent(): LiveData<ViewModelEvent<NavDirections>> = navToWordListEvent
@@ -48,5 +33,21 @@ class WordGroupViewModel(
         val direction = WordGroupFragmentDirections
                 .actionWordGroupToWordList(wordGroupId = wordGroup.id)
         navToWordListEvent.value = ViewModelEvent(direction)
+    }
+
+    private fun fetchData() = launch {
+        areSectionsLoading.postValue(true)
+        // TODO : Сделать из этого что-нибудть более адекватное, перенсти в UseCase
+        val sections = sectionRepository.getSectionsWithGroups().await().apply {
+            forEach { section ->
+                section.groups.forEach { wordGroup ->
+                    wordGroup.itemsCount = groupRepository
+                            .getItemsCountInGroup(wordGroup.id)
+                            .await()
+                }
+            }
+        }
+        wordGroupSections.postValue(sections)
+        areSectionsLoading.postValue(false)
     }
 }
