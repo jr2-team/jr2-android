@@ -51,15 +51,15 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
     }
 
     fun setTitle(title: String) {
-        act.toolbar.title = title
+        act.tbMain.title = title
     }
 
     fun setTitle(spannableTitle: SpannableStringBuilder) {
-        act.toolbar.title = spannableTitle
+        act.tbMain.title = spannableTitle
     }
 
     fun showToolbar(isShown: Boolean = true) {
-        act.toolbar.isVisible = isShown
+        act.tbMain.isVisible = isShown
     }
 
     fun showBottomNavigation(isShown: Boolean = true) {

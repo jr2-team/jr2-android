@@ -16,6 +16,9 @@
     <!--Kanji Group Fragment-->
     <string name="kanji_group_fragment_title">Словарь кандзи</string>
 
+    <!--Word Detail Fragment-->
+    <string name="word_detail_go_back_to">Перейти обратно к...</string>
+
     <!--Word List Fragment-->
     <string name="word_list_words_are_loading">Слова загружаются...</string>
 

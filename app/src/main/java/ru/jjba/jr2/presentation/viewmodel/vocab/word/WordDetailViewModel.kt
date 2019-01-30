@@ -15,25 +15,26 @@ class WordDetailViewModel(
         val detailNavigator: DetailNavigator = App.instance.detailNavigator,
         private val wordRepository: WordDbRepository = WordDbRepository()
 ) : BaseViewModel() {
-    private val word = MutableLiveData<Word>()
-    private var wordIdArg: Int by observable(Int.MIN_VALUE) { _, oldValue, newValue ->
-        if (oldValue != newValue) {
-            //word.postValue(wordRepository.getById(newValue))
-        }
-    }
+    private var wordIdArg = 0
 
-    val navTitle: LiveData<SpannableStringBuilder> = detailNavigator.observeNavTitle()
+    private val word = MutableLiveData<Word?>()
+    private val navTitle = detailNavigator.observeNavTitle()
 
     fun setArgs(wordId: Int) {
         wordIdArg = wordId
+        clearData()
+        fetchData()
     }
 
-    fun fetchData() = launch {
+    fun observeWord(): LiveData<Word?> = word
+    fun observeNavTitle(): LiveData<SpannableStringBuilder> = navTitle
+
+    private fun fetchData() = launch {
         word.postValue(wordRepository.getById(wordIdArg).await())
     }
 
-    fun observeWord(): LiveData<Word> = word
-
-    // Костыль
-    fun onContentCleared() = onCleared()
+    // TODO: Использовать MediatorLiveData, взамен этому костылю?
+    fun clearData() {
+        word.postValue(null)
+    }
 }

@@ -16,6 +16,8 @@ class DetailNavigator {
     private val navTitle = MutableLiveData<SpannableStringBuilder>()
 
     fun observeNavTitle(): LiveData<SpannableStringBuilder> = navTitle
+    //fun observeNavDetails(): LiveData<List<String>> =
+
     // TODO: Возвращать LiveData
     fun getNavigationDetails(): List<String> =
             navDetails.mapIndexed { idx, detail ->
@@ -23,16 +25,18 @@ class DetailNavigator {
             }
 
     fun navigatedForward(detail: NavigationDetail) {
+        // TODO: Придумать, как правильно проверять: слово А -> кндзи Б -> слово А
         if (!navDetails.contains(detail)) {
             navDetails.add(detail)
+            rebuildNavTitle()
         }
-        rebuildNavTitle()
     }
 
-    fun navigatedBack(times: Int = 1) {
+    // TODO: Переписать
+    fun navigatedBack() {
         if (navDetails.isNotEmpty()) {
             navDetails.removeAt(navDetails.lastIndex)
-            this.rebuildNavTitle()
+            rebuildNavTitle()
         }
     }
 
@@ -42,7 +46,10 @@ class DetailNavigator {
     }
 
     private fun rebuildNavTitle() {
-        if (navDetails.isEmpty()) return
+        if (navDetails.isEmpty()) {
+            navTitle.postValue(SpannableStringBuilder())
+            return
+        }
         val spannable = SpannableStringBuilder(navDetails.last().title)
         if (navDetails.size == 1) {
             navTitle.postValue(spannable)
