@@ -10,8 +10,10 @@ import kotlinx.android.synthetic.main.toolbar_nav_detail.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.selector
+import org.jetbrains.anko.support.v4.toast
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
+import ru.jjba.jr2.presentation.ui.util.NavDetail
 import ru.jjba.jr2.presentation.viewmodel.vocab.word.WordDetailViewModel
 import kotlin.random.Random
 
@@ -28,9 +30,8 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
         super.onViewCreated(view, savedInstanceState)
         showBottomNavigation(false)
         showMainToolbar(false)
-        setupNavDetailToolbar()
+        showNavDetailToolbar()
         viewModel.setArgs(args.wordId)
-        restoreInstanceState()
     }
 
     override fun initContent() {
@@ -39,58 +40,46 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
                     .actionWordDetailFragmentSelf(Random.nextInt(1, 3000))
             findNavController().navigate(navToWordDetail)
         }
-        btnPop.onClick {
-            act.supportFragmentManager.popBackStack()
-            act.supportFragmentManager.popBackStack()
-        }
     }
 
     override fun observeData() = with(viewModel) {
         observeWord().observe(viewLifecycleOwner, Observer { word ->
+            if (word == null) return@Observer
             tvWordJp.text = word.value
-            viewModel.onNavForward()
+            detailNavigator.navigatedForward(NavDetail(word.value, "слово"))
+            restoreInstanceState()
         })
-        observeNavTitle().observe(viewLifecycleOwner, Observer {
-            tvNavTitle.text = it
+        detailNavigator.getNavTitleLive().observe(viewLifecycleOwner, Observer {
+            tbNavDetail.title = it
         })
-        observeNavDetails().observe(viewLifecycleOwner, Observer { navDetails ->
-            tvNavTitle.onClick {
+        detailNavigator.observeNavDetails().observe(viewLifecycleOwner, Observer { navDetails ->
+            tbNavDetail.onClick {
                 if (navDetails.isEmpty()) return@onClick
                 selector(
                         getString(R.string.word_detail_go_back_to),
                         navDetails
                 ) { _, idx ->
                     val backTimes = (navDetails.size - 1) - idx
-                    viewModel.onNavBack(backTimes)
+                    detailNavigator.navigatedBack(backTimes)
                     repeat(backTimes + 1) {
                         act.supportFragmentManager.popBackStack()
                     }
                 }
             }
         })
-        observeNavDetailsStateEvent().observe(viewLifecycleOwner, Observer {
-            it.getContentIfNotHandled()?.run {
-                detailNavigatorState = this
-            }
-        })
     }
 
     override fun saveInstanceState() {
-        viewModel.onSaveNavDetailsState()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        viewModel.clear()
+        detailNavigatorState = viewModel.detailNavigator.saveNavDetailsStateToJson()
     }
 
     private fun restoreInstanceState() {
         detailNavigatorState?.run {
-            viewModel.onRestoreNavDetailsState(this)
+            viewModel.detailNavigator.restoreNavDetailFromJson(this)
         }
     }
 
-    private fun setupNavDetailToolbar() {
+    private fun showNavDetailToolbar() {
         tbNavDetail.apply {
             setNavigationIcon(R.drawable.ic_arrow_back)
             setNavigationOnClickListener {

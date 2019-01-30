@@ -40,16 +40,6 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     open fun saveInstanceState() {}
 
-    fun showMessage(msg: String) {
-        val view = view ?: return
-        view.snackbar(msg)
-    }
-
-    fun showMessage(resMsg: Int) {
-        val view = view ?: return
-        view.snackbar(resMsg)
-    }
-
     fun setTitle(title: String) {
         act.tbMain.title = title
     }

@@ -9,7 +9,6 @@
         android:id="@+id/tbWordNavDetail"
         layout="@layout/toolbar_nav_detail" />
 
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnNavTo"
         android:layout_width="wrap_content"
@@ -17,23 +16,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="nav to"
+        android:text="nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tbWordNavDetail" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnPop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="pop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnNavTo" />
 
     <TextView
         android:id="@+id/tvWordJp"
@@ -43,6 +30,6 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPop" />
+        app:layout_constraintTop_toBottomOf="@+id/btnNavTo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

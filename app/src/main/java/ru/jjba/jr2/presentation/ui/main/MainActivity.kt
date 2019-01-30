@@ -1,16 +1,17 @@
 package ru.jjba.jr2.presentation.ui.main
 
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.jjba.jr2.App
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseActivity
-import ru.jjba.jr2.presentation.viewmodel.main.MainActivityViewModel
+import ru.jjba.jr2.presentation.viewmodel.main.MainViewModel
+import ru.jjba.jr2.presentation.viewmodel.util.InjectorUtil
 
-class MainActivity : BaseActivity<MainActivityViewModel>() {
-    override var viewModel = MainActivityViewModel()
+class MainActivity : BaseActivity<MainViewModel>() {
     override val layoutRes: Int = R.layout.activity_main
 
     private val navController by lazy { findNavController(R.id.navController) }
@@ -18,6 +19,10 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel = ViewModelProviders.of(
+                this,
+                InjectorUtil.provideMainViewModel()
+        )[MainViewModel::class.java]
         setSupportActionBar(tbMain)
         setupNavigation()
     }

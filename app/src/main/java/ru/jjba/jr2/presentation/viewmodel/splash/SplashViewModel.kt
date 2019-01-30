@@ -2,15 +2,15 @@ package ru.jjba.jr2.presentation.viewmodel.splash
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.squareup.moshi.JsonAdapter
-import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.jjba.jr2.App
 import ru.jjba.jr2.data.repository.GroupDbRepository
 import ru.jjba.jr2.data.repository.SectionDbRepository
 import ru.jjba.jr2.data.repository.WordDbRepository
 import ru.jjba.jr2.domain.entity.Group
+import ru.jjba.jr2.domain.entity.GroupType
 import ru.jjba.jr2.domain.entity.Section
 import ru.jjba.jr2.domain.entity.Word
 import ru.jjba.jr2.domain.join.GroupOfWordsJoin
@@ -23,12 +23,16 @@ class SplashViewModel(
         private val groupRepository: GroupDbRepository = GroupDbRepository()
 ) : BaseViewModel() {
     // TODO: Найти способ роутить между активностями через ViewModel
-    private val isAllowedToNavToMain = MutableLiveData<Boolean>().apply { value = true }
+    private val isAllowedToNavToMain = MutableLiveData<Boolean>().apply { value = false }
+
+    init {
+        onSetupDb()
+    }
 
     fun observeIsAllowedToNavToMain(): LiveData<Boolean> = isAllowedToNavToMain
 
-    fun onSetupDb() = launch {
-        val wordsAdapter: JsonAdapter<List<Word>> = Moshi.Builder().build().adapter(
+    private fun onSetupDb() = launch {
+        /*val wordsAdapter = app.moshi.adapter<List<Word>>(
                 Types.newParameterizedType(List::class.java, Word::class.java)
         )
         wordsAdapter.fromJson(app.readAsset("word.json"))?.run {
@@ -42,19 +46,21 @@ class SplashViewModel(
         )).await()
 
         val groups = mutableListOf<Group>()
-        groups.add(Group(id = 1, name = "Custom group", sectionId = 0))
-        groups.add(Group(id = 2, name = "JLPT 5 group", sectionId = 1))
-        groups.add(Group(id = 3, name = "JLPT 4 group", sectionId = 2))
-        groups.addAll((0..100).map { Group(name = "NEW group", sectionId = 2) })
-        groupRepository.insertMany(groups).await()
+        groups.add(Group(id = 1, name = "Custom group", sectionId = 0, groupType = GroupType.WORD_GROUP))
+        groups.add(Group(id = 2, name = "JLPT 5 group", sectionId = 1, groupType = GroupType.WORD_GROUP))
+        groups.add(Group(id = 3, name = "JLPT 4 group", sectionId = 2, groupType = GroupType.WORD_GROUP))
+        groups.addAll((0..100).map {
+            Group(name = "NEW group", sectionId = 2, groupType = GroupType.WORD_GROUP)
+        })
+        val idxs = groupRepository.insertMany(groups).await()
+        val words = wordRepository.getAll().await()
+        val g = groupRepository.getAllWordGroup().await()
         wordRepository.insertWordIntoGroup(listOf(
-                GroupOfWordsJoin(groupId = 1, wordId = 5),
-                GroupOfWordsJoin(groupId = 1, wordId = 6),
-                GroupOfWordsJoin(groupId = 1, wordId = 7)
-        )).await()
-    }.invokeOnCompletion { cause ->
-        if (cause == null) {
-            isAllowedToNavToMain.postValue(true)
-        }
+                GroupOfWordsJoin(groupId = 1, wordId = 1),
+                GroupOfWordsJoin(groupId = 1, wordId = 2),
+                GroupOfWordsJoin(groupId = 1, wordId = 3)
+        )).await()*/
+    }.invokeOnCompletion {
+        isAllowedToNavToMain.postValue(true)
     }
 }

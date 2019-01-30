@@ -17,7 +17,7 @@ class DetailNavigator {
     private var navDetails = mutableListOf<NavDetail>()
     private val navTitle = MutableLiveData<SpannableStringBuilder>()
 
-    fun observeNavTitle(): LiveData<SpannableStringBuilder> = navTitle
+    fun getNavTitleLive(): LiveData<SpannableStringBuilder?> = navTitle
 
     fun observeNavDetails(): LiveData<List<String>> {
         val navList = navDetails.mapIndexed { idx, detail ->
