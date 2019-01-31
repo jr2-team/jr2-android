@@ -2,18 +2,21 @@ package ru.jjba.jr2.presentation.ui.vocab.word.detail
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
+import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.fragment_word_detail.*
-import kotlinx.android.synthetic.main.toolbar_nav_detail.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.support.v4.act
-import org.jetbrains.anko.support.v4.selector
-import org.jetbrains.anko.support.v4.toast
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseFragment
-import ru.jjba.jr2.presentation.ui.util.NavDetail
+import ru.jjba.jr2.presentation.viewmodel.NavDetail
+import ru.jjba.jr2.presentation.viewmodel.NavDetailViewModel
+import ru.jjba.jr2.presentation.viewmodel.util.createFactory
 import ru.jjba.jr2.presentation.viewmodel.vocab.word.WordDetailViewModel
 import kotlin.random.Random
 
@@ -24,20 +27,34 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
         get() = ""
 
     private val args by navArgs<WordDetailFragmentArgs>()
-    private var detailNavigatorState: String? by instanceState()
+    private var fragmentId: Long by instanceState(Random.nextLong(100000))
+
+    private var navDetailViewModel = NavDetailViewModel()
+    private lateinit var toolbar: Toolbar
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        navDetailViewModel = ViewModelProviders
+                .of(act, navDetailViewModel.createFactory())
+                .get(navDetailViewModel::class.java)
+
         showBottomNavigation(false)
-        showMainToolbar(false)
-        showNavDetailToolbar()
+        showMainToolbar(true)
+        toolbar = act.findViewById(R.id.tbMain)
         viewModel.setArgs(args.wordId)
     }
 
     override fun initContent() {
+        toolbar.apply {
+            setNavigationIcon(R.drawable.ic_arrow_back)
+            setNavigationOnClickListener {
+                findNavController().popBackStack(R.id.wordListFragment, false)
+            }
+        }
         btnNavTo.onClick {
             val navToWordDetail = WordDetailFragmentDirections
-                    .actionWordDetailFragmentSelf(Random.nextInt(1, 3000))
+                    .actionWordDetailFragmentSelf(Random.nextInt(1, 100))
             findNavController().navigate(navToWordDetail)
         }
     }
@@ -46,45 +63,19 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
         observeWord().observe(viewLifecycleOwner, Observer { word ->
             if (word == null) return@Observer
             tvWordJp.text = word.value
-            detailNavigator.navigatedForward(NavDetail(word.value, "слово"))
-            restoreInstanceState()
-        })
-        detailNavigator.getNavTitleLive().observe(viewLifecycleOwner, Observer {
-            tbNavDetail.title = it
-        })
-        detailNavigator.observeNavDetails().observe(viewLifecycleOwner, Observer { navDetails ->
-            tbNavDetail.onClick {
-                if (navDetails.isEmpty()) return@onClick
-                selector(
-                        getString(R.string.word_detail_go_back_to),
-                        navDetails
-                ) { _, idx ->
-                    val backTimes = (navDetails.size - 1) - idx
-                    detailNavigator.navigatedBack(backTimes)
-                    repeat(backTimes + 1) {
-                        act.supportFragmentManager.popBackStack()
-                    }
-                }
-            }
+            navDetailViewModel.navigatedForward(NavDetail(word.value, fragmentId))
+            //navDetailViewModel.navigatedForward(NavDetail(word.value, fragmentId))
         })
     }
 
-    override fun saveInstanceState() {
-        detailNavigatorState = viewModel.detailNavigator.saveNavDetailsStateToJson()
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    private fun observeNavDetail() = with(navDetailViewModel) {
+        getLiveTitle().observe(act, Observer {
+            toolbar.title = it
+        })
+        getLiveDetails.observe(act, Observer {
+            val s = it
+        })
     }
 
-    private fun restoreInstanceState() {
-        detailNavigatorState?.run {
-            viewModel.detailNavigator.restoreNavDetailFromJson(this)
-        }
-    }
-
-    private fun showNavDetailToolbar() {
-        tbNavDetail.apply {
-            setNavigationIcon(R.drawable.ic_arrow_back)
-            setNavigationOnClickListener {
-                findNavController().popBackStack(R.id.wordListFragment, false)
-            }
-        }
-    }
 }

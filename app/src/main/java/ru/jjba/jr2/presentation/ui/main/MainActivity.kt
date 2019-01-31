@@ -15,10 +15,11 @@ class MainActivity : BaseActivity<MainViewModel>() {
     override val layoutRes: Int = R.layout.activity_main
 
     private val navController by lazy { findNavController(R.id.navController) }
-    private val detailNavigator = App.instance.detailNavigator
+    //private val detailNavigator = App.instance.detailNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // TODO: Переписать дженрик фабрику для viewmodel
         viewModel = ViewModelProviders.of(
                 this,
                 InjectorUtil.provideMainViewModel()
@@ -31,11 +32,11 @@ class MainActivity : BaseActivity<MainViewModel>() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        when (navController.currentDestination?.id) {
+        /*when (navController.currentDestination?.id) {
             R.id.kanjiDetailFragment -> detailNavigator.navigatedBack()
             R.id.wordDetailFragment -> detailNavigator.navigatedBack()
             else -> detailNavigator.navigatedOutOfDetail()
-        }
+        }*/
     }
 
     private fun setupNavigation() {
@@ -53,13 +54,13 @@ class MainActivity : BaseActivity<MainViewModel>() {
                 else -> showUpButton(false)
             }
 
-            when (destination.id) {
+           /* when (destination.id) {
                 R.id.wordDetailFragment -> {
                 }
                 R.id.kanjiDetailFragment -> {
                 }
                 else -> detailNavigator.navigatedOutOfDetail()
-            }
+            }*/
         }
     }
 
