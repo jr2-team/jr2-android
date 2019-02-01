@@ -11,6 +11,7 @@ import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonClass
 import com.squareup.moshi.Types
 import ru.jjba.jr2.App
+import ru.jjba.jr2.presentation.viewmodel.util.defaultValue
 
 class NavDetailViewModel : ViewModel() {
     private val jsonAdapter: JsonAdapter<MutableList<NavDetail>> by lazy {
@@ -18,21 +19,25 @@ class NavDetailViewModel : ViewModel() {
     }
 
     private val title = MutableLiveData<SpannableStringBuilder>()
-    private var details = MutableLiveData<MutableList<NavDetail>>()
+    private var details = MutableLiveData<MutableList<NavDetail>>().defaultValue(mutableListOf())
+    private val lv: LiveData<MutableList<NavDetail>> = details
 
-    fun getLiveTitle(): LiveData<SpannableStringBuilder> = title
+    fun getTitleLiveData(): LiveData<SpannableStringBuilder> = title
 
     val getLiveDetails: LiveData<List<String>> = Transformations.map(details) {
-       it.mapIndexed { i, navDetail ->  "${i + 1}) ${navDetail.title} ${navDetail.fragmentType}" }
+       it.mapIndexed { i, navDetail ->
+           "${i + 1}) ${navDetail.title} ${navDetail.fragmentType}"
+       }
     }
 
-    fun navigatedForward(detail: NavDetail) = details.value?.let {
+    fun onNavigatedForward(detail: NavDetail) = details.value?.let {
         if (!it.contains(detail)) {
             it.add(detail)
+            rebuildNavTitle()
         }
     }
 
-    fun navigatedBack(times: Int = 1) = details.value?.run {
+    fun onNavigatedBack(times: Int = 1) = details.value?.run {
         var i = 0
         while (this.isNotEmpty() && i in 0..times) {
             this.removeAt(this.lastIndex)
@@ -40,15 +45,15 @@ class NavDetailViewModel : ViewModel() {
         }
     }
 
-    fun navigatedOutOfDetail() = details.value?.run {
+    fun onNavigatedOutOfDetail() = details.value?.run {
         this.clear()
     }
 
-    fun saveNavDetailsStateToJson(): String? = details.value?.run {
+    fun onSaveNavDetailsState(): String? = details.value?.run {
         jsonAdapter.toJson(this)
     }
 
-    fun restoreNavDetailFromJson(navDetailsJson: String) {
+    fun onRestoreNavDetailsState(navDetailsJson: String) {
         jsonAdapter.fromJson(navDetailsJson)?.let {
             details.postValue(it)
         }

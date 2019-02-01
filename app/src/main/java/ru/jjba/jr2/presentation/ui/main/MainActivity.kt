@@ -33,9 +33,9 @@ class MainActivity : BaseActivity<MainViewModel>() {
     override fun onBackPressed() {
         super.onBackPressed()
         /*when (navController.currentDestination?.id) {
-            R.id.kanjiDetailFragment -> detailNavigator.navigatedBack()
-            R.id.wordDetailFragment -> detailNavigator.navigatedBack()
-            else -> detailNavigator.navigatedOutOfDetail()
+            R.id.kanjiDetailFragment -> detailNavigator.onNavigatedBack()
+            R.id.wordDetailFragment -> detailNavigator.onNavigatedBack()
+            else -> detailNavigator.onNavigatedOutOfDetail()
         }*/
     }
 
@@ -59,7 +59,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
                 }
                 R.id.kanjiDetailFragment -> {
                 }
-                else -> detailNavigator.navigatedOutOfDetail()
+                else -> detailNavigator.onNavigatedOutOfDetail()
             }*/
         }
     }

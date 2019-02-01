@@ -17,6 +17,7 @@ import ru.jjba.jr2.presentation.ui.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.NavDetail
 import ru.jjba.jr2.presentation.viewmodel.NavDetailViewModel
 import ru.jjba.jr2.presentation.viewmodel.util.createFactory
+import ru.jjba.jr2.presentation.viewmodel.util.observe
 import ru.jjba.jr2.presentation.viewmodel.vocab.word.WordDetailViewModel
 import kotlin.random.Random
 
@@ -63,19 +64,18 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
         observeWord().observe(viewLifecycleOwner, Observer { word ->
             if (word == null) return@Observer
             tvWordJp.text = word.value
-            navDetailViewModel.navigatedForward(NavDetail(word.value, fragmentId))
-            //navDetailViewModel.navigatedForward(NavDetail(word.value, fragmentId))
+            navDetailViewModel.onNavigatedForward(NavDetail(word.value, fragmentId))
+            //navDetailViewModel.onNavigatedForward(NavDetail(word.value, fragmentId))
         })
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    private fun observeNavDetail() = with(navDetailViewModel) {
-        getLiveTitle().observe(act, Observer {
+    private fun observeNavDetail() = with(act) {
+        observe(navDetailViewModel.getTitleLiveData()) {
             toolbar.title = it
-        })
-        getLiveDetails.observe(act, Observer {
+        }
+        observe(navDetailViewModel.getLiveDetails) {
             val s = it
-        })
+        }
     }
-
 }
