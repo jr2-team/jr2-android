@@ -32,11 +32,10 @@ class MainActivity : BaseActivity<MainViewModel>() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        /*when (navController.currentDestination?.id) {
-            R.id.kanjiDetailFragment -> detailNavigator.onNavigatedBack()
-            R.id.wordDetailFragment -> detailNavigator.onNavigatedBack()
-            else -> detailNavigator.onNavigatedOutOfDetail()
-        }*/
+        when (navController.currentDestination?.id) {
+            R.id.kanjiDetailFragment -> App.instance.backPressedLiveData.postValue(true)
+            R.id.wordDetailFragment -> App.instance.backPressedLiveData.postValue(true)
+        }
     }
 
     private fun setupNavigation() {

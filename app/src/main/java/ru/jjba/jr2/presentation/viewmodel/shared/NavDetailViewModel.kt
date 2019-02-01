@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.viewmodel
+package ru.jjba.jr2.presentation.viewmodel.shared
 
 import android.text.SpannableStringBuilder
 import android.text.Spanned
@@ -19,15 +19,16 @@ class NavDetailViewModel : ViewModel() {
     }
 
     private val title = MutableLiveData<SpannableStringBuilder>()
-    private var details = MutableLiveData<MutableList<NavDetail>>().defaultValue(mutableListOf())
-    private val lv: LiveData<MutableList<NavDetail>> = details
+    private val details = MutableLiveData<MutableList<NavDetail>>().defaultValue(mutableListOf())
 
     fun getTitleLiveData(): LiveData<SpannableStringBuilder> = title
 
-    val getLiveDetails: LiveData<List<String>> = Transformations.map(details) {
-       it.mapIndexed { i, navDetail ->
-           "${i + 1}) ${navDetail.title} ${navDetail.fragmentType}"
-       }
+    fun getDetailsLiveData(): LiveData<MutableList<String>> {
+        return Transformations.map(details) {
+            it.mapIndexed { i, navDetail ->
+                "${i + 1}) ${navDetail.title} ${navDetail.fragmentType}"
+            }.toMutableList()
+        }
     }
 
     fun onNavigatedForward(detail: NavDetail) = details.value?.let {
@@ -38,15 +39,16 @@ class NavDetailViewModel : ViewModel() {
     }
 
     fun onNavigatedBack(times: Int = 1) = details.value?.run {
-        var i = 0
-        while (this.isNotEmpty() && i in 0..times) {
+        repeat(times) {
+            if (this.isNullOrEmpty()) return@repeat
             this.removeAt(this.lastIndex)
-            i++
         }
+        rebuildNavTitle()
     }
 
     fun onNavigatedOutOfDetail() = details.value?.run {
         this.clear()
+        rebuildNavTitle()
     }
 
     fun onSaveNavDetailsState(): String? = details.value?.run {
@@ -56,12 +58,14 @@ class NavDetailViewModel : ViewModel() {
     fun onRestoreNavDetailsState(navDetailsJson: String) {
         jsonAdapter.fromJson(navDetailsJson)?.let {
             details.postValue(it)
+            rebuildNavTitle()
         }
     }
 
     private fun rebuildNavTitle() = details.value?.run {
-        if (this.isEmpty()) {
+        if (this.isNullOrEmpty()) {
             title.postValue(SpannableStringBuilder())
+            return@run
         }
         val spannable = SpannableStringBuilder(this.last().title)
         if (this.size == 1) {
@@ -73,7 +77,7 @@ class NavDetailViewModel : ViewModel() {
         }
         spannable.setSpan(
                 RelativeSizeSpan(0.6f),
-                this.last().title.length,
+                this.last().title.length + 1,
                 spannable.count(),
                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
         )

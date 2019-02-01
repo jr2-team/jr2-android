@@ -6,17 +6,14 @@ import kotlinx.coroutines.launch
 import ru.jjba.jr2.data.repository.WordDbRepository
 import ru.jjba.jr2.domain.entity.Word
 import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
+import ru.jjba.jr2.presentation.viewmodel.util.defaultValue
 
 class WordDetailViewModel(
         private val wordRepository: WordDbRepository = WordDbRepository()
 ) : BaseViewModel() {
     private var wordIdArg = 0
 
-    private val word = MutableLiveData<Word?>()
-
-    init {
-        word.value = null
-    }
+    private val word = MutableLiveData<Word?>().defaultValue(null)
 
     fun setArgs(wordId: Int) {
         wordIdArg = wordId

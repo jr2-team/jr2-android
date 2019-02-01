@@ -33,7 +33,7 @@ class SplashViewModel(
 
     private fun onSetupDb() = launch {
         // TODO: withContext(Dispatchers.Default)
-        /*val wordsAdapter = app.moshi.adapter<List<Word>>(
+       /* val wordsAdapter = app.moshi.adapter<List<Word>>(
                 Types.newParameterizedType(List::class.java, Word::class.java)
         )
         wordsAdapter.fromJson(app.readAsset("word.json"))?.run {
