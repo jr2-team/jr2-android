@@ -4,7 +4,7 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 import ru.jjba.jr2.data.repository.GroupDbRepository
 import ru.jjba.jr2.data.repository.SectionDbRepository
-import ru.jjba.jr2.domain.select.SectionWithGroups
+import ru.jjba.jr2.domain.room.select.SectionWithGroups
 
 class SectionUseCase(
         private val sectionRepository: SectionDbRepository = SectionDbRepository(),

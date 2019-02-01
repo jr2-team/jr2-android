@@ -2,18 +2,11 @@ package ru.jjba.jr2.presentation.viewmodel.splash
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.squareup.moshi.Types
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.jjba.jr2.App
 import ru.jjba.jr2.data.repository.GroupDbRepository
 import ru.jjba.jr2.data.repository.SectionDbRepository
 import ru.jjba.jr2.data.repository.WordDbRepository
-import ru.jjba.jr2.domain.entity.Group
-import ru.jjba.jr2.domain.entity.GroupType
-import ru.jjba.jr2.domain.entity.Section
-import ru.jjba.jr2.domain.entity.Word
-import ru.jjba.jr2.domain.join.GroupOfWordsJoin
 import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
 
 class SplashViewModel(

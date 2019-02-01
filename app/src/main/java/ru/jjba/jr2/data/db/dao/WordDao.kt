@@ -2,7 +2,7 @@ package ru.jjba.jr2.data.db.dao
 
 import androidx.room.*
 import ru.jjba.jr2.domain.entity.Word
-import ru.jjba.jr2.domain.join.GroupOfWordsJoin
+import ru.jjba.jr2.domain.room.join.GroupOfWordsJoin
 
 @Dao
 abstract class WordDao : BaseDao<Word> {

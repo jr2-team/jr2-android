@@ -7,9 +7,9 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import ru.jjba.jr2.data.db.dao.*
 import ru.jjba.jr2.domain.entity.*
-import ru.jjba.jr2.domain.join.ComponentOfKanjiJoin
-import ru.jjba.jr2.domain.join.GroupOfWordsJoin
-import ru.jjba.jr2.domain.join.WordInSentenceJoin
+import ru.jjba.jr2.domain.room.join.ComponentOfKanjiJoin
+import ru.jjba.jr2.domain.room.join.GroupOfWordsJoin
+import ru.jjba.jr2.domain.room.join.WordInSentenceJoin
 
 @Database(
         entities = [

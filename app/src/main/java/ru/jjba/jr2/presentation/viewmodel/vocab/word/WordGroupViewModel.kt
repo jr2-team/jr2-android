@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavDirections
 import kotlinx.coroutines.launch
 import ru.jjba.jr2.domain.entity.Group
-import ru.jjba.jr2.domain.select.SectionWithGroups
+import ru.jjba.jr2.domain.room.select.SectionWithGroups
 import ru.jjba.jr2.domain.usecase.SectionUseCase
 import ru.jjba.jr2.presentation.ui.vocab.word.group.WordGroupFragmentDirections
 import ru.jjba.jr2.presentation.viewmodel.BaseViewModel

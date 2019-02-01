@@ -1,24 +1,24 @@
-package ru.jjba.jr2.domain.join
+package ru.jjba.jr2.domain.room.join
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import ru.jjba.jr2.domain.entity.Group
-import ru.jjba.jr2.domain.entity.Word
+import ru.jjba.jr2.domain.entity.Moji
 
 @Entity(foreignKeys = [
     ForeignKey(entity = Group::class,
             parentColumns = ["id"],
             childColumns = ["groupId"]),
-    ForeignKey(entity = Word::class,
+    ForeignKey(entity = Moji::class,
             parentColumns = ["id"],
-            childColumns = ["wordId"])
+            childColumns = ["mojiId"])
 ])
-class GroupOfWordsJoin(
+class GroupOfKanjisJoin(
         @PrimaryKey(autoGenerate = true)
-        val id: Int = 0,
+        val id: Int,
         val groupId: Int,
-        val wordId: Int,
-        val defaultPosition: Int = 0,
-        val customPosition: Int = 0
+        val kanjiId: Int,
+        val defaultPossition: Int,
+        val customPossition: Int
 )
