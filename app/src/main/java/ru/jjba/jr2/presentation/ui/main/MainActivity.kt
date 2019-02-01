@@ -5,21 +5,19 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import kotlinx.android.synthetic.main.activity_main.*
-import ru.jjba.jr2.App
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.BaseActivity
 import ru.jjba.jr2.presentation.viewmodel.main.MainViewModel
+import ru.jjba.jr2.presentation.viewmodel.shared.NavDetailViewModel
 import ru.jjba.jr2.presentation.viewmodel.util.InjectorUtil
 
 class MainActivity : BaseActivity<MainViewModel>() {
     override val layoutRes: Int = R.layout.activity_main
 
     private val navController by lazy { findNavController(R.id.navController) }
-    //private val detailNavigator = App.instance.detailNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // TODO: Переписать дженрик фабрику для viewmodel
         viewModel = ViewModelProviders.of(
                 this,
                 InjectorUtil.provideMainViewModel()
@@ -29,14 +27,6 @@ class MainActivity : BaseActivity<MainViewModel>() {
     }
 
     override fun onSupportNavigateUp() = navController.navigateUp()
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        when (navController.currentDestination?.id) {
-            R.id.kanjiDetailFragment -> App.instance.backPressedLiveData.postValue(true)
-            R.id.wordDetailFragment -> App.instance.backPressedLiveData.postValue(true)
-        }
-    }
 
     private fun setupNavigation() {
         NavigationUI.setupWithNavController(bottomNavigation, navController)
@@ -53,13 +43,15 @@ class MainActivity : BaseActivity<MainViewModel>() {
                 else -> showUpButton(false)
             }
 
-           /* when (destination.id) {
-                R.id.wordDetailFragment -> {
-                }
+            when (destination.id) {
                 R.id.kanjiDetailFragment -> {
                 }
-                else -> detailNavigator.onNavigatedOutOfDetail()
-            }*/
+                R.id.wordDetailFragment -> {
+                }
+                else -> ViewModelProviders.of(this)
+                        .get(NavDetailViewModel::class.java)
+                        .onClear()
+            }
         }
     }
 

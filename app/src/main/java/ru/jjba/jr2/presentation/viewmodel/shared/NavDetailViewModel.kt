@@ -62,6 +62,10 @@ class NavDetailViewModel : ViewModel() {
         }
     }
 
+    fun onClear() {
+        details.postValue(mutableListOf())
+    }
+
     private fun rebuildNavTitle() = details.value?.run {
         if (this.isNullOrEmpty()) {
             title.postValue(SpannableStringBuilder())

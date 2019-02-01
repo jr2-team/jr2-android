@@ -32,9 +32,7 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
     private var navIsVisitedState: Boolean by instanceState(false)
     private var navDetailsState: String? by instanceState()
     private val navDetailViewModel: NavDetailViewModel by lazy {
-        act.run {
-            ViewModelProviders.of(this).get(NavDetailViewModel::class.java)
-        }
+        ViewModelProviders.of(act).get(NavDetailViewModel::class.java)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -61,6 +59,10 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
             tvWordBasicInterpretation.text = word.basicInterpretation
             if (!navIsVisitedState) {
                 navDetailViewModel.onNavigatedForward(NavDetail(word.value, navIdState))
+            } else {
+                navDetailsState?.run {
+                    navDetailViewModel.onRestoreNavDetailsState(this)
+                }
             }
         }
     }
@@ -72,18 +74,21 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     private fun observeNavDetail() {
-        navDetailsState?.run {
-            navDetailViewModel.onRestoreNavDetailsState(this)
-        }
         observe(navDetailViewModel.getTitleLiveData()) {
             tbNavDetail.title = it
         }
         observe(navDetailViewModel.getDetailsLiveData()) { details ->
             tbNavDetail.onClick {
                 if (details.isNullOrEmpty()) return@onClick
-                if (navIsVisitedState) details.removeAt(details.lastIndex)
-                selector(getString(R.string.word_detail_go_back_to), details) { _, i ->
-                    val navBackTimes = details.size - i
+                selector(
+                        getString(R.string.word_detail_go_back_to),
+                        if (navIsVisitedState) {
+                            details.subList(0, details.lastIndex)
+                        } else {
+                            details
+                        }
+                ) { _, i ->
+                    val navBackTimes = details.size - i - if (navIsVisitedState) 1 else 0
                     navDetailViewModel.onNavigatedBack(navBackTimes)
                     repeat(navBackTimes) {
                         act.supportFragmentManager.popBackStack()

@@ -15,8 +15,6 @@ class App : MultiDexApplication(), TextToSpeech.OnInitListener {
     lateinit var db: AppDatabase
     lateinit var tts: TextToSpeech
     lateinit var moshi: Moshi
-    // TODO: Добавить в граф зависимостей при внедрении Dagger
-    val backPressedLiveData = MutableLiveData<Boolean>().defaultValue(false)
 
     fun readAsset(assetName: String): String {
         var content = String()
