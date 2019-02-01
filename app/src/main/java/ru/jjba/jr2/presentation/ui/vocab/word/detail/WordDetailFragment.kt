@@ -58,7 +58,11 @@ class WordDetailFragment : BaseFragment<WordDetailViewModel>() {
             tvWordJp.text = word.value
             tvWordBasicInterpretation.text = word.basicInterpretation
             if (!navIsVisitedState) {
-                navDetailViewModel.onNavigatedForward(NavDetail(word.value, navIdState))
+                navDetailViewModel.onNavigatedForward(NavDetail(
+                        word.value,
+                        navIdState,
+                        "(слово)"
+                ))
             } else {
                 navDetailsState?.run {
                     navDetailViewModel.onRestoreNavDetailsState(this)

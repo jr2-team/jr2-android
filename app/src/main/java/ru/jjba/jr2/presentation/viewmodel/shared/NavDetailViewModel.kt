@@ -67,25 +67,23 @@ class NavDetailViewModel : ViewModel() {
     }
 
     private fun rebuildNavTitle() = details.value?.run {
-        if (this.isNullOrEmpty()) {
-            title.postValue(SpannableStringBuilder())
-            return@run
+        when (this.size) {
+            0 -> title.postValue(SpannableStringBuilder())
+            1 -> title.postValue(SpannableStringBuilder(this.last().title))
+            else -> {
+                val spannableTitle = SpannableStringBuilder(this.last().title)
+                this.asReversed().subList(1, this.size).map {
+                    spannableTitle.append("< ${it.title}")
+                }
+                spannableTitle.setSpan(
+                        RelativeSizeSpan(0.6f),
+                        this.last().title.length + 1,
+                        spannableTitle.count(),
+                        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                title.postValue(spannableTitle)
+            }
         }
-        val spannable = SpannableStringBuilder(this.last().title)
-        if (this.size == 1) {
-            title.postValue(spannable)
-            return@run
-        }
-        for (i in this.size - 2 downTo 0) {
-            spannable.append("< ${this[i].title}")
-        }
-        spannable.setSpan(
-                RelativeSizeSpan(0.6f),
-                this.last().title.length + 1,
-                spannable.count(),
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-        title.postValue(spannable)
     }
 
     companion object {
@@ -100,5 +98,5 @@ class NavDetailViewModel : ViewModel() {
 data class NavDetail(
         val title: String,
         val fragmentId: Long,
-        val fragmentType: String = "слово"
+        val fragmentType: String
 )
