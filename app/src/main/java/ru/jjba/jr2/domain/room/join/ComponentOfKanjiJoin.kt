@@ -1,4 +1,4 @@
-package ru.jjba.jr2.domain.join
+package ru.jjba.jr2.domain.room.join
 
 import androidx.room.Entity
 import androidx.room.ForeignKey

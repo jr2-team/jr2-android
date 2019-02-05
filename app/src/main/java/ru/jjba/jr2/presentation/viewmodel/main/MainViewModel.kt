@@ -1,6 +1,5 @@
 package ru.jjba.jr2.presentation.viewmodel.main
 
-import androidx.lifecycle.ViewModel
+import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
 
-class MainViewModel : ViewModel() {
-}
+class MainViewModel : BaseViewModel()

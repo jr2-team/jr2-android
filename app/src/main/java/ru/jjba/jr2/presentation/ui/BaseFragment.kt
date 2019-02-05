@@ -3,6 +3,7 @@ package ru.jjba.jr2.presentation.ui
 import android.os.Build
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,22 +40,16 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     open fun saveInstanceState() {}
 
-    fun showMessage(msg: String) {
-        val view = view ?: return
-        view.snackbar(msg)
-    }
-
-    fun showMessage(resMsg: Int) {
-        val view = view ?: return
-        view.snackbar(resMsg)
-    }
-
     fun setTitle(title: String) {
-        act.toolbar.title = title
+        act.tbMain.title = title
     }
 
-    fun showToolbar(isShown: Boolean = true) {
-        act.toolbar.isVisible = isShown
+    fun setTitle(spannableTitle: SpannableStringBuilder) {
+        act.tbMain.title = spannableTitle
+    }
+
+    fun showMainToolbar(isShown: Boolean = true) {
+        act.tbMain.isVisible = isShown
     }
 
     fun showBottomNavigation(isShown: Boolean = true) {
@@ -85,11 +80,11 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setTitle(titleDefault)
-        showToolbar()
+        showMainToolbar()
         showBottomNavigation()
 
         viewModel = ViewModelProviders
-                .of(act, viewModel.createFactory())
+                .of(this, viewModel.createFactory())
                 .get(viewModel::class.java)
 
         lifecycle.addObserver(this)

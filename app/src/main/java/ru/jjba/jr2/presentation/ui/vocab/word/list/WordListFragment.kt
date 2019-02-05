@@ -45,15 +45,17 @@ class WordListFragment : BaseFragment<WordListViewModel>() {
     }
 
     override fun observeData() = with(viewModel) {
-        observeWordGroup().observe(viewLifecycleOwner, Observer { wordGrpoup ->
-            setTitle(wordGrpoup?.name ?: "Слова загружаются...")
+        observeWordGroup().observe(viewLifecycleOwner, Observer { wordGroup ->
+            setTitle(wordGroup?.name ?: getString(R.string.word_list_words_are_loading))
         })
         observeWords().observe(viewLifecycleOwner, Observer { words ->
             wordListAdapter.words = words
             rvWord.restoreLayoutState(rvWordState)
         })
         observeNavToWordDetailEvent().observe(viewLifecycleOwner, Observer {
-            it.getContentIfNotHandled()?.run { findNavController().navigate(this) }
+            it.getContentIfNotHandled()?.run {
+                findNavController().navigate(this)
+            }
         })
         observeWordsIsLoading().observe(viewLifecycleOwner, Observer {
             pbWordsLoading.isVisible = it

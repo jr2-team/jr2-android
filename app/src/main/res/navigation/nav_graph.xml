@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragmentMain">
+    app:startDestination="@id/fragmentHome">
 
     <fragment
-        android:id="@+id/fragmentMain"
-        android:name="ru.jjba.jr2.presentation.ui.main.MainFragment"
-        android:label="MainFragment"
-        tools:layout="@layout/fragment_main" />
+        android:id="@+id/fragmentHome"
+        android:name="ru.jjba.jr2.presentation.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/fragmentVocab"
         android:name="ru.jjba.jr2.presentation.ui.vocab.VocabFragment"
@@ -41,7 +41,11 @@
         android:label="WordListFragment">
         <action
             android:id="@+id/action_wordList_to_wordDetail"
-            app:destination="@id/wordDetailFragment" />
+            app:destination="@id/wordDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <argument
             android:name="wordGroupId"
             android:defaultValue="0"
@@ -63,6 +67,16 @@
             android:name="wordId"
             android:defaultValue="0"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_wordDetailFragment_self"
+            app:destination="@id/wordDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_wordDetailFragment_to_kanjiDetailFragment"
+            app:destination="@id/kanjiDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/kanaDetailFragment"
@@ -79,7 +93,14 @@
     <fragment
         android:id="@+id/kanjiDetailFragment"
         android:name="ru.jjba.jr2.presentation.ui.vocab.kanji.detail.KanjiDetailFragment"
-        android:label="KanjiDetailFragment" />
+        android:label="KanjiDetailFragment" >
+        <action
+            android:id="@+id/action_kanjiDetailFragment_self"
+            app:destination="@id/kanjiDetailFragment" />
+        <action
+            android:id="@+id/action_kanjiDetailFragment_to_wordDetailFragment"
+            app:destination="@id/wordDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/kanjiGroupFragment"
         android:name="ru.jjba.jr2.presentation.ui.vocab.kanji.group.KanjiGroupFragment"

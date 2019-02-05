@@ -8,7 +8,7 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import org.zakariya.stickyheaders.SectioningAdapter
 import ru.jjba.jr2.R
 import ru.jjba.jr2.domain.entity.Group
-import ru.jjba.jr2.domain.select.SectionWithGroups
+import ru.jjba.jr2.domain.room.select.SectionWithGroups
 import kotlin.properties.Delegates.observable
 
 class WordGroupAdapter : SectioningAdapter() {

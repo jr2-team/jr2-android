@@ -2,7 +2,7 @@ package ru.jjba.jr2.data.db.dao
 
 import androidx.room.*
 import ru.jjba.jr2.domain.entity.Word
-import ru.jjba.jr2.domain.join.GroupOfWordsJoin
+import ru.jjba.jr2.domain.room.join.GroupOfWordsJoin
 
 @Dao
 abstract class WordDao : BaseDao<Word> {
@@ -13,7 +13,7 @@ abstract class WordDao : BaseDao<Word> {
     abstract fun getAll(): List<Word>
 
     @Query(// @formatter:off
-        "SELECT * FROM Word AS w " +
+        "SELECT w.* FROM Word AS w " +
         "INNER JOIN GroupOfWordsJoin AS wj " +
             "ON w.id == wj.wordId " +
         "WHERE wj.groupId = :groupId"// @formatter:on

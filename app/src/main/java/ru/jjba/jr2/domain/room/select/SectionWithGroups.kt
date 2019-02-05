@@ -1,4 +1,4 @@
-package ru.jjba.jr2.domain.select
+package ru.jjba.jr2.domain.room.select
 
 import androidx.room.Embedded
 import androidx.room.Relation

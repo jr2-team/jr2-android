@@ -32,8 +32,6 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
     }
 
     override fun initContent() {
-        viewModel.clearData()
-        viewModel.fetchData()
         rvWordGroup.apply {
             setHasFixedSize(true)
             layoutManager = StickyHeaderLayoutManager()
