@@ -10,7 +10,7 @@ import ru.jjba.jr2.presentation.viewmodel.util.defaultValue
 class SplashViewModel(
     private val testDataUseCase: TestDataUseCase = TestDataUseCase()
 ) : BaseViewModel() {
-    private val isAllowedToNavToMain = MutableLiveData<Boolean>().defaultValue(false)
+    private val isAllowedToNavToMain = MutableLiveData<Boolean>().defaultValue(true)
 
     init {
         setupDbData()

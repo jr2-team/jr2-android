@@ -9,7 +9,11 @@
         android:id="@+id/fragmentHome"
         android:name="ru.jjba.jr2.presentation.ui.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_number_practice"
+            app:destination="@id/numberPracticeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/fragmentVocab"
         android:name="ru.jjba.jr2.presentation.ui.vocab.VocabFragment"
@@ -117,4 +121,8 @@
             android:id="@+id/action_kanjiList_to_kanjiDetail"
             app:destination="@id/kanjiDetailFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/numberPracticeFragment"
+        android:name="ru.jjba.jr2.presentation.ui.number.NumberPracticeFragment"
+        android:label="NumberPracticeFragment" />
 </navigation>

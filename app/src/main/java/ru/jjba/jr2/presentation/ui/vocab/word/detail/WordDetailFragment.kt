@@ -38,7 +38,7 @@ class WordDetailFragment : NavDetailFragment<WordDetailViewModel>() {
         observe(viewModel.observeWord()) { word ->
             tvWordJp.text = word.value
             tvWordBasicInterpretation.text = word.basicInterpretation
-            contentLadingDone(NavDetail(word.value, fragmentIdState, "(слово)"))
+            contentLoadingDone(NavDetail(word.value, fragmentIdState, "(слово)"))
         }
     }
 }

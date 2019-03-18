@@ -23,9 +23,7 @@ class NavDetailViewModel : ViewModel() {
             .defaultValue(mutableListOf())
 
     init {
-        details.observeForever {
-            rebuildNavTitle()
-        }
+        details.observeForever { rebuildNavTitle() }
     }
 
     fun getTitleLiveData(): LiveData<SpannableStringBuilder> = title
@@ -53,18 +51,14 @@ class NavDetailViewModel : ViewModel() {
         details.postValue(this)
     }
 
-    fun onNavigatedOutOfDetail() = details.value?.run {
-        details.postValue(mutableListOf())
-    }
+    fun onNavigatedOutOfDetail() =
+            details.value?.run { details.postValue(mutableListOf()) }
 
-    fun onSaveNavDetailsState(): String? = details.value?.run {
-        jsonAdapter.toJson(this)
-    }
+    fun onSaveNavDetailsState(): String? =
+            details.value?.run { jsonAdapter.toJson(this) }
 
     fun onRestoreNavDetailsState(navDetailsJson: String) =
-            jsonAdapter.fromJson(navDetailsJson)?.let {
-                details.postValue(it)
-            }
+        jsonAdapter.fromJson(navDetailsJson)?.let { details.postValue(it) }
 
     private fun rebuildNavTitle() = details.value?.run {
         when (this.size) {

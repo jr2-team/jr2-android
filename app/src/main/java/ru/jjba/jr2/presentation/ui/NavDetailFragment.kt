@@ -26,7 +26,7 @@ abstract class NavDetailFragment<VT : BaseViewModel> : BaseFragment<VT>() {
     private var isVisitedState: Boolean by instanceState(false)
     private var navDetailsState: String? by instanceState()
 
-    internal fun contentLadingDone(navDetail: NavDetail) {
+    internal fun contentLoadingDone(navDetail: NavDetail) {
         if (!isVisitedState) {
             navDetailViewModel.onNavigatedForward(navDetail)
         } else {

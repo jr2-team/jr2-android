@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVariantA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Variant A"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVariantB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Variant B"
+        app:layout_constraintTop_toBottomOf="@+id/btnVariantA" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVariantC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Variant C"
+        app:layout_constraintTop_toBottomOf="@+id/btnVariantB" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVariantD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Variant D"
+        app:layout_constraintTop_toBottomOf="@+id/btnVariantC" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
