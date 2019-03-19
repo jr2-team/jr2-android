@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.support.v4.act
 import ru.jjba.jr2.App
 import ru.jjba.jr2.presentation.ui.util.InstanceStateProvider
@@ -18,27 +17,34 @@ import ru.jjba.jr2.presentation.ui.util.inflate
 import ru.jjba.jr2.presentation.ui.util.isVisible
 import ru.jjba.jr2.presentation.viewmodel.util.createFactory
 
-abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
-    abstract var viewModel: VT
-    abstract val layoutRes: Int
-    abstract val titleDefault: String
+abstract class BaseFragment<VT : ViewModel>(
+        // TODO: Remove, provide dependency injection
+        private val useCustomFactory: Boolean = false
+) : Fragment(), LifecycleObserver {
+    internal open lateinit var viewModel: VT
+    internal abstract val layoutRes: Int
+    internal abstract val titleDefault: String
 
     private val textToSpeech: TextToSpeech = App.instance.tts
     private val savable = Bundle()
 
     protected fun <T> instanceState() =
             InstanceStateProvider.Nullable<T>(savable)
+
     protected fun <T> instanceState(defaultValue: T) =
             InstanceStateProvider.NotNull(savable, defaultValue)
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    open fun initContent() {}
+    open fun initContent() {
+    }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    open fun observeData() {}
+    open fun observeData() {
+    }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    open fun saveInstanceState() {}
+    open fun saveInstanceState() {
+    }
 
     fun setTitle(title: String) {
         act.tbMain.title = title
@@ -63,7 +69,7 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        if(savedInstanceState != null) {
+        if (savedInstanceState != null) {
             savable.putAll(savedInstanceState.getBundle("_state"))
         }
         super.onCreate(savedInstanceState)
@@ -83,9 +89,9 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
         showMainToolbar()
         showBottomNavigation()
 
-        viewModel = ViewModelProviders
-                .of(this, viewModel.createFactory())
-                .get(viewModel::class.java)
+        if (!useCustomFactory) {
+            ViewModelProviders.of(this@BaseFragment, viewModel.createFactory()).get(viewModel::class.java)
+        }
 
         lifecycle.addObserver(this)
     }

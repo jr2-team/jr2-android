@@ -17,7 +17,7 @@ class HomeFragment : BaseFragment<HomeViewModel>() {
         showMainToolbar(false)
 
         btnNumberPractice.onClick {
-            findNavController().navigate(HomeFragmentDirections.actionHomeToNumberPractice())
+            findNavController().navigate(HomeFragmentDirections.actionFragmentHomeToNavigation())
         }
     }
 }

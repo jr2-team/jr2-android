@@ -1,12 +1,13 @@
 package ru.jjba.jr2.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.SupervisorJob
 import kotlin.coroutines.CoroutineContext
 
 abstract class BaseViewModel : ViewModel(), CoroutineScope {
-    internal var viewModelJob = SupervisorJob()
+    private var viewModelJob = SupervisorJob()
 
     override val coroutineContext: CoroutineContext
         get() = viewModelJob + Main
