@@ -17,10 +17,7 @@ import ru.jjba.jr2.presentation.ui.util.inflate
 import ru.jjba.jr2.presentation.ui.util.isVisible
 import ru.jjba.jr2.presentation.viewmodel.util.createFactory
 
-abstract class BaseFragment<VT : ViewModel>(
-        // TODO: Remove, provide dependency injection
-        private val useCustomFactory: Boolean = false
-) : Fragment(), LifecycleObserver {
+abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
     internal open lateinit var viewModel: VT
     internal abstract val layoutRes: Int
     internal abstract val titleDefault: String
@@ -33,6 +30,14 @@ abstract class BaseFragment<VT : ViewModel>(
 
     protected fun <T> instanceState(defaultValue: T) =
             InstanceStateProvider.NotNull(savable, defaultValue)
+
+    // TODO: Temporary solution, provide DI
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    open fun injectViewModel() {
+        ViewModelProviders
+                .of(this, viewModel.createFactory())
+                .get(viewModel::class.java)
+    }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     open fun initContent() {
@@ -88,11 +93,6 @@ abstract class BaseFragment<VT : ViewModel>(
         setTitle(titleDefault)
         showMainToolbar()
         showBottomNavigation()
-
-        if (!useCustomFactory) {
-            ViewModelProviders.of(this@BaseFragment, viewModel.createFactory()).get(viewModel::class.java)
-        }
-
         lifecycle.addObserver(this)
     }
 

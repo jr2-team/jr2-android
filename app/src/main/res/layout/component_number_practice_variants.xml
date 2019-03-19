@@ -6,28 +6,28 @@
     android:orientation="vertical">
 
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btnVariantA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Variant A"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btnVariantB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Variant B"
         app:layout_constraintTop_toBottomOf="@+id/btnVariantA" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btnVariantC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Variant C"
         app:layout_constraintTop_toBottomOf="@+id/btnVariantB" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btnVariantD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,8 +1,6 @@
 package ru.jjba.jr2.presentation.ui.number.fragment
 
 import android.content.Context
-import android.os.Bundle
-import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -16,9 +14,7 @@ import ru.jjba.jr2.presentation.viewmodel.number.NumberPracticeSettingsViewModel
 import ru.jjba.jr2.presentation.viewmodel.number.NumberPractiveSharedViewModel
 import ru.jjba.jr2.presentation.viewmodel.util.observe
 
-class NumberPracticeSettingsFragment : BaseFragment<NumberPracticeSettingsViewModel>(
-        useCustomFactory = true
-) {
+class NumberPracticeSettingsFragment : BaseFragment<NumberPracticeSettingsViewModel>() {
     private val sharedViewModel: NumberPractiveSharedViewModel by lazy {
         ViewModelProviders.of(act).get(NumberPractiveSharedViewModel::class.java)
     }
@@ -27,19 +23,15 @@ class NumberPracticeSettingsFragment : BaseFragment<NumberPracticeSettingsViewMo
     override val titleDefault: String
         get() = "Практика чтения цифр"
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        return super.onViewCreated(view, savedInstanceState).also {
-            // Tie ViewModel to the host activity
-            val sharedPreferences = act.getPreferences(Context.MODE_PRIVATE)
-
-            val factory: ViewModelProvider.Factory? = object : ViewModelProvider.Factory {
-                override fun <T : ViewModel?> create(modelClass: Class<T>) =
-                        NumberPracticeSettingsViewModel(sharedPreferences) as T
-            }
-            viewModel = ViewModelProviders
-                    .of(act, factory)
-                    .get(NumberPracticeSettingsViewModel::class.java)
+    override fun injectViewModel() {
+        val sharedPreferences = act.getPreferences(Context.MODE_PRIVATE)
+        val factory: ViewModelProvider.Factory? = object : ViewModelProvider.Factory {
+            override fun <T : ViewModel?> create(modelClass: Class<T>) =
+                    NumberPracticeSettingsViewModel(sharedPreferences) as T
         }
+        viewModel = ViewModelProviders
+                .of(act, factory)
+                .get(NumberPracticeSettingsViewModel::class.java)
     }
 
     override fun initContent() {
