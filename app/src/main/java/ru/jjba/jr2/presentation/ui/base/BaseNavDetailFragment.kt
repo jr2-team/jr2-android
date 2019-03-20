@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.ui
+package ru.jjba.jr2.presentation.ui.base
 
 import android.os.Bundle
 import android.view.View
@@ -17,7 +17,7 @@ import ru.jjba.jr2.presentation.viewmodel.shared.NavDetailViewModel
 import ru.jjba.jr2.presentation.viewmodel.util.observe
 import kotlin.random.Random
 
-abstract class NavDetailFragment<VT : BaseViewModel> : BaseFragment<VT>() {
+abstract class BaseNavDetailFragment<VT : BaseViewModel> : BaseFragment<VT>() {
     private val navDetailViewModel: NavDetailViewModel by lazy {
         ViewModelProviders.of(act).get(NavDetailViewModel::class.java)
     }

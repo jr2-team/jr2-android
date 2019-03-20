@@ -3,7 +3,7 @@ package ru.jjba.jr2.presentation.ui.vocab.kana.list
 import android.os.Bundle
 import android.view.View
 import ru.jjba.jr2.R
-import ru.jjba.jr2.presentation.ui.BaseFragment
+import ru.jjba.jr2.presentation.ui.base.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.vocab.kana.KanaListViewModel
 
 class KanaListFragment : BaseFragment<KanaListViewModel>() {

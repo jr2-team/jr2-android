@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.viewmodel.number
+package ru.jjba.jr2.presentation.viewmodel.number.result
 
 import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
 

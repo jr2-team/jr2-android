@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.ui
+package ru.jjba.jr2.presentation.ui.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

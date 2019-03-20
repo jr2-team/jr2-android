@@ -1,7 +1,7 @@
 package ru.jjba.jr2.presentation.ui.profile
 
 import ru.jjba.jr2.R
-import ru.jjba.jr2.presentation.ui.BaseFragment
+import ru.jjba.jr2.presentation.ui.base.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.profile.ProfileViewModel
 
 class ProfileFragment : BaseFragment<ProfileViewModel>() {

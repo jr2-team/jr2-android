@@ -20,11 +20,10 @@ enum class KanaType(val code: Int) {
     KATAKANA(1);
 
     companion object {
-        fun fromCode(code: Int): KanaType = when(code) {
+        fun fromCode(code: Int): KanaType = when (code) {
             HIROGANA.code -> HIROGANA
             KATAKANA.code -> KATAKANA
             else -> throw IllegalArgumentException()
         }
     }
 }
-

@@ -1,7 +1,7 @@
 package ru.jjba.jr2.presentation.ui.gramma
 
 import ru.jjba.jr2.R
-import ru.jjba.jr2.presentation.ui.BaseFragment
+import ru.jjba.jr2.presentation.ui.base.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.gramma.GrammaViewModel
 
 class GrammaFragment : BaseFragment<GrammaViewModel>() {

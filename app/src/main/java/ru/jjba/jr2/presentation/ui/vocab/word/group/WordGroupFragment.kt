@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.fragment_word_group.*
 import org.jetbrains.anko.support.v4.ctx
 import org.zakariya.stickyheaders.StickyHeaderLayoutManager
 import ru.jjba.jr2.R
-import ru.jjba.jr2.presentation.ui.BaseFragment
+import ru.jjba.jr2.presentation.ui.base.BaseFragment
 import ru.jjba.jr2.presentation.ui.util.isVisible
 import ru.jjba.jr2.presentation.ui.util.restoreLayoutState
 import ru.jjba.jr2.presentation.viewmodel.vocab.word.WordGroupViewModel

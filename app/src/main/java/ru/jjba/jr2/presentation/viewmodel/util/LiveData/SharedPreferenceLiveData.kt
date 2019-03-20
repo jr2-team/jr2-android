@@ -1,15 +1,15 @@
-package ru.jjba.jr2.data.sharedpref
+package ru.jjba.jr2.presentation.viewmodel.util.LiveData
 
 import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 
 @Suppress("UNCHECKED_CAST")
-class LiveSharedPreference<T>(
+class SharedPreferenceLiveData<T>(
         private val sharedPreferences: SharedPreferences,
         private val preferenceKey: String,
         private val defaultValue: T
 ) : LiveData<T>() {
-    private val sharedPreferenceListener = SharedPreferences.OnSharedPreferenceChangeListener { sharedPreferences, key ->
+    private val sharedPreferenceListener = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
         if (key == preferenceKey) {
             value = getValueFromPreferences() as T
         }

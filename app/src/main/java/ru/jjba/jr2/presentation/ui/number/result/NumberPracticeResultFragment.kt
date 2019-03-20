@@ -1,14 +1,14 @@
-package ru.jjba.jr2.presentation.ui.number.fragment
+package ru.jjba.jr2.presentation.ui.number.result
 
 import androidx.lifecycle.ViewModelProviders
 import org.jetbrains.anko.support.v4.act
-import ru.jjba.jr2.presentation.ui.BaseFragment
-import ru.jjba.jr2.presentation.viewmodel.number.NumberPractiveResultViewModel
-import ru.jjba.jr2.presentation.viewmodel.number.NumberPractiveSharedViewModel
+import ru.jjba.jr2.presentation.ui.base.BaseFragment
+import ru.jjba.jr2.presentation.viewmodel.number.result.NumberPractiveResultViewModel
+import ru.jjba.jr2.presentation.viewmodel.number.NumberPracticeSharedViewModel
 
 class NumberPracticeResultFragment : BaseFragment<NumberPractiveResultViewModel>() {
-    private val sharedViewModel: NumberPractiveSharedViewModel by lazy {
-        ViewModelProviders.of(act).get(NumberPractiveSharedViewModel::class.java)
+    private val sharedViewModel: NumberPracticeSharedViewModel by lazy {
+        ViewModelProviders.of(act).get(NumberPracticeSharedViewModel::class.java)
     }
 
     override var viewModel = NumberPractiveResultViewModel()

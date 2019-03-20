@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import ru.jjba.jr2.R
-import ru.jjba.jr2.presentation.ui.BaseActivity
+import ru.jjba.jr2.presentation.ui.base.BaseActivity
 import ru.jjba.jr2.presentation.ui.main.MainActivity
 import ru.jjba.jr2.presentation.viewmodel.splash.SplashViewModel
 import ru.jjba.jr2.presentation.viewmodel.util.InjectorUtil

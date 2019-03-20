@@ -6,7 +6,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.jjba.jr2.R
-import ru.jjba.jr2.presentation.ui.BaseActivity
+import ru.jjba.jr2.presentation.ui.base.BaseActivity
 import ru.jjba.jr2.presentation.viewmodel.main.MainViewModel
 import ru.jjba.jr2.presentation.viewmodel.shared.NavDetailViewModel
 import ru.jjba.jr2.presentation.viewmodel.util.InjectorUtil

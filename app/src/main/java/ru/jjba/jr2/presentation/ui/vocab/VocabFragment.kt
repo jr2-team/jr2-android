@@ -4,7 +4,7 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_vocab.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import ru.jjba.jr2.R
-import ru.jjba.jr2.presentation.ui.BaseFragment
+import ru.jjba.jr2.presentation.ui.base.BaseFragment
 import ru.jjba.jr2.presentation.viewmodel.vocab.VocabViewModel
 
 class VocabFragment : BaseFragment<VocabViewModel>() {
