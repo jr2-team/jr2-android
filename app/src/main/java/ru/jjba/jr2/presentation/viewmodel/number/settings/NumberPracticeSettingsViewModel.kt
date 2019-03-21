@@ -2,13 +2,13 @@ package ru.jjba.jr2.presentation.viewmodel.number.settings
 
 import android.content.SharedPreferences
 import ru.jjba.jr2.presentation.viewmodel.util.LiveData.SharedPreferenceLiveData
-import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
+import ru.jjba.jr2.presentation.viewmodel.base.BaseViewModel
 
 class NumberPracticeSettingsViewModel(
         private val sharedPreferences: SharedPreferences
 ) : BaseViewModel() {
     // TODO: Create repository to access shared pref
-    // Count and allowed number range
+    // Count and allowed value range
     val numberQuizCountPref = SharedPreferenceLiveData(sharedPreferences, NUMBER_QUIZ_COUNT, 10)
     val numberQuizNumberRndLowerBound = SharedPreferenceLiveData(sharedPreferences, "", 1)
     val numberQuizNumberRndUpperBound = SharedPreferenceLiveData(sharedPreferences, "", 1000)
@@ -29,7 +29,7 @@ class NumberPracticeSettingsViewModel(
         apply()
     }
 
-    // TODO: Find a better solution to store number practice types
+    // TODO: Find a better solution to store value practice types
     fun onSaveNumberQuizTypes(checkState: String) {
         with(sharedPreferences.edit()) {
             putString(NUMBER_QUIZ_TYPES, checkState)

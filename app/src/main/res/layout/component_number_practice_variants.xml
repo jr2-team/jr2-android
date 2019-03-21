@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-
     <Button
         android:id="@+id/btnVariantA"
         android:layout_width="match_parent"

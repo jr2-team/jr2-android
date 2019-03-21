@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
 import ru.jjba.jr2.data.repository.WordDbRepository
 import ru.jjba.jr2.domain.entity.Word
-import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
+import ru.jjba.jr2.presentation.viewmodel.base.BaseViewModel
 
 class WordDetailViewModel(
         private val wordRepository: WordDbRepository = WordDbRepository()

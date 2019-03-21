@@ -9,33 +9,30 @@ import kotlin.coroutines.CoroutineContext
 
 class CounterLiveData(
         override val coroutineContext: CoroutineContext,
+        initialValue: Int = 0,
+        private val countUntil: Int = Int.MAX_VALUE,
         private val counterDelay: Long = 1000L,
-        initialValue: Int = 0
+        private val doOnTimeOut: (() -> Unit)? = null
 ) : LiveData<Int>(), CoroutineScope {
-    private var job: Job = Job()
+    private var sessionTimerJob = Job()
 
     init {
-        coroutineContext + job
+        coroutineContext + sessionTimerJob
         value = initialValue
     }
 
-    fun changeCounterState(isPauseRequested: Boolean) {
-        if (isPauseRequested) {
-            job.cancel()
-        } else {
-            if (hasActiveObservers()) job = launch { launchSessionTimer() }
+    fun changeCounterState(isPaused: Boolean) {
+        when {
+            isPaused -> sessionTimerJob.cancel()
+            !isPaused -> sessionTimerJob = launch { launchSessionTimer() }
         }
-    }
-
-    override fun onInactive() {
-        super.onInactive()
-        job.cancel()
     }
 
     private suspend fun launchSessionTimer() {
-        while (true) {
+        while ((value as Int) < countUntil) {
             delay(counterDelay)
             value = value?.plus(1)
         }
+        doOnTimeOut?.invoke()
     }
 }

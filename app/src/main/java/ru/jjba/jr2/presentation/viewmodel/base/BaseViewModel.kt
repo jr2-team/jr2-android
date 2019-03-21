@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.viewmodel
+package ru.jjba.jr2.presentation.viewmodel.base
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -7,7 +7,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlin.coroutines.CoroutineContext
 
 abstract class BaseViewModel : ViewModel(), CoroutineScope {
-    internal var viewModelJob = SupervisorJob()
+    private var viewModelJob = SupervisorJob()
 
     override val coroutineContext: CoroutineContext
         get() = viewModelJob + Main

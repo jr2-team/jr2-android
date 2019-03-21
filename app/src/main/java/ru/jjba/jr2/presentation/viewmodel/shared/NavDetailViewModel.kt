@@ -8,9 +8,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.squareup.moshi.JsonAdapter
-import com.squareup.moshi.JsonClass
 import com.squareup.moshi.Types
 import ru.jjba.jr2.App
+import ru.jjba.jr2.presentation.util.NavDetail
 import ru.jjba.jr2.presentation.viewmodel.util.defaultValue
 
 class NavDetailViewModel : ViewModel() {
@@ -58,7 +58,7 @@ class NavDetailViewModel : ViewModel() {
             details.value?.run { jsonAdapter.toJson(this) }
 
     fun onRestoreNavDetailsState(navDetailsJson: String) =
-        jsonAdapter.fromJson(navDetailsJson)?.let { details.postValue(it) }
+            jsonAdapter.fromJson(navDetailsJson)?.let { details.postValue(it) }
 
     private fun rebuildNavTitle() = details.value?.run {
         when (this.size) {
@@ -87,10 +87,3 @@ class NavDetailViewModel : ViewModel() {
         )
     }
 }
-
-@JsonClass(generateAdapter = true)
-data class NavDetail(
-        val title: String,
-        val fragmentId: Long,
-        val fragmentType: String
-)

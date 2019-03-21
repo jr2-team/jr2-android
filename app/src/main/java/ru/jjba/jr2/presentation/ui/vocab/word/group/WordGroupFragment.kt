@@ -52,7 +52,7 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
         })
         observeAreSectionsLoading().observe(viewLifecycleOwner, Observer {
             rvWordGroup.isVisible = !it
-            pbWordsLoading.isVisible = it
+            pbNumberPracticeQuizIsLoading.isVisible = it
         })
     }
 

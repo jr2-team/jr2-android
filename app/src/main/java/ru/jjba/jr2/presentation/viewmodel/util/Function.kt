@@ -1,6 +1,9 @@
 package ru.jjba.jr2.presentation.viewmodel.util
 
 import androidx.lifecycle.*
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancelAndJoin
+import kotlin.coroutines.coroutineContext
 
 fun <T : ViewModel> T.createFactory(): ViewModelProvider.Factory {
     val viewModel = this
@@ -23,4 +26,10 @@ fun <T> LifecycleOwner.observe(
 
 fun <T : Any?> MutableLiveData<T>.defaultValue(initialValue: T) = apply {
     setValue(initialValue)
+}
+
+suspend fun withLoader(loader: Job, f: suspend () -> Unit) = with(coroutineContext) {
+    loader.start()
+    f.invoke()
+    loader.cancelAndJoin()
 }

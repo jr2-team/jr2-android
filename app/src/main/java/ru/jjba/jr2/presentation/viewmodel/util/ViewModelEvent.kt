@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.viewmodel
+package ru.jjba.jr2.presentation.viewmodel.util
 
 /**
  * Used as a wrapper for [content] that is exposed via a [LiveData] that represents an event

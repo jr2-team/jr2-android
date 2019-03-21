@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ProgressBar
-        android:id="@+id/pbWordsLoading"
+        android:id="@+id/pbNumberPracticeQuizIsLoading"
         style="@style/GenericProgressIndicator"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"

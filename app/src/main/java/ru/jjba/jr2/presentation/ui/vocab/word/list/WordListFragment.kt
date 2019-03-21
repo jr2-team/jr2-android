@@ -58,7 +58,7 @@ class WordListFragment : BaseFragment<WordListViewModel>() {
             }
         })
         observeWordsIsLoading().observe(viewLifecycleOwner, Observer {
-            pbWordsLoading.isVisible = it
+            pbNumberPracticeQuizIsLoading.isVisible = it
         })
     }
 

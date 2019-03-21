@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.fragment_word_detail.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.base.BaseNavDetailFragment
-import ru.jjba.jr2.presentation.viewmodel.shared.NavDetail
+import ru.jjba.jr2.presentation.util.NavDetail
 import ru.jjba.jr2.presentation.viewmodel.util.observe
 import ru.jjba.jr2.presentation.viewmodel.vocab.word.WordDetailViewModel
 import kotlin.random.Random

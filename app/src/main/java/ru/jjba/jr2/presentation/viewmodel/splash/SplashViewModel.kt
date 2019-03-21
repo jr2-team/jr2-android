@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
 import ru.jjba.jr2.domain.usecase.TestDataUseCase
-import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
+import ru.jjba.jr2.presentation.viewmodel.base.BaseViewModel
 import ru.jjba.jr2.presentation.viewmodel.util.defaultValue
 
 class SplashViewModel(
@@ -13,7 +13,7 @@ class SplashViewModel(
     private val isAllowedToNavToMain = MutableLiveData<Boolean>().defaultValue(true)
 
     init {
-        setupDbData()
+        //setupDbData()
     }
 
     fun observeIsAllowedToNavToMain(): LiveData<Boolean> = isAllowedToNavToMain

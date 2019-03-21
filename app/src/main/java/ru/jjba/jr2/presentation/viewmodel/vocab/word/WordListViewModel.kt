@@ -10,8 +10,8 @@ import ru.jjba.jr2.data.repository.WordDbRepository
 import ru.jjba.jr2.domain.entity.Group
 import ru.jjba.jr2.domain.entity.Word
 import ru.jjba.jr2.presentation.ui.vocab.word.list.WordListFragmentDirections
-import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
-import ru.jjba.jr2.presentation.viewmodel.ViewModelEvent
+import ru.jjba.jr2.presentation.viewmodel.base.BaseViewModel
+import ru.jjba.jr2.presentation.viewmodel.util.ViewModelEvent
 import kotlin.properties.Delegates.observable
 
 class WordListViewModel(

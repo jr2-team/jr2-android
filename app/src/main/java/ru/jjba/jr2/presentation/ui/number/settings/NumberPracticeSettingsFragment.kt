@@ -1,14 +1,16 @@
 package ru.jjba.jr2.presentation.ui.number.settings
 
 import android.content.Context
+import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_number_practice_settings.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.support.v4.act
 import ru.jjba.jr2.R
-import ru.jjba.jr2.domain.pojo.NumberPracticeQuizType
 import ru.jjba.jr2.presentation.ui.base.BaseFragment
+import ru.jjba.jr2.presentation.ui.util.isVisible
 import ru.jjba.jr2.presentation.viewmodel.number.NumberPracticeSharedViewModel
 import ru.jjba.jr2.presentation.viewmodel.number.settings.NumberPracticeSettingsViewModel
 import ru.jjba.jr2.presentation.viewmodel.util.InjectorUtil
@@ -21,7 +23,7 @@ class NumberPracticeSettingsFragment : BaseFragment<NumberPracticeSettingsViewMo
 
     override val layoutRes: Int = R.layout.fragment_number_practice_settings
     override val titleDefault: String
-        get() = "Практика чтения цифр"
+        get() = "Практика чтения чисел"
 
     override fun injectViewModel() {
         val sharedPreferences = act.getPreferences(Context.MODE_PRIVATE)
@@ -32,28 +34,21 @@ class NumberPracticeSettingsFragment : BaseFragment<NumberPracticeSettingsViewMo
     }
 
     override fun initContent() {
-        btnNumberPracticeQuizCountSetting.onClick {
-            NumberPracticeSettingsQuizCountDialog().show(fragmentManager, dialogSettingsQuizCountTag)
-        }
-        btnNumberPracticeQuizTypesSetting.onClick {
-            NumberPracticeSettingsQuizTypesDialog().show(fragmentManager, dialogSettingsQuizTypesTag)
-        }
-        btnNumberPracticeQuizOtherSetting.onClick {
-
-        }
-        btnNumberPracticeQuizStart.onClick {
-            sharedViewModel.onStartPracticeSession()
-            val direction = NumberPracticeSettingsFragmentDirections.actionNumberPracticeSettingsFragmentToNumberPracticeQuizzFragment()
-            findNavController().navigate(direction)
-        }
+        showBottomNavigation(false)
+        btnNumberPracticeQuizCountSetting.onClick {}
+        btnNumberPracticeQuizTypesSetting.onClick {}
+        btnNumberPracticeQuizOtherSetting.onClick {}
+        btnNumberPracticeQuizStart.onClick { sharedViewModel.initSession() }
     }
 
     override fun observeData() = with(this) {
-        /*observe(viewModel.numberQuizCountPref) {
-            btnNumberPracticeQuizCountSetting.text = it.toString()
-        }*/
-        //btnNumberPracticeQuizTypesSetting.text = "Типы тестов: "
-
+        observe(sharedViewModel.isLoaderShown) { isLoaderShown ->
+            btnNumberPracticeQuizStart.isVisible = !isLoaderShown
+            pbNumberPracticeQuizIsLoading.isVisible = isLoaderShown
+        }
+        observe(sharedViewModel.observeNavigateToQuiz()) {
+            it.getContentIfNotHandled()?.run { findNavController().navigate(this) }
+        }
     }
 
     companion object {

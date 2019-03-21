@@ -2,73 +2,76 @@ package ru.jjba.jr2.presentation.viewmodel.number
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
+import androidx.navigation.NavDirections
+import kotlinx.coroutines.launch
+import ru.jjba.jr2.presentation.ui.number.PracticeNumberQuizType
+import ru.jjba.jr2.presentation.ui.number.PracticeNumberSingleQuiz
+import ru.jjba.jr2.presentation.ui.number.quiz.NumberPracticeQuizFragmentDirections
+import ru.jjba.jr2.presentation.ui.number.settings.NumberPracticeSettingsFragmentDirections
+import ru.jjba.jr2.presentation.util.JpNumber
+import ru.jjba.jr2.presentation.viewmodel.base.BaseViewModel
 import ru.jjba.jr2.presentation.viewmodel.util.LiveData.CounterLiveData
+import ru.jjba.jr2.presentation.viewmodel.util.LiveData.ExecutorLiveData
+import ru.jjba.jr2.presentation.viewmodel.util.ViewModelEvent
 import kotlin.random.Random
 
 class NumberPracticeSharedViewModel : BaseViewModel() {
-    private val sessionTimer = CounterLiveData(coroutineContext)
-    private val nextQuiz = MutableLiveData<NumberPracticeQuiz>()
+    val sessionTimer = CounterLiveData(coroutineContext)
 
-    private val quizzesPool = mutableListOf<NumberPracticeQuiz>()
-    private var currentQuizIdx = -1
+    private var quizzesPool = emptyList<PracticeNumberSingleQuiz>()
+    private val currentQuiz = MutableLiveData<PracticeNumberSingleQuiz>()
+    private var currentPoolIdx = -1
+    fun observeCurrentQuiz(): LiveData<PracticeNumberSingleQuiz> = currentQuiz
 
-    fun observeSessionTime(): LiveData<Int> = sessionTimer
-    fun observeNextQuiz(): LiveData<NumberPracticeQuiz> = nextQuiz
+    private val navigateToQuiz = MutableLiveData<ViewModelEvent<NavDirections>>()
+    fun observeNavigateToQuiz(): LiveData<ViewModelEvent<NavDirections>> = navigateToQuiz
+    private val navigateToResult = MutableLiveData<ViewModelEvent<NavDirections>>()
+    fun observeNavigateToResult(): LiveData<ViewModelEvent<NavDirections>> = navigateToResult
 
-    fun onStartPracticeSession() {
-        // TODO: if not requested to repeat then create new pool else shuffle
-        // launch coroutin on pool generation, on finish emmit event "navigateToQuizFragment"
-        createSessionQuizzesPool()
+    val isLoaderShown = ExecutorLiveData(true, false)
+
+    init {
+        sessionRepositoryInstance = NumberPracticeSessionRepository()
     }
 
-    fun onFinishPracticeSession() {
-        // TODO: emmit event of navigation to result fragment or pop back if total answers less then 1
+    fun initSession() = launch {
+        clearPreviousSession()
+        isLoaderShown.execute { onSessionPrepare() }
+        onSessionLaunch()
     }
 
-    fun pollNextQuiz() {
-        if (currentQuizIdx < quizzesPool.count()) {
-            currentQuizIdx += 1
+    fun pullNextQuiz() {
+        quizzesPool.getOrNull(++currentPoolIdx)?.let {
+            currentQuiz.postValue(it)
+        } ?: onSessionFinish()
+    }
+
+    private fun onSessionPrepare() {
+        //TODO: set all data to initial state except quizzesPool if isRepeatRequested == false
+
+    }
+
+    private fun onSessionLaunch() {
+        val direction = NumberPracticeSettingsFragmentDirections
+                .actionNavNumberPracticeSettingsToQuiz()
+        navigateToQuiz.postValue(ViewModelEvent(direction))
+        sessionTimer.changeCounterState(false)
+    }
+
+    private fun onSessionFinish() {
+        val direction = if (/*givenAnswers.count() > 0*/false) {
+            NumberPracticeQuizFragmentDirections.actionNavNumberPracticeQuizToResult()
         } else {
-            onFinishPracticeSession()
+            NumberPracticeQuizFragmentDirections.actionNavNumberPracticeQuizToSettingsPop()
         }
-        nextQuiz.postValue(quizzesPool[currentQuizIdx])
+        navigateToResult.postValue(ViewModelEvent(direction))
     }
 
-    fun onTimerStateChange(isPauseRequested: Boolean) {
-        sessionTimer.changeCounterState(!isPauseRequested)
+    private fun clearPreviousSession() {
+        currentPoolIdx = -1
     }
 
-    private fun createSessionQuizzesPool() {
-        // TODO: Create the questions pool by settings from shared prefs
-        val genFromValue = 1
-        val genToValue = 1000
-        val quizCount = 10
-
-        for (i in 0..quizCount) {
-            val newCorrectVariant = Random.nextInt(genFromValue, genToValue)
-            val newVariants = mutableListOf<Int>()
-            // add correct variant
-            newVariants.add(newCorrectVariant)
-            // add correct variant -/+ 5
-            newVariants.add((Random.nextInt(newCorrectVariant - 5, newCorrectVariant + 5)))
-            // add correct variant * 10
-            newVariants.add((newCorrectVariant * 10))
-            // add completely different variant from correct
-            var rndInt = Random.nextInt(genFromValue, genToValue)
-            while (rndInt == newCorrectVariant) {
-                rndInt = Random.nextInt(genFromValue, genToValue)
-            }
-            newVariants.add(rndInt)
-            newVariants.shuffle()
-
-            quizzesPool.add(NumberPracticeQuiz(newCorrectVariant, newVariants, ""))
-        }
+    companion object {
+        lateinit var sessionRepositoryInstance: NumberPracticeSessionRepository
     }
 }
-// TODO: Come up with the better idea what properties a quiz should have
-class NumberPracticeQuiz(
-        val question: Int,
-        val variants: List<Int>,
-        val type: String
-)

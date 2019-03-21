@@ -11,8 +11,8 @@ import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.selector
 import ru.jjba.jr2.R
-import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
-import ru.jjba.jr2.presentation.viewmodel.shared.NavDetail
+import ru.jjba.jr2.presentation.util.NavDetail
+import ru.jjba.jr2.presentation.viewmodel.base.BaseViewModel
 import ru.jjba.jr2.presentation.viewmodel.shared.NavDetailViewModel
 import ru.jjba.jr2.presentation.viewmodel.util.observe
 import kotlin.random.Random

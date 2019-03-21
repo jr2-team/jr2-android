@@ -11,7 +11,7 @@ import ru.jjba.jr2.presentation.viewmodel.splash.SplashViewModel
 import ru.jjba.jr2.presentation.viewmodel.util.InjectorUtil
 
 class SplashActivity : BaseActivity<SplashViewModel>() {
-    override val layoutRes = R.layout.fragment_splash
+    override val layoutRes = R.layout.activity_splash
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

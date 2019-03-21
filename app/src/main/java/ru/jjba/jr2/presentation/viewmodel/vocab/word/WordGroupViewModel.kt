@@ -8,8 +8,8 @@ import ru.jjba.jr2.domain.entity.Group
 import ru.jjba.jr2.domain.room.select.SectionWithGroups
 import ru.jjba.jr2.domain.usecase.SectionUseCase
 import ru.jjba.jr2.presentation.ui.vocab.word.group.WordGroupFragmentDirections
-import ru.jjba.jr2.presentation.viewmodel.BaseViewModel
-import ru.jjba.jr2.presentation.viewmodel.ViewModelEvent
+import ru.jjba.jr2.presentation.viewmodel.base.BaseViewModel
+import ru.jjba.jr2.presentation.viewmodel.util.ViewModelEvent
 import ru.jjba.jr2.presentation.viewmodel.util.defaultValue
 
 class WordGroupViewModel(

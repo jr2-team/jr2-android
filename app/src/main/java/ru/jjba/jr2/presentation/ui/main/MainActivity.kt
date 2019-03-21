@@ -7,6 +7,7 @@ import androidx.navigation.ui.NavigationUI
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.jjba.jr2.R
 import ru.jjba.jr2.presentation.ui.base.BaseActivity
+import ru.jjba.jr2.presentation.ui.number.settings.NumberPracticeSettingsQuizCountDialog
 import ru.jjba.jr2.presentation.viewmodel.main.MainViewModel
 import ru.jjba.jr2.presentation.viewmodel.shared.NavDetailViewModel
 import ru.jjba.jr2.presentation.viewmodel.util.InjectorUtil
@@ -24,7 +25,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
         viewModel = ViewModelProviders.of(
                 this,
                 InjectorUtil.provideMainViewModel()
-        )[MainViewModel::class.java]
+        ).get(MainViewModel::class.java)
         setSupportActionBar(tbMain)
         setupNavigation()
     }
@@ -32,7 +33,14 @@ class MainActivity : BaseActivity<MainViewModel>() {
     override fun onSupportNavigateUp() = navController.navigateUp()
 
     override fun onBackPressed() {
+        val currentDestination = navController.currentDestination?.id
+        // handel back button pressed during Number Practice Session
+        if (currentDestination == R.id.numberPracticeQuizzFragment) {
+            //NumberPracticeSettingsQuizCountDialog().show(supportFragmentManager, "")
+            //return
+        }
         super.onBackPressed()
+        // handel back button pressed in navDetail fragments
         when (navController.currentDestination?.id) {
             R.id.kanjiDetailFragment,
             R.id.wordDetailFragment -> Unit

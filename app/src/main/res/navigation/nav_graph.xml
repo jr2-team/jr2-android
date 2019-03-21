@@ -128,23 +128,28 @@
             android:name="ru.jjba.jr2.presentation.ui.number.settings.NumberPracticeSettingsFragment"
             android:label="NumberPracticeSettingsFragment" >
             <action
-                android:id="@+id/action_numberPracticeSettingsFragment_to_numberPracticeQuizzFragment"
-                app:destination="@id/numberPracticeQuizzFragment" />
+
+                android:id="@+id/actionNavNumberPracticeSettingsToQuiz"
+                app:destination="@id/numberPracticeQuizzFragment"
+                app:enterAnim="@anim/nav_default_enter_anim" />
         </fragment>
         <fragment
             android:id="@+id/numberPracticeQuizzFragment"
             android:name="ru.jjba.jr2.presentation.ui.number.quiz.NumberPracticeQuizFragment"
             android:label="NumberPracticeQuizzFragment" >
             <action
-                android:id="@+id/action_numberPracticeQuizzFragment_to_numberPracticeResultFragment"
+                android:id="@+id/actionNavNumberPracticeQuizToResult"
                 app:destination="@id/numberPracticeResultFragment" />
+            <action
+                android:id="@+id/actionNavNumberPracticeQuizToSettingsPop"
+                app:popUpTo="@id/numberPracticeSettingsFragment" />
         </fragment>
         <fragment
             android:id="@+id/numberPracticeResultFragment"
             android:name="ru.jjba.jr2.presentation.ui.number.result.NumberPracticeResultFragment"
             android:label="NumberPracticeResultFragment" >
             <action
-                android:id="@+id/action_numberPracticeResultFragment_to_numberPracticeSettingsFragment"
+                android:id="@+id/actionNavNumberPracticeResultToSettingsPop"
                 app:popUpTo="@id/numberPracticeSettingsFragment" />
         </fragment>
     </navigation>
