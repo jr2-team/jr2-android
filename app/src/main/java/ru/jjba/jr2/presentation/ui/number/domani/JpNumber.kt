@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.util
+package ru.jjba.jr2.presentation.ui.number.domani
 
 import io.github.pnzeml.num2jp.getNumberInKanji
 import io.github.pnzeml.num2jp.getNumberInKatakana

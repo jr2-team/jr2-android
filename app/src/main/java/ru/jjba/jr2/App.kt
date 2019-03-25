@@ -2,13 +2,11 @@ package ru.jjba.jr2
 
 import android.speech.tts.TextToSpeech
 import android.util.Log
-import androidx.lifecycle.MutableLiveData
 import androidx.multidex.MultiDexApplication
 import com.squareup.moshi.Moshi
 import okio.buffer
 import okio.source
 import ru.jjba.jr2.data.db.AppDatabase
-import ru.jjba.jr2.presentation.viewmodel.util.defaultValue
 import java.util.*
 
 class App : MultiDexApplication(), TextToSpeech.OnInitListener {
@@ -20,9 +18,9 @@ class App : MultiDexApplication(), TextToSpeech.OnInitListener {
         var content = String()
         assets.open(assetName).use { stream ->
             content = stream.source()
-                    .buffer()
-                    .readUtf8()
-                    .filterNot { it == '\uFEFF' }
+                .buffer()
+                .readUtf8()
+                .filterNot { it == '\uFEFF' }
         }
         return content
     }

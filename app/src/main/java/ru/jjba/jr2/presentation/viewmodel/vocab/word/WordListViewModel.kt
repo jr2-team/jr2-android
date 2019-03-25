@@ -47,7 +47,6 @@ class WordListViewModel(
 
     private fun fetchData() = launch {
         areWordsLoading.postValue(true)
-        delay(1000L)
         wordGroup.postValue(groupRepository.getById(wordGroupIdArg).await())
         words.postValue(wordRepository.getWordsByGroupId(wordGroupIdArg).await())
     }.invokeOnCompletion {

@@ -19,7 +19,7 @@ class SplashViewModel(
     fun observeIsAllowedToNavToMain(): LiveData<Boolean> = isAllowedToNavToMain
 
     private fun setupDbData() = launch {
-        //testDataUseCase.setupDbData()
+        testDataUseCase.setupDbData()
     }.invokeOnCompletion {
         isAllowedToNavToMain.postValue(true)
     }

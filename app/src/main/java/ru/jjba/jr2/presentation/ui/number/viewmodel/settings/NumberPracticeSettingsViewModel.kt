@@ -1,4 +1,4 @@
-package ru.jjba.jr2.presentation.viewmodel.number.settings
+package ru.jjba.jr2.presentation.ui.number.viewmodel.settings
 
 import android.content.SharedPreferences
 import ru.jjba.jr2.presentation.viewmodel.util.LiveData.SharedPreferenceLiveData

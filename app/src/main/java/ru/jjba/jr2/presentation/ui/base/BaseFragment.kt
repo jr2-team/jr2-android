@@ -35,7 +35,7 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     open fun injectViewModel() {
         ViewModelProviders
-                .of(this, viewModel.createFactory())
+                .of(this/*, viewModel.createFactory()*/)
                 .get(viewModel::class.java)
     }
 

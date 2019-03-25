@@ -125,7 +125,7 @@
         app:startDestination="@id/numberPracticeSettingsFragment">
         <fragment
             android:id="@+id/numberPracticeSettingsFragment"
-            android:name="ru.jjba.jr2.presentation.ui.number.settings.NumberPracticeSettingsFragment"
+            android:name="ru.jjba.jr2.presentation.ui.number.view.settings.NumberPracticeSettingsFragment"
             android:label="NumberPracticeSettingsFragment" >
             <action
 
@@ -135,7 +135,7 @@
         </fragment>
         <fragment
             android:id="@+id/numberPracticeQuizzFragment"
-            android:name="ru.jjba.jr2.presentation.ui.number.quiz.NumberPracticeQuizFragment"
+            android:name="ru.jjba.jr2.presentation.ui.number.view.quiz.NumberPracticeQuizFragment"
             android:label="NumberPracticeQuizzFragment" >
             <action
                 android:id="@+id/actionNavNumberPracticeQuizToResult"
@@ -146,7 +146,7 @@
         </fragment>
         <fragment
             android:id="@+id/numberPracticeResultFragment"
-            android:name="ru.jjba.jr2.presentation.ui.number.result.NumberPracticeResultFragment"
+            android:name="ru.jjba.jr2.presentation.ui.number.view.result.NumberPracticeResultFragment"
             android:label="NumberPracticeResultFragment" >
             <action
                 android:id="@+id/actionNavNumberPracticeResultToSettingsPop"

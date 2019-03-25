@@ -1,6 +1,6 @@
-package ru.jjba.jr2.presentation.ui.number
+package ru.jjba.jr2.presentation.ui.number.domani
 
-enum class PracticeNumberQuizType(val code: Int) {
+enum class JpNumberQuizType(val code: Int) {
     HIROGANA_KANJI(0),
     HIROGANA_NUMBER(1),
     KANJI_HIROGANA(2),
@@ -12,7 +12,7 @@ enum class PracticeNumberQuizType(val code: Int) {
         fun getRandom(vararg codes: Int) =
                 fromCode(codes.toList().shuffled().first())
 
-        fun fromCode(code: Int): PracticeNumberQuizType {
+        fun fromCode(code: Int): JpNumberQuizType {
             return when (code) {
                 HIROGANA_KANJI.code -> HIROGANA_KANJI
                 HIROGANA_NUMBER.code -> HIROGANA_NUMBER
