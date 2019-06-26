@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import io.github.jr2team.jr2android.domain.usecase.TestDataUseCase
-import io.github.jr2team.jr2android.presentation.viewmodel.BaseViewModel
 import io.github.jr2team.jr2android.presentation.viewmodel.util.defaultValue
 
 class SplashViewModel(

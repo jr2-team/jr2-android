@@ -18,12 +18,10 @@ class WordDbRepository(
     fun getAll() =
             async { wordDao.getAll() }
 
-    fun getWordsByGroupId(groupId: Int) =
-            async { wordDao.getWordsByGroupId(groupId) }
+    suspend fun getWordsByGroupId(groupId: Int) = wordDao.getWordsByGroupId(groupId)
 
-    fun insertWordIntoGroup(groupOfWordJoin: List<GroupOfWordsJoin>) =
-            async { wordDao.insertWordIntoGroup(groupOfWordJoin) }
+    suspend fun insertWordIntoGroup(groupOfWordJoin: List<GroupOfWordsJoin>) =
+        wordDao.insertWordIntoGroup(groupOfWordJoin)
 
-    fun dropAndInsert(words: List<Word>) =
-            async { wordDao.dropAndInsert(words) }
+    suspend fun dropAndInsert(words: List<Word>) = wordDao.dropAndInsert(words)
 }

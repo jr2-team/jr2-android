@@ -11,9 +11,7 @@ abstract class BaseDbRepository<ET> internal constructor(
 ) : CoroutineScope {
     override val coroutineContext: CoroutineContext = Dispatchers.Default
 
-    fun insertSingle(value: ET) =
-            async { dao.insertSingle(value) }
+    suspend fun insertSingle(value: ET) = dao.insertSingle(value)
 
-    fun insertMany(values: List<ET>) =
-            async { dao.insertMany(values) }
+    suspend fun insertMany(values: List<ET>) = dao.insertMany(values)
 }

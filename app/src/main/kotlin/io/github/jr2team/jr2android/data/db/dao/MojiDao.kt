@@ -12,11 +12,11 @@ abstract class MojiDao : BaseDao<Moji> {
     @Query("SELECT * FROM Moji")
     abstract fun getAll(): List<Moji>
 
-    @Query(// @formatter:off
-        "SELECT k.* FROM Moji as k " +
-        "INNER JOIN ComponentOfKanjiJoin AS c " +
-            "ON k.id = c.mojiComponentId " +
-        "WHERE c.mojiId = :mojiId"// @formatter:on
+    @Query("""
+        SELECT k.* 
+        FROM Moji as k 
+            INNER JOIN ComponentOfKanjiJoin AS c ON k.id = c.mojiComponentId 
+        WHERE c.mojiId = :mojiId"""
     )
     abstract fun getKanjiComponents(mojiId: Int): List<Moji>
 }

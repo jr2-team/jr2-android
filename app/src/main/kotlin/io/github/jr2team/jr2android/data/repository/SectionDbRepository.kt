@@ -1,6 +1,5 @@
 package io.github.jr2team.jr2android.data.repository
 
-import kotlinx.coroutines.async
 import io.github.jr2team.jr2android.App
 import io.github.jr2team.jr2android.data.db.AppDatabase
 import io.github.jr2team.jr2android.data.db.dao.SectionDao
@@ -11,6 +10,5 @@ class SectionDbRepository(
 ) : BaseDbRepository<Section>(db.getSectionDao()) {
     private val sectionDao = dao as SectionDao
 
-    fun getSectionsWithGroups() =
-            async { sectionDao.getSectionsWithGroups() }
+    suspend fun getSectionsWithGroups() = sectionDao.getSectionsWithGroups()
 }

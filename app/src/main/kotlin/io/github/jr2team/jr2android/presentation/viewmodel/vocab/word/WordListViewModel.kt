@@ -2,22 +2,22 @@ package io.github.jr2team.jr2android.presentation.viewmodel.vocab.word
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import io.github.jr2team.jr2android.data.repository.GroupDbRepository
 import io.github.jr2team.jr2android.data.repository.WordDbRepository
 import io.github.jr2team.jr2android.domain.entity.Group
 import io.github.jr2team.jr2android.domain.entity.Word
 import io.github.jr2team.jr2android.presentation.ui.vocab.word.list.WordListFragmentDirections
-import io.github.jr2team.jr2android.presentation.viewmodel.BaseViewModel
 import io.github.jr2team.jr2android.presentation.viewmodel.ViewModelEvent
+import kotlinx.coroutines.launch
 import kotlin.properties.Delegates.observable
 
 class WordListViewModel(
         private val groupRepository: GroupDbRepository = GroupDbRepository(),
         private val wordRepository: WordDbRepository = WordDbRepository()
-) : BaseViewModel() {
+) : ViewModel() {
     private var wordGroupIdArg: Int by observable(Int.MIN_VALUE) { _, oldValue, newValue ->
         if (oldValue != newValue) {
             clearData()
@@ -45,11 +45,10 @@ class WordListViewModel(
         navToWordDetailEvent.value = ViewModelEvent(direction)
     }
 
-    private fun fetchData() = launch {
+    private fun fetchData() = viewModelScope.launch {
         areWordsLoading.postValue(true)
-        delay(1000L)
-        wordGroup.postValue(groupRepository.getById(wordGroupIdArg).await())
-        words.postValue(wordRepository.getWordsByGroupId(wordGroupIdArg).await())
+        wordGroup.postValue(groupRepository.getById(wordGroupIdArg))
+        words.postValue(wordRepository.getWordsByGroupId(wordGroupIdArg))
     }.invokeOnCompletion {
         areWordsLoading.postValue(false)
     }

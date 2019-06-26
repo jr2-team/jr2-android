@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.toolbar_nav_detail.*
@@ -11,13 +12,12 @@ import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.selector
 import io.github.jr2team.jr2android.R
-import io.github.jr2team.jr2android.presentation.viewmodel.BaseViewModel
 import io.github.jr2team.jr2android.presentation.viewmodel.shared.NavDetail
 import io.github.jr2team.jr2android.presentation.viewmodel.shared.NavDetailViewModel
 import io.github.jr2team.jr2android.presentation.viewmodel.util.observe
 import kotlin.random.Random
 
-abstract class NavDetailFragment<VT : BaseViewModel> : BaseFragment<VT>() {
+abstract class NavDetailFragment<VT : ViewModel> : BaseFragment<VT>() {
     private val navDetailViewModel: NavDetailViewModel by lazy {
         ViewModelProviders.of(act).get(NavDetailViewModel::class.java)
     }

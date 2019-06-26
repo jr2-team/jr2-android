@@ -1,6 +1,5 @@
 package io.github.jr2team.jr2android.data.repository
 
-import kotlinx.coroutines.async
 import io.github.jr2team.jr2android.App
 import io.github.jr2team.jr2android.data.db.AppDatabase
 import io.github.jr2team.jr2android.data.db.dao.GroupDao
@@ -11,16 +10,12 @@ class GroupDbRepository(
 ) : BaseDbRepository<Group>(db.getGroupDao()) {
     private val groupDao = dao as GroupDao
 
-    fun getById(groupId: Int) =
-            async { groupDao.getById(groupId) }
+    suspend fun getById(groupId: Int) = groupDao.getById(groupId)
 
-    fun getAllKanjiGroup() =
-            async { groupDao.getAllGroupsOfKanjis() }
+    suspend fun getAllKanjiGroup() = groupDao.getAllGroupsOfKanjis()
 
-    fun getAllWordGroup() =
-            async { groupDao.getAllGroupsOfWords() }
+    suspend fun getAllWordGroup() = groupDao.getAllGroupsOfWords()
 
-    fun getItemsCountInGroup(groupId: Int) =
-            async { groupDao.getItemsCountInGroup(groupId) }
+    suspend fun getItemsCountInGroup(groupId: Int) = groupDao.getItemsCountInGroup(groupId)
 
 }

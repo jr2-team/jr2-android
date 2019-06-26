@@ -2,19 +2,20 @@ package io.github.jr2team.jr2android.presentation.viewmodel.vocab.word
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
-import kotlinx.coroutines.launch
 import io.github.jr2team.jr2android.domain.entity.Group
 import io.github.jr2team.jr2android.domain.room.select.SectionWithGroups
 import io.github.jr2team.jr2android.domain.usecase.SectionUseCase
 import io.github.jr2team.jr2android.presentation.ui.vocab.word.group.WordGroupFragmentDirections
-import io.github.jr2team.jr2android.presentation.viewmodel.BaseViewModel
 import io.github.jr2team.jr2android.presentation.viewmodel.ViewModelEvent
 import io.github.jr2team.jr2android.presentation.viewmodel.util.defaultValue
+import kotlinx.coroutines.launch
 
 class WordGroupViewModel(
         private val sectionUseCase: SectionUseCase = SectionUseCase()
-) : BaseViewModel() {
+) : ViewModel() {
     private val navToWordListEvent = MutableLiveData<ViewModelEvent<NavDirections>>()
 
     private var wordGroupSections = MutableLiveData<List<SectionWithGroups>>()
@@ -34,7 +35,7 @@ class WordGroupViewModel(
         navToWordListEvent.value = ViewModelEvent(direction)
     }
 
-    private fun fetchData() = launch {
+    private fun fetchData() = viewModelScope.launch {
         areSectionsLoading.postValue(true)
         wordGroupSections.postValue(sectionUseCase.getWordSections())
 
