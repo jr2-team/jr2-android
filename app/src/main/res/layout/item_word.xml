@@ -19,23 +19,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <se.fekete.furiganatextview.furiganaview.FuriganaTextView
-        android:id="@+id/ftvWord"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:text="test"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:contains_ruby_tags="true"
-        app:furigana_text_color="@color/colorPrimaryLight"
-        app:layout_constraintEnd_toStartOf="@+id/tvJlptLevel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/tvJlptLevel"
         android:layout_width="wrap_content"
@@ -45,9 +28,9 @@
         android:layout_marginBottom="8dp"
         android:text="N5"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/ftvWord"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ftvWord" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvBasicInterp"
@@ -63,6 +46,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvWordId"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ftvWord" />
+        app:layout_constraintTop_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
