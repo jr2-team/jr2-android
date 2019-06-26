@@ -9,11 +9,10 @@ buildscript {
     }
     dependencies {
         classpath("com.android.tools.build:gradle:3.4.1")
-        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion")
     }
 }
-
 allprojects {
     repositories {
         google()
