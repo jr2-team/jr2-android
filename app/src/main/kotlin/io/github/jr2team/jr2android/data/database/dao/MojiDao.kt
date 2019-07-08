@@ -1,4 +1,4 @@
-package io.github.jr2team.jr2android.data.db.dao
+package io.github.jr2team.jr2android.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Query
@@ -10,7 +10,7 @@ abstract class MojiDao : BaseDao<Moji> {
     abstract fun getById(mojiId: Int): Moji
 
     @Query("SELECT * FROM Moji")
-    abstract fun getAll(): List<Moji>
+    abstract suspend fun getAll(): List<Moji>
 
     @Query("""
         SELECT k.* 
@@ -18,5 +18,5 @@ abstract class MojiDao : BaseDao<Moji> {
             INNER JOIN ComponentOfKanjiJoin AS c ON k.id = c.mojiComponentId 
         WHERE c.mojiId = :mojiId"""
     )
-    abstract fun getKanjiComponents(mojiId: Int): List<Moji>
+    abstract suspend fun getKanjiComponents(mojiId: Int): List<Moji>
 }

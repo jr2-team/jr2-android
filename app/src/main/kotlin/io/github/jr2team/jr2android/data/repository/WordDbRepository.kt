@@ -2,8 +2,8 @@ package io.github.jr2team.jr2android.data.repository
 
 import kotlinx.coroutines.async
 import io.github.jr2team.jr2android.App
-import io.github.jr2team.jr2android.data.db.AppDatabase
-import io.github.jr2team.jr2android.data.db.dao.WordDao
+import io.github.jr2team.jr2android.data.database.AppDatabase
+import io.github.jr2team.jr2android.data.database.dao.WordDao
 import io.github.jr2team.jr2android.domain.entity.Word
 import io.github.jr2team.jr2android.domain.room.join.GroupOfWordsJoin
 
@@ -12,11 +12,9 @@ class WordDbRepository(
 ) : BaseDbRepository<Word>(db.getWordDao()) {
     private val wordDao = dao as WordDao
 
-    fun getById(wordId: Int) =
-            async { wordDao.getById(wordId) }
+    suspend fun getById(wordId: Int) = wordDao.getById(wordId)
 
-    fun getAll() =
-            async { wordDao.getAll() }
+    suspend fun getAll() = wordDao.getAll()
 
     suspend fun getWordsByGroupId(groupId: Int) = wordDao.getWordsByGroupId(groupId)
 

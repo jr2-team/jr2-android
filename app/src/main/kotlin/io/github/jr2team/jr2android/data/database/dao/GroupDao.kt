@@ -1,4 +1,4 @@
-package io.github.jr2team.jr2android.data.db.dao
+package io.github.jr2team.jr2android.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Query

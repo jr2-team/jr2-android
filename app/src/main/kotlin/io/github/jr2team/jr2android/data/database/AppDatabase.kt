@@ -1,11 +1,11 @@
-package io.github.jr2team.jr2android.data.db
+package io.github.jr2team.jr2android.data.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import io.github.jr2team.jr2android.data.db.dao.*
+import io.github.jr2team.jr2android.data.database.dao.*
 import io.github.jr2team.jr2android.domain.entity.*
 import io.github.jr2team.jr2android.domain.room.join.ComponentOfKanjiJoin
 import io.github.jr2team.jr2android.domain.room.join.GroupOfWordsJoin

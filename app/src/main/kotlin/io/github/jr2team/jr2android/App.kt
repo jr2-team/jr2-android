@@ -6,7 +6,7 @@ import androidx.multidex.MultiDexApplication
 import com.squareup.moshi.Moshi
 import okio.buffer
 import okio.source
-import io.github.jr2team.jr2android.data.db.AppDatabase
+import io.github.jr2team.jr2android.data.database.AppDatabase
 import java.util.*
 
 class App : MultiDexApplication(), TextToSpeech.OnInitListener {

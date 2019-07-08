@@ -2,8 +2,8 @@ package io.github.jr2team.jr2android.data.repository
 
 import kotlinx.coroutines.async
 import io.github.jr2team.jr2android.App
-import io.github.jr2team.jr2android.data.db.AppDatabase
-import io.github.jr2team.jr2android.data.db.dao.MojiDao
+import io.github.jr2team.jr2android.data.database.AppDatabase
+import io.github.jr2team.jr2android.data.database.dao.MojiDao
 import io.github.jr2team.jr2android.domain.entity.Moji
 
 class MojiDbRepository(
@@ -11,9 +11,7 @@ class MojiDbRepository(
 ) : BaseDbRepository<Moji>(db.getMojiDao()) {
     private val mojiDao = dao as MojiDao
 
-    fun getAll() =
-            async { mojiDao.getAll() }
+    suspend fun getAll() = mojiDao.getAll()
 
-    fun getMojiComponents(mojiId: Int) =
-            async { mojiDao.getKanjiComponents(mojiId) }
+    suspend fun getMojiComponents(mojiId: Int) = mojiDao.getKanjiComponents(mojiId)
 }

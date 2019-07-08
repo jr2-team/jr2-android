@@ -1,4 +1,4 @@
-package io.github.jr2team.jr2android.data.db
+package io.github.jr2team.jr2android.data.database
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase

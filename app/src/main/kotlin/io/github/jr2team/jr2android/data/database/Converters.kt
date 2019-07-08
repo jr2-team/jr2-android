@@ -1,4 +1,4 @@
-package io.github.jr2team.jr2android.data.db
+package io.github.jr2team.jr2android.data.database
 
 import androidx.room.TypeConverter
 import io.github.jr2team.jr2android.domain.enums.GroupType
