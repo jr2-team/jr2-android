@@ -12,18 +12,18 @@ import io.github.jr2team.jr2android.domain.room.join.GroupOfWordsJoin
 import io.github.jr2team.jr2android.domain.room.join.WordInSentenceJoin
 
 @Database(
-        entities = [
-            Kana::class,
-            Moji::class,
-            Word::class,
-            Sentence::class,
-            ComponentOfKanjiJoin::class,
-            WordInSentenceJoin::class,
-            Group::class,
-            GroupOfWordsJoin::class,
-            Section::class
-        ],
-        version = DbProviderFromAssets.DATABASE_VERSION
+    entities = [
+        Kana::class,
+        Moji::class,
+        Word::class,
+        Sentence::class,
+        ComponentOfKanjiJoin::class,
+        WordInSentenceJoin::class,
+        Group::class,
+        GroupOfWordsJoin::class,
+        Section::class
+    ],
+    version = DbProviderFromAssets.DATABASE_VERSION
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
@@ -39,9 +39,9 @@ abstract class AppDatabase : RoomDatabase() {
             Room.inMemoryDatabaseBuilder(context.applicationContext, AppDatabase::class.java)
         } else {
             Room.databaseBuilder(
-                    context.applicationContext,
-                    AppDatabase::class.java,
-                    DbProviderFromAssets.DATABASE_NAME
+                context.applicationContext,
+                AppDatabase::class.java,
+                DbProviderFromAssets.DATABASE_NAME
             )
         }.build()
     }
