@@ -6,10 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import io.github.jr2team.jr2android.data.database.dao.*
-import io.github.jr2team.jr2android.domain.entity.*
-import io.github.jr2team.jr2android.domain.room.join.ComponentOfKanjiJoin
-import io.github.jr2team.jr2android.domain.room.join.GroupOfWordsJoin
-import io.github.jr2team.jr2android.domain.room.join.WordInSentenceJoin
+import io.github.jr2team.jr2android.domain.room_entities.entity.*
+import io.github.jr2team.jr2android.domain.room_entities.join.ComponentOfKanjiJoin
+import io.github.jr2team.jr2android.domain.room_entities.join.GroupOfWordsJoin
+import io.github.jr2team.jr2android.domain.room_entities.join.WordInSentenceJoin
 
 @Database(
     entities = [

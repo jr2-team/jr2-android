@@ -2,14 +2,14 @@ package io.github.jr2team.jr2android.presentation.vocabulary.word.group._viewmod
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import io.github.jr2team.jr2android.domain.entity.Group
-import io.github.jr2team.jr2android.domain.usecase.SectionUseCase
+import io.github.jr2team.jr2android.domain.room_entities.entity.Group
+import io.github.jr2team.jr2android.domain.usecase.vocabular.word.group.GetWordSectionsUseCase
 import io.github.jr2team.jr2android.presentation.vocabulary.word.group._view.WordGroupFragmentDirections
 import io.reactivex.subjects.PublishSubject
 import kotlinx.coroutines.launch
 
 class WordGroupViewModel(
-    private val sectionUseCase: SectionUseCase = SectionUseCase()
+    private val getWordSectionsUseCase: GetWordSectionsUseCase = GetWordSectionsUseCase()
 ) : ViewModel() {
     val statePublisher = PublishSubject.create<WordGroupState>()
 
@@ -21,7 +21,7 @@ class WordGroupViewModel(
     private fun onGetSectionsRequested() {
         statePublisher.onNext(WordGroupState.GetWordSectionsLoading(true))
         viewModelScope.launch {
-            val sections = sectionUseCase.getWordSections()
+            val sections = getWordSectionsUseCase.execute()
             statePublisher.onNext(WordGroupState.GetWordSectionsSucceeded(sections))
         }.invokeOnCompletion {
             statePublisher.onNext(WordGroupState.GetWordSectionsLoading(false))

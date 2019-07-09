@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import io.github.jr2team.jr2android.R
-import io.github.jr2team.jr2android.domain.room.select.SectionWithGroups
+import io.github.jr2team.jr2android.domain.room_entities.select.SectionWithGroups
 import io.github.jr2team.jr2android.presentation.vocabulary.word.group._viewmodel.WordGroupEvent
 import org.zakariya.stickyheaders.SectioningAdapter
 import kotlin.properties.Delegates.observable
@@ -18,15 +18,13 @@ class WordGroupAdapter : SectioningAdapter() {
     var onWordGroupItemClicked: ((WordGroupEvent) -> Unit)? = null
 
     var collapseSectionState: IntArray
-        get() =
-            (0 until sections.size)
-                .filter { isSectionCollapsed(it) }
-                .toIntArray()
-        set(value) =
-            value.forEach { idx ->
-                if (idx in 0 until sections.size)
-                    setSectionIsCollapsed(idx, true)
-            }
+        get() = (0 until sections.size)
+            .filter { isSectionCollapsed(it) }
+            .toIntArray()
+        set(value) = value.forEach { idx ->
+            if (idx in 0 until sections.size)
+                setSectionIsCollapsed(idx, true)
+        }
 
     override fun getNumberOfSections(): Int =
         sections.size
@@ -47,7 +45,7 @@ class WordGroupAdapter : SectioningAdapter() {
     override fun onCreateItemViewHolder(
         parent: ViewGroup?,
         itemViewType: Int
-    ): SectioningAdapter.ItemViewHolder {
+    ): ItemViewHolder {
         val inflater = LayoutInflater.from(parent?.context)
         return WordGroupItemViewHolder(
             inflater.inflate(R.layout.item_word_group, parent, false),
@@ -58,7 +56,7 @@ class WordGroupAdapter : SectioningAdapter() {
     override fun onCreateHeaderViewHolder(
         parent: ViewGroup?,
         headerViewType: Int
-    ): SectioningAdapter.HeaderViewHolder {
+    ): HeaderViewHolder {
         val inflater = LayoutInflater.from(parent?.context)
         return WordGroupSectionViewHolder(
             inflater.inflate(R.layout.item_word_group_section, parent, false),
@@ -68,7 +66,7 @@ class WordGroupAdapter : SectioningAdapter() {
     }
 
     override fun onBindItemViewHolder(
-        viewHolder: SectioningAdapter.ItemViewHolder?,
+        viewHolder: ItemViewHolder?,
         sectionIndex: Int,
         itemIndex: Int,
         itemViewType: Int
@@ -78,7 +76,7 @@ class WordGroupAdapter : SectioningAdapter() {
     }
 
     override fun onBindHeaderViewHolder(
-        viewHolder: SectioningAdapter.HeaderViewHolder?,
+        viewHolder: HeaderViewHolder?,
         sectionIndex: Int,
         headerViewType: Int
     ) {

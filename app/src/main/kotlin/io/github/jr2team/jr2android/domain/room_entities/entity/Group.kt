@@ -1,4 +1,4 @@
-package io.github.jr2team.jr2android.domain.entity
+package io.github.jr2team.jr2android.domain.room_entities.entity
 
 import androidx.room.Entity
 import androidx.room.Ignore

@@ -1,28 +1,27 @@
 package io.github.jr2team.jr2android.presentation.vocabulary.word.detail._viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import io.github.jr2team.jr2android.data.repository.WordDbRepository
-import io.github.jr2team.jr2android.domain.entity.Word
+import io.reactivex.subjects.PublishSubject
 import kotlinx.coroutines.launch
 
 class WordDetailViewModel(
-        private val wordRepository: WordDbRepository = WordDbRepository()
+    private val wordRepository: WordDbRepository = WordDbRepository()
 ) : ViewModel() {
-    private var wordIdArg = 0
+    val statePublisher = PublishSubject.create<WordDetailState>()
 
-    private val word = MutableLiveData<Word>()
-
-    fun setArgs(wordId: Int) {
-        wordIdArg = wordId
-        fetchData()
+    fun onEvent(event: WordDetailEvent) = when (event) {
+        is WordDetailEvent.OnGetWordRequested -> onGetWordRequested(event.wordId)
     }
 
-    fun observeWord(): LiveData<Word> = word
-
-    private fun fetchData() = viewModelScope.launch {
-        word.postValue(wordRepository.getById(wordIdArg).await())
+    private fun onGetWordRequested(wordId: Int) {
+        statePublisher.onNext(WordDetailState.GetWordLoading(true))
+        viewModelScope.launch {
+            val word = wordRepository.getById(wordId)
+            statePublisher.onNext(WordDetailState.GetWordSucceeded(word))
+        }.invokeOnCompletion {
+            statePublisher.onNext(WordDetailState.GetWordLoading(false))
+        }
     }
 }

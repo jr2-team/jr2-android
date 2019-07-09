@@ -20,7 +20,6 @@ import org.jetbrains.anko.support.v4.ctx
 import org.zakariya.stickyheaders.StickyHeaderLayoutManager
 
 class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
-    override var viewModel = WordGroupViewModel()
     override val layoutRes = R.layout.fragment_word_group
     override val titleDefault
         get() = getString(R.string.word_group_fragment_title)
@@ -47,7 +46,7 @@ class WordGroupFragment : BaseFragment<WordGroupViewModel>() {
     }
 
     override fun subscribeOnRx() {
-        compositeDisposable.subscribe(viewModel.statePublisher) { state ->
+        disposables.subscribe(viewModel.statePublisher) { state ->
             when (state) {
                 is WordGroupState.NavigateToWordListFragment -> {
                     findNavController().navigate(state.direction)

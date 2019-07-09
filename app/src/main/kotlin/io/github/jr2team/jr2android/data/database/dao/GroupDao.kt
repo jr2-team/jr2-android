@@ -2,7 +2,7 @@ package io.github.jr2team.jr2android.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Query
-import io.github.jr2team.jr2android.domain.entity.Group
+import io.github.jr2team.jr2android.domain.room_entities.entity.Group
 
 @Dao
 abstract class GroupDao : BaseDao<Group> {
@@ -16,5 +16,5 @@ abstract class GroupDao : BaseDao<Group> {
     abstract suspend fun getAllGroupsOfWords(): List<Group>
 
     @Query("SELECT COUNT(id) FROM `GroupOfWordsJoin` WHERE groupId = :groupId")
-    abstract suspend  fun getItemsCountInGroup(groupId: Int): Int
+    abstract suspend  fun getItemsInGroup(groupId: Int): Int
 }

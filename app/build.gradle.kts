@@ -40,9 +40,10 @@ dependencies {
     implementation("com.google.android.material:material:1.1.0-alpha07")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     // Jet Pack - Lifecycle
-    val lifecycleVersion = "2.0.0"
+    val lifecycleVersion = "2.2.0-alpha02"
     implementation("androidx.lifecycle:lifecycle-extensions:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:1.0.0-alpha02")
     kapt("androidx.lifecycle:lifecycle-compiler:$lifecycleVersion")
     // Jet Pack - Layout
     implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta2")
@@ -97,7 +98,7 @@ dependencies {
     // Okio
     implementation("com.squareup.okio:okio:2.1.0")
     // StickyHeaders
-    implementation("org.zakariya.stickyheaders:stickyheaders:0.7.6")
+    implementation("org.zakariya.stickyheaders:stickyheaders:0.7.10")
     // ReactiveX
     implementation("io.reactivex.rxjava2:rxandroid:2.1.0")
     implementation("io.reactivex.rxjava2:rxjava:2.2.3")

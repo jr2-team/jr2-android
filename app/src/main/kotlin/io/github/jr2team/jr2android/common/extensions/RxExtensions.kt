@@ -7,7 +7,8 @@ fun <T> CompositeDisposable.subscribe(
     subject: Subject<T>,
     onNext: (t: T) -> Unit
 ) {
-    this.add(subject.subscribe(onNext))
+    val disposable = subject.distinctUntilChanged().subscribe(onNext)
+    this.add(disposable)
 }
 
 fun <T> CompositeDisposable.subscribe(
@@ -16,5 +17,6 @@ fun <T> CompositeDisposable.subscribe(
     onError: ((t: Throwable) -> Unit)? = null,
     onComplete: (() -> Unit)? = null
 ) {
-    this.add(subject.subscribe(onNext, onError, onComplete))
+    val disposable = subject.subscribe(onNext, onError, onComplete)
+    this.add(disposable)
 }

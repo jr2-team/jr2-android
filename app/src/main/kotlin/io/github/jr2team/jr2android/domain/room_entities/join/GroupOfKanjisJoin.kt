@@ -1,10 +1,10 @@
-package io.github.jr2team.jr2android.domain.room.join
+package io.github.jr2team.jr2android.domain.room_entities.join
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import io.github.jr2team.jr2android.domain.entity.Group
-import io.github.jr2team.jr2android.domain.entity.Moji
+import io.github.jr2team.jr2android.domain.room_entities.entity.Group
+import io.github.jr2team.jr2android.domain.room_entities.entity.Moji
 
 @Entity(foreignKeys = [
     ForeignKey(

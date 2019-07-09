@@ -1,8 +1,8 @@
 package io.github.jr2team.jr2android.data.database.dao
 
 import androidx.room.*
-import io.github.jr2team.jr2android.domain.entity.Word
-import io.github.jr2team.jr2android.domain.room.join.GroupOfWordsJoin
+import io.github.jr2team.jr2android.domain.room_entities.entity.Word
+import io.github.jr2team.jr2android.domain.room_entities.join.GroupOfWordsJoin
 
 @Dao
 abstract class WordDao : BaseDao<Word> {

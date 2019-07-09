@@ -1,10 +1,10 @@
-package io.github.jr2team.jr2android.domain.room.join
+package io.github.jr2team.jr2android.domain.room_entities.join
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import io.github.jr2team.jr2android.domain.entity.Sentence
-import io.github.jr2team.jr2android.domain.entity.Word
+import io.github.jr2team.jr2android.domain.room_entities.entity.Sentence
+import io.github.jr2team.jr2android.domain.room_entities.entity.Word
 
 @Entity(foreignKeys = [
     ForeignKey(
@@ -23,6 +23,5 @@ class WordInSentenceJoin(
     val id: Int,
     val wordId: Int,
     val sentenceId: Int,
-    // TODO : Добавить enum для POS
     val pos: String
 )

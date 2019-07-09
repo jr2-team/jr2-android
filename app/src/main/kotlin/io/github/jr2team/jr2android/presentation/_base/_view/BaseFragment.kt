@@ -19,10 +19,12 @@ import io.github.jr2team.jr2android.common.extensions.createFactory
 import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
-    abstract var viewModel: VT
-    abstract val layoutRes: Int
-    abstract val titleDefault: String
-    internal val compositeDisposable = CompositeDisposable()
+    internal open val viewModel: VT by lazy {
+        ViewModelProviders.of(this, viewModel.createFactory()).get(viewModel::class.java)
+    }
+    internal val disposables = CompositeDisposable()
+    internal abstract val layoutRes: Int
+    internal abstract val titleDefault: String
 
     private val textToSpeech: TextToSpeech = App.instance.tts
     private val savable = Bundle()
@@ -86,11 +88,6 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
         setTitle(titleDefault)
         showMainToolbar()
         showBottomNavigation()
-
-        viewModel = ViewModelProviders
-                .of(this, viewModel.createFactory())
-                .get(viewModel::class.java)
-
         lifecycle.addObserver(this)
     }
 
@@ -101,7 +98,7 @@ abstract class BaseFragment<VT : ViewModel> : Fragment(), LifecycleObserver {
 
     override fun onPause() {
         lifecycle.removeObserver(this)
-        compositeDisposable.clear()
+        disposables.clear()
         super.onPause()
     }
 }

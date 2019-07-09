@@ -7,15 +7,15 @@ import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import io.github.jr2team.jr2android.R
+import io.github.jr2team.jr2android.common.extensions.observe
+import io.github.jr2team.jr2android.presentation._base._view.BaseFragment
+import io.github.jr2team.jr2android.presentation.nav_detail._viewmodel.NavDetail
+import io.github.jr2team.jr2android.presentation.nav_detail._viewmodel.NavDetailViewModel
 import kotlinx.android.synthetic.main.toolbar_nav_detail.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.selector
-import io.github.jr2team.jr2android.R
-import io.github.jr2team.jr2android.presentation._base._view.BaseFragment
-import io.github.jr2team.jr2android.presentation.nav_detail._viewmodel.NavDetail
-import io.github.jr2team.jr2android.presentation.nav_detail._viewmodel.NavDetailViewModel
-import io.github.jr2team.jr2android.common.extensions.observe
 import kotlin.random.Random
 
 abstract class NavDetailFragment<VT : ViewModel> : BaseFragment<VT>() {
@@ -52,7 +52,7 @@ abstract class NavDetailFragment<VT : ViewModel> : BaseFragment<VT>() {
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun observeNavDetail() {
         observe(navDetailViewModel.getTitleLiveData()) { navTitle ->
-            // TODO: Тайтл не отображается после восстановления инстанса с диска
+            // TODO: Заголовок не отображается после восстановления с диска
             tbNavDetail.title = navTitle
         }
         observe(navDetailViewModel.getDetailsLiveData()) { details ->
@@ -62,8 +62,8 @@ abstract class NavDetailFragment<VT : ViewModel> : BaseFragment<VT>() {
                     return@onClick
                 }
                 selector(
-                        getString(R.string.word_detail_go_back_to),
-                        details.subList(0, details.lastIndex)
+                    getString(R.string.word_detail_go_back_to),
+                    details.subList(0, details.lastIndex)
                 ) { _, i ->
                     val navBackTimes = details.size - i - 1
                     navDetailViewModel.onNavigatedBack(navBackTimes)
