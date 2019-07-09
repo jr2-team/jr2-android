@@ -4,10 +4,10 @@ import androidx.room.*
 
 interface BaseDao<T> {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertSingle(o: T): Long
+    suspend fun save(o: T): Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertMany(o: List<T>): List<Long>
+    suspend fun saveAll(o: List<T>): List<Long>
 
     @Update
     suspend fun update(o: T): Int

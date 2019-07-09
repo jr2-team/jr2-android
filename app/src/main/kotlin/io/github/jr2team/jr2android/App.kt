@@ -11,7 +11,6 @@ import java.util.*
 
 class App : MultiDexApplication(), TextToSpeech.OnInitListener {
     lateinit var db: AppDatabase
-    lateinit var tts: TextToSpeech
     lateinit var moshi: Moshi
 
     fun readAsset(assetName: String): String {
@@ -25,25 +24,13 @@ class App : MultiDexApplication(), TextToSpeech.OnInitListener {
         return content
     }
 
-    override fun onInit(status: Int) {
-        if (status == TextToSpeech.SUCCESS) {
-            val result = tts.setLanguage(Locale.JAPANESE)
-            if (result == TextToSpeech.LANG_MISSING_DATA
-                || result == TextToSpeech.LANG_NOT_SUPPORTED
-            ) {
-                Log.e("TTS", "The Language specified is not supported!")
-            }
-        } else {
-            Log.e("TTS", "Initialization Failed!")
-        }
-    }
+    override fun onInit(status: Int) {}
 
     override fun onCreate() {
         super.onCreate()
         instance = this
         // TODO : Заполнение базы при первом заупуске
         db = AppDatabase.create(context = this, memoryOnly = false)
-        tts = TextToSpeech(this, this)
         moshi = Moshi.Builder().build()
     }
 

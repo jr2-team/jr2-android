@@ -7,7 +7,7 @@ import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseActivity<VT : ViewModel> : AppCompatActivity(), LifecycleObserver {
     internal lateinit var viewModel: VT
-    internal val compositeDisposable = CompositeDisposable()
+    internal val disposables = CompositeDisposable()
     abstract val layoutRes: Int
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
@@ -27,7 +27,7 @@ abstract class BaseActivity<VT : ViewModel> : AppCompatActivity(), LifecycleObse
 
     override fun onPause() {
         lifecycle.removeObserver(this)
-        compositeDisposable.clear()
+        disposables.clear()
         super.onPause()
     }
 }

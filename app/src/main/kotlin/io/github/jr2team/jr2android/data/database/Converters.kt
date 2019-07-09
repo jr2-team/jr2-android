@@ -1,35 +1,15 @@
 package io.github.jr2team.jr2android.data.database
 
 import androidx.room.TypeConverter
-import io.github.jr2team.jr2android.domain.enums.GroupType
-import io.github.jr2team.jr2android.domain.enums.KanaType
-import io.github.jr2team.jr2android.domain.enums.MojiType
+import io.github.jr2team.jr2android.domain.enums.KanjiType
 
 class Converters {
     @TypeConverter
-    fun toKanaType(value: String?): KanaType? = value
+    fun toKanjiType(value: String?): KanjiType? = value
         ?.toIntOrNull()
-        ?.let { KanaType.fromCode(it) }
+        ?.let { KanjiType.fromCode(it) }
 
     @TypeConverter
-    fun fromKanaType(kanaType: KanaType?) =
-        kanaType?.code?.toString() ?: ""
-
-    @TypeConverter
-    fun toGroupType(value: String?): GroupType? = value
-        ?.toIntOrNull()
-        ?.let { GroupType.fromCode(it) }
-
-    @TypeConverter
-    fun fromGroupType(groupType: GroupType?) =
-        groupType?.code?.toString() ?: ""
-
-    @TypeConverter
-    fun toMojiType(value: String?): MojiType? = value
-        ?.toIntOrNull()
-        ?.let { MojiType.fromCode(it) }
-
-    @TypeConverter
-    fun fromMojiType(mojiType: MojiType?) =
-        mojiType?.code?.toString() ?: ""
+    fun fromKanjiType(kanjiType: KanjiType?) =
+        kanjiType?.code?.toString() ?: ""
 }

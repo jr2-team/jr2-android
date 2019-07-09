@@ -2,5 +2,4 @@ package io.github.jr2team.jr2android.presentation.vocabulary.kanji.list._viewmod
 
 import androidx.lifecycle.ViewModel
 
-class KanjiListViewModel : ViewModel() {
-}
+class KanjiListViewModel : ViewModel()

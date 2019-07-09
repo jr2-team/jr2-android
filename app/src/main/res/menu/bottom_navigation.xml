@@ -5,11 +5,11 @@
         android:icon="@drawable/ic_home"
         android:title="@string/menu_main_title" />
     <item
-        android:id="@+id/fragmentVocab"
+        android:id="@+id/fragmentVocabulary"
         android:icon="@drawable/ic_word_list"
         android:title="@string/menu_vocab_title" />
     <item
-        android:id="@+id/fragmentGamma"
+        android:id="@+id/fragmentGramma"
         android:icon="@drawable/ic_word_list"
         android:title="@string/menu_gramma_title" />
     <item

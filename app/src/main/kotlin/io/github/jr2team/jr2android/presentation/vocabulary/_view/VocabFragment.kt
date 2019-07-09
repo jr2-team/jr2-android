@@ -4,12 +4,12 @@ import androidx.navigation.fragment.findNavController
 import io.github.jr2team.jr2android.R
 import io.github.jr2team.jr2android.presentation._base._view.BaseFragment
 import io.github.jr2team.jr2android.presentation.vocabulary._viewmodel.VocabViewModel
-import kotlinx.android.synthetic.main.fragment_vocab.*
+import kotlinx.android.synthetic.main.fragment_vocabulary.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 
 class VocabFragment : BaseFragment<VocabViewModel>() {
     override var viewModel = VocabViewModel()
-    override val layoutRes: Int = R.layout.fragment_vocab
+    override val layoutRes: Int = R.layout.fragment_vocabulary
     override val titleDefault: String
         get() = getString(R.string.vocab_fragment_title)
 

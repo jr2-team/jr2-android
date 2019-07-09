@@ -9,9 +9,10 @@ import io.github.jr2team.jr2android.common.extensions.subscribe
 import io.github.jr2team.jr2android.presentation.activity_splash._viewmodel.SplashViewModel
 import io.github.jr2team.jr2android.presentation.activity_splash._viewmodel.SplashState
 import io.github.jr2team.jr2android.common.dependency_injection.ViewModelInjectorUtil
+import io.github.jr2team.jr2android.presentation.activity_main._view.MainActivity
 
 class SplashActivity : BaseActivity<SplashViewModel>() {
-    override val layoutRes = R.layout.fragment_splash
+    override val layoutRes = R.layout.activity_splash
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,11 +20,11 @@ class SplashActivity : BaseActivity<SplashViewModel>() {
         viewModel = ViewModelProviders.of(this, factory)[SplashViewModel::class.java]
     }
 
-    override fun subscribeOnRx() = with(compositeDisposable) {
+    override fun subscribeOnRx() = with(disposables) {
         subscribe(viewModel.statePublisher) { state ->
             when (state) {
                 is SplashState.NavigateToMainActivity -> {
-                    val destination = Intent(this@SplashActivity, io.github.jr2team.jr2android.presentation.activity_main._view.MainActivity::class.java)
+                    val destination = Intent(this@SplashActivity, MainActivity::class.java)
                     navigateTo(destination)
                 }
             }

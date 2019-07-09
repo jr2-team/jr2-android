@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentHome">
+
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="io.github.jr2team.jr2android.presentation.home._view.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/fragmentVocab"
+        android:name="io.github.jr2team.jr2android.presentation.vocabulary._view.VocabFragment"
+        android:label="VocabFragment"
+        tools:layout="@layout/fragment_vocabulary">
+        <action
+            android:id="@+id/action_fragmentVocab_to_kanjiListFragment"
+            app:destination="@id/kanjiListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kanjiListFragment"
+        android:name="io.github.jr2team.jr2android.presentation.vocabulary.kanji.list._view.KanjiListFragment"
+        android:label="KanjiListFragment"/>
+</navigation>
